@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: HD_teste
+  m_Shader: {fileID: 4800000, guid: 96d86c3b8d27bc74c95de682a37e57da, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SplatMap:
+        m_Texture: {fileID: 2800000, guid: b95b73716456bf14e8502163e3819367, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexB:
+        m_Texture: {fileID: 2800000, guid: f8cdaec745c879a4fb4357274e96ed16, type: 3}
+        m_Scale: {x: 25, y: 25}
+        m_Offset: {x: 0, y: 0}
+    - _TexG:
+        m_Texture: {fileID: 2800000, guid: 30500de8c66f0564cbc1c40599ae655e, type: 3}
+        m_Scale: {x: 25, y: 25}
+        m_Offset: {x: 0, y: 0}
+    - _TexR:
+        m_Texture: {fileID: 2800000, guid: 9c583e7d89d42de4880ce70fed55f13f, type: 3}
+        m_Scale: {x: 25, y: 25}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BaseOpacity: 0
+    m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorB: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorG: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorR: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
