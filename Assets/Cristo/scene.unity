@@ -199,6 +199,28 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
+  m_Mesh: {fileID: 6349347764599635669, guid: d24deab07630d764da96a7bd0cd67b21, type: 3}
+--- !u!64 &28306001
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28305996}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 6349347764599635669, guid: 8080b5a2a43ff8c49ab4868b0ac514f4, type: 3}
 --- !u!1 &132827654
 GameObject:
@@ -1553,6 +1575,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: JumpHeight
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: GroundedOffset
       value: 0
       objectReference: {fileID: 0}
@@ -2233,6 +2259,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8999431524975491499, guid: 8080b5a2a43ff8c49ab4868b0ac514f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 28306000}
+    - targetCorrespondingSourceObject: {fileID: 8999431524975491499, guid: 8080b5a2a43ff8c49ab4868b0ac514f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 28306001}
     - targetCorrespondingSourceObject: {fileID: 4778211189094012685, guid: 8080b5a2a43ff8c49ab4868b0ac514f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 775617725}
