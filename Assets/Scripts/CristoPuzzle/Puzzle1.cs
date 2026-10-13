@@ -69,6 +69,7 @@ public class Puzzle1 : MonoBehaviour
 			HandleClick();
 	}
 
+
 	void HandleClick()
 	{
 		if (mainCamera == null)
@@ -77,11 +78,8 @@ public class Puzzle1 : MonoBehaviour
 			return;
 		}
 
-		// O raio parte do centro da câmera e segue sua direção frontal.
-		Ray ray = new Ray(
-			mainCamera.transform.position,
-			mainCamera.transform.forward
-		);
+		// Cria o raio na posição atual do mouse.
+		Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
 		RaycastHit[] hits = Physics.RaycastAll(
 			ray,
@@ -121,6 +119,7 @@ public class Puzzle1 : MonoBehaviour
 		if (closestBlock != null)
 			CheckAnswer(closestBlock);
 	}
+
 
 
 	void CheckAnswer(GameObject clickedBlock)
@@ -220,8 +219,8 @@ public class Puzzle1 : MonoBehaviour
 		if (door != null)
 			door.Play("DoorOpen");
 
-		if (hint != null)
-			hint.gameObject.SetActive(false);
+		//if (hint != null)
+		//	hint.gameObject.SetActive(false);
 	}
 
 	void PassNextSceneEvent()

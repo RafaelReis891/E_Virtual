@@ -10,7 +10,7 @@ public class GameManagerE2 : MonoBehaviour
 	public static GameManagerE2 Instance;
 
 	[Header("UI Elements - Feedback")]
-	public TextMeshProUGUI feedbackText;
+	public TMP_Text feedbackText;
 
 	[Header("UI Elements - End Screen Lose")]
 	public GameObject panelEndScreenLose;

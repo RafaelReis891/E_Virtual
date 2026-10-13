@@ -1,94 +1,182 @@
+
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Text;
+using System.Globalization;
 using System.Linq;
-using UnityEngine.Events; // Necessário para usar o OrderBy
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-	public static GameManager Instance; // Permite que outros scripts chamem este facilmente
+	public static GameManager Instance;
 
 	[Header("Configuração do Puzzle")]
-	public string palavraCorreta = "FAVELAO";
+	public string palavraCorreta = "FAVELÃO";
 	public string palavraFormada = "";
-	public Camiseta[] camisetas; // Arraste as 8 camisetas aqui no Inspector
+	public Camiseta[] camisetas;
+
+	private Vector3[] posicoesIniciais;
+
+	[Header("Ordem da Curva")]
+	[Tooltip("Crie um ponto para cada posição, na ordem de leitura da palavra.")]
+	public Transform[] pontosOrdenacao;
 
 	[Header("Elementos da Cena")]
 	public GameObject telaVitoria;
 	public Text textoDica;
-	public GameObject painelDicaObjeto; // O painel que contém o texto da dica
+	public GameObject painelDicaObjeto;
 
-	private bool jogoFinalizado = false;
+	private bool jogoFinalizado;
+	public bool JogoFinalizado => jogoFinalizado;
 
 	public UnityEvent OnCompleteGame;
 	public UnityEvent OnPassNextScene;
 
 	void Awake()
 	{
-		// Padrão Singleton para acessar de qualquer lugar
-		if (Instance == null) Instance = this;
-		else Destroy(gameObject);
+		if (Instance == null)
+			Instance = this;
+		else
+			Destroy(gameObject);
 	}
 
 	void Start()
 	{
-		if (telaVitoria != null) telaVitoria.SetActive(false);
-		if (painelDicaObjeto != null) painelDicaObjeto.SetActive(false);
+		if (telaVitoria != null)
+			telaVitoria.SetActive(false);
+
+		if (painelDicaObjeto != null)
+			painelDicaObjeto.SetActive(false);
 	}
 
-	// Chamado quando clica no quadro
+	public void RegistrarPosicoesIniciais(Vector3[] posicoes)
+	{
+		posicoesIniciais = (Vector3[])posicoes.Clone();
+
+		Debug.Log("Posições originais das camisetas registradas: " +
+				  posicoesIniciais.Length);
+	}
+
 	public void MostrarDica()
 	{
 		if (textoDica != null)
-		{
-			textoDica.text = "A Taça das Favelas, carinhosamente conhecida como 'FAVELÃO'...";
-		}
+			textoDica.text =
+				"A Taça das Favelas, carinhosamente conhecida como 'FAVELÃO'...";
+
 		if (painelDicaObjeto != null)
-		{
 			painelDicaObjeto.SetActive(true);
+	}
+
+
+	public void VerificarPalavraAtual()
+	{
+		if (jogoFinalizado)
+			return;
+
+		if (camisetas == null || camisetas.Length == 0)
+			return;
+
+		if (posicoesIniciais == null ||
+			posicoesIniciais.Length != camisetas.Length)
+		{
+			Debug.LogWarning("Posições iniciais ainda não registradas.");
+			return;
+		}
+
+		// Cada índice representa uma posição da palavra original.
+		List<Camiseta> camisetasDisponiveis = camisetas
+			.Where(c => c != null)
+			.ToList();
+
+		StringBuilder builder = new StringBuilder();
+
+		for (int i = 0; i < posicoesIniciais.Length; i++)
+		{
+			Camiseta maisProxima = null;
+			float menorDistancia = float.MaxValue;
+
+			foreach (Camiseta camiseta in camisetasDisponiveis)
+			{
+				float distancia = Vector3.Distance(
+					camiseta.transform.position,
+					posicoesIniciais[i]
+				);
+
+				if (distancia < menorDistancia)
+				{
+					menorDistancia = distancia;
+					maisProxima = camiseta;
+				}
+			}
+
+			if (maisProxima == null)
+			{
+				Debug.LogWarning($"Não foi possível identificar a posição {i}.");
+				return;
+			}
+
+			builder.Append(maisProxima.letra);
+			camisetasDisponiveis.Remove(maisProxima);
+		}
+
+		palavraFormada = builder.ToString();
+
+		string formadaNormalizada = NormalizarPalavra(palavraFormada);
+		string corretaNormalizada = NormalizarPalavra(palavraCorreta);
+
+		Debug.Log(
+			$"Palavra formada: {palavraFormada} | " +
+			$"Palavra esperada: {palavraCorreta}"
+		);
+
+		if (formadaNormalizada == corretaNormalizada)
+		{
+			jogoFinalizado = true;
+			Invoke(nameof(AcionarVitoria), 3f);
 		}
 	}
 
-	// 🔥 Este método será chamado pelo DragAndDrop após cada troca bem-sucedida
-	public void VerificarPalavraAtual()
+
+	string NormalizarPalavra(string palavra)
 	{
-		if (jogoFinalizado) return;
+		if (string.IsNullOrEmpty(palavra))
+			return "";
 
-		// 1. Ordena as camisetas da esquerda para a direita (baseado no eixo X)
-		var camisetasOrdenadas = camisetas.OrderBy(c => c.transform.position.x).ToList();
+		string normalizada = palavra.Trim()
+			.ToUpperInvariant()
+			.Normalize(NormalizationForm.FormD);
 
-		// 2. Monta a string com as letras na ordem atual
-		palavraFormada = "";
-		foreach (Camiseta c in camisetasOrdenadas)
+		StringBuilder resultado = new StringBuilder();
+
+		foreach (char c in normalizada)
 		{
-			palavraFormada += c.letra;
+			if (CharUnicodeInfo.GetUnicodeCategory(c) !=
+				UnicodeCategory.NonSpacingMark)
+			{
+				resultado.Append(c);
+			}
 		}
 
-		// (Opcional) Mostra no console para você debugar
-		Debug.Log("Palavra atual formada: " + palavraFormada);
-
-		// 3. Compara com a palavra correta
-		if (palavraFormada == palavraCorreta)
-		{
-			jogoFinalizado = true;
-			Invoke(nameof(AcionarVitoria),3f);
-		}
+		return resultado.ToString()
+			.Normalize(NormalizationForm.FormC)
+			.Replace(" ", "");
 	}
 
 	void AcionarVitoria()
 	{
-		Debug.Log("🎉 PARABÉNS! Você montou FAVELÃO!");
+		Debug.Log("Parabéns! Você montou " + palavraCorreta + "!");
 
 		if (telaVitoria != null)
-		{
 			telaVitoria.SetActive(true);
-			OnCompleteGame.Invoke();
-		}
+
+		OnCompleteGame?.Invoke();
 
 		Invoke(nameof(PassNextSceneEvent), 3f);
 	}
 
 	void PassNextSceneEvent()
 	{
-		OnPassNextScene.Invoke();
+		OnPassNextScene?.Invoke();
 	}
 }

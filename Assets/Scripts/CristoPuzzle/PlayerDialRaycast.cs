@@ -30,22 +30,20 @@ public class PlayerDialRaycast : MonoBehaviour
 		if (playerCamera == null || lockDoor == null)
 			return;
 
-		Ray ray = new Ray(
-			playerCamera.transform.position,
-			playerCamera.transform.forward
-		);
+		// Cria o raio na posição atual do mouse.
+		Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
 
 		if (Physics.Raycast(ray, out RaycastHit hit, rayDistance))
 		{
 			if (hit.collider.CompareTag("Dial1"))
 			{
 				lockDoor.SelectDial(0);
-				Debug.Log("Dial1 selecionado");
+				Debug.Log("Dial1 selecionado pelo mouse");
 			}
 			else if (hit.collider.CompareTag("Dial2"))
 			{
 				lockDoor.SelectDial(1);
-				Debug.Log("Dial2 selecionado");
+				Debug.Log("Dial2 selecionado pelo mouse");
 			}
 		}
 	}
@@ -55,10 +53,9 @@ public class PlayerDialRaycast : MonoBehaviour
 		if (playerCamera == null)
 			return;
 
+		Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
+
 		Gizmos.color = Color.yellow;
-		Gizmos.DrawRay(
-			playerCamera.transform.position,
-			playerCamera.transform.forward * rayDistance
-		);
+		Gizmos.DrawRay(ray.origin, ray.direction * rayDistance);
 	}
 }

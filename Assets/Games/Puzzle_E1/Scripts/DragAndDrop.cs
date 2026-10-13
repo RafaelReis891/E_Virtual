@@ -18,9 +18,15 @@ public class DragAndDropSwap : MonoBehaviour
 	private Quaternion rotacaoOrigemArraste;
 	private float distanciaCameraParaPlano;
 
+
+
 	void Start()
 	{
-		if (mainCamera == null) mainCamera = Camera.main;
+		if (mainCamera == null)
+			mainCamera = Camera.main;
+
+		posicoesOriginais.Clear();
+		rotacoesOriginais.Clear();
 
 		foreach (Camiseta c in camisetas)
 		{
@@ -28,8 +34,19 @@ public class DragAndDropSwap : MonoBehaviour
 			rotacoesOriginais.Add(c.transform.rotation);
 		}
 
+		// Registra a ordem correta antes de embaralhar.
+		if (GameManager.Instance != null)
+		{
+			GameManager.Instance.RegistrarPosicoesIniciais(
+				posicoesOriginais.ToArray()
+			);
+		}
+
+		// Só depois embaralha as camisetas.
 		EmbaralharCamisetas();
 	}
+
+
 
 	void EmbaralharCamisetas()
 	{
@@ -58,10 +75,10 @@ public class DragAndDropSwap : MonoBehaviour
 	void Update()
 	{
 		// Se o jogo já acabou, não permite mais arrastar
-		if (GameManager.Instance != null && GameManager.Instance.GetType().GetField("jogoFinalizado", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).GetValue(GameManager.Instance).ToString() == "True")
+		if (GameManager.Instance != null &&
+			GameManager.Instance.JogoFinalizado)
 		{
-			// Nota: Uma forma mais limpa é adicionar uma propriedade `public bool JogoFinalizado { get; private set; }` no GameManager. 
-			// Vou assumir que você pode adicionar `public bool JogoFinalizado { get; private set; }` no GameManager se quiser travar o arraste.
+			return;
 		}
 
 		if (Input.GetMouseButtonDown(0))
@@ -93,6 +110,7 @@ public class DragAndDropSwap : MonoBehaviour
 			}
 		}
 
+
 		if (camisaArrastada != null && Input.GetMouseButton(0))
 		{
 			Vector3 mousePoint = Input.mousePosition;
@@ -100,10 +118,19 @@ public class DragAndDropSwap : MonoBehaviour
 
 			Vector3 worldPos = mainCamera.ScreenToWorldPoint(mousePoint);
 
-			camisaArrastada.transform.position = new Vector3(
-				worldPos.x,
-				worldPos.y,
-				posicaoOrigemArraste.z
+			Transform pai = camisaArrastada.transform.parent;
+
+			Vector3 localMousePos = pai != null
+				? pai.InverseTransformPoint(worldPos)
+				: worldPos;
+
+			Vector3 posicaoLocal = camisaArrastada.transform.localPosition;
+
+			// Permite movimento somente nos eixos locais Y e Z.
+			camisaArrastada.transform.localPosition = new Vector3(
+				posicaoLocal.x,
+				localMousePos.y,
+				localMousePos.z
 			);
 		}
 
