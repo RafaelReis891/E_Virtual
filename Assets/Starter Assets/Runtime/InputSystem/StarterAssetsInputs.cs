@@ -1,6 +1,10 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
+
 #endif
 
 namespace StarterAssets
@@ -68,12 +72,28 @@ namespace StarterAssets
 		
 		private void OnApplicationFocus(bool hasFocus)
 		{
-			SetCursorState(cursorLocked);
+			if(!cursorForcedUnlock)
+				SetCursorState(cursorLocked);
 		}
 
 		private void SetCursorState(bool newState)
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+		}
+
+		bool cursorForcedUnlock;
+		public void UnlockCursor(bool newState)
+		{
+			Cursor.lockState = newState ? CursorLockMode.None : CursorLockMode.Locked;
+			cursorForcedUnlock = newState;
+		}
+
+		private void Update()
+		{
+			if(Mouse.current.rightButton.wasPressedThisFrame)
+			{
+				UnlockCursor(!cursorForcedUnlock);
+			}
 		}
 	}
 	

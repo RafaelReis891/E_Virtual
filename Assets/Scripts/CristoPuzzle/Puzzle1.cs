@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Puzzle1 : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class Puzzle1 : MonoBehaviour
 
 	private Quaternion doorInitialRotation;
 	private bool hasDoorRotation;
+
+	public UnityEvent OnEndGame, OnPassNextScene;
 
 	void Start()
 	{
@@ -197,6 +200,9 @@ public class Puzzle1 : MonoBehaviour
 
 		Debug.Log("Combinação correta! Porta aberta.");
 
+		OnEndGame?.Invoke();
+		Invoke(nameof(PassNextSceneEvent), 3f);
+
 		if (successSound != null && audioSource != null)
 			audioSource.PlayOneShot(successSound);
 
@@ -216,6 +222,11 @@ public class Puzzle1 : MonoBehaviour
 
 		if (hint != null)
 			hint.gameObject.SetActive(false);
+	}
+
+	void PassNextSceneEvent()
+	{
+		OnPassNextScene.Invoke();
 	}
 
 
