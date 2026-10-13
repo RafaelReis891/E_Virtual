@@ -1,16 +1,14 @@
 .touchscreen-button {
     margin: 0;
     padding: 0;
-    
-    background-color: rgba(0,0,0,0);
-    background-image: url("./Images/UI_Circle_Bevel_Base.png#UI_Circle_Bevel_Base");
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("project://database/Assets/Starter%20Assets/Runtime/Mobile/UI/Images/UI_Circle_Bevel_Base.png?fileID=21300000&guid=b74c31d447d2f5d41a61081bdf5e7126&type=3#UI_Circle_Bevel_Base");
 }
 
 #JoystickMove {
     position: absolute;
     width: 330px;
     height: 330px;
-    
     left: 25px;
     bottom: 15px;
 }
@@ -19,75 +17,63 @@
     position: absolute;
     width: 240px;
     height: 240px;
-
     right: 55px;
     bottom: 245px;
 }
 
 #JoystickBackground {
-    flex-grow: 1.0;
-    
-    background-image: url("./Images/UI_Circle_Faded.png#UI_Circle_Faded");
+    flex-grow: 1;
+    background-image: url("project://database/Assets/Starter%20Assets/Runtime/Mobile/UI/Images/UI_Circle_Faded.png?fileID=21300000&guid=90ded0611e490aa4ba6961afbfc2280d&type=3#UI_Circle_Faded");
+    -unity-background-image-tint-color: rgb(97, 196, 215);
 }
 
 #JoystickHandle {
     width: 130px;
     height: 130px;
-    
     position: absolute;
-
     top: 50%;
     left: 50%;
-
     translate: -50%;
+    -unity-background-image-tint-color: rgb(177, 237, 247);
 }
 
 .button-icon {
-    
     position: absolute;
-    
     top: 50%;
     left: 50%;
-    
     translate: -50%;
-    
     width: 70px;
     height: 70px;
 }
 
 #JoystickMove #JoystickIcon {
-    background-image: url("./Images/UI_Icon_Move.png#UI_Icon_Move");
+    background-image: url("project://database/Assets/Starter%20Assets/Runtime/Mobile/UI/Images/UI_Icon_Move.png?fileID=21300000&guid=ff7bfa7addf40784d86f62b8e4a034a6&type=3#UI_Icon_Move");
 }
 
 #JoystickLook #JoystickIcon {
-    background-image: url("./Images/UI_Icon_Look.png#UI_Icon_Look");
+    background-image: url("project://database/Assets/Starter%20Assets/Runtime/Mobile/UI/Images/UI_Icon_Look.png?fileID=21300000&guid=af0ae2dbf3d1efb4f82af377950704a2&type=3#UI_Icon_Look");
 }
 
 #ButtonJump {
     width: 110px;
     height: 110px;
-    
     position: absolute;
-    
-    right : 45px;
-    bottom : 125px;
+    right: 45px;
+    bottom: 125px;
 }
 
 #ButtonSprint {
     width: 110px;
     height: 110px;
-
     position: absolute;
-
-    right : 130px;
-    bottom : 25px;
+    right: 130px;
+    bottom: 25px;
 }
 
-
 #ButtonJump #ButtonImage {
-    background-image: url("./Images/UI_Icon_Jump.png#UI_Icon_Jump");
+    background-image: url("project://database/Assets/Starter%20Assets/Runtime/Mobile/UI/Images/UI_Icon_Jump.png?fileID=21300000&guid=751aa1b6637101946b2fdbb7aa27d6ad&type=3#UI_Icon_Jump");
 }
 
 #ButtonSprint #ButtonImage {
-    background-image: url("./Images/UI_Icon_Sprint.png#UI_Icon_Sprint");
+    background-image: url("project://database/Assets/Starter%20Assets/Runtime/Mobile/UI/Images/UI_Icon_Sprint.png?fileID=21300000&guid=b0fa70abd2a79904cb00b175dfd8ec7e&type=3#UI_Icon_Sprint");
 }
