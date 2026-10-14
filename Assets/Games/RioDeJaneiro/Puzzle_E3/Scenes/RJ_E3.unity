@@ -7714,8 +7714,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 433591348}
     - target: {fileID: 1615442482725802036, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
+      propertyPath: OnPassNextScene.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3959583415572594027}
+    - target: {fileID: 1615442482725802036, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
+      propertyPath: OnPassNextScene.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615442482725802036, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
       propertyPath: OnPassNextScene.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: E4
+      value: RJ_E4
       objectReference: {fileID: 0}
     - target: {fileID: 2110345340568538377, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7765,6 +7773,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
+--- !u!114 &3959583415572594027 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3952106922146124914, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
+  m_PrefabInstance: {fileID: 3959583415572594026}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f63d11aa95901d48bc09e16fb18c358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
 --- !u!1001 &5393215579111688471
 PrefabInstance:
   m_ObjectHideFlags: 0
