@@ -69,11 +69,8 @@ public class AnfitriaMovieUI : MonoBehaviour
             : VideoAudioOutputMode.None;
 
         if (videoHasAudio && audioSource != null)
-        {
             videoPlayer.SetTargetAudioSource(0, audioSource);
-        }
 
-        // RenderTexture para o RawImage
         if (renderTexture == null)
         {
             renderTexture = new RenderTexture(512, 512, 0);
@@ -95,7 +92,7 @@ public class AnfitriaMovieUI : MonoBehaviour
         if (audioSource != null)
         {
             audioSource.playOnAwake = false;
-            audioSource.spatialBlend = 0f; // 2D
+            audioSource.spatialBlend = 0f;
         }
     }
 
@@ -125,7 +122,6 @@ public class AnfitriaMovieUI : MonoBehaviour
 
         videoPlayer.Play();
 
-        // Áudio separado (se o vídeo não tiver)
         if (!videoHasAudio && audioClip != null && audioSource != null)
         {
             audioSource.clip = audioClip;
