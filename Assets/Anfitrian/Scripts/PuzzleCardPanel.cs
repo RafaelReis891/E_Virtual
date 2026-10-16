@@ -30,11 +30,15 @@ public class PuzzleCardPanel : MonoBehaviour
     public float delayBetweenAudio = 0.5f;
 
     [Header("Opções")]
-    [Tooltip("Dispara só uma vez.")]
+    [Tooltip("Dispara só uma vez por sessão de play.")]
     public bool playOnce = true;
+
+    [Tooltip("Mostra logs no Console.")]
+    public bool debugLog = true;
 
     AudioSource audioSource;
     bool hasPlayed;
+    Coroutine displayRoutine;
 
     void Awake()
     {
@@ -45,13 +49,23 @@ public class PuzzleCardPanel : MonoBehaviour
         audioSource.playOnAwake = false;
         audioSource.spatialBlend = 0f;
 
-        if (panel != null)
+        if (debugLog)
+            Debug.Log($"[PuzzleCardPanel] Awake. Panel ref: {(panel != null ? panel.name : "NULL")}");
+    }
+
+    void OnEnable()
+    {
+        hasPlayed = false;
+
+        // Só desativa se o painel for diferente deste objeto
+        if (panel != null && panel != gameObject)
             panel.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (playOnce && hasPlayed) return;
+        if (debugLog)
+            Debug.Log($"[PuzzleCardPanel] Trigger enter: {other.name}");
         Show();
     }
 
@@ -60,40 +74,85 @@ public class PuzzleCardPanel : MonoBehaviour
     /// </summary>
     public void Show()
     {
-        if (playOnce && hasPlayed) return;
+        if (playOnce && hasPlayed)
+        {
+            if (debugLog) Debug.Log("[PuzzleCardPanel] Já mostrou. Ignorando.");
+            return;
+        }
+
         hasPlayed = true;
 
-        if (cardImage != null && cardSprite != null)
-            cardImage.sprite = cardSprite;
+        if (debugLog)
+            Debug.Log($"[PuzzleCardPanel] Show(). Panel: {(panel != null ? panel.name : "NULL")}, Sprite: {(cardSprite != null ? cardSprite.name : "NULL")}");
 
+        // Ativa o painel primeiro
         if (panel != null)
-            panel.SetActive(true);
+        {
+            // Garante que o pai está ativo
+            Transform parent = panel.transform.parent;
+            while (parent != null)
+            {
+                if (!parent.gameObject.activeSelf)
+                {
+                    if (debugLog) Debug.Log($"[PuzzleCardPanel] Ativando pai: {parent.name}");
+                    parent.gameObject.SetActive(true);
+                }
+                parent = parent.parent;
+            }
 
-        StartCoroutine(DisplayAndHide());
+            panel.SetActive(true);
+            if (debugLog) Debug.Log($"[PuzzleCardPanel] Panel ativo: {panel.activeSelf}");
+        }
+        else
+        {
+            Debug.LogWarning("[PuzzleCardPanel] Panel está NULL! Arraste o painel no Inspector.");
+        }
+
+        // Troca a imagem
+        if (cardImage != null && cardSprite != null)
+        {
+            cardImage.sprite = cardSprite;
+            if (debugLog) Debug.Log("[PuzzleCardPanel] Sprite atribuído.");
+        }
+        else if (cardImage == null)
+        {
+            Debug.LogWarning("[PuzzleCardPanel] Card Image está NULL!");
+        }
+
+        // Cancela coroutine anterior
+        if (displayRoutine != null)
+            StopCoroutine(displayRoutine);
+
+        displayRoutine = StartCoroutine(DisplayAndHide());
     }
 
     IEnumerator DisplayAndHide()
     {
         // Áudio 1
-        if (audio1 != null)
+        if (audio1 != null && audioSource != null)
             audioSource.PlayOneShot(audio1);
 
         // Espera e toca áudio 2
         if (audio2 != null)
         {
-            if (audio1 != null)
-                yield return new WaitForSeconds(audio1.length + delayBetweenAudio);
-            else
-                yield return new WaitForSeconds(delayBetweenAudio);
+            float wait = (audio1 != null) ? audio1.length + delayBetweenAudio : delayBetweenAudio;
+            yield return new WaitForSeconds(wait);
 
-            audioSource.PlayOneShot(audio2);
+            if (audioSource != null)
+                audioSource.PlayOneShot(audio2);
         }
 
         // Espera o tempo de exibição
+        if (debugLog) Debug.Log($"[PuzzleCardPanel] Esperando {displayTime}s...");
         yield return new WaitForSeconds(displayTime);
 
         if (panel != null)
+        {
             panel.SetActive(false);
+            if (debugLog) Debug.Log("[PuzzleCardPanel] Panel desativado.");
+        }
+
+        displayRoutine = null;
     }
 
     /// <summary>
@@ -102,5 +161,12 @@ public class PuzzleCardPanel : MonoBehaviour
     public void ResetCard()
     {
         hasPlayed = false;
+        if (displayRoutine != null)
+        {
+            StopCoroutine(displayRoutine);
+            displayRoutine = null;
+        }
+        if (panel != null)
+            panel.SetActive(false);
     }
 }
