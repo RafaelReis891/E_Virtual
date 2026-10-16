@@ -26,6 +26,7 @@ namespace StarterAssets
 		public float JumpHeight = 1.2f;
 		[Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
 		public float Gravity = -15.0f;
+		private bool _antiGravityActive;
 
 		[Space(10)]
 		[Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
@@ -122,6 +123,24 @@ namespace StarterAssets
 			CameraRotation();
 		}
 
+		public void ActivateAntiGravity(float launchVelocity)
+		{
+			_antiGravityActive = true;
+
+			// Impulso inicial para cima.
+			_verticalVelocity = Mathf.Max(0f, launchVelocity);
+		}
+
+		public void DeactivateAntiGravity()
+		{
+			_antiGravityActive = false;
+
+			// Preserva a velocidade vertical para a gravidade
+			// normal assumir o controle sem interromper o movimento.
+		}
+
+		public bool IsAntiGravityActive => _antiGravityActive;
+
 		private void GroundedCheck()
 		{
 			// set sphere position, with offset
@@ -212,9 +231,8 @@ namespace StarterAssets
 				}
 
 				// Jump
-				if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+				if (_input.jump && _jumpTimeoutDelta <= 0.0f && !_antiGravityActive)
 				{
-					// the square root of H * -2 * G = how much velocity needed to reach desired height
 					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 				}
 
@@ -239,8 +257,8 @@ namespace StarterAssets
 				_input.jump = false;
 			}
 
-			// apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
-			if (_verticalVelocity < _terminalVelocity)
+			// Aplica gravidade somente quando a antigravidade estiver desligada.
+			if (!_antiGravityActive && _verticalVelocity < _terminalVelocity)
 			{
 				_verticalVelocity += Gravity * Time.deltaTime;
 			}
