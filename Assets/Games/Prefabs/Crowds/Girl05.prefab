@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7965507588708176837
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: d98cb44a465edf44f90af15c653cbc71, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -63.878693
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d98cb44a465edf44f90af15c653cbc71, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.292154
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d98cb44a465edf44f90af15c653cbc71, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.4309753
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d98cb44a465edf44f90af15c653cbc71, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d98cb44a465edf44f90af15c653cbc71, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d98cb44a465edf44f90af15c653cbc71, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d98cb44a465edf44f90af15c653cbc71, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d98cb44a465edf44f90af15c653cbc71, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d98cb44a465edf44f90af15c653cbc71, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d98cb44a465edf44f90af15c653cbc71, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d98cb44a465edf44f90af15c653cbc71, type: 3}
+      propertyPath: m_Name
+      value: Girl05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: d98cb44a465edf44f90af15c653cbc71, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c1cd3f7a409061a4ba30d70816e41f36, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d98cb44a465edf44f90af15c653cbc71, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5262929423998926249}
+  m_SourcePrefab: {fileID: 100100000, guid: d98cb44a465edf44f90af15c653cbc71, type: 3}
+--- !u!95 &4603170692037455444 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: d98cb44a465edf44f90af15c653cbc71, type: 3}
+  m_PrefabInstance: {fileID: 7965507588708176837}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7082547181809053332 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d98cb44a465edf44f90af15c653cbc71, type: 3}
+  m_PrefabInstance: {fileID: 7965507588708176837}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5262929423998926249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7082547181809053332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3175550f249bab4d91c4491bdab29d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Michsky.UI.Shift.TimedEvent
+  timer: 0
+  enableAtEnable: 1
+  enableAtStart: 0
+  timerAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4603170692037455444}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Idle 0
+          m_BoolArgument: 0
+        m_CallState: 2
