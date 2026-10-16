@@ -7,10 +7,14 @@ public class ColliderUnityEvent : UnityEvent<Collider> { }
 
 public class TriggerEvent : MonoBehaviour
 {
-    [Tooltip("Lista de tags que podem acionar este trigger. Se estiver vazia, qualquer tag È aceita.")]
+    [Tooltip("Lista de tags que podem acionar este trigger. Se estiver vazia, qualquer tag √© aceita.")]
     public string[] useTags;
 
-    private HashSet<string> tagSet; // Estrutura r·pida para busca
+    [Tooltip("Se marcado, dispara s√≥ uma vez.")]
+    public bool playOnce = false;
+
+    private HashSet<string> tagSet;
+    private bool hasTriggered;
 
     public ColliderUnityEvent _OnTriggerEnter;
     public ColliderUnityEvent _OnTriggerStay;
@@ -18,37 +22,46 @@ public class TriggerEvent : MonoBehaviour
 
     private void Awake()
     {
-        // Cria o HashSet apenas uma vez
         if (useTags != null && useTags.Length > 0)
             tagSet = new HashSet<string>(useTags);
         else
-            tagSet = null; // Aceita qualquer tag
+            tagSet = null;
     }
 
     private bool IsTagAllowed(Collider other)
     {
-        // Se n„o h· tags definidas, aceita qualquer coisa
         if (tagSet == null || tagSet.Count == 0) return true;
-
-        // Verifica em O(1)
         return tagSet.Contains(other.tag);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (IsTagAllowed(other))
-            _OnTriggerEnter.Invoke(other);
+        if (!IsTagAllowed(other)) return;
+        if (playOnce && hasTriggered) return;
+
+        hasTriggered = true;
+        _OnTriggerEnter.Invoke(other);
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (IsTagAllowed(other))
-            _OnTriggerStay.Invoke(other);
+        if (!IsTagAllowed(other)) return;
+        if (playOnce && hasTriggered) return;
+
+        _OnTriggerStay.Invoke(other);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (IsTagAllowed(other))
-            _OnTriggerExit.Invoke(other);
+        if (!IsTagAllowed(other)) return;
+        _OnTriggerExit.Invoke(other);
+    }
+
+    /// <summary>
+    /// Reseta para poder disparar de novo.
+    /// </summary>
+    public void ResetTrigger()
+    {
+        hasTriggered = false;
     }
 }

@@ -25,7 +25,7 @@ public class AnfitriaVideoController : MonoBehaviour
         if (quadVisual == null)
             quadVisual = gameObject;
 
-        videoPlayer.playOnAwake = false;
+        videoPlayer.playOnAwake = true;
         videoPlayer.loopPointReached += OnVideoEnd;
 
         Hide();
