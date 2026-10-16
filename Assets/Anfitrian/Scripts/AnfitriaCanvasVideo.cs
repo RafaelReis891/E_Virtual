@@ -36,9 +36,17 @@ public class AnfitriaCanvasVideo : MonoBehaviour
     [Tooltip("Material com shader de chroma key. Arraste se usar.")]
     public Material chromaMaterial;
 
+    [Header("Ajuste de Tela")]
+    [Tooltip("Mantém a proporção do vídeo (evita cortar a cabeça).")]
+    public bool fitAspectRatio = true;
+
+    [Tooltip("Altura fixa do RawImage. A largura se ajusta.")]
+    public float fixedHeight = 400f;
+
     int currentIndex = -1;
     Coroutine playRoutine;
     RenderTexture renderTexture;
+    RectTransform imageRect;
 
     void Awake()
     {
@@ -74,6 +82,7 @@ public class AnfitriaCanvasVideo : MonoBehaviour
         if (videoImage != null)
         {
             videoImage.texture = renderTexture;
+            imageRect = videoImage.rectTransform;
             if (chromaMaterial != null)
                 videoImage.material = chromaMaterial;
         }
@@ -152,11 +161,57 @@ public class AnfitriaCanvasVideo : MonoBehaviour
         while (!videoPlayer.isPrepared)
             yield return null;
 
+        // Cria RenderTexture na proporção do vídeo
+        SetupRenderTexture();
+
         videoPlayer.Play();
+
+        // Ajusta tamanho do RawImage
+        if (fitAspectRatio)
+            FitToVideo();
 
         // Espera terminar
         while (videoPlayer.isPlaying)
             yield return null;
+    }
+
+    void SetupRenderTexture()
+    {
+        uint w = videoPlayer.width;
+        uint h = videoPlayer.height;
+        if (w == 0 || h == 0) return;
+
+        // Libera o anterior
+        if (renderTexture != null)
+        {
+            videoPlayer.targetTexture = null;
+            renderTexture.Release();
+            Destroy(renderTexture);
+        }
+
+        // Novo RT na proporção correta
+        renderTexture = new RenderTexture((int)w, (int)h, 0);
+        renderTexture.Create();
+        videoPlayer.targetTexture = renderTexture;
+
+        if (videoImage != null)
+        {
+            videoImage.texture = renderTexture;
+            videoImage.uvRect = new Rect(0, 0, 1, 1);
+        }
+    }
+
+    void FitToVideo()
+    {
+        if (videoPlayer == null || imageRect == null) return;
+
+        uint w = videoPlayer.width;
+        uint h = videoPlayer.height;
+        if (w == 0 || h == 0) return;
+
+        float aspect = (float)w / h;
+        float newWidth = fixedHeight * aspect;
+        imageRect.sizeDelta = new Vector2(newWidth, fixedHeight);
     }
 
     void OnVideoEnd(VideoPlayer vp)
