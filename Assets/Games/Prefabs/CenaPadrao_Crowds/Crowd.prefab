@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3128903418675882281}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.6666666, y: 1.6666666, z: 1.6666666}
   m_ConstrainProportionsScale: 0
@@ -197,31 +197,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f7910efc64e80f848a813d1420067283, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.564095
+      value: -38.11088
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7910efc64e80f848a813d1420067283, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.13
+      value: 19.121323
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7910efc64e80f848a813d1420067283, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.254617
+      value: 1.3771744
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7910efc64e80f848a813d1420067283, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.3402597
+      value: 0.79940224
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7910efc64e80f848a813d1420067283, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0001299184
+      value: -0.000000021645736
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7910efc64e80f848a813d1420067283, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9403315
+      value: -0.6007962
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7910efc64e80f848a813d1420067283, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000047011075
+      value: 0.000000028865387
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7910efc64e80f848a813d1420067283, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_PlayOnAwake: 1
   m_LoopMode: 1
   m_Method: 1
-  m_Duration: 71.72304
+  m_Duration: 132.3049
   m_MaxSpeed: 1
   m_EasingMode: 0
   m_AlignmentMode: 1
@@ -1383,6 +1383,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8504871487047208284}
     m_Modifications:
+    - target: {fileID: 2281914082740879448, guid: 8c95ff5bec54e874e933be4ec0fdc250, type: 3}
+      propertyPath: timerAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Idle 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6115519448491689963, guid: 8c95ff5bec54e874e933be4ec0fdc250, type: 3}
       propertyPath: m_Name
       value: Man01
