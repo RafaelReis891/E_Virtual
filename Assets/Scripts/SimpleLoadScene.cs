@@ -3,7 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class SimpleLoadScene : MonoBehaviour
 {
-    public void LoadScene(string name)
+	private void Start()
+	{
+		Cursor.lockState = CursorLockMode.Locked;
+	}
+	public void LoadScene(string name)
     {
         SceneManager.LoadScene(name);
     }
