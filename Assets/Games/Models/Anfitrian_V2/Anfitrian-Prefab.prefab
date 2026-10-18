@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 7c7262c1ae5633641a12d8fc8bdd8087, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -45.449142
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7c7262c1ae5633641a12d8fc8bdd8087, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 38.14119
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7c7262c1ae5633641a12d8fc8bdd8087, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.0040596
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7c7262c1ae5633641a12d8fc8bdd8087, type: 3}
       propertyPath: m_LocalRotation.w
@@ -59,5 +59,78 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7c7262c1ae5633641a12d8fc8bdd8087, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4673069119266121683}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7c7262c1ae5633641a12d8fc8bdd8087, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5386352957694058094}
   m_SourcePrefab: {fileID: 100100000, guid: 7c7262c1ae5633641a12d8fc8bdd8087, type: 3}
+--- !u!95 &1847233056104378691 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 7c7262c1ae5633641a12d8fc8bdd8087, type: 3}
+  m_PrefabInstance: {fileID: 5244482467694726354}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4902534148989153667 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7c7262c1ae5633641a12d8fc8bdd8087, type: 3}
+  m_PrefabInstance: {fileID: 5244482467694726354}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4673069119266121683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4902534148989153667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be1fb596c0065c48a10a87d32d26a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TriggerEvent
+  useTags:
+  - Player
+  playOnce: 0
+  _OnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1847233056104378691}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Idle 4
+          m_BoolArgument: 0
+        m_CallState: 2
+  _OnTriggerStay:
+    m_PersistentCalls:
+      m_Calls: []
+  _OnTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &5386352957694058094
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4902534148989153667}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
