@@ -59,6 +59,8 @@ public class CharacterAppearWithDissolve : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+       
+
         if (sequenceStarted) return;
 
         if (other.CompareTag("Player"))
