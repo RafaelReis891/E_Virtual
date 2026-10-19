@@ -363,6 +363,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1186639622}
     m_Modifications:
+    - target: {fileID: 644961379980431202, guid: 5bf0263878d914e49904c3ebf46b171b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -38.110878
+      objectReference: {fileID: 0}
+    - target: {fileID: 644961379980431202, guid: 5bf0263878d914e49904c3ebf46b171b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.12132
+      objectReference: {fileID: 0}
+    - target: {fileID: 644961379980431202, guid: 5bf0263878d914e49904c3ebf46b171b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.3771743
+      objectReference: {fileID: 0}
     - target: {fileID: 1606158720551254991, guid: 5bf0263878d914e49904c3ebf46b171b, type: 3}
       propertyPath: m_Target
       value: 
@@ -371,6 +383,18 @@ PrefabInstance:
       propertyPath: m_Target
       value: 
       objectReference: {fileID: 1334363293}
+    - target: {fileID: 2741286518097061445, guid: 5bf0263878d914e49904c3ebf46b171b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -38.956203
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741286518097061445, guid: 5bf0263878d914e49904c3ebf46b171b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.12132
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741286518097061445, guid: 5bf0263878d914e49904c3ebf46b171b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.480393
+      objectReference: {fileID: 0}
     - target: {fileID: 3128903418675882281, guid: 5bf0263878d914e49904c3ebf46b171b, type: 3}
       propertyPath: m_Name
       value: Crowd
@@ -383,6 +407,30 @@ PrefabInstance:
       propertyPath: m_Target
       value: 
       objectReference: {fileID: 803047649}
+    - target: {fileID: 3821747887230899672, guid: 5bf0263878d914e49904c3ebf46b171b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.036782
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821747887230899672, guid: 5bf0263878d914e49904c3ebf46b171b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.125177
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821747887230899672, guid: 5bf0263878d914e49904c3ebf46b171b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.531665
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754919436697992785, guid: 5bf0263878d914e49904c3ebf46b171b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.1699996
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754919436697992785, guid: 5bf0263878d914e49904c3ebf46b171b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.129997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754919436697992785, guid: 5bf0263878d914e49904c3ebf46b171b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.0099998
+      objectReference: {fileID: 0}
     - target: {fileID: 8504871487047208284, guid: 5bf0263878d914e49904c3ebf46b171b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1246,6 +1294,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 402216150}
     m_Modifications:
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.25
@@ -1378,9 +1430,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
   character: {fileID: 787235397}
   characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  useDissolve: 1
+  useDissolve: 0
   dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: -4368102728904028531, guid: 756735c4983fccd498ba87109214c85b, type: 3}
+  originalMaterial: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: bbe78a6965765d74dac22f78a021f73b, type: 3}
@@ -1665,15 +1717,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 901f5494aae2209479a81652f7960242, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -324
+      value: -323.99997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 901f5494aae2209479a81652f7960242, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 95
+      value: 94.99999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 901f5494aae2209479a81652f7960242, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -148
+      value: -147.99998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 901f5494aae2209479a81652f7960242, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1764,6 +1816,10 @@ PrefabInstance:
       propertyPath: 'animationSequence.Array.data[1]'
       value: Talking06
       objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     - target: {fileID: 4902534148989153667, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
       propertyPath: m_Name
       value: Anfitrian-Prefab_2
@@ -2078,8 +2134,8 @@ RectTransform:
   m_GameObject: {fileID: 423183824}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.39000002, y: 0.39000002, z: 0.39000002}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 25309216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2101,7 +2157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2515,7 +2571,7 @@ Transform:
   m_GameObject: {fileID: 589135651}
   serializedVersion: 2
   m_LocalRotation: {x: -0.06317566, y: -0.5225054, z: 0.10206491, w: 0.84414434}
-  m_LocalPosition: {x: 1378.6638, y: 276.00006, z: 433.44498}
+  m_LocalPosition: {x: 1378.6637, y: 276.00003, z: 433.44495}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2670,6 +2726,10 @@ PrefabInstance:
       propertyPath: 'animationSequence.Array.data[1]'
       value: Talking04
       objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     - target: {fileID: 4902534148989153667, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
       propertyPath: m_Name
       value: Anfitrian-Prefab_1
@@ -3106,9 +3166,9 @@ Transform:
   m_GameObject: {fileID: 644790608}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 42.23, y: 0, z: -4.49}
-  m_LocalScale: {x: 4.9068, y: 4.9068, z: 7.5672665}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 41.56, y: 0.974, z: -3.531}
+  m_LocalScale: {x: 0.66, y: 1.1691293, z: 1.8030311}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 402216150}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3126,9 +3186,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
   character: {fileID: 2013462524}
   characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  useDissolve: 1
+  useDissolve: 0
   dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: -4368102728904028531, guid: 756735c4983fccd498ba87109214c85b, type: 3}
+  originalMaterial: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: c1422dc249ecfd44883d0379df959cf3, type: 3}
@@ -3582,6 +3642,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 402216150}
     m_Modifications:
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     - target: {fileID: 4902534148989153667, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
       propertyPath: m_Name
       value: Anfitrian-Prefab_4
@@ -4547,6 +4611,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 402216150}
     m_Modifications:
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     - target: {fileID: 4902534148989153667, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
       propertyPath: m_Name
       value: Anfitrian-Prefab_3
@@ -5412,9 +5480,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
   character: {fileID: 1684408116}
   characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  useDissolve: 1
+  useDissolve: 0
   dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: -4368102728904028531, guid: 756735c4983fccd498ba87109214c85b, type: 3}
+  originalMaterial: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: de498d571a2edb3498974de552a3a8ef, type: 3}
@@ -6037,9 +6105,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
   character: {fileID: 1668814949}
   characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  useDissolve: 1
+  useDissolve: 0
   dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: -4368102728904028531, guid: 756735c4983fccd498ba87109214c85b, type: 3}
+  originalMaterial: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: 523f80dcf394be74da6cb0f5591bfe01, type: 3}
@@ -6455,8 +6523,8 @@ Transform:
   m_GameObject: {fileID: 1279833803}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -324, y: 95, z: -148}
-  m_LocalScale: {x: 1.099, y: 1.099, z: 1.099}
+  m_LocalPosition: {x: -324, y: 55, z: -148}
+  m_LocalScale: {x: 1.07, y: 1.099, z: 0.98}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1858697971}
@@ -7314,9 +7382,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
   character: {fileID: 947064482}
   characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  useDissolve: 1
+  useDissolve: 0
   dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: -4368102728904028531, guid: 756735c4983fccd498ba87109214c85b, type: 3}
+  originalMaterial: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: 3c8e9fcd6b12a4d4e883ef9a0a995bf9, type: 3}
@@ -8295,10 +8363,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
   character: {fileID: 605559984}
   characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  useDissolve: 1
+  useDissolve: 0
   dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: -4368102728904028531, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  dissolveDuration: 1
+  originalMaterial: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
+  dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: 2368877b985b82e44963e61949b35896, type: 3}
   volume: 0.5
@@ -8678,15 +8746,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d633b6ea96eee24e9cfcb960a84fde3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 46
+      value: 45.999996
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d633b6ea96eee24e9cfcb960a84fde3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 276
+      value: 275.99997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d633b6ea96eee24e9cfcb960a84fde3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 412
+      value: 411.99997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d633b6ea96eee24e9cfcb960a84fde3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9388,6 +9456,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 402216150}
     m_Modifications:
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.25
@@ -9479,6 +9551,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 402216150}
     m_Modifications:
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     - target: {fileID: 4902534148989153667, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
       propertyPath: m_Name
       value: Anfitrian-Prefab_5
@@ -9624,6 +9700,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 402216150}
     m_Modifications:
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.25
@@ -10082,9 +10162,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
   character: {fileID: 1691365232}
   characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  useDissolve: 1
+  useDissolve: 0
   dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: -4368102728904028531, guid: 756735c4983fccd498ba87109214c85b, type: 3}
+  originalMaterial: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: 7c7a806f38e315b43925829383ba7435, type: 3}
@@ -10939,10 +11019,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
   character: {fileID: 1437565682}
-  characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  useDissolve: 1
+  characterRenderer: {fileID: 6813923322286704814, guid: 7c7262c1ae5633641a12d8fc8bdd8087, type: 3}
+  useDissolve: 0
   dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: -4368102728904028531, guid: 756735c4983fccd498ba87109214c85b, type: 3}
+  originalMaterial: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: cc54b8766b921d04380acca2346a9649, type: 3}
@@ -11037,6 +11117,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 402216150}
     m_Modifications:
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.25
@@ -11169,9 +11253,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
   character: {fileID: 254413167}
   characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  useDissolve: 1
+  useDissolve: 0
   dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: -4368102728904028531, guid: 756735c4983fccd498ba87109214c85b, type: 3}
+  originalMaterial: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: af45a97b4fba67442be994a8a220d310, type: 3}
@@ -11676,6 +11760,14 @@ PrefabInstance:
     - target: {fileID: 3868400143037537043, guid: acc2daa1a289cee4aae2d8cd92ba0ecd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3868400143037537043, guid: acc2daa1a289cee4aae2d8cd92ba0ecd, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4701871889577402006, guid: acc2daa1a289cee4aae2d8cd92ba0ecd, type: 3}
+      propertyPath: m_Radius
+      value: 0.82
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
