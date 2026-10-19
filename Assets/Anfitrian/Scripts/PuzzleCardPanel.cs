@@ -169,4 +169,5 @@ public class PuzzleCardPanel : MonoBehaviour
         if (panel != null)
             panel.SetActive(false);
     }
+    
 }
