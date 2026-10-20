@@ -1429,18 +1429,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
   character: {fileID: 787235397}
-  characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  useDissolve: 0
-  dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
+  characterRenderer: {fileID: 0}
+  useDissolve: 1
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: bbe78a6965765d74dac22f78a021f73b, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 1121708548}
   waitAfterAudio: 1
-  playerCamera: {fileID: 433591348}
-  viewportMargin: 0.05
 --- !u!135 &267856625
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3185,18 +3181,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
   character: {fileID: 2013462524}
-  characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  useDissolve: 0
-  dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
+  characterRenderer: {fileID: 0}
+  useDissolve: 1
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: c1422dc249ecfd44883d0379df959cf3, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 1232890531}
   waitAfterAudio: 1
-  playerCamera: {fileID: 433591348}
-  viewportMargin: 0.05
 --- !u!135 &644790611
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5479,18 +5471,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
   character: {fileID: 1684408116}
-  characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  useDissolve: 0
-  dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
+  characterRenderer: {fileID: 0}
+  useDissolve: 1
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: de498d571a2edb3498974de552a3a8ef, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 2035332490}
   waitAfterAudio: 1
-  playerCamera: {fileID: 433591348}
-  viewportMargin: 0.05
 --- !u!135 &1121708551
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6104,18 +6092,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
   character: {fileID: 1668814949}
-  characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  useDissolve: 0
-  dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
+  characterRenderer: {fileID: 0}
+  useDissolve: 1
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: 523f80dcf394be74da6cb0f5591bfe01, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 1785001139}
   waitAfterAudio: 1
-  playerCamera: {fileID: 433591348}
-  viewportMargin: 0.05
 --- !u!135 &1232890534
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7381,18 +7365,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
   character: {fileID: 947064482}
-  characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  useDissolve: 0
-  dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
+  characterRenderer: {fileID: 0}
+  useDissolve: 1
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: 3c8e9fcd6b12a4d4e883ef9a0a995bf9, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 0}
   waitAfterAudio: 1
-  playerCamera: {fileID: 433591348}
-  viewportMargin: 0.05
 --- !u!135 &1341426026
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8248,7 +8228,6 @@ GameObject:
   - component: {fileID: 1517577763}
   - component: {fileID: 1517577762}
   - component: {fileID: 1517577766}
-  - component: {fileID: 1517577767}
   m_Layer: 0
   m_Name: StartAnfitrian_1
   m_TagString: Untagged
@@ -8362,45 +8341,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
   character: {fileID: 605559984}
-  characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  useDissolve: 0
-  dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
+  characterRenderer: {fileID: 0}
+  useDissolve: 1
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: 2368877b985b82e44963e61949b35896, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 2012903115}
   waitAfterAudio: 4
-  playerCamera: {fileID: 433591348}
-  viewportMargin: 0.05
---- !u!114 &1517577767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517577760}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84bff00eeb67de149a8e6636b695faff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioSequencePlayer
-  audio1:
-    clip: {fileID: 8300000, guid: 09acd9a8054c2c4468be35a2db7d016e, type: 3}
-    showOnPlay: {fileID: 0}
-    hideOnEnd: 1
-  audio2:
-    clip: {fileID: 8300000, guid: 5d916ba32e39b5c41ad9cd4e58ee7d31, type: 3}
-    showOnPlay: {fileID: 0}
-    hideOnEnd: 1
-  audio3:
-    clip: {fileID: 8300000, guid: 956d217ae99d2df4cac60761d9f873ff, type: 3}
-    showOnPlay: {fileID: 0}
-    hideOnEnd: 1
-  delayBetween: 0.3
-  playOnAwake: 1
-  playOnce: 1
 --- !u!1 &1520237976
 GameObject:
   m_ObjectHideFlags: 0
@@ -10161,18 +10109,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
   character: {fileID: 1691365232}
-  characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  useDissolve: 0
-  dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
+  characterRenderer: {fileID: 0}
+  useDissolve: 1
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: 7c7a806f38e315b43925829383ba7435, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 0}
   waitAfterAudio: 1
-  playerCamera: {fileID: 433591348}
-  viewportMargin: 0.05
 --- !u!135 &1785001142
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11019,18 +10963,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
   character: {fileID: 1437565682}
-  characterRenderer: {fileID: 6813923322286704814, guid: 7c7262c1ae5633641a12d8fc8bdd8087, type: 3}
-  useDissolve: 0
-  dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-  dissolveDuration: 1.5
-  dissolveFromBottom: 1
+  characterRenderer: {fileID: 0}
+  useDissolve: 1
+  dissolveDuration: 5
+  dissolveFromBottom: 0
   voiceClip: {fileID: 8300000, guid: cc54b8766b921d04380acca2346a9649, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 1341426023}
   waitAfterAudio: 1
-  playerCamera: {fileID: 433591348}
-  viewportMargin: 0.05
 --- !u!135 &2012903119
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11252,18 +11192,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
   character: {fileID: 254413167}
-  characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  useDissolve: 0
-  dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
+  characterRenderer: {fileID: 0}
+  useDissolve: 1
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: af45a97b4fba67442be994a8a220d310, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 644790608}
   waitAfterAudio: 1
-  playerCamera: {fileID: 433591348}
-  viewportMargin: 0.05
 --- !u!135 &2035332493
 SphereCollider:
   m_ObjectHideFlags: 0
