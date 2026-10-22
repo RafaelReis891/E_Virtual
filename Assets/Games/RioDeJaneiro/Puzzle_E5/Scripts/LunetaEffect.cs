@@ -36,6 +36,10 @@ public class LunetaEffect : MonoBehaviour
 	public GameObject playerCamera;
 	public bool insideArea;
 
+	[Header("Imagem desta luneta")]
+	[SerializeField] private UnityEngine.UI.Image imagemUI; // arraste o objeto "Imagem" do Canvas
+	[SerializeField] private Sprite imagemDaLuneta;        // a foto desta luneta
+
 	public UnityEvent OnStartEffect, OnStopEffect;
 
 	private void Start()
@@ -139,6 +143,7 @@ public class LunetaEffect : MonoBehaviour
 		playerCamera.gameObject.SetActive(!estaLigada);
 		if (estaLigada)
 		{			
+			AplicarImagem();
 			OnStartEffect.Invoke();
 		}
 		else
@@ -166,6 +171,7 @@ public class LunetaEffect : MonoBehaviour
 
 		if (estaLigada)
 		{			
+			AplicarImagem();
 			OnStartEffect.Invoke();
 		}
 		else
@@ -174,6 +180,12 @@ public class LunetaEffect : MonoBehaviour
 		}
 
 		Debug.Log($"Luneta {(estaLigada ? "LIGADA" : "DESLIGADA")}");
+	}
+
+	private void AplicarImagem()
+	{
+		if (imagemUI != null && imagemDaLuneta != null)
+			imagemUI.sprite = imagemDaLuneta;
 	}
 
 	private void AplicarValoresDesligado()
