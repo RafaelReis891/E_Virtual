@@ -850,6 +850,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7928891907989233010, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ea82cabaca53b7b49987077af501abb7, type: 2}
     - target: {fileID: 8296259890448769144, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -5386,6 +5390,10 @@ PrefabInstance:
       propertyPath: OnEndGame.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7334993170839265933, guid: 165e0bbf44875f04eb4507dce1e11810, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8048442505048166428, guid: 165e0bbf44875f04eb4507dce1e11810, type: 3}
       propertyPath: glowIntensity
       value: 2
@@ -5394,10 +5402,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 8149934165195621541, guid: 165e0bbf44875f04eb4507dce1e11810, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2280617692383276875, guid: 165e0bbf44875f04eb4507dce1e11810, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 165e0bbf44875f04eb4507dce1e11810, type: 3}
 --- !u!1 &1149764025 stripped
 GameObject:
@@ -8684,10 +8689,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2526536057239392793, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       insertIndex: 3
       addedObject: {fileID: 1324601512}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5982345744849874558, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
 --- !u!114 &1527947194 stripped
 MonoBehaviour:

@@ -1277,6 +1277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TriggerEvent
   useTags:
   - Player
+  playOnce: 0
   _OnTriggerEnter:
     m_PersistentCalls:
       m_Calls:
@@ -1754,7 +1755,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7609257659404453926, guid: 4a6875fbbc67b19458a6bb7b25f33907, type: 3}
+  - {fileID: 2100000, guid: ea82cabaca53b7b49987077af501abb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
