@@ -87,6 +87,8 @@ public class BoardDragPuzzle : MonoBehaviour
                 if (item == null || !itens.Contains(item)) continue;
 
                 arrastado = item;
+                var rb = item.GetComponent<Rigidbody>();
+                if (rb != null) { rb.isKinematic = true; rb.useGravity = false; }
                 planoArraste = CriarPlano(item);
                 if (planoArraste.Raycast(ray, out float e))
                 {
@@ -119,9 +121,18 @@ public class BoardDragPuzzle : MonoBehaviour
             return new Plane(-mainCamera.transform.forward, item.transform.position);
 
         // Normal do board virada para o lado da camera.
+        // Escolhe o eixo do board (X, Y ou Z) que mais aponta para a camera.
+        // Assim funciona mesmo com FBX rodado (ex: -90 no X).
+        Vector3 paraCam = (mainCamera.transform.position - board.position).normalized;
+        Vector3[] eixos = { board.forward, board.up, board.right };
         Vector3 normal = board.forward;
-        if (Vector3.Dot(normal, mainCamera.transform.position - board.position) < 0f)
-            normal = -normal;
+        float melhor = -1f;
+        foreach (var ax in eixos)
+        {
+            float d = Mathf.Abs(Vector3.Dot(ax, paraCam));
+            if (d > melhor) { melhor = d; normal = ax; }
+        }
+        if (Vector3.Dot(normal, paraCam) < 0f) normal = -normal;
 
         return new Plane(normal, board.position + normal * distanciaFrenteBoard);
     }
