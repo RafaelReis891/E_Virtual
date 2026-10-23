@@ -18,6 +18,14 @@ public class CadeadoDials : MonoBehaviour
         [Tooltip("Número correto deste disco (índice do array de ângulos).")]
         public int numeroCorreto;
 
+        [Tooltip("Disparado quando este disco chega no numero correto (VFX, shader, som...).")]
+        public UnityEvent OnNumeroCorreto;
+
+        [Tooltip("Disparado quando este disco sai do numero correto.")]
+        public UnityEvent OnSaiuNumeroCorreto;
+
+        [HideInInspector] public bool estavaCorreto;
+
         [HideInInspector] public int numeroAtual;
         [HideInInspector] public Coroutine rotacao;
     }
@@ -31,6 +39,16 @@ public class CadeadoDials : MonoBehaviour
 
     [Tooltip("Eixo em que os discos giram.")]
     public Vector3 eixo = Vector3.up;
+
+    [Tooltip("Ajuste entre o numero da logica e o numero que aparece de frente. Se valida com o numero escondido, mude este valor (ex.: 2, 3, -2) ate o numero da frente bater.")]
+    public int ajusteNumeroVisivel = 0;
+
+    [Tooltip("Marque se o numero da frente conta ao contrario do giro.")]
+    public bool inverterContagem = false;
+
+    [Header("Debug")]
+    [Tooltip("Mostra no Console o dial e o numero a cada clique.")]
+    public bool mostrarDebug = false;
 
     [Header("Objetos da cena")]
     public Animator doorAnimator;
@@ -83,10 +101,24 @@ public class CadeadoDials : MonoBehaviour
                 d.numeroAtual = (d.numeroAtual + 1) % dialAngles.Length;
                 if (d.rotacao != null) StopCoroutine(d.rotacao);
                 d.rotacao = StartCoroutine(SmoothRotate(d.disco, dialAngles[d.numeroAtual], 0.3f));
+                int vis = NumeroVisivel(d);
+                bool correto = vis == d.numeroCorreto;
+                if (correto && !d.estavaCorreto) d.OnNumeroCorreto?.Invoke();
+                else if (!correto && d.estavaCorreto) d.OnSaiuNumeroCorreto?.Invoke();
+                d.estavaCorreto = correto;
+                if (mostrarDebug)
+                    Debug.Log($"[Cadeado] {d.disco.name}: numero {vis}" + (correto ? " -> CORRETO!" : ""), d.disco);
                 CheckWinCondition();
                 return;
             }
         }
+    }
+
+    int NumeroVisivel(Dial d)
+    {
+        int n = dialAngles.Length;
+        int v = inverterContagem ? ajusteNumeroVisivel - d.numeroAtual : d.numeroAtual + ajusteNumeroVisivel;
+        return ((v % n) + n) % n;
     }
 
     void CheckWinCondition()
@@ -94,7 +126,8 @@ public class CadeadoDials : MonoBehaviour
         foreach (var d in dials)
         {
             if (d == null || d.disco == null) continue;
-            if (d.numeroAtual != d.numeroCorreto) return;
+            int visivel = NumeroVisivel(d);
+            if (visivel != d.numeroCorreto) return;
         }
         SolvePuzzle();
     }

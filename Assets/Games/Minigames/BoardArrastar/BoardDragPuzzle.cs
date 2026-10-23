@@ -1,0 +1,224 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.Events;
+
+/// <summary>
+/// Minigame de arrastar itens da parte de baixo do board para 1 a 5 targets.
+/// Modo Ordem Definida: cada slot tem o seu item certo (1o, 2o, 3o...).
+/// Modo Qualquer Ordem: basta colocar os itens certos, em qualquer slot.
+/// </summary>
+public class BoardDragPuzzle : MonoBehaviour
+{
+    public enum Modo { OrdemDefinida, QualquerOrdem }
+
+    [Header("Configuracao")]
+    public Modo modo = Modo.OrdemDefinida;
+
+    [Tooltip("Targets da parte de cima (1 a 5).")]
+    public BoardSlot[] slots;
+
+    [Tooltip("Itens da parte de baixo que podem ser arrastados.")]
+    public BoardItem[] itens;
+
+    [Tooltip("Modo Qualquer Ordem: ids dos itens certos.")]
+    public string[] respostasQualquerOrdem;
+
+    [Tooltip("Distancia maxima para o item encaixar no slot ao soltar.")]
+    public float distanciaEncaixe = 0.5f;
+
+    [Tooltip("Se errar com todos os slots cheios, os itens voltam para baixo.")]
+    public bool resetarAoErrar = true;
+
+    [Tooltip("Se o item for errado, ele volta para baixo assim que o jogador soltar.")]
+    public bool rejeitarErradoNaHora = false;
+
+    public Camera mainCamera;
+
+    [Header("Board")]
+    [Tooltip("Objeto do board (fundo). Os itens deslizam colados na superficie dele.")]
+    public Transform board;
+
+    [Tooltip("Distancia do item para a frente do board enquanto arrasta (evita entrar no board).")]
+    public float distanciaFrenteBoard = 0.05f;
+
+    [Header("Feedback")]
+    public AudioClip somPegar;
+    public AudioClip somEncaixar;
+    public AudioClip somErro;
+    public AudioClip somSucesso;
+    AudioSource audioSource;
+
+    [Header("Eventos")]
+    public UnityEvent OnErro;
+    public UnityEvent OnEndGame;
+    public UnityEvent OnPassNextScene;
+    public float atrasoEndGame = 2f;
+    public float atrasoNextScene = 3f;
+
+    [Header("Debug")]
+    public bool mostrarDebug = false;
+
+    BoardItem arrastado;
+    Plane planoArraste;
+    Vector3 offset;
+    bool resolvido;
+
+    void Start()
+    {
+        if (mainCamera == null) mainCamera = Camera.main;
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
+    }
+
+    void Update()
+    {
+        if (resolvido || mainCamera == null) return;
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            // RaycastAll: acha o item mesmo se o collider do board estiver na frente.
+            RaycastHit[] hits = Physics.RaycastAll(ray, 100f);
+            System.Array.Sort(hits, (x, y) => x.distance.CompareTo(y.distance));
+            foreach (var hit in hits)
+            {
+                BoardItem item = hit.collider.GetComponentInParent<BoardItem>();
+                if (item == null || !itens.Contains(item)) continue;
+
+                arrastado = item;
+                planoArraste = CriarPlano(item);
+                if (planoArraste.Raycast(ray, out float e))
+                {
+                    // Mantem o ponto que o jogador clicou, sem "pular".
+                    Vector3 noPlano = planoArraste.ClosestPointOnPlane(item.transform.position);
+                    offset = noPlano - ray.GetPoint(e);
+                }
+                Tocar(somPegar);
+                break;
+            }
+        }
+
+        if (arrastado != null && Input.GetMouseButton(0))
+        {
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            if (planoArraste.Raycast(ray, out float e))
+                arrastado.transform.position = ray.GetPoint(e) + offset;
+        }
+
+        if (arrastado != null && Input.GetMouseButtonUp(0))
+        {
+            Soltar(arrastado);
+            arrastado = null;
+        }
+    }
+
+    Plane CriarPlano(BoardItem item)
+    {
+        if (board == null)
+            return new Plane(-mainCamera.transform.forward, item.transform.position);
+
+        // Normal do board virada para o lado da camera.
+        Vector3 normal = board.forward;
+        if (Vector3.Dot(normal, mainCamera.transform.position - board.position) < 0f)
+            normal = -normal;
+
+        return new Plane(normal, board.position + normal * distanciaFrenteBoard);
+    }
+    void Soltar(BoardItem item)
+    {
+        BoardSlot maisProximo = null;
+        float menor = float.MaxValue;
+        foreach (var s in slots)
+        {
+            if (s == null) continue;
+            float dist = Vector3.Distance(item.transform.position, s.Encaixe.position);
+            if (dist < menor) { menor = dist; maisProximo = s; }
+        }
+
+        if (maisProximo == null || menor > distanciaEncaixe)
+        {
+            item.VoltarParaInicio();
+            Log($"{item.id} voltou para baixo");
+            return;
+        }
+
+        if (rejeitarErradoNaHora && !ItemValido(item, maisProximo))
+        {
+            Log($"{item.id} rejeitado em {maisProximo.name}");
+            Tocar(somErro);
+            OnErro?.Invoke();
+            item.VoltarParaInicio();
+            return;
+        }
+
+        // Tira o item do slot antigo.
+        if (item.slotAtual != null) item.slotAtual.itemAtual = null;
+
+        // Se o slot ja tinha outro item, ele volta para baixo.
+        if (maisProximo.itemAtual != null && maisProximo.itemAtual != item)
+            maisProximo.itemAtual.VoltarParaInicio();
+
+        maisProximo.itemAtual = item;
+        item.slotAtual = maisProximo;
+        item.transform.SetPositionAndRotation(maisProximo.Encaixe.position, maisProximo.Encaixe.rotation);
+        Tocar(somEncaixar);
+
+        bool certo = modo == Modo.OrdemDefinida && item.id == maisProximo.idCorreto;
+        Log($"{item.id} -> {maisProximo.name}" + (certo ? " (CORRETO!)" : ""));
+        if (certo) maisProximo.OnItemCorreto?.Invoke();
+
+        Verificar();
+    }
+
+    bool ItemValido(BoardItem item, BoardSlot slot)
+    {
+        if (modo == Modo.OrdemDefinida) return item.id == slot.idCorreto;
+        return respostasQualquerOrdem != null && respostasQualquerOrdem.Contains(item.id);
+    }
+
+    void Verificar()
+    {
+        if (slots.Any(s => s != null && s.itemAtual == null)) return; // ainda tem slot vazio
+
+        bool venceu;
+        if (modo == Modo.OrdemDefinida)
+        {
+            venceu = slots.All(s => s == null || s.itemAtual.id == s.idCorreto);
+        }
+        else
+        {
+            var colocados = slots.Where(s => s != null).Select(s => s.itemAtual.id).OrderBy(x => x).ToList();
+            var certos = respostasQualquerOrdem.OrderBy(x => x).ToList();
+            venceu = colocados.SequenceEqual(certos);
+        }
+
+        if (venceu)
+        {
+            resolvido = true;
+            Log("PUZZLE RESOLVIDO!");
+            Tocar(somSucesso);
+            Invoke(nameof(ChamarEndGame), atrasoEndGame);
+        }
+        else
+        {
+            Log("Resposta errada");
+            Tocar(somErro);
+            OnErro?.Invoke();
+            if (resetarAoErrar)
+                foreach (var s in slots) if (s != null && s.itemAtual != null) s.itemAtual.VoltarParaInicio();
+        }
+    }
+
+    void ChamarEndGame()
+    {
+        OnEndGame?.Invoke();
+        Invoke(nameof(ChamarNextScene), atrasoNextScene);
+    }
+
+    void ChamarNextScene() => OnPassNextScene?.Invoke();
+
+    void Tocar(AudioClip c) { if (c != null) audioSource.PlayOneShot(c); }
+
+    void Log(string msg) { if (mostrarDebug) Debug.Log($"[Board] {msg}", this); }
+}
