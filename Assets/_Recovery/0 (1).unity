@@ -1669,11 +1669,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 756735c4983fccd498ba87109214c85b, type: 3}
---- !u!1 &254413167 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  m_PrefabInstance: {fileID: 254413166}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &254413168 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 756735c4983fccd498ba87109214c85b, type: 3}
@@ -1726,19 +1721,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5745dcf6eec05594eabbf08d11a8101e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
-  character: {fileID: 787235397}
-  characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
+  characterPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
   useDissolve: 1
-  dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: -4368102728904028531, guid: 756735c4983fccd498ba87109214c85b, type: 3}
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: 9f2ca6ddd2c5ab343926fc058279a2f4, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 1121708548}
   waitAfterAudio: 1
-  playerCamera: {fileID: 433591348}
-  viewportMargin: 0.05
+  showLogs: 1
 --- !u!135 &267856625
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3255,6 +3247,10 @@ MonoBehaviour:
   vignetteDesligado: 0
   playerCamera: {fileID: 1285310408}
   insideArea: 0
+  imagemUI: {fileID: 0}
+  imagemDaLuneta: {fileID: 0}
+  overlayMascara: {fileID: 0}
+  tamanhoMascara: 1
   OnStartEffect:
     m_PersistentCalls:
       m_Calls:
@@ -3321,6 +3317,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  timedEventParaCancelar: {fileID: 0}
+  teclaSair: 27
 --- !u!4 &640630416 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dee84bd1c079d0d4fab34c61fa9b621d, type: 3}
@@ -3520,19 +3518,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5745dcf6eec05594eabbf08d11a8101e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
-  character: {fileID: 2013462524}
-  characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
+  characterPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
   useDissolve: 1
-  dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: -4368102728904028531, guid: 756735c4983fccd498ba87109214c85b, type: 3}
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: c9043c40e58267a4cb6fae306b659358, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 0}
   waitAfterAudio: 1
-  playerCamera: {fileID: 433591348}
-  viewportMargin: 0.05
+  showLogs: 1
 --- !u!135 &644790611
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4043,11 +4038,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 756735c4983fccd498ba87109214c85b, type: 3}
---- !u!1 &787235397 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  m_PrefabInstance: {fileID: 787235396}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &787235398 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 756735c4983fccd498ba87109214c85b, type: 3}
@@ -5159,11 +5149,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 756735c4983fccd498ba87109214c85b, type: 3}
---- !u!1 &947064482 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  m_PrefabInstance: {fileID: 947064481}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &947064483 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 756735c4983fccd498ba87109214c85b, type: 3}
@@ -5349,8 +5334,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "A Ta\xE7a das Favelas, carinhosamente conhecida como \\\"Favel\xE3o\\\", \xE9 organizada pela Central \xDAnica das Favelas (CUFA) desde 2011 e se consolidou como o maior torneio de futebol entre favelas do mundo. No futebol feminino, o campeonato cumpre um papel transformador ao abrir espa\xE7o e visibilidade para jovens atletas das periferias, utilizando o esporte como uma potente ferramenta de inclus\xE3o social, descobrimento de talentos e afirma\xE7\xE3o de identidade para as periferias de todo o pa\xEDs."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
+  m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6134,19 +6119,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5745dcf6eec05594eabbf08d11a8101e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
-  character: {fileID: 1684408116}
-  characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
+  characterPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
   useDissolve: 1
-  dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: -4368102728904028531, guid: 756735c4983fccd498ba87109214c85b, type: 3}
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: 2ee620110b428db4490656cc12682e9c, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 2035332490}
   waitAfterAudio: 1
-  playerCamera: {fileID: 433591348}
-  viewportMargin: 0.05
+  showLogs: 1
 --- !u!135 &1121708551
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7041,19 +7023,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5745dcf6eec05594eabbf08d11a8101e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
-  character: {fileID: 1668814949}
-  characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
+  characterPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
   useDissolve: 1
-  dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: -4368102728904028531, guid: 756735c4983fccd498ba87109214c85b, type: 3}
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: 6c0cf7c343150ee41b286d94b9517b11, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 1785001139}
   waitAfterAudio: 1
-  playerCamera: {fileID: 433591348}
-  viewportMargin: 0.05
+  showLogs: 1
 --- !u!135 &1232890534
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8471,19 +8450,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5745dcf6eec05594eabbf08d11a8101e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
-  character: {fileID: 947064482}
-  characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
+  characterPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
   useDissolve: 1
-  dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: -4368102728904028531, guid: 756735c4983fccd498ba87109214c85b, type: 3}
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: 3a50f4e39fb2a474dbfdd18c9423e9ea, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 0}
   waitAfterAudio: 1
-  playerCamera: {fileID: 433591348}
-  viewportMargin: 0.05
+  showLogs: 1
 --- !u!135 &1341426026
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8710,11 +8686,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8390ef98f761bcd4a91db1775dab8cfd, type: 3}
   m_PrefabInstance: {fileID: 1427529881}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1437565682 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  m_PrefabInstance: {fileID: 357005181}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1437565683 stripped
 Transform:
@@ -9452,19 +9423,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5745dcf6eec05594eabbf08d11a8101e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
-  character: {fileID: 605559984}
-  characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
+  characterPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
   useDissolve: 1
-  dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: -4368102728904028531, guid: 756735c4983fccd498ba87109214c85b, type: 3}
   dissolveDuration: 1
   dissolveFromBottom: 1
   voiceClip: {fileID: 0}
   volume: 0.5
   objectToActivate: {fileID: 2012903115}
   waitAfterAudio: 4
-  playerCamera: {fileID: 433591348}
-  viewportMargin: 0.05
+  showLogs: 1
 --- !u!114 &1517577767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10653,11 +10621,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 756735c4983fccd498ba87109214c85b, type: 3}
---- !u!1 &1668814949 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  m_PrefabInstance: {fileID: 1668814948}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1668814950 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 756735c4983fccd498ba87109214c85b, type: 3}
@@ -10736,11 +10699,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 756735c4983fccd498ba87109214c85b, type: 3}
---- !u!1 &1684408116 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  m_PrefabInstance: {fileID: 1684408115}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1684408117 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 756735c4983fccd498ba87109214c85b, type: 3}
@@ -10889,11 +10847,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 756735c4983fccd498ba87109214c85b, type: 3}
---- !u!1 &1691365232 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  m_PrefabInstance: {fileID: 1691365231}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1691365233 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 756735c4983fccd498ba87109214c85b, type: 3}
@@ -11272,19 +11225,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5745dcf6eec05594eabbf08d11a8101e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
-  character: {fileID: 1691365232}
-  characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
+  characterPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
   useDissolve: 1
-  dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: -4368102728904028531, guid: 756735c4983fccd498ba87109214c85b, type: 3}
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: a1333cf7243538f4d9292f947d2d2117, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 0}
   waitAfterAudio: 1
-  playerCamera: {fileID: 433591348}
-  viewportMargin: 0.05
+  showLogs: 1
 --- !u!135 &1785001142
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12357,19 +12307,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5745dcf6eec05594eabbf08d11a8101e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
-  character: {fileID: 1437565682}
-  characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
+  characterPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
   useDissolve: 1
-  dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: -4368102728904028531, guid: 756735c4983fccd498ba87109214c85b, type: 3}
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: 9e08369cb366de64894774d331de204d, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 1341426023}
   waitAfterAudio: 1
-  playerCamera: {fileID: 433591348}
-  viewportMargin: 0.05
+  showLogs: 1
 --- !u!135 &2012903119
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12529,11 +12476,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 756735c4983fccd498ba87109214c85b, type: 3}
---- !u!1 &2013462524 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 756735c4983fccd498ba87109214c85b, type: 3}
-  m_PrefabInstance: {fileID: 2013462523}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2013462525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 756735c4983fccd498ba87109214c85b, type: 3}
@@ -12586,19 +12528,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5745dcf6eec05594eabbf08d11a8101e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAppearWithDissolve
-  character: {fileID: 254413167}
-  characterRenderer: {fileID: 6813923322286704814, guid: 756735c4983fccd498ba87109214c85b, type: 3}
+  characterPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
   useDissolve: 1
-  dissolveMaterial: {fileID: 2100000, guid: 40257aab9eb42be45a1985380c9c638e, type: 2}
-  originalMaterial: {fileID: -4368102728904028531, guid: 756735c4983fccd498ba87109214c85b, type: 3}
   dissolveDuration: 1.5
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: ce30f8ef0088e444f948e506a7d458c0, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 644790608}
   waitAfterAudio: 1
-  playerCamera: {fileID: 433591348}
-  viewportMargin: 0.05
+  showLogs: 1
 --- !u!135 &2035332493
 SphereCollider:
   m_ObjectHideFlags: 0
