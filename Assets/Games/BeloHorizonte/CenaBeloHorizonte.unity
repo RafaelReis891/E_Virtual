@@ -6069,12 +6069,32 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4786287138613851041, guid: 24c2c69b6fe4f6943806fc8dfa51c1a7, type: 3}
+      propertyPath: semSom
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786287138613851041, guid: 24c2c69b6fe4f6943806fc8dfa51c1a7, type: 3}
+      propertyPath: jogador
+      value: 
+      objectReference: {fileID: 5393215579111688477}
+    - target: {fileID: 4786287138613851041, guid: 24c2c69b6fe4f6943806fc8dfa51c1a7, type: 3}
       propertyPath: idInicial
       value: F34
       objectReference: {fileID: 0}
     - target: {fileID: 4786287138613851041, guid: 24c2c69b6fe4f6943806fc8dfa51c1a7, type: 3}
+      propertyPath: videoPlayer
+      value: 
+      objectReference: {fileID: 918025428}
+    - target: {fileID: 4786287138613851041, guid: 24c2c69b6fe4f6943806fc8dfa51c1a7, type: 3}
       propertyPath: mostrarDebug
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786287138613851041, guid: 24c2c69b6fe4f6943806fc8dfa51c1a7, type: 3}
+      propertyPath: resolucaoVideo
+      value: 720
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786287138613851041, guid: 24c2c69b6fe4f6943806fc8dfa51c1a7, type: 3}
+      propertyPath: videoPorAproximacao
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5507311926523792345, guid: 24c2c69b6fe4f6943806fc8dfa51c1a7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -6149,6 +6169,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3750047251547080828, guid: 24c2c69b6fe4f6943806fc8dfa51c1a7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 918025428}
     - targetCorrespondingSourceObject: {fileID: 2005281979885417562, guid: 24c2c69b6fe4f6943806fc8dfa51c1a7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -6180,6 +6203,42 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3750047251547080828, guid: 24c2c69b6fe4f6943806fc8dfa51c1a7, type: 3}
   m_PrefabInstance: {fileID: 918025421}
   m_PrefabAsset: {fileID: 0}
+--- !u!328 &918025428
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918025424}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 0}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 2
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_TimeUpdateMode: 2
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01o
+  m_DirectAudioMutes: 00o
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
 --- !u!1001 &935573960
 PrefabInstance:
   m_ObjectHideFlags: 0

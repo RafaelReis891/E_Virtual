@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 // Um botao da mesa. Precisa de um Collider para ser clicado.
@@ -32,6 +32,7 @@ public class MesaBotao : MonoBehaviour
     float alvo;
     Color corOriginal;
     bool temCor;
+    string propCor;
 
     void Awake()
     {
@@ -39,7 +40,14 @@ public class MesaBotao : MonoBehaviour
         posOriginal = tampa.localPosition;
         if (texto != null && !string.IsNullOrEmpty(textoInicial)) texto.text = textoInicial;
         if (imagem != null && imagemInicial != null) imagem.sprite = imagemInicial;
-        if (rendererTampa != null) { corOriginal = rendererTampa.material.color; temCor = true; }
+        if (rendererTampa != null)
+        {
+            var m = rendererTampa.material;
+            if (m.HasProperty("_BaseColor")) { propCor = "_BaseColor"; }
+            else if (m.HasProperty("_Color")) { propCor = "_Color"; }
+            else if (m.HasProperty("_FaceColor")) { propCor = "_FaceColor"; } // material de TextMeshPro
+            if (propCor != null) { corOriginal = m.GetColor(propCor); temCor = true; }
+        }
     }
 
     void Update()
@@ -59,6 +67,6 @@ public class MesaBotao : MonoBehaviour
     {
         selecionado = s;
         alvo = s ? 1f : 0f;
-        if (temCor) rendererTampa.material.color = s ? corSelecionado : corOriginal;
+        if (temCor && rendererTampa != null) rendererTampa.material.SetColor(propCor, s ? corSelecionado : corOriginal);
     }
 }

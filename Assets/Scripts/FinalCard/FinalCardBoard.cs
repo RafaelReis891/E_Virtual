@@ -34,6 +34,11 @@ public class FinalCardBoard : MonoBehaviour
     public float distanciaVideo = 4f;
     public int resolucaoVideo = 1024;
 
+    [Header("Audio do video")]
+    public bool semSom = false;           // ligado = video sempre mudo
+    [Range(0f, 1f)] public float volumeVideo = 0.25f;
+    public bool somSomentePerto = true;   // som liga perto do board e desliga longe
+
     [Header("Eventos")]
     public UnityEvent OnCardCarregado;
 
@@ -174,17 +179,39 @@ public class FinalCardBoard : MonoBehaviour
             rtVideo = new RenderTexture(resolucaoVideo, resolucaoVideo * 9 / 16, 0);
             rtVideo.Create();
         }
+        if (!videoPlayer.enabled) { videoPlayer.enabled = true; Log("VideoPlayer estava desativado, ativei"); }
+        if (!videoPlayer.gameObject.activeInHierarchy)
+        {
+            Debug.LogWarning("[FinalCard] o objeto do VideoPlayer (" + videoPlayer.name + ") esta inativo; mostrando imagem", this);
+            temVideo = false;
+            StartCoroutine(CarregarImagem(atual.imagePath));
+            return;
+        }
         videoPlayer.playOnAwake = false;
         videoPlayer.source = VideoSource.Url;
         videoPlayer.url = CaminhoStreaming(caminho);
         videoPlayer.renderMode = VideoRenderMode.RenderTexture;
         videoPlayer.targetTexture = rtVideo;
+        videoPlayer.aspectRatio = VideoAspectRatio.FitInside; // video vertical ganha faixas pretas, sem esticar
+        videoPlayer.errorReceived -= OnErroVideo;
+        videoPlayer.errorReceived += OnErroVideo;
         videoPlayer.isLooping = true;
+        videoPlayer.audioOutputMode = semSom ? VideoAudioOutputMode.None : VideoAudioOutputMode.Direct;
+        videoPlayer.EnableAudioTrack(0, true);
+        AplicarVolume();
+        if (somSomentePerto) DesligarSom();
         videoPlayer.Prepare();
         AplicarTextura(rtVideo);
         Log("video preparado " + videoPlayer.url);
         if (!videoPorAproximacao) videoPlayer.Play();
         OnCardCarregado.Invoke();
+    }
+
+    void OnErroVideo(VideoPlayer vp, string msg)
+    {
+        Debug.LogWarning("[FinalCard] erro no video " + vp.url + " : " + msg + " (mostrando imagem)", this);
+        temVideo = false;
+        if (atual != null) StartCoroutine(CarregarImagem(atual.imagePath));
     }
 
     void PararVideo()
@@ -194,13 +221,54 @@ public class FinalCardBoard : MonoBehaviour
 
     void Update()
     {
-        if (!temVideo || !videoPorAproximacao || videoPlayer == null) return;
+        if (!temVideo || !videoPorAproximacao || videoPlayer == null || !videoPlayer.isActiveAndEnabled) return;
         Transform alvo = jogador;
         if (alvo == null && Camera.main != null) { jogador = Camera.main.transform; alvo = jogador; }
         if (alvo == null) return;
         bool perto = Vector3.Distance(alvo.position, transform.position) <= distanciaVideo;
+        if (somSomentePerto) { if (perto) LigarSom(); else DesligarSom(); }
         if (perto && !videoPlayer.isPlaying) { videoPlayer.Play(); Log("video play (perto)"); }
         else if (!perto && videoPlayer.isPlaying) { videoPlayer.Pause(); Log("video pause (longe)"); }
+    }
+
+    // ---------- Audio (pode chamar por UnityEvent) ----------
+
+    bool somLigado = true;
+
+    public void LigarSom()
+    {
+        if (videoPlayer == null || somLigado || semSom) return;
+        somLigado = true;
+        videoPlayer.SetDirectAudioMute(0, false);
+        AplicarVolume();
+        Log("som ligado");
+    }
+
+    public void DesligarSom()
+    {
+        if (videoPlayer == null || !somLigado) return;
+        somLigado = false;
+        videoPlayer.SetDirectAudioMute(0, true);
+        Log("som desligado");
+    }
+
+    public void SetVolume(float v)
+    {
+        volumeVideo = Mathf.Clamp01(v);
+        AplicarVolume();
+    }
+
+    void AplicarVolume()
+    {
+        if (videoPlayer == null) return;
+        videoPlayer.SetDirectAudioVolume(0, volumeVideo);
+    }
+
+    void OnValidate()
+    {
+        if (!Application.isPlaying || videoPlayer == null) return;
+        if (semSom) DesligarSom(); else if (!somSomentePerto) LigarSom();
+        AplicarVolume();
     }
 
     void OnDestroy()
