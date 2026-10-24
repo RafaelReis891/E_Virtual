@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -44,6 +44,10 @@ public class Enigma5Manager : MonoBehaviour
 	private Coroutine activeRotation1;
 	private Coroutine activeRotation2;
 
+	[Header("Debug")]
+	[Tooltip("Mostra no Console o numero do cadeado e as bandeiras clicadas")]
+	public bool mostrarDebug = true;
+
 	public UnityEvent OnEndGame, OnPassNextScene;
 
 	void Start()
@@ -81,6 +85,7 @@ public class Enigma5Manager : MonoBehaviour
 			PlaySound(clickSound);
 			currentDial1Index = (currentDial1Index + 1) % dialAngles.Length;
 			RotateDial(dial1, dialAngles[currentDial1Index], ref activeRotation1);
+			if (mostrarDebug) Debug.Log("[Enigma5] Cadeado: " + currentDial1Index + " " + currentDial2Index + " (alvo " + targetDial1Index + " " + targetDial2Index + ")");
 			CheckWinCondition();
 			return;
 		}
@@ -91,6 +96,7 @@ public class Enigma5Manager : MonoBehaviour
 			PlaySound(clickSound);
 			currentDial2Index = (currentDial2Index + 1) % dialAngles.Length;
 			RotateDial(dial2, dialAngles[currentDial2Index], ref activeRotation2);
+			if (mostrarDebug) Debug.Log("[Enigma5] Cadeado: " + currentDial1Index + " " + currentDial2Index + " (alvo " + targetDial1Index + " " + targetDial2Index + ")");
 			CheckWinCondition();
 			return;
 		}
@@ -102,6 +108,7 @@ public class Enigma5Manager : MonoBehaviour
 			{
 				PlaySound(clickSound);
 				selectedLeftFlagIndex = i;
+				if (mostrarDebug) Debug.Log("[Enigma5] Bandeira ESQUERDA clicada: [" + i + "] " + leftFlags[i].name + (leftFlags[i].name.Contains(correctLeftFlagName) ? " (correta)" : " (errada)"));
 				UpdateFlagVisuals();
 				CheckWinCondition();
 				return;
@@ -115,6 +122,7 @@ public class Enigma5Manager : MonoBehaviour
 			{
 				PlaySound(clickSound);
 				selectedRightFlagIndex = i;
+				if (mostrarDebug) Debug.Log("[Enigma5] Bandeira DIREITA clicada: [" + i + "] " + rightFlags[i].name + (rightFlags[i].name.Contains(correctRightFlagName) ? " (correta)" : " (errada)"));
 				UpdateFlagVisuals();
 				CheckWinCondition();
 				return;
@@ -232,7 +240,7 @@ public class Enigma5Manager : MonoBehaviour
 
 		// Tenta mudar a cor do Material (para 3D/Mesh)
 		MeshRenderer mr = obj.GetComponent<MeshRenderer>();
-		if (mr != null && mr.material != null) { mr.material.color = color; }
+		if (mr != null && mr.material != null && mr.material.HasProperty("_Color")) { mr.material.color = color; }
 	}
 
 	private void PlaySound(AudioClip clip)

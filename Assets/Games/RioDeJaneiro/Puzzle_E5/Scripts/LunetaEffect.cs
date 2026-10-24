@@ -1,4 +1,4 @@
-
+﻿
 using StarterAssets;
 using UnityEngine;
 using UnityEngine.Events;
@@ -40,10 +40,47 @@ public class LunetaEffect : MonoBehaviour
 	[SerializeField] private UnityEngine.UI.Image imagemUI; // arraste o objeto "Imagem" do Canvas
 	[SerializeField] private Sprite imagemDaLuneta;        // a foto desta luneta
 
+	[Header("Mascara (overlay do Canvas)")]
+	[Tooltip("Objeto Luneta do Canvas. E desligado ao sair, mesmo no meio da transicao.")]
+	[SerializeField] private GameObject overlayMascara;
+	[Tooltip("Tamanho do buraco: 1 = original, maior = buraco maior")]
+	[SerializeField, Range(0.3f, 3f)] private float tamanhoMascara = 1f;
+
+	private void AplicarTamanhoMascara()
+	{
+		if (overlayMascara != null) overlayMascara.transform.localScale = Vector3.one * tamanhoMascara;
+	}
+
 	public UnityEvent OnStartEffect, OnStopEffect;
+
+	[Header("Sair com ESC")]
+	[Tooltip("Componente TimedEvent que mostra a mascara apos 1s. Ao sair (ESC ou trigger) o timer e cancelado.")]
+	[SerializeField] private MonoBehaviour timedEventParaCancelar;
+	[SerializeField] private KeyCode teclaSair = KeyCode.Escape;
+	// true depois de sair por ESC: bloqueia religar ate o jogador sair do trigger
+	private bool saiuPorEsc;
+
+	private void CancelarTimedEvent()
+	{
+		if (timedEventParaCancelar != null) timedEventParaCancelar.StopAllCoroutines();
+	}
+
+	private void LateUpdate()
+	{
+		// depois do ESC, garante que nada religue a mascara enquanto o jogador ainda esta no trigger
+		if (saiuPorEsc && !estaLigada && overlayMascara != null && overlayMascara.activeSelf)
+			overlayMascara.SetActive(false);
+	}
 
 	private void Start()
 	{
+		// se nao foi arrastado no Inspector, procura um TimedEvent neste mesmo objeto
+		if (timedEventParaCancelar == null)
+		{
+			foreach (MonoBehaviour mb in GetComponents<MonoBehaviour>())
+				if (mb != null && mb != this && mb.GetType().Name == "TimedEvent") { timedEventParaCancelar = mb; break; }
+		}
+
 		if (volume == null || volume.profile == null)
 		{
 			Debug.LogError(
@@ -82,6 +119,13 @@ public class LunetaEffect : MonoBehaviour
 
 	private void Update()
 	{
+		if (estaLigada && Input.GetKeyDown(teclaSair))
+		{
+			SetLuneta(false);
+			saiuPorEsc = true;
+			return;
+		}
+
 		if (insideArea)
 		{
 			if (Input.GetMouseButtonDown(0) && !transicionando)
@@ -129,7 +173,7 @@ public class LunetaEffect : MonoBehaviour
 
 	public void ToggleLuneta()
 	{
-		if (transicionando) return;
+		if (transicionando || lensDistortion == null) return;
 
 		startLensDistortion = lensDistortion.intensity.value;
 		startFocalLength = depthOfField.focalLength.value;
@@ -140,7 +184,8 @@ public class LunetaEffect : MonoBehaviour
 		timer = 0f;
 
 		insideArea = estaLigada;
-		playerCamera.gameObject.SetActive(!estaLigada);
+		if (playerCamera != null) playerCamera.SetActive(!estaLigada);
+		if (!estaLigada) CancelarTimedEvent();
 		if (estaLigada)
 		{			
 			AplicarImagem();
@@ -156,7 +201,21 @@ public class LunetaEffect : MonoBehaviour
 
 	public void SetLuneta(bool state)
 	{
-		if (transicionando) return;
+		if (!state)
+		{
+			// sempre restaura, mesmo se o script estiver desativado
+			CancelarTimedEvent();
+			if (overlayMascara != null) overlayMascara.SetActive(false);
+			if (playerCamera != null) playerCamera.SetActive(true);
+			// chamada de saida enquanto ja desligada (ex.: saiu do trigger apos ESC) libera nova entrada
+			if (!estaLigada) { saiuPorEsc = false; insideArea = false; return; }
+		}
+		else if (saiuPorEsc) return; // saiu por ESC: precisa sair do trigger antes
+		if (!enabled || lensDistortion == null) return;
+		// permite sair mesmo no meio da transicao de entrada
+		if (transicionando && state == estaLigada) return;
+		if (overlayMascara != null && !state) overlayMascara.SetActive(false);
+		AplicarTamanhoMascara();
 
 		startLensDistortion = lensDistortion.intensity.value;
 		startFocalLength = depthOfField.focalLength.value;
@@ -167,7 +226,7 @@ public class LunetaEffect : MonoBehaviour
 		timer = 0f;
 
 		insideArea = estaLigada;
-		playerCamera.gameObject.SetActive(!estaLigada);
+		if (playerCamera != null) playerCamera.SetActive(!estaLigada);
 
 		if (estaLigada)
 		{			
