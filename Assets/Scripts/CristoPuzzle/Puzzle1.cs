@@ -196,6 +196,7 @@ public class Puzzle1 : MonoBehaviour
 		}
 
 		puzzleSolved = true;
+		lockDoor.AcenderTudoCorreto();
 
 		Debug.Log("Combinação correta! Porta aberta.");
 

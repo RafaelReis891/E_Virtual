@@ -48,6 +48,10 @@ public class Enigma5Manager : MonoBehaviour
 	[Tooltip("Mostra no Console o numero do cadeado e as bandeiras clicadas")]
 	public bool mostrarDebug = true;
 
+	[Header("Feedback emissivo dos discos")]
+	[Tooltip("Vazio = usa/cria um DialFeedbackEmissivo neste objeto.")]
+	public DialFeedbackEmissivo feedbackDials;
+
 	public UnityEvent OnEndGame, OnPassNextScene;
 
 	void Start()
@@ -60,6 +64,9 @@ public class Enigma5Manager : MonoBehaviour
 		if (dial2 != null) dial2.localEulerAngles = new Vector3(0, dialAngles[0], 0);
 
 		ResetVisuals();
+
+		if (feedbackDials == null) feedbackDials = GetComponent<DialFeedbackEmissivo>();
+		if (feedbackDials == null) feedbackDials = gameObject.AddComponent<DialFeedbackEmissivo>();
 	}
 
 	void Update()
@@ -85,6 +92,7 @@ public class Enigma5Manager : MonoBehaviour
 			PlaySound(clickSound);
 			currentDial1Index = (currentDial1Index + 1) % dialAngles.Length;
 			RotateDial(dial1, dialAngles[currentDial1Index], ref activeRotation1);
+			if (feedbackDials != null) feedbackDials.Notificar(dial1, currentDial1Index == targetDial1Index);
 			if (mostrarDebug) Debug.Log("[Enigma5] Cadeado: " + currentDial1Index + " " + currentDial2Index + " (alvo " + targetDial1Index + " " + targetDial2Index + ")");
 			CheckWinCondition();
 			return;
@@ -96,6 +104,7 @@ public class Enigma5Manager : MonoBehaviour
 			PlaySound(clickSound);
 			currentDial2Index = (currentDial2Index + 1) % dialAngles.Length;
 			RotateDial(dial2, dialAngles[currentDial2Index], ref activeRotation2);
+			if (feedbackDials != null) feedbackDials.Notificar(dial2, currentDial2Index == targetDial2Index);
 			if (mostrarDebug) Debug.Log("[Enigma5] Cadeado: " + currentDial1Index + " " + currentDial2Index + " (alvo " + targetDial1Index + " " + targetDial2Index + ")");
 			CheckWinCondition();
 			return;
@@ -164,6 +173,7 @@ public class Enigma5Manager : MonoBehaviour
 	private void SolvePuzzle()
 	{
 		isSolved = true;
+		if (feedbackDials != null) { feedbackDials.AcenderCorreto(dial1); feedbackDials.AcenderCorreto(dial2); }
 		Debug.Log("✅ ENIGMA 5 RESOLVIDO: 5x0, Brasil e EUA!");
 
 		PlaySound(successSound);

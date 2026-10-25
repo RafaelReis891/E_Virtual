@@ -1382,7 +1382,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c4adf15da4bc3a24c9dc934af96ea0e8, type: 2}
+  - {fileID: 2100000, guid: b8f4d2e3c5a6479801b2c3d4e5f60712, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2351,7 +2351,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c4adf15da4bc3a24c9dc934af96ea0e8, type: 2}
+  - {fileID: 2100000, guid: b8f4d2e3c5a6479801b2c3d4e5f60712, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3738,6 +3738,7 @@ MonoBehaviour:
   clickSound: {fileID: 8300000, guid: 85016e0f2b01da248b9663dd49a161b0, type: 3}
   successSound: {fileID: 8300000, guid: cc9aa6b474da5f34092e816aec5fd41d, type: 3}
   errorSound: {fileID: 8300000, guid: 569c7ef74496a8646997865ead729745, type: 3}
+  mostrarDebug: 1
   OnEndGame:
     m_PersistentCalls:
       m_Calls:

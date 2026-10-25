@@ -26,8 +26,12 @@ public class CadeadoDials : MonoBehaviour
 
         [HideInInspector] public bool estavaCorreto;
 
+        [Tooltip("Renderers dos numeros deste disco (use o material Numeros_Emissivo). Vazio = procura no proprio disco.")]
+        public Renderer[] renderersNumeros;
+
         [HideInInspector] public int numeroAtual;
         [HideInInspector] public Coroutine rotacao;
+        [HideInInspector] public Coroutine feedback;
     }
 
     [Header("Dials (adicione quantos quiser)")]
@@ -58,6 +62,21 @@ public class CadeadoDials : MonoBehaviour
     public AudioClip clickSound;
     public AudioClip successSound;
     AudioSource audioSource;
+
+    [Header("Feedback emissivo (numeros)")]
+    [Tooltip("Liga o brilho vermelho/verde nos numeros.")]
+    public bool usarFeedbackEmissivo = true;
+    [Tooltip("Segundos parado no numero antes de mostrar a cor.")]
+    [Min(0f)] public float tempoParado = 1.2f;
+    [ColorUsage(false, true)] public Color corErrado = new Color(4f, 0.15f, 0.15f);
+    [ColorUsage(false, true)] public Color corCorreto = new Color(0.2f, 4f, 0.3f);
+    [Tooltip("Quantas vezes pisca no numero errado.")]
+    [Min(1)] public int piscadasErrado = 3;
+    [Tooltip("Duracao de cada piscada (aceso + apagado).")]
+    [Min(0.05f)] public float duracaoPiscada = 0.3f;
+
+    static readonly int EmissionColorId = Shader.PropertyToID("_EmissionColor");
+    MaterialPropertyBlock mpb;
 
     bool isSolved;
 
@@ -106,6 +125,7 @@ public class CadeadoDials : MonoBehaviour
                 if (correto && !d.estavaCorreto) d.OnNumeroCorreto?.Invoke();
                 else if (!correto && d.estavaCorreto) d.OnSaiuNumeroCorreto?.Invoke();
                 d.estavaCorreto = correto;
+                IniciarFeedback(d, correto);
                 if (mostrarDebug)
                     Debug.Log($"[Cadeado] {d.disco.name}: numero {vis}" + (correto ? " -> CORRETO!" : ""), d.disco);
                 CheckWinCondition();
@@ -135,6 +155,8 @@ public class CadeadoDials : MonoBehaviour
     void SolvePuzzle()
     {
         isSolved = true;
+        if (usarFeedbackEmissivo)
+            foreach (var d in dials) { if (d == null) continue; if (d.feedback != null) StopCoroutine(d.feedback); SetEmissao(d, corCorreto); }
         Debug.Log("Cadeado resolvido!");
 
         PlaySound(successSound);
@@ -167,6 +189,50 @@ public class CadeadoDials : MonoBehaviour
             yield return null;
         }
         disco.localRotation = alvo;
+    }
+
+    // ---------- Feedback emissivo ----------
+    void IniciarFeedback(Dial d, bool correto)
+    {
+        if (!usarFeedbackEmissivo) return;
+        if (d.feedback != null) StopCoroutine(d.feedback);
+        SetEmissao(d, Color.black);
+        d.feedback = StartCoroutine(FeedbackRotina(d, correto));
+    }
+
+    IEnumerator FeedbackRotina(Dial d, bool correto)
+    {
+        yield return new WaitForSeconds(tempoParado);
+        if (correto)
+        {
+            SetEmissao(d, corCorreto); // fica verde
+            yield break;
+        }
+        for (int i = 0; i < piscadasErrado; i++)
+        {
+            SetEmissao(d, corErrado);
+            yield return new WaitForSeconds(duracaoPiscada * 0.5f);
+            SetEmissao(d, Color.black);
+            yield return new WaitForSeconds(duracaoPiscada * 0.5f);
+        }
+        d.feedback = null;
+    }
+
+    void SetEmissao(Dial d, Color cor)
+    {
+        if (d == null || d.disco == null) return;
+        if (d.renderersNumeros == null || d.renderersNumeros.Length == 0)
+            d.renderersNumeros = d.disco.GetComponentsInChildren<Renderer>();
+        if (mpb == null) mpb = new MaterialPropertyBlock();
+        foreach (var r in d.renderersNumeros)
+        {
+            if (r == null) continue;
+            foreach (var m in r.sharedMaterials)
+                if (m != null && !m.IsKeywordEnabled("_EMISSION")) { m.EnableKeyword("_EMISSION"); m.globalIlluminationFlags = MaterialGlobalIlluminationFlags.RealtimeEmissive; }
+            r.GetPropertyBlock(mpb);
+            mpb.SetColor(EmissionColorId, cor);
+            r.SetPropertyBlock(mpb);
+        }
     }
 
     void PlaySound(AudioClip clip)
