@@ -21,7 +21,7 @@ public class BoardItem : MonoBehaviour
 
     public void VoltarParaInicio()
     {
-        if (slotAtual != null) slotAtual.itemAtual = null;
+        if (slotAtual != null) { slotAtual.itemAtual = null; slotAtual.MostrarMoldura(true); }
         slotAtual = null;
         transform.SetPositionAndRotation(posicaoInicial, rotacaoInicial);
     }

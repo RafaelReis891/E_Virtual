@@ -69,7 +69,23 @@ public class BoardDragPuzzle : MonoBehaviour
         if (mainCamera == null) mainCamera = Camera.main;
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
+        if (modo == Modo.OrdemDefinida && respostasQualquerOrdem != null && respostasQualquerOrdem.Length > 0)
+            Debug.LogWarning("[Board] " + name + ": Respostas Qualquer Ordem preenchidas, mas o Modo esta em Ordem Definida. Troque o Modo para Qualquer Ordem.", this);
+        foreach (var s in slots) if (s != null) s.MostrarMoldura(true);
     }
+
+    // Compara ids ignorando maiusculas, espacos e acentos ("Convivencia" = "convivencia").
+    static string Norm(string s)
+    {
+        if (string.IsNullOrEmpty(s)) return "";
+        string n = s.Trim().ToLowerInvariant().Normalize(System.Text.NormalizationForm.FormD);
+        var sb = new System.Text.StringBuilder();
+        foreach (char c in n)
+            if (System.Globalization.CharUnicodeInfo.GetUnicodeCategory(c) != System.Globalization.UnicodeCategory.NonSpacingMark) sb.Append(c);
+        return sb.ToString();
+    }
+
+    static bool Igual(string a, string b) => Norm(a) == Norm(b);
 
     void Update()
     {
@@ -175,17 +191,18 @@ public class BoardDragPuzzle : MonoBehaviour
         item.transform.SetPositionAndRotation(maisProximo.Encaixe.position, maisProximo.Encaixe.rotation);
         Tocar(somEncaixar);
 
-        bool certo = modo == Modo.OrdemDefinida && item.id == maisProximo.idCorreto;
+        bool certo = ItemValido(item, maisProximo);
         Log($"{item.id} -> {maisProximo.name}" + (certo ? " (CORRETO!)" : ""));
         if (certo) maisProximo.OnItemCorreto?.Invoke();
+        maisProximo.MostrarMoldura(false);
 
         Verificar();
     }
 
     bool ItemValido(BoardItem item, BoardSlot slot)
     {
-        if (modo == Modo.OrdemDefinida) return item.id == slot.idCorreto;
-        return respostasQualquerOrdem != null && respostasQualquerOrdem.Contains(item.id);
+        if (modo == Modo.OrdemDefinida) return Igual(item.id, slot.idCorreto);
+        return respostasQualquerOrdem != null && respostasQualquerOrdem.Any(r => Igual(r, item.id));
     }
 
     void Verificar()
@@ -195,13 +212,15 @@ public class BoardDragPuzzle : MonoBehaviour
         bool venceu;
         if (modo == Modo.OrdemDefinida)
         {
-            venceu = slots.All(s => s == null || s.itemAtual.id == s.idCorreto);
+            venceu = slots.All(s => s == null || Igual(s.itemAtual.id, s.idCorreto));
         }
         else
         {
-            var colocados = slots.Where(s => s != null).Select(s => s.itemAtual.id).OrderBy(x => x).ToList();
-            var certos = respostasQualquerOrdem.OrderBy(x => x).ToList();
-            venceu = colocados.SequenceEqual(certos);
+            // Venceu se todos os itens colocados sao respostas certas e nao ha repetidos.
+            var colocados = slots.Where(s => s != null).Select(s => Norm(s.itemAtual.id)).ToList();
+            var certos = (respostasQualquerOrdem ?? new string[0]).Select(Norm).ToList();
+            venceu = colocados.All(c => certos.Contains(c)) && colocados.Distinct().Count() == colocados.Count;
+            Log("colocados: " + string.Join(", ", colocados) + " | certos: " + string.Join(", ", certos));
         }
 
         if (venceu)
