@@ -6,7 +6,7 @@ using UnityEngine.Events;
 /// </summary>
 public class BoardSlot : MonoBehaviour
 {
-    [Tooltip("Modo Ordem Definida: id do item que deve ficar NESTE slot.")]
+    [Tooltip("Modo Ordem Definida: id do item que deve ficar NESTE slot. VAZIO = target de erro: nao precisa ser preenchido e somente rejeita o item (volta para o inicio).")]
     public string idCorreto;
 
     [Tooltip("Ponto onde o item encaixa (vazio = o proprio slot).")]

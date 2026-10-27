@@ -170,7 +170,9 @@ public class BoardDragPuzzle : MonoBehaviour
             return;
         }
 
-        if (rejeitarErradoNaHora && !ItemValido(item, maisProximo))
+        // Target de erro (Id Correto vazio, Ordem Definida): sempre devolve o item.
+        bool alvoDeErro = modo == Modo.OrdemDefinida && EhAlvoDeErro(maisProximo);
+        if ((rejeitarErradoNaHora || alvoDeErro) && !ItemValido(item, maisProximo))
         {
             Log($"{item.id} rejeitado em {maisProximo.name}");
             Tocar(somErro);
@@ -199,6 +201,9 @@ public class BoardDragPuzzle : MonoBehaviour
         Verificar();
     }
 
+    // Em Ordem Definida, um target com Id Correto vazio so serve para dar erro.
+    bool EhAlvoDeErro(BoardSlot s) => modo == Modo.OrdemDefinida && string.IsNullOrWhiteSpace(s.idCorreto);
+
     bool ItemValido(BoardItem item, BoardSlot slot)
     {
         if (modo == Modo.OrdemDefinida) return Igual(item.id, slot.idCorreto);
@@ -207,12 +212,13 @@ public class BoardDragPuzzle : MonoBehaviour
 
     void Verificar()
     {
-        if (slots.Any(s => s != null && s.itemAtual == null)) return; // ainda tem slot vazio
+        // Targets de erro (Id Correto vazio) nao precisam ser preenchidos.
+        if (slots.Any(s => s != null && !EhAlvoDeErro(s) && s.itemAtual == null)) return; // ainda tem slot vazio
 
         bool venceu;
         if (modo == Modo.OrdemDefinida)
         {
-            venceu = slots.All(s => s == null || Igual(s.itemAtual.id, s.idCorreto));
+            venceu = slots.All(s => s == null || EhAlvoDeErro(s) || (s.itemAtual != null && Igual(s.itemAtual.id, s.idCorreto)));
         }
         else
         {

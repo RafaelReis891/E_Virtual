@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class DragAndDropSwap : MonoBehaviour
@@ -9,6 +9,9 @@ public class DragAndDropSwap : MonoBehaviour
 
 	[Header("Configurações")]
 	public float distanciaMaximaTroca = 2.0f;
+
+	[Tooltip("Distancia maxima (em metros) da camera ate a camiseta para conseguir clicar.")]
+	public float alcanceClique = 100f;
 
 	private List<Vector3> posicoesOriginais = new List<Vector3>();
 	private List<Quaternion> rotacoesOriginais = new List<Quaternion>();
@@ -85,7 +88,8 @@ public class DragAndDropSwap : MonoBehaviour
 		{
 			Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
-			if (Physics.Raycast(ray, out RaycastHit hit))
+			// Procura a camiseta/quadro mais proximo no raio, pulando outros colliders (ex.: Trigger_Puzzle)
+			if (BuscarAlvo(ray, out RaycastHit hit))
 			{
 				if (hit.collider.CompareTag("Quadro"))
 				{
@@ -139,6 +143,20 @@ public class DragAndDropSwap : MonoBehaviour
 			VerificarTrocaPorProximidade();
 			camisaArrastada = null;
 		}
+	}
+
+	bool BuscarAlvo(Ray ray, out RaycastHit alvo)
+	{
+		alvo = default;
+		RaycastHit[] hits = Physics.RaycastAll(ray, alcanceClique, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Collide);
+		float menor = float.MaxValue;
+		bool achou = false;
+		foreach (RaycastHit h in hits)
+		{
+			if (!h.collider.CompareTag("Camiseta") && !h.collider.CompareTag("Quadro")) continue;
+			if (h.distance < menor) { menor = h.distance; alvo = h; achou = true; }
+		}
+		return achou;
 	}
 
 	void VerificarTrocaPorProximidade()

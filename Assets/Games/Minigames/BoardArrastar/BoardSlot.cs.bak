@@ -12,10 +12,22 @@ public class BoardSlot : MonoBehaviour
     [Tooltip("Ponto onde o item encaixa (vazio = o proprio slot).")]
     public Transform pontoEncaixe;
 
-    [Tooltip("Disparado quando o item certo e colocado aqui (so no modo Ordem Definida).")]
+    [Header("Moldura (opcional)")]
+    [Tooltip("Objeto da moldura deste target (ex: SpriteRenderer com IMG_Moldura).")]
+    public GameObject moldura;
+    [Tooltip("Esconde a moldura quando um item encaixa aqui.")]
+    public bool esconderMolduraAoEncaixar = false;
+
+    [Tooltip("Disparado quando um item certo e colocado aqui (nos dois modos).")]
     public UnityEvent OnItemCorreto;
 
     [HideInInspector] public BoardItem itemAtual;
 
     public Transform Encaixe => pontoEncaixe != null ? pontoEncaixe : transform;
+
+    public void MostrarMoldura(bool vazio)
+    {
+        if (moldura == null) return;
+        moldura.SetActive(vazio || !esconderMolduraAoEncaixar);
+    }
 }
