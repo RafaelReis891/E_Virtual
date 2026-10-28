@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 /// <summary>
@@ -30,6 +30,10 @@ public class CharacterAppearDissolve : MonoBehaviour
     [Header("Tempo após áudio")]
     [Min(0f)] public float waitAfterAudio = 0.5f;
 
+    [Header("Saida")]
+    [Tooltip("Ligado = se o player sair do trigger, o audio faz fade-out e a Anfitria some com dissolve. Ela pode aparecer de novo quando ele voltar.")]
+    public bool sairAoDeixarTrigger = true;
+
     [Header("Debug")]
     public bool showLogs = true;
 
@@ -37,6 +41,12 @@ public class CharacterAppearDissolve : MonoBehaviour
     Material dissolveMat;
     GameObject characterInstance;
     bool sequenceStarted = false;
+    bool encerrando = false;
+    Coroutine sequencia;
+
+    // So uma Anfitria ativa por vez: a anterior encerra quando outra comeca
+    static CharacterAppearDissolve ativa;
+    const float FadeAudio = 0.5f;
 
     static readonly int DissolveAmount = Shader.PropertyToID("_Dissolve");
     static readonly int Direction = Shader.PropertyToID("_Direction");
@@ -58,8 +68,71 @@ public class CharacterAppearDissolve : MonoBehaviour
         if (sequenceStarted) return;
         if (!other.CompareTag("Player")) return;
 
+        if (ativa != null && ativa != this) ativa.Encerrar();
+        ativa = this;
+
         sequenceStarted = true;
-        StartCoroutine(FullSequence());
+        encerrando = false;
+        sequencia = StartCoroutine(FullSequence());
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (!sairAoDeixarTrigger) return;
+        if (!other.CompareTag("Player")) return;
+        Encerrar();
+    }
+
+    void OnDisable()
+    {
+        if (ativa == this) ativa = null;
+    }
+
+    /// <summary>
+    /// Encerra agora: fade-out do audio e dissolve de saida.
+    /// </summary>
+    public void Encerrar()
+    {
+        if (!sequenceStarted || encerrando) return;
+        if (sequencia != null) StopCoroutine(sequencia);
+        StartCoroutine(SaidaRapida());
+    }
+
+    IEnumerator SaidaRapida()
+    {
+        encerrando = true;
+        Log("Encerrando (fade-out)");
+
+        float volIni = audioSource != null ? audioSource.volume : 0f;
+        float from = (dissolveMat != null && dissolveMat.HasProperty(DissolveAmount)) ? dissolveMat.GetFloat(DissolveAmount) : 1f;
+        float dur = Mathf.Max(FadeAudio, useDissolve ? dissolveDuration : 0f);
+        float t = 0f;
+
+        while (t < dur)
+        {
+            t += Time.deltaTime;
+            if (audioSource != null && audioSource.isPlaying)
+                audioSource.volume = Mathf.Lerp(volIni, 0f, Mathf.Clamp01(t / FadeAudio));
+            if (useDissolve && dissolveDuration > 0f)
+                SetDissolve(Mathf.Lerp(from, 1f, Mathf.Clamp01(t / dissolveDuration)));
+            yield return null;
+        }
+
+        if (audioSource != null) { audioSource.Stop(); audioSource.volume = volume; }
+        SetDissolve(1f);
+        FinalizarSequencia();
+    }
+
+    void FinalizarSequencia()
+    {
+        if (characterInstance != null) Destroy(characterInstance);
+        characterInstance = null;
+        dissolveMat = null;
+        encerrando = false;
+        sequencia = null;
+        if (ativa == this) ativa = null;
+        // Com a opcao ligada, pode aparecer de novo quando o player voltar
+        if (sairAoDeixarTrigger) sequenceStarted = false;
     }
 
     IEnumerator FullSequence()
@@ -131,8 +204,7 @@ public class CharacterAppearDissolve : MonoBehaviour
         }
 
         Log("Destruindo instância");
-        if (characterInstance != null)
-            Destroy(characterInstance);
+        FinalizarSequencia();
     }
 
     IEnumerator Dissolve(float from, float to)

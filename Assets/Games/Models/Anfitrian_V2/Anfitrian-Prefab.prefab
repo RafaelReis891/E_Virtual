@@ -69,6 +69,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7c7262c1ae5633641a12d8fc8bdd8087, type: 3}
       insertIndex: -1
       addedObject: {fileID: -8190621192071521587}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7c7262c1ae5633641a12d8fc8bdd8087, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4843020148253202783}
   m_SourcePrefab: {fileID: 100100000, guid: 7c7262c1ae5633641a12d8fc8bdd8087, type: 3}
 --- !u!95 &1847233056104378691 stripped
 Animator:
@@ -169,3 +172,16 @@ MonoBehaviour:
   - Talking01
   - Talking03
   delayBetweenAnimations: 0.5
+--- !u!114 &4843020148253202783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4902534148989153667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca96a612e663a84c91351145a74ae9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OlharParaCamera
+  tipo: 1

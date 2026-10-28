@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 8909789200394936578}
   - component: {fileID: 6714092902208684002}
   - component: {fileID: 3251330294772388349}
+  - component: {fileID: 7901667491840089319}
   m_Layer: 0
   m_Name: TextoNumero
   m_TagString: Untagged
@@ -387,6 +388,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 6714092902208684002}
   m_maskType: 0
+--- !u!114 &7901667491840089319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9160148018831465648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca96a612e663a84c91351145a74ae9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OlharParaCamera
+  cameraAlvo: {fileID: 0}
+  somenteEixoY: 1
 --- !u!1001 &8505825151577341187
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -66,7 +66,8 @@ public class PuzzleProgresso : MonoBehaviour
         {
             trigger.SetActive(true);
             Collider[] cols = trigger.GetComponentsInChildren<Collider>(true);
-            foreach (Collider c in cols) c.enabled = true;
+            // Unity chama OnTriggerEnter mesmo com o script desligado, entao para bloquear desligamos os colliders
+            foreach (Collider c in cols) c.enabled = !bloquearRepetir;
 
             TriggerEvent te = trigger.GetComponentInChildren<TriggerEvent>(true);
             if (te != null)

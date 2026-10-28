@@ -22,7 +22,7 @@ public class ProgressoPuzzles : MonoBehaviour
     public TMPro.TMP_Text textoProgresso;
 
     [Tooltip("Formato do texto. {0} = feitos, {1} = total. Ex: \"{0}/{1}\" ou \"Puzzles: {0}/{1}\".")]
-    public string formato = "Puzzles {0}/{1}";
+    public string formato = "Desafios {0}/{1}";
 
     [Header("Numero nas triggers")]
     [Tooltip("Ligado = escreve sozinho o numero em cada trigger (1/5, 2/5...) na ordem da lista. Desligado = voce escreve o texto na mao.")]
