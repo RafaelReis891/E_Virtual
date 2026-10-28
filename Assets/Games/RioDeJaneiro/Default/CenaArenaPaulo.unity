@@ -1124,6 +1124,7 @@ Transform:
   - {fileID: 2005734550}
   - {fileID: 220772510}
   - {fileID: 625820414}
+  - {fileID: 2055672476}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &135765986
@@ -1805,6 +1806,7 @@ MonoBehaviour:
   objectToActivate: {fileID: 0}
   waitAfterAudio: 4
   sairAoDeixarTrigger: 1
+  aparecerSoUmaVez: 0
   showLogs: 1
 --- !u!135 &222805848
 SphereCollider:
@@ -6897,6 +6899,7 @@ MonoBehaviour:
   objectToActivate: {fileID: 0}
   waitAfterAudio: 4
   sairAoDeixarTrigger: 1
+  aparecerSoUmaVez: 0
   showLogs: 1
 --- !u!135 &985769544
 SphereCollider:
@@ -14572,7 +14575,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 117864575}
     m_Modifications:
     - target: {fileID: -8973349108257547026, guid: 50b8115680a58ff408b45beee65999ff, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -14600,15 +14603,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 50b8115680a58ff408b45beee65999ff, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 50b8115680a58ff408b45beee65999ff, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 50b8115680a58ff408b45beee65999ff, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 50b8115680a58ff408b45beee65999ff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14929,6 +14932,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 181520283}
   m_SourcePrefab: {fileID: 100100000, guid: 50b8115680a58ff408b45beee65999ff, type: 3}
+--- !u!4 &2055672476 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 50b8115680a58ff408b45beee65999ff, type: 3}
+  m_PrefabInstance: {fileID: 2055672475}
+  m_PrefabAsset: {fileID: 0}
 --- !u!64 &2055672477
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15640,7 +15648,6 @@ SceneRoots:
   - {fileID: 527014653}
   - {fileID: 1186639622}
   - {fileID: 25309216}
-  - {fileID: 2055672475}
   - {fileID: 2082579934}
   - {fileID: 852539974}
   - {fileID: 1977779674}
