@@ -1,18 +1,18 @@
-Ôªøusing UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 /// <summary>
-/// Ativa o personagem com dissolve, toca o √°udio e dissolve de sa√≠da.
-/// Coloque este script no objeto do trigger (n√£o no personagem).
-/// O Character pode ser um prefab ‚Äî o script instancia.
+/// Ativa o personagem com dissolve, toca o ·udio e dissolve de saÌda.
+/// Coloque este script no objeto do trigger (n„o no personagem).
+/// O Character pode ser um prefab - o script instancia.
 /// </summary>
 public class CharacterAppearDissolve : MonoBehaviour
 {
     [Header("Personagem")]
-    [Tooltip("Prefab ou objeto na cena. Se for prefab, ser√° instanciado.")]
+    [Tooltip("Prefab ou objeto na cena. Se for prefab, ser· instanciado.")]
     public GameObject characterPrefab;
 
-    [Tooltip("Ponto onde o personagem aparece. Se vazio, usa a posi√ß√£o do prefab.")]
+    [Tooltip("Ponto onde o personagem aparece. Se vazio, usa a posiÁ„o do prefab.")]
     public Transform spawnPoint;
 
     [Header("Dissolve")]
@@ -20,19 +20,22 @@ public class CharacterAppearDissolve : MonoBehaviour
     [Min(0f)] public float dissolveDuration = 1.5f;
     public bool dissolveFromBottom = true;
 
-    [Header("√Åudio")]
+    [Header("¡udio")]
     public AudioClip voiceClip;
     [Range(0f, 1f)] public float volume = 1f;
 
     [Header("Objeto extra (opcional)")]
     public GameObject objectToActivate;
 
-    [Header("Tempo ap√≥s √°udio")]
+    [Header("Tempo apÛs ·udio")]
     [Min(0f)] public float waitAfterAudio = 0.5f;
 
     [Header("Saida")]
     [Tooltip("Ligado = se o player sair do trigger, o audio faz fade-out e a Anfitria some com dissolve. Ela pode aparecer de novo quando ele voltar.")]
     public bool sairAoDeixarTrigger = true;
+
+    [Tooltip("Ligado = a Anfitria aparece so na primeira vez que o player entra no trigger. Depois nao reativa mais.")]
+    public bool aparecerSoUmaVez = false;
 
     [Header("Debug")]
     public bool showLogs = true;
@@ -132,16 +135,16 @@ public class CharacterAppearDissolve : MonoBehaviour
         sequencia = null;
         if (ativa == this) ativa = null;
         // Com a opcao ligada, pode aparecer de novo quando o player voltar
-        if (sairAoDeixarTrigger) sequenceStarted = false;
+        if (sairAoDeixarTrigger && !aparecerSoUmaVez) sequenceStarted = false;
     }
 
     IEnumerator FullSequence()
     {
-        Log("Iniciando sequ√™ncia");
+        Log("Iniciando sequÍncia");
 
         if (characterPrefab == null)
         {
-            Log("Character Prefab est√° vazio!");
+            Log("Character Prefab est· vazio!");
             yield break;
         }
 
@@ -153,7 +156,7 @@ public class CharacterAppearDissolve : MonoBehaviour
 
         Log("Instanciado: " + characterInstance.name);
 
-        // Pega o Renderer da inst√¢ncia
+        // Pega o Renderer da inst‚ncia
         Renderer rend = characterInstance.GetComponentInChildren<Renderer>(true);
         Log("Renderer: " + (rend != null ? rend.name : "NULL"));
 
@@ -171,7 +174,7 @@ public class CharacterAppearDissolve : MonoBehaviour
         // Dissolve entrada
         if (useDissolve && dissolveMat != null && dissolveMat.HasProperty(DissolveAmount))
         {
-            Log("Dissolve entrada 1‚Üí0");
+            Log("Dissolve entrada 1?0");
             yield return StartCoroutine(Dissolve(1f, 0f));
         }
         else
@@ -180,10 +183,10 @@ public class CharacterAppearDissolve : MonoBehaviour
             SetDissolve(0f);
         }
 
-        // √Åudio
+        // ¡udio
         if (voiceClip != null && audioSource != null)
         {
-            Log("Tocando √°udio: " + voiceClip.name);
+            Log("Tocando ·udio: " + voiceClip.name);
             audioSource.clip = voiceClip;
             audioSource.volume = volume;
             audioSource.Play();
@@ -196,14 +199,14 @@ public class CharacterAppearDissolve : MonoBehaviour
         if (waitAfterAudio > 0f)
             yield return new WaitForSeconds(waitAfterAudio);
 
-        // Dissolve sa√≠da
+        // Dissolve saÌda
         if (useDissolve && dissolveMat != null && dissolveMat.HasProperty(DissolveAmount))
         {
-            Log("Dissolve sa√≠da 0‚Üí1");
+            Log("Dissolve saÌda 0?1");
             yield return StartCoroutine(Dissolve(0f, 1f));
         }
 
-        Log("Destruindo inst√¢ncia");
+        Log("Destruindo inst‚ncia");
         FinalizarSequencia();
     }
 
