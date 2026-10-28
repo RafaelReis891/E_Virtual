@@ -1,0 +1,25 @@
+﻿using UnityEngine;
+
+// Faz o objeto (ex: TextoNumero da trigger) sempre virar para a camera do jogador,
+// sem girar junto com o pai (bola/spark). Custo muito baixo.
+public class OlharParaCamera : MonoBehaviour
+{
+    [Tooltip("Camera do jogador. Vazio = Camera.main.")]
+    public Camera cameraAlvo;
+
+    [Tooltip("Ligado = so gira no eixo Y (texto fica em pe). Desligado = inclina para cima/baixo tambem.")]
+    public bool somenteEixoY = true;
+
+    void LateUpdate()
+    {
+        if (cameraAlvo == null) cameraAlvo = Camera.main;
+        if (cameraAlvo == null) return;
+
+        Vector3 dir = transform.position - cameraAlvo.transform.position;
+        if (somenteEixoY) dir.y = 0f;
+        if (dir.sqrMagnitude < 0.0001f) return;
+
+        // Rotacao no mundo: ignora a rotacao do pai
+        transform.rotation = Quaternion.LookRotation(dir);
+    }
+}
