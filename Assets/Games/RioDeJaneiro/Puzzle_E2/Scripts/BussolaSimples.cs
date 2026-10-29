@@ -102,6 +102,7 @@ public class BussolaSimples : MonoBehaviour
 		yield return GirarAte(d.angulo);
 
 		bool certo = Igual(d.nome, direcaoCorreta);
+		Debug.Log($"[Bussola] Clicou em '{d.nome}' (objeto {d.botao.name}). Correta: '{direcaoCorreta}'. Acertou: {certo}", d.botao);
 		if (certo)
 		{
 			terminou = true;
