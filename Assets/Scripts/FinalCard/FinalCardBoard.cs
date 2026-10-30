@@ -6,8 +6,13 @@ using UnityEngine.Networking;
 using UnityEngine.Video;
 
 // Final Card: ao terminar o puzzle, chame Mostrar("F11").
-// Carrega titulo, descricao e imagem (ou video) do cards.json.
+// Carrega titulo, descricao e imagem (ou video) do cards.json (e do site, por cima, se o payload chegou).
 // Botao de idioma: chame AlternarIdioma() (texto alterna ENG / BR).
+//
+// Imagem do site: vem do CardRemoteImageCache (pre-carregada pelo CardRemotePreloader).
+// Enquanto ela nao chega, mostra a imagem local do cards.json; quando chega, troca sozinho.
+// O board se reaplica sozinho (OnEnable, payload novo, textura pronta) sem precisar sair/voltar do trigger.
+// Video: so recebe Prepare() quando o jogador entra no trigger (ou chega perto), nao no inicio da cena.
 public class FinalCardBoard : MonoBehaviour
 {
     [Header("Dados")]
@@ -48,36 +53,171 @@ public class FinalCardBoard : MonoBehaviour
     FinalCardAlbum album;
     FinalCardData atual;
     string idUltimo;
+    string imagemLocalPath;      // imagePath do cards.json (sem o site)
+    string imagemRemotaUrl;      // url http(s) da imagem do card atual (site), ou null
     bool ingles;
     Texture imagemAtual;
+    bool imagemAtualDoCache;     // textura do cache: NUNCA destruir aqui
+    bool notificou;              // OnCardCarregado ja foi chamado para este card
+    int geracaoImagem;           // invalida downloads locais antigos
     RenderTexture rtVideo;
     bool temVideo;
+    bool videoNoBoard;           // a RenderTexture do video ja esta no board
+    bool videoPendente;          // configurado, mas ainda sem Prepare()
+    bool jogadorNoTrigger;
+    bool iniciou;                // Start ja rodou (ver GarantirInicio)
+    FinalCardProximidade prox;
     MaterialPropertyBlock bloco;
 
     static readonly int ID_BaseMap = Shader.PropertyToID("_BaseMap");
     static readonly int ID_EmissionMap = Shader.PropertyToID("_EmissionMap");
 
+    // Id do card deste board (o ultimo mostrado, ou o idInicial). Usado pelo CardRemotePreloader.
+    public string IdAtual { get { return !string.IsNullOrEmpty(idUltimo) ? idUltimo : idInicial; } }
+
+    // ---------- DIAGNOSTICO (logs [Emuseu] tag "diag") ----------
+    string fonteImagem = "none";   // none | local | remote(cache)
+    string DiagBase()
+    {
+        return "board=" + name + "#" + GetHashCode() + " id=" + (string.IsNullOrEmpty(IdAtual) ? "-" : IdAtual) +
+               " frame=" + Time.frameCount + " t=" + Time.realtimeSinceStartup.ToString("F2") +
+               " ativoHier=" + gameObject.activeInHierarchy + " enabled=" + enabled;
+    }
+    void Diag(string evento, string extra)
+    {
+        EmuseuDebug.Info("diag", evento + " " + DiagBase() + (string.IsNullOrEmpty(extra) ? "" : " | " + extra));
+    }
+    static string Trecho(string s)
+    {
+        if (s == null) return "(null)";
+        s = s.Replace("\n", " ").Replace("\r", "");
+        return "\"" + (s.Length > 40 ? s.Substring(0, 40) + "..." : s) + "\"(len=" + s.Length + ")";
+    }
+    // Usado pelo FinalCardTextWatcher: o que esta na imagem do board agora.
+    public string DiagImagem()
+    {
+        string tex = "n/a";
+        if (rendererImagem != null)
+        {
+            var mats = rendererImagem.sharedMaterials;
+            if (indiceMaterial >= 0 && indiceMaterial < mats.Length && mats[indiceMaterial] != null)
+            {
+                Texture t = mats[indiceMaterial].HasProperty(ID_BaseMap) ? mats[indiceMaterial].GetTexture(ID_BaseMap) : null;
+                tex = t != null ? (t.name + " " + t.width + "x" + t.height) : "SEM TEXTURA (placeholder do material)";
+            }
+        }
+        return "fonte=" + fonteImagem + " imagemAtual=" + (imagemAtual != null ? imagemAtual.name : "null") + " doCache=" + imagemAtualDoCache +
+               " materialBaseMap=" + tex + " rawImage=" + (rawImage != null ? (rawImage.texture != null ? rawImage.texture.name : "null") : "n/a") +
+               " videoNoBoard=" + videoNoBoard + " temVideo=" + temVideo;
+    }
+
     void Awake()
     {
         CarregarJson();
         AtualizarBotao();
+        prox = GetComponentInParent<FinalCardProximidade>(true);
+        if (prox == null) prox = GetComponentInChildren<FinalCardProximidade>(true);
+        var anims = GetComponentsInParent<Animator>(true);
+        var nomesAnim = new System.Text.StringBuilder();
+        foreach (var an in anims) nomesAnim.Append(an.name).Append(an.runtimeAnimatorController != null ? "(" + an.runtimeAnimatorController.name + ")" : "(sem controller)").Append(' ');
+        Diag("Awake", "idInicial=" + idInicial + " cardsJson=" + (cardsJson != null) + " album=" + (album != null && album.cards != null ? album.cards.Count : -1) +
+                      " titulo=" + (titulo != null ? titulo.name + "(texto inicial=" + Trecho(titulo.text) + ")" : "NULL") +
+                      " descricao=" + (descricao != null ? descricao.name : "NULL") + " rendererImagem=" + (rendererImagem != null ? rendererImagem.name : "NULL") +
+                      " prox=" + (prox != null) + " animators_nos_pais=[" + nomesAnim + "] escala=" + transform.localScale.x.ToString("F3"));
     }
 
     void Start()
     {
-        if (!string.IsNullOrEmpty(idInicial)) Mostrar(idInicial);
+        iniciou = true;
+        // Se alguem ja chamou Mostrar antes do Start, esse id vale (OnEnable ja reaplicou).
+        bool vaiMostrar = !string.IsNullOrEmpty(idInicial) && string.IsNullOrEmpty(idUltimo);
+        Diag("Start", "idInicial=" + idInicial + " idUltimo=" + idUltimo + " vaiMostrarIdInicial=" + vaiMostrar +
+                      " catalogoRemoto=" + CardRemoteCatalog.Count + " imagensNoCache=" + CardRemoteImageCache.Count);
+        if (vaiMostrar) MostrarInterno(idInicial, false, true);
     }
 
-    // Se os dados do site chegarem depois do Mostrar, recarrega o card atual.
-    void OnEnable() { CardRemoteCatalog.Changed += OnCatalogoRemotoMudou; if (atual != null) OnCatalogoRemotoMudou(); } // reaplica se o site chegou enquanto o board estava desligado
-    void OnDisable() { CardRemoteCatalog.Changed -= OnCatalogoRemotoMudou; }
+    void OnEnable()
+    {
+        Diag("OnEnable", "idUltimo=" + idUltimo + " jaTemAtual=" + (atual != null) + " imagemAtual=" + (imagemAtual != null) + " escala=" + transform.localScale.x.ToString("F3"));
+        FinalCardTextWatcher.Observar(this, "OnEnable");
+        // Sempre desassina antes: seguro contra assinatura dupla.
+        CardRemoteCatalog.Changed -= OnCatalogoRemotoMudou;
+        CardRemoteCatalog.Changed += OnCatalogoRemotoMudou;
+        CardRemoteImageCache.TextureReady -= OnTexturaRemotaPronta;
+        CardRemoteImageCache.TextureReady += OnTexturaRemotaPronta;
+        if (prox != null)
+        {
+            if (prox.OnAproximou != null) { prox.OnAproximou.RemoveListener(OnJogadorAproximou); prox.OnAproximou.AddListener(OnJogadorAproximou); }
+            if (prox.OnAfastou != null) { prox.OnAfastou.RemoveListener(OnJogadorAfastou); prox.OnAfastou.AddListener(OnJogadorAfastou); }
+        }
+        // Board foi ligado de novo (ou o payload chegou enquanto estava desligado): reaplica o card atual.
+        // As corrotinas morrem quando o objeto e desligado, entao e preciso refazer a imagem.
+        if (!string.IsNullOrEmpty(idUltimo))
+        {
+            EmuseuDebug.Info("card", "OnEnable: reaplicando " + idUltimo + " board=" + name);
+            MostrarInterno(idUltimo, true, true);
+        }
+        // CORRECAO (bug "board abre sem texto/imagem"): o FinalCardProximidade desliga este componente (rotator.enabled=false)
+        // quando o jogador entra no trigger. Se o board e ativado com o jogador ja dentro, o componente e desligado no mesmo
+        // frame, ANTES do Start rodar, e o Unity so chama Start quando o componente for ligado de novo (jogador saiu).
+        // Entao garantimos o card inicial mesmo sem Start.
+        else if (!iniciou) StartCoroutine(GarantirInicio());
+    }
 
+    // Roda 1 frame depois da ativacao. Se o Start ainda nao rodou (componente desligado antes dele), faz o que o Start faria.
+    IEnumerator GarantirInicio()
+    {
+        yield return null;
+        if (iniciou || !string.IsNullOrEmpty(idUltimo)) yield break;
+        iniciou = true;
+        Diag("INICIO FORCADO (Start nao rodou: componente foi desligado antes do Start)", "idInicial=" + idInicial + " enabled=" + enabled);
+        if (!string.IsNullOrEmpty(idInicial)) MostrarInterno(idInicial, false, true);
+    }
+
+    void OnDisable()
+    {
+        Diag("OnDisable", "jogadorNoTrigger=" + jogadorNoTrigger);
+        FinalCardTextWatcher.Parar(this);
+        jogadorNoTrigger = false; // o trigger avisa de novo quando o jogador entrar
+        CardRemoteCatalog.Changed -= OnCatalogoRemotoMudou;
+        CardRemoteImageCache.TextureReady -= OnTexturaRemotaPronta;
+        if (prox != null)
+        {
+            if (prox.OnAproximou != null) prox.OnAproximou.RemoveListener(OnJogadorAproximou);
+            if (prox.OnAfastou != null) prox.OnAfastou.RemoveListener(OnJogadorAfastou);
+        }
+    }
+
+    // Payload do site (re)carregado: reaplica o card atual (textos, imagem, video) sem sair/voltar do trigger.
     void OnCatalogoRemotoMudou()
     {
-        if (string.IsNullOrEmpty(idUltimo) || !CardRemoteCatalog.TryGet(idUltimo, out _)) return;
-        StopAllCoroutines();
-        Mostrar(idUltimo);
+        Diag("CatalogoMudou", "idUltimo=" + idUltimo + " catalogoRemoto=" + CardRemoteCatalog.Count);
+        if (string.IsNullOrEmpty(idUltimo)) return;
+        EmuseuDebug.Info("card", "catalogo mudou, reaplicando " + idUltimo + " board=" + name);
+        MostrarInterno(idUltimo, true, true);
     }
+
+    // Uma imagem do cache ficou pronta: se e a deste board, troca a imagem local por ela.
+    void OnTexturaRemotaPronta(string url, Texture2D tex)
+    {
+        if (tex == null || atual == null || imagemRemotaUrl == null || url != imagemRemotaUrl) return;
+        if (videoNoBoard) return; // video ja esta passando, nao cobrir
+        EmuseuDebug.Info("card", "imagem remota pronta, trocando id=" + idUltimo + " board=" + name);
+        Diag("TexturaRemotaPronta", "tex=" + tex.name + " " + tex.width + "x" + tex.height);
+        geracaoImagem++; // cancela download local em andamento
+        AplicarImagem(tex, true);
+    }
+
+    void OnJogadorAproximou()
+    {
+        Diag("OnJogadorAproximou", "temVideo=" + temVideo + " imagem=[" + DiagImagem() + "] titulo=" + (titulo != null ? Trecho(titulo.text) : "NULL"));
+        jogadorNoTrigger = true;
+        if (temVideo) PrepararVideoAgora("jogador entrou no trigger");
+        // Rede de seguranca: se a imagem ainda nao apareceu, tenta de novo agora.
+        if (atual != null && !temVideo && imagemAtual == null && isActiveAndEnabled) MostrarImagemDoCard();
+    }
+
+    void OnJogadorAfastou() { Diag("OnJogadorAfastou", null); jogadorNoTrigger = false; }
 
     void CarregarJson()
     {
@@ -90,18 +230,54 @@ public class FinalCardBoard : MonoBehaviour
 
     public void Mostrar(string id)
     {
+        Diag("Mostrar(public)", "pedido=" + id + " ativoSelf=" + gameObject.activeSelf + " idUltimoAntes=" + (idUltimo ?? "null"));
+        MostrarInterno(id, false, false);
+    }
+
+    // reaplicar = mesmo card de novo (nao reinicia o video se a URL e a mesma).
+    // adiarVideo = veio do Start / reaplicacao automatica: o Prepare do video espera o jogador chegar (ou ja esta no trigger).
+    void MostrarInterno(string id, bool reaplicar, bool adiarVideo)
+    {
+        Diag("MostrarInterno", "pedido=" + id + " reaplicar=" + reaplicar + " adiarVideo=" + adiarVideo);
         if (album == null) CarregarJson();
+        bool trocouId = idUltimo != id;
         idUltimo = id;
-        atual = album != null ? album.Buscar(id) : null;
-        atual = CardRemoteCatalog.AplicarSobre(id, atual); // site (se tiver) por cima do json local, em copia
-        if (atual == null) { EmuseuDebug.Warn("card", "id nao encontrado (nem local nem remoto): " + id + " board=" + name); Debug.LogWarning("[FinalCard] id nao encontrado: " + id, this); return; }
-        Log("mostrando " + id);
-        EmuseuDebug.CardMostrado(id, CardRemoteCatalog.TryGet(id, out _), atual.imagePath, atual.video, name);
+        FinalCardData local = album != null ? album.Buscar(id) : null;
+        imagemLocalPath = local != null ? local.imagePath : null;
+        atual = CardRemoteCatalog.AplicarSobre(id, local); // site (se tiver) por cima do json local, em copia
+        Diag("MostrarInterno dados", "local=" + (local != null) + " remotoNoCatalogo=" + CardRemoteCatalog.TryGet(id, out _) +
+                                     " atual=" + (atual != null ? "ok" : "NULL") + " fonteDados=" + (atual == null ? "none" : (CardRemoteCatalog.TryGet(id, out _) ? "remote" : "local")));
+        if (atual == null)
+        {
+            imagemRemotaUrl = null;
+            LimparTextos(); // nunca deixa o texto de template ("Titulo"/"Descricao") aparecendo
+            if (reaplicar) EmuseuDebug.Info("card", "sem dados ainda para " + id + " board=" + name + " (aguardando payload do site)");
+            else { EmuseuDebug.Warn("card", "id nao encontrado (nem local nem remoto): " + id + " board=" + name); Debug.LogWarning("[FinalCard] id nao encontrado: " + id, this); }
+            return;
+        }
+        if (!reaplicar || trocouId) notificou = false;
+        Log((reaplicar ? "reaplicando " : "mostrando ") + id);
+        bool remoto = CardRemoteCatalog.TryGet(id, out _);
+        EmuseuDebug.CardMostrado(id, remoto, atual.imagePath, atual.video, name);
         AtualizarTextos();
+        imagemRemotaUrl = CardRemoteImageCache.EhHttp(atual.imagePath) ? atual.imagePath : null;
+
+        // Mesmo video ja configurado: nao mexe no player (nao reinicia).
+        bool novoTemVideo = !string.IsNullOrEmpty(atual.video) && videoPlayer != null;
+        if (reaplicar && temVideo && novoTemVideo && videoPlayer.url == CaminhoStreaming(atual.video))
+        {
+            EmuseuDebug.Info("card", "reaplicado sem mexer no video id=" + id + " board=" + name);
+            if (!videoNoBoard) MostrarImagemDoCard();
+            return;
+        }
+
         PararVideo();
-        temVideo = !string.IsNullOrEmpty(atual.video) && videoPlayer != null;
-        if (temVideo) PrepararVideo(atual.video);
-        else StartCoroutine(CarregarImagem(atual.imagePath));
+        videoNoBoard = false;
+        videoPendente = false;
+        temVideo = novoTemVideo;
+        if (temVideo && !PrepararVideo(atual.video, adiarVideo)) temVideo = false;
+        // A imagem aparece sempre primeiro (no video serve de poster ate o video comecar).
+        MostrarImagemDoCard();
     }
 
     public void AlternarIdioma()
@@ -124,6 +300,18 @@ public class FinalCardBoard : MonoBehaviour
         if (ingles && string.IsNullOrEmpty(atual.titleEN)) Log("card " + atual.id + " sem titleEN, usando PT");
         if (titulo != null) titulo.text = t;
         if (descricao != null) descricao.text = d;
+        Diag("TEXTOS APLICADOS", "ingles=" + ingles + " titulo=" + Trecho(t) + " descricao=" + Trecho(d) +
+                                 " tmpTitulo=" + (titulo != null ? "ok(ativoHier=" + titulo.gameObject.activeInHierarchy + ", leitura=" + Trecho(titulo.text) + ")" : "NULL") +
+                                 " tmpDescricao=" + (descricao != null ? "ok(ativoHier=" + descricao.gameObject.activeInHierarchy + ")" : "NULL"));
+        FinalCardTextWatcher.Aplicado(this, titulo, t, descricao, d);
+    }
+
+    void LimparTextos()
+    {
+        if (titulo != null) titulo.text = "";
+        if (descricao != null) descricao.text = "";
+        Diag("TEXTOS LIMPOS (sem dados)", null);
+        FinalCardTextWatcher.Aplicado(this, titulo, "", descricao, "");
     }
 
     void AtualizarBotao()
@@ -146,27 +334,95 @@ public class FinalCardBoard : MonoBehaviour
         return "file://" + Path.Combine(baseP, p).Replace("\\", "/");
     }
 
-    IEnumerator CarregarImagem(string caminho)
+    // Mostra a imagem do card atual:
+    //  1) imagem do site ja no cache -> usa na hora;
+    //  2) senao pede ao cache (urgente) e mostra a imagem LOCAL do cards.json ate a remota chegar (OnTexturaRemotaPronta troca);
+    //  3) sem site -> imagem local como sempre.
+    void MostrarImagemDoCard()
+    {
+        if (atual == null) return;
+        geracaoImagem++;
+        int g = geracaoImagem;
+        Diag("MostrarImagemDoCard", "gen=" + g + " imagemRemotaUrl=" + (imagemRemotaUrl ?? "null") + " imagemLocal=" + (imagemLocalPath ?? "null") +
+                                    " noCache=" + (imagemRemotaUrl != null && CardRemoteImageCache.Baixando(imagemRemotaUrl) ? "baixando" : "-") + " isActiveAndEnabled=" + isActiveAndEnabled);
+        if (imagemRemotaUrl != null)
+        {
+            Texture2D tex;
+            if (CardRemoteImageCache.TryGet(imagemRemotaUrl, out tex))
+            {
+                EmuseuDebug.Info("imagem", "usando cache id=" + idUltimo + " board=" + name);
+                AplicarImagem(tex, true);
+                return;
+            }
+            CardRemoteImageCache.Pedir(imagemRemotaUrl, idUltimo, true);
+            if (!string.IsNullOrEmpty(imagemLocalPath) && imagemLocalPath != imagemRemotaUrl)
+            {
+                EmuseuDebug.Info("imagem", "remota ainda nao pronta; mostrando imagem local de id=" + idUltimo + " board=" + name);
+                IniciarCorrotina(CarregarImagem(imagemLocalPath, g));
+            }
+            else EmuseuDebug.Info("imagem", "remota ainda nao pronta e sem imagem local para id=" + idUltimo + " board=" + name);
+            return;
+        }
+        if (string.IsNullOrEmpty(atual.imagePath)) Diag("IMAGEM fonte=none", "card sem imagePath");
+        IniciarCorrotina(CarregarImagem(atual.imagePath, g));
+    }
+
+    void IniciarCorrotina(IEnumerator rotina)
+    {
+        // StartCoroutine em objeto desligado da erro; o OnEnable refaz tudo quando ligar.
+        // So o GameObject precisa estar ativo: desligar so o componente (rotator do Proximidade) nao para corrotinas.
+        if (!gameObject.activeInHierarchy) { Diag("CORROTINA NAO INICIADA (board desligado)", null); EmuseuDebug.Info("card", "board desligado (" + name + "), imagem sera carregada quando ligar"); return; }
+        StartCoroutine(rotina);
+    }
+
+    // Carrega imagem LOCAL (StreamingAssets) ou url direta. A imagem so e aplicada se ainda for a mais recente.
+    IEnumerator CarregarImagem(string caminho, int geracao)
     {
         string url = CaminhoStreaming(caminho);
         if (url == null) { EmuseuDebug.ImagemSemUrl(idUltimo, name); yield break; }
+        string idEste = idUltimo;
         Log("carregando imagem " + url);
-        EmuseuDebug.ImagemInicio(idUltimo, url, name);
+        EmuseuDebug.ImagemInicio(idEste, url, name);
         using (var req = UnityWebRequestTexture.GetTexture(url))
         {
             yield return req.SendWebRequest();
             if (req.result != UnityWebRequest.Result.Success)
             {
-                EmuseuDebug.ImagemResultado(idUltimo, url, false, 0, 0, req.downloadedBytes, req.error, req.responseCode);
+                EmuseuDebug.ImagemResultado(idEste, url, false, 0, 0, req.downloadedBytes, req.error, req.responseCode);
                 Debug.LogWarning("[FinalCard] falha ao carregar " + url + " : " + req.error, this);
                 yield break;
             }
-            if (imagemAtual != null && imagemAtual is Texture2D) Destroy(imagemAtual);
-            imagemAtual = DownloadHandlerTexture.GetContent(req);
-            EmuseuDebug.ImagemResultado(idUltimo, url, true, imagemAtual != null ? imagemAtual.width : 0, imagemAtual != null ? imagemAtual.height : 0, req.downloadedBytes, null, req.responseCode);
-            AplicarTextura(imagemAtual);
-            OnCardCarregado.Invoke();
+            Texture2D tex = DownloadHandlerTexture.GetContent(req);
+            EmuseuDebug.ImagemResultado(idEste, url, true, tex != null ? tex.width : 0, tex != null ? tex.height : 0, req.downloadedBytes, null, req.responseCode);
+            if (tex == null) yield break;
+            // Chegou tarde (outro card, ou a imagem remota ja entrou): descarta.
+            if (Obsoleta(geracao)) { Destroy(tex); yield break; }
+            AplicarImagem(tex, false);
         }
+    }
+
+    bool Obsoleta(int geracao) { return geracao != geracaoImagem; }
+
+    // Aplica uma imagem (nao video) no board. doCache = textura do cache (nao destruir).
+    void AplicarImagem(Texture tex, bool doCache)
+    {
+        if (tex == null || videoNoBoard) return;
+        Texture antiga = imagemAtual;
+        bool antigaDoCache = imagemAtualDoCache;
+        imagemAtual = tex;
+        imagemAtualDoCache = doCache;
+        fonteImagem = doCache ? "remote(cache)" : "local";
+        Diag("IMAGEM APLICADA", "fonte=" + fonteImagem + " tex=" + tex.name + " " + tex.width + "x" + tex.height + " renderer=" + (rendererImagem != null ? rendererImagem.name : "NULL") + " indiceMaterial=" + indiceMaterial);
+        AplicarTextura(tex);
+        if (antiga != null && antiga != tex && !antigaDoCache && antiga is Texture2D) Destroy(antiga);
+        Notificar();
+    }
+
+    void Notificar()
+    {
+        if (notificou) return;
+        notificou = true;
+        OnCardCarregado.Invoke();
     }
 
     void AplicarTextura(Texture tex)
@@ -190,7 +446,9 @@ public class FinalCardBoard : MonoBehaviour
 
     // ---------- Video ----------
 
-    void PrepararVideo(string caminho)
+    // Configura o VideoPlayer. O Prepare() so acontece quando o jogador entra no trigger / chega perto
+    // (ou ja agora, se adiar = false). Retorna false se nao deu para usar o video (cai na imagem).
+    bool PrepararVideo(string caminho, bool adiar)
     {
         if (rtVideo == null)
         {
@@ -202,9 +460,7 @@ public class FinalCardBoard : MonoBehaviour
         {
             EmuseuDebug.VideoFallback(idUltimo, null, "objeto do VideoPlayer inativo (" + videoPlayer.name + ")");
             Debug.LogWarning("[FinalCard] o objeto do VideoPlayer (" + videoPlayer.name + ") esta inativo; mostrando imagem", this);
-            temVideo = false;
-            StartCoroutine(CarregarImagem(atual.imagePath));
-            return;
+            return false;
         }
         videoPlayer.playOnAwake = false;
         videoPlayer.source = VideoSource.Url;
@@ -214,17 +470,41 @@ public class FinalCardBoard : MonoBehaviour
         videoPlayer.aspectRatio = VideoAspectRatio.FitInside; // video vertical ganha faixas pretas, sem esticar
         videoPlayer.errorReceived -= OnErroVideo;
         videoPlayer.errorReceived += OnErroVideo;
+        videoPlayer.started -= OnVideoIniciou;
+        videoPlayer.started += OnVideoIniciou;
         videoPlayer.isLooping = true;
         videoPlayer.audioOutputMode = semSom ? VideoAudioOutputMode.None : VideoAudioOutputMode.Direct;
         videoPlayer.EnableAudioTrack(0, true);
         AplicarVolume();
         if (somSomentePerto) DesligarSom();
+        videoPendente = true;
+        Log("video configurado " + videoPlayer.url);
+
+        // Sem "por aproximacao" o video toca sempre: prepara ja. Senao espera o jogador (se vier do Start).
+        if (!adiar || jogadorNoTrigger || !videoPorAproximacao) PrepararVideoAgora(adiar ? "jogador ja no trigger" : "board mostrado");
+        else EmuseuDebug.Info("video", "Prepare adiado ate o jogador entrar no trigger id=" + idUltimo + " board=" + name);
+        return true;
+    }
+
+    // Unico lugar que chama Prepare(). Seguro chamar varias vezes (so prepara uma vez por configuracao).
+    void PrepararVideoAgora(string motivo)
+    {
+        if (!videoPendente || !temVideo || videoPlayer == null || !videoPlayer.isActiveAndEnabled) return;
+        videoPendente = false;
+        EmuseuDebug.Info("video", "Prepare() agora (" + motivo + ") id=" + idUltimo + " board=" + name);
         videoPlayer.Prepare();
-        AplicarTextura(rtVideo);
         Log("video preparado " + videoPlayer.url);
         EmuseuDebug.VideoPreparar(videoPlayer, idUltimo, videoPlayer.url);
         if (!videoPorAproximacao) videoPlayer.Play();
-        OnCardCarregado.Invoke();
+    }
+
+    // O video comecou a tocar: agora sim troca a imagem (poster) pelo video.
+    void OnVideoIniciou(VideoPlayer vp)
+    {
+        if (!temVideo || vp != videoPlayer) return;
+        videoNoBoard = true;
+        AplicarTextura(rtVideo);
+        Notificar();
     }
 
     void OnErroVideo(VideoPlayer vp, string msg)
@@ -232,7 +512,9 @@ public class FinalCardBoard : MonoBehaviour
         EmuseuDebug.VideoFallback(idUltimo, vp.url, msg);
         Debug.LogWarning("[FinalCard] erro no video " + vp.url + " : " + msg + " (mostrando imagem)", this);
         temVideo = false;
-        if (atual != null) StartCoroutine(CarregarImagem(atual.imagePath));
+        videoNoBoard = false;
+        videoPendente = false;
+        if (atual != null) MostrarImagemDoCard();
     }
 
     void PararVideo()
@@ -248,6 +530,7 @@ public class FinalCardBoard : MonoBehaviour
         if (alvo == null) return;
         bool perto = Vector3.Distance(alvo.position, transform.position) <= distanciaVideo;
         if (somSomentePerto) { if (perto) LigarSom(); else DesligarSom(); }
+        if (perto && videoPendente) PrepararVideoAgora("jogador perto");
         if (perto && !videoPlayer.isPlaying) { videoPlayer.Play(); Log("video play (perto)"); }
         else if (!perto && videoPlayer.isPlaying) { videoPlayer.Pause(); Log("video pause (longe)"); }
     }
@@ -294,8 +577,13 @@ public class FinalCardBoard : MonoBehaviour
 
     void OnDestroy()
     {
+        if (videoPlayer != null)
+        {
+            videoPlayer.errorReceived -= OnErroVideo;
+            videoPlayer.started -= OnVideoIniciou;
+        }
         if (rtVideo != null) rtVideo.Release();
-        if (imagemAtual is Texture2D) Destroy(imagemAtual);
+        if (imagemAtual is Texture2D && !imagemAtualDoCache) Destroy(imagemAtual);
     }
 
     void Log(string m) { if (mostrarDebug) Debug.Log("[FinalCard] " + name + ": " + m, this); }

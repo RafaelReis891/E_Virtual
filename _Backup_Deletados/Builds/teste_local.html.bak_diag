@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<title>Teste local - emuseu / Unity WebGL</title>
+<link rel="shortcut icon" href="WebGL_Local/TemplateData/favicon.ico">
+<style>
+  html,body{margin:0;padding:0;height:100%;background:#1b1b1b;color:#ddd;font-family:Segoe UI,Arial,sans-serif;font-size:13px}
+  #layout{display:flex;height:100%}
+  #game{flex:1;position:relative;min-width:0}
+  #unity-canvas{position:absolute;width:100%;height:100%;background:#231F20}
+  #loading{position:absolute;left:0;top:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#fff;pointer-events:none}
+  #bar{width:240px;height:10px;background:#444;margin-top:10px}
+  #barfull{height:100%;width:0;background:#4caf50}
+  #warning{position:absolute;left:50%;top:5%;transform:translate(-50%);display:none;color:#000;z-index:5}
+  #panel{width:420px;display:flex;flex-direction:column;padding:10px;box-sizing:border-box;background:#262626;border-left:1px solid #444;gap:8px}
+  #panel h2{margin:0;font-size:15px}
+  textarea{flex:1;min-height:140px;background:#111;color:#cfe8cf;border:1px solid #444;font-family:Consolas,monospace;font-size:12px;resize:none}
+  button{background:#3a6ea5;color:#fff;border:0;padding:8px 12px;cursor:pointer;border-radius:3px}
+  button:disabled{background:#555;cursor:not-allowed}
+  .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  #status{font-size:12px;color:#aaa}
+  #log{height:220px;overflow:auto;background:#111;border:1px solid #444;font-family:Consolas,monospace;font-size:11px;padding:4px;white-space:pre-wrap;word-break:break-all}
+  .l-err{color:#ff7b7b}.l-warn{color:#ffd966}.l-in{color:#8fd3ff}.l-out{color:#9be59b}
+</style>
+</head>
+<body>
+<div id="layout">
+  <div id="game">
+    <canvas id="unity-canvas" tabindex="-1"></canvas>
+    <div id="loading"><div id="loadtxt">Carregando...</div><div id="bar"><div id="barfull"></div></div></div>
+    <div id="warning"></div>
+  </div>
+  <div id="panel">
+    <h2>Simulador do site emuseu</h2>
+    <div id="status">Unity: carregando...</div>
+    <div>Payload (envelope completo ou so o payload) &rarr; <code>EmuseuBridge.OnPlayConfig</code></div>
+    <textarea id="payload" spellcheck="false">{
+  &quot;version&quot;: 1,
+  &quot;channel&quot;: &quot;unity-react&quot;,
+  &quot;type&quot;: &quot;play-config&quot;,
+  &quot;_aviso&quot;: &quot;EXEMPLO DE TESTE - dados e URLs ficticios/publicos, nao sao do site real.&quot;,
+  &quot;payload&quot;: {
+    &quot;user&quot;: { &quot;id&quot;: &quot;teste-user&quot;, &quot;roles&quot;: [&quot;root&quot;] },
+    &quot;campaign&quot;: {
+      &quot;id&quot;: &quot;teste-campanha&quot;,
+      &quot;name&quot;: &quot;EXEMPLO - Campanha de Teste&quot;,
+      &quot;games&quot;: [],
+      &quot;albums&quot;: [
+        {
+          &quot;id&quot;: &quot;album-elas&quot;,
+          &quot;name&quot;: &quot;Galerias Virtuais - Elas no Jogo (EXEMPLO)&quot;,
+          &quot;description&quot;: &quot;Album de teste&quot;,
+          &quot;active&quot;: true,
+          &quot;pages&quot;: [
+            {
+              &quot;id&quot;: &quot;page-1&quot;,
+              &quot;title&quot;: &quot;Pagina 1&quot;,
+              &quot;titleEn&quot;: &quot;Page 1&quot;,
+              &quot;cards&quot;: [
+                {
+                  &quot;id&quot;: &quot;card-1&quot;,
+                  &quot;number&quot;: 1,
+                  &quot;title&quot;: &quot;[TESTE REMOTO] F16 com video&quot;,
+                  &quot;titleEn&quot;: &quot;[REMOTE TEST] F16 with video&quot;,
+                  &quot;description&quot;: &quot;Descricao de teste vinda do payload remoto (PT).&quot;,
+                  &quot;descriptionEn&quot;: &quot;Test description from the remote payload (EN).&quot;,
+                  &quot;frame&quot;: &quot;F16&quot;,
+                  &quot;border&quot;: &quot;common&quot;,
+                  &quot;release&quot;: { &quot;mode&quot;: &quot;immediate&quot; },
+                  &quot;imageUrl&quot;: &quot;https://picsum.photos/id/1011/1280/720.jpg&quot;,
+                  &quot;thumbUrl&quot;: &quot;https://picsum.photos/id/1011/320/180.jpg&quot;,
+                  &quot;videoUrl&quot;: &quot;https://www.w3schools.com/html/mov_bbb.mp4&quot;,
+                  &quot;media&quot;: &quot;video&quot;
+                },
+                {
+                  &quot;id&quot;: &quot;card-2&quot;,
+                  &quot;number&quot;: 2,
+                  &quot;title&quot;: &quot;[TESTE REMOTO] F19 so imagem&quot;,
+                  &quot;titleEn&quot;: &quot;[REMOTE TEST] F19 image only&quot;,
+                  &quot;description&quot;: &quot;Descricao de teste F19 (PT).&quot;,
+                  &quot;descriptionEn&quot;: &quot;Test description F19 (EN).&quot;,
+                  &quot;frame&quot;: &quot;F19&quot;,
+                  &quot;border&quot;: &quot;host&quot;,
+                  &quot;release&quot;: { &quot;mode&quot;: &quot;immediate&quot; },
+                  &quot;imageUrl&quot;: &quot;https://picsum.photos/id/1015/1280/720.jpg&quot;,
+                  &quot;thumbUrl&quot;: &quot;https://picsum.photos/id/1015/320/180.jpg&quot;,
+                  &quot;media&quot;: &quot;image&quot;
+                },
+                {
+                  &quot;id&quot;: &quot;card-3&quot;,
+                  &quot;number&quot;: 3,
+                  &quot;title&quot;: &quot;Card sem frame (deve ser ignorado)&quot;,
+                  &quot;release&quot;: { &quot;mode&quot;: &quot;closed&quot; },
+                  &quot;imageUrl&quot;: &quot;https://picsum.photos/id/1018/1280/720.jpg&quot;,
+                  &quot;media&quot;: &quot;image&quot;
+                },
+                {
+                  &quot;id&quot;: &quot;card-4&quot;,
+                  &quot;number&quot;: 4,
+                  &quot;title&quot;: &quot;Frame invalido (deve ser ignorado)&quot;,
+                  &quot;frame&quot;: &quot;borda-azul&quot;,
+                  &quot;imageUrl&quot;: &quot;https://picsum.photos/id/1020/1280/720.jpg&quot;,
+                  &quot;media&quot;: &quot;image&quot;
+                }
+              ]
+            }
+          ]
+        },
+        {
+          &quot;id&quot;: &quot;album-stage&quot;,
+          &quot;name&quot;: &quot;Stage (EXEMPLO)&quot;,
+          &quot;description&quot;: &quot;Album de teste com 1 card duplicado&quot;,
+          &quot;active&quot;: true,
+          &quot;pages&quot;: [
+            {
+              &quot;id&quot;: &quot;page-stage&quot;,
+              &quot;title&quot;: &quot;Stage&quot;,
+              &quot;cards&quot;: [
+                {
+                  &quot;id&quot;: &quot;card-stage-1&quot;,
+                  &quot;number&quot;: 1,
+                  &quot;title&quot;: &quot;[STAGE] F16 duplicado (deve PERDER para o album maior)&quot;,
+                  &quot;frame&quot;: &quot;F16&quot;,
+                  &quot;imageUrl&quot;: &quot;https://picsum.photos/id/1025/1280/720.jpg&quot;,
+                  &quot;media&quot;: &quot;image&quot;
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      &quot;sponsors&quot;: []
+    }
+  }
+}</textarea>
+    <div class="row">
+      <button id="btnSend" disabled>Enviar payload</button>
+      <button id="btnReset" type="button">Restaurar padrão</button>
+      <label><input type="checkbox" id="chkAuto" checked> responder play-config-request automaticamente</label>
+    </div>
+    <div class="row">
+      <label>Carregar arquivo JSON: <input type="file" id="file" accept=".json,application/json"></label>
+    </div>
+    <div class="row"><strong>Log</strong> <button id="btnClear" type="button">Limpar</button></div>
+    <div id="log"></div>
+  </div>
+</div>
+<script>
+  // Conteudo padrao do textarea (para "Restaurar padrao").
+  var defaultPayload = document.getElementById('payload').value;
+  var logEl = document.getElementById('log');
+  var statusEl = document.getElementById('status');
+  var btnSend = document.getElementById('btnSend');
+  var unityInstance = null;
+
+  function log(msg, cls) {
+    var d = document.createElement('div');
+    d.className = cls || '';
+    d.textContent = '[' + new Date().toLocaleTimeString() + '] ' + msg;
+    logEl.appendChild(d);
+    logEl.scrollTop = logEl.scrollHeight;
+  }
+
+  // Espelha console.* no log da pagina (Debug.Log do Unity aparece aqui).
+  ['log','warn','error'].forEach(function (k) {
+    var orig = console[k].bind(console);
+    console[k] = function () {
+      orig.apply(null, arguments);
+      var s = Array.prototype.map.call(arguments, function (a) {
+        if (typeof a === 'string') return a;
+        try { return JSON.stringify(a); } catch (e) { return String(a); }
+      }).join(' ');
+      log('console.' + k + ': ' + (s.length > 600 ? s.slice(0, 600) + '...(' + s.length + ' chars)' : s),
+          k === 'error' ? 'l-err' : k === 'warn' ? 'l-warn' : '');
+    };
+  });
+  window.addEventListener('error', function (e) { log('window.onerror: ' + e.message, 'l-err'); });
+
+  function send(text) {
+    if (!unityInstance) { log('Unity ainda nao carregou.', 'l-err'); return; }
+    try { JSON.parse(text); } catch (e) { log('Aviso: JSON invalido no textarea (' + e.message + '). Enviando mesmo assim.', 'l-warn'); }
+    unityInstance.SendMessage('EmuseuBridge', 'OnPlayConfig', text);
+    log('SendMessage("EmuseuBridge","OnPlayConfig") enviado, ' + text.length + ' chars', 'l-out');
+  }
+
+  // Ponte Unity -> React: o .jslib chama window.emuseu.receive(obj) com o envelope.
+  window.emuseu = {
+    receive: function (obj) {
+      var t = obj && obj.type;
+      log('Unity -> React: type=' + t + ' ' + JSON.stringify(obj).slice(0, 400), 'l-in');
+      if (t === 'play-config-request' && document.getElementById('chkAuto').checked) {
+        log('play-config-request recebido; reenviando payload do textarea...', 'l-in');
+        send(document.getElementById('payload').value);
+      }
+    }
+  };
+
+  btnSend.onclick = function () { send(document.getElementById('payload').value); };
+  document.getElementById('btnReset').onclick = function () {
+    document.getElementById('payload').value = defaultPayload; log('Textarea restaurado ao payload_teste.json');
+  };
+  document.getElementById('btnClear').onclick = function () { logEl.textContent = ''; };
+  document.getElementById('file').onchange = function (ev) {
+    var f = ev.target.files[0]; if (!f) return;
+    var r = new FileReader();
+    r.onload = function () { document.getElementById('payload').value = r.result; log('Arquivo carregado: ' + f.name + ' (' + r.result.length + ' chars). Clique em "Enviar payload".'); };
+    r.readAsText(f);
+  };
+
+  function showBanner(msg, type) {
+    var w = document.getElementById('warning');
+    var div = document.createElement('div');
+    div.innerHTML = msg;
+    w.appendChild(div);
+    div.style = type == 'error' ? 'background:red;padding:10px;' : 'background:yellow;padding:10px;';
+    log('Unity banner (' + type + '): ' + div.textContent, type == 'error' ? 'l-err' : 'l-warn');
+    function upd() { w.style.display = w.children.length ? 'block' : 'none'; }
+    if (type != 'error') setTimeout(function () { w.removeChild(div); upd(); }, 5000);
+    upd();
+  }
+
+  // Mesma config do index.html, com caminhos relativos a WebGL_Local/.
+  // Build sem compressao (sem .br/.gz) -> sem decompressionFallback, igual ao index.html.
+  var buildUrl = "WebGL_Local/Build";
+  var loaderUrl = buildUrl + "/WebGL_Local.loader.js";
+  var config = {
+    arguments: [],
+    dataUrl: buildUrl + "/WebGL_Local.data",
+    frameworkUrl: buildUrl + "/WebGL_Local.framework.js",
+    codeUrl: buildUrl + "/WebGL_Local.wasm",
+    streamingAssetsUrl: "WebGL_Local/StreamingAssets",
+    fullscreenElementID: "game",
+    companyName: "DefaultCompany",
+    productName: "Rafa_pista",
+    productVersion: "0.1.0",
+    showBanner: showBanner
+  };
+
+  var script = document.createElement("script");
+  script.src = loaderUrl;
+  script.onload = function () {
+    createUnityInstance(document.getElementById('unity-canvas'), config, function (p) {
+      document.getElementById('barfull').style.width = (100 * p) + '%';
+      document.getElementById('loadtxt').textContent = 'Carregando ' + Math.round(100 * p) + '%';
+      if (p >= 1) document.getElementById('loading').style.display = 'none';
+    }).then(function (inst) {
+      unityInstance = inst;
+      window.unityInstance = inst;
+      statusEl.textContent = 'Unity: carregado. Pronto para enviar payload.';
+      btnSend.disabled = false;
+      log('Unity carregado.');
+    }).catch(function (m) { statusEl.textContent = 'Unity: erro'; log('Erro ao criar Unity: ' + m, 'l-err'); alert(m); });
+  };
+  script.onerror = function () { log('Falha ao carregar ' + loaderUrl, 'l-err'); };
+  document.body.appendChild(script);
+</script>
+</body>
+</html>
