@@ -22,6 +22,8 @@ public class CharacterAppearDissolve : MonoBehaviour
 
     [Header("Áudio")]
     public AudioClip voiceClip;
+    [Tooltip("Versao em ingles. Preenchido sozinho no Editor com o audio de mesmo nome + _eng.")]
+    public AudioClip voiceClipEng;
     [Range(0f, 1f)] public float volume = 1f;
 
     [Header("Objeto extra (opcional)")]
@@ -184,13 +186,14 @@ public class CharacterAppearDissolve : MonoBehaviour
         }
 
         // Áudio
-        if (voiceClip != null && audioSource != null)
+        AudioClip clip = (Idioma.Ingles && voiceClipEng != null) ? voiceClipEng : voiceClip;
+        if (clip != null && audioSource != null)
         {
-            Log("Tocando áudio: " + voiceClip.name);
-            audioSource.clip = voiceClip;
+            Log("Tocando áudio: " + clip.name);
+            audioSource.clip = clip;
             audioSource.volume = volume;
             audioSource.Play();
-            yield return new WaitForSeconds(voiceClip.length);
+            yield return new WaitForSeconds(clip.length);
         }
 
         if (objectToActivate != null)
@@ -247,6 +250,27 @@ public class CharacterAppearDissolve : MonoBehaviour
         if (dissolveMat != null && dissolveMat.HasProperty(Direction))
             dissolveMat.SetFloat(Direction, dissolveFromBottom ? 1f : -1f);
     }
+
+#if UNITY_EDITOR
+    // Procura automaticamente o audio <nome>_eng na mesma pasta
+    void OnValidate()
+    {
+        if (voiceClip == null) return;
+        string path = UnityEditor.AssetDatabase.GetAssetPath(voiceClip);
+        if (string.IsNullOrEmpty(path)) return;
+        string dir = System.IO.Path.GetDirectoryName(path).Replace('\\', '/');
+        foreach (string g in UnityEditor.AssetDatabase.FindAssets(voiceClip.name + "_eng t:AudioClip", new[] { dir }))
+        {
+            string ap = UnityEditor.AssetDatabase.GUIDToAssetPath(g);
+            if (System.IO.Path.GetFileNameWithoutExtension(ap).Equals(voiceClip.name + "_eng", System.StringComparison.OrdinalIgnoreCase))
+            {
+                var c = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>(ap);
+                if (c != voiceClipEng) { voiceClipEng = c; UnityEditor.EditorUtility.SetDirty(this); }
+                return;
+            }
+        }
+    }
+#endif
 
     void Log(string msg)
     {

@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 5382277369495681825}
   - component: {fileID: 6546012752388411103}
   - component: {fileID: 5060174091785667219}
+  - component: {fileID: 7425936138261032342}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -341,6 +342,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 6546012752388411103}
   m_maskType: 0
+--- !u!114 &7425936138261032342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5092428124841923690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: 'Which city in Rio de Janeiro hosted the 1st
+
+    Brazilian Women''s U-17 Football Championship?'
 --- !u!1 &5597688797507109266
 GameObject:
   m_ObjectHideFlags: 0

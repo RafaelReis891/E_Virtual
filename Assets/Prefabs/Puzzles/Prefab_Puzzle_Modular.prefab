@@ -846,6 +846,9 @@ MonoBehaviour:
   dial2: {fileID: 1806686188522353126}
   indexDial2: 0
   rotationDuration: 0.2
+  corretosDial1: 06000000i
+  corretosDial2: 000000000c000000i
+  feedbackDials: {fileID: 0}
 --- !u!1 &3785590519921706733
 GameObject:
   m_ObjectHideFlags: 0
@@ -2482,6 +2485,7 @@ GameObject:
   - component: {fileID: 6627980256382887696}
   - component: {fileID: 7187955859205166106}
   - component: {fileID: 4675256400369770055}
+  - component: {fileID: 8184449236896748484}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -2652,6 +2656,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 7187955859205166106}
   m_maskType: 0
+--- !u!114 &8184449236896748484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202127069368363390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Who did Brazil thrash to win gold in women's football at the Military World Games in Rio, and what was the score?
 --- !u!1001 &477663548073993074
 PrefabInstance:
   m_ObjectHideFlags: 0

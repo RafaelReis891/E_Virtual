@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 25309215}
   - component: {fileID: 25309214}
   - component: {fileID: 25309213}
+  - component: {fileID: 25309217}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -348,6 +349,7 @@ RectTransform:
   - {fileID: 602904568}
   - {fileID: 1223074409}
   - {fileID: 1975495369}
+  - {fileID: 1430398528}
   - {fileID: 1591718622}
   - {fileID: 341015988}
   m_Father: {fileID: 0}
@@ -357,6 +359,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &25309217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25309212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2238a5a35ad06043961f5c2385e7d64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleLoadScene
 --- !u!1001 &27063963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -687,6 +701,8 @@ MonoBehaviour:
   usarCor: 0
   corConcluido: {r: 0.2, g: 1, b: 0.3, a: 1}
   boardFinalCard: {fileID: 0}
+  etapaId: 
+  cartaId: 
   OnFinalizado:
     m_PersistentCalls:
       m_Calls: []
@@ -736,6 +752,7 @@ GameObject:
   - component: {fileID: 61808209}
   - component: {fileID: 61808211}
   - component: {fileID: 61808210}
+  - component: {fileID: 61808212}
   m_Layer: 0
   m_Name: TimeVencedor
   m_TagString: Untagged
@@ -906,6 +923,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &61808212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61808208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: << Winner
 --- !u!4 &68252728 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
@@ -1891,6 +1921,7 @@ GameObject:
   - component: {fileID: 199926272}
   - component: {fileID: 199926274}
   - component: {fileID: 199926273}
+  - component: {fileID: 199926275}
   m_Layer: 0
   m_Name: TimePerdeu
   m_TagString: Untagged
@@ -2061,6 +2092,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &199926275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199926271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Loser >>
 --- !u!1001 &203520856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2510,6 +2554,8 @@ MonoBehaviour:
   usarCor: 0
   corConcluido: {r: 0.2, g: 1, b: 0.3, a: 1}
   boardFinalCard: {fileID: 0}
+  etapaId: 
+  cartaId: 
   OnFinalizado:
     m_PersistentCalls:
       m_Calls: []
@@ -2942,6 +2988,7 @@ GameObject:
   - component: {fileID: 272420220}
   - component: {fileID: 272420222}
   - component: {fileID: 272420221}
+  - component: {fileID: 272420223}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -3112,6 +3159,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &272420223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272420219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: 'Result of the 2007 Pan American Games at the Maracana: click the team and the padlock in the center to get the final score right'
 --- !u!1001 &310062397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3945,6 +4005,7 @@ GameObject:
   - component: {fileID: 412609503}
   - component: {fileID: 412609505}
   - component: {fileID: 412609504}
+  - component: {fileID: 412609506}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4115,6 +4176,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &412609506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412609502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Click the left mouse button on the shirt and drag to form the word by which the Taca das Favelas is affectionately known.
 --- !u!1 &412609921 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6488686400550564261, guid: 8080b5a2a43ff8c49ab4868b0ac514f4, type: 3}
@@ -6088,6 +6162,7 @@ GameObject:
   - component: {fileID: 658856948}
   - component: {fileID: 658856950}
   - component: {fileID: 658856949}
+  - component: {fileID: 658856951}
   m_Layer: 0
   m_Name: TimeVencedor (1)
   m_TagString: Untagged
@@ -6258,6 +6333,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &658856951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658856947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Score
 --- !u!1 &666659211 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1388881376810265320, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
@@ -6352,6 +6440,7 @@ GameObject:
   - component: {fileID: 684121952}
   - component: {fileID: 684121954}
   - component: {fileID: 684121953}
+  - component: {fileID: 684121955}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -6522,6 +6611,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &684121955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684121951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Click the team that lost to Brazil
 --- !u!1 &697326733
 GameObject:
   m_ObjectHideFlags: 0
@@ -8940,6 +9042,8 @@ MonoBehaviour:
   usarCor: 0
   corConcluido: {r: 0.2, g: 1, b: 0.3, a: 1}
   boardFinalCard: {fileID: 0}
+  etapaId: 
+  cartaId: 
   OnFinalizado:
     m_PersistentCalls:
       m_Calls: []
@@ -9247,6 +9351,7 @@ GameObject:
   - component: {fileID: 989342185}
   - component: {fileID: 989342187}
   - component: {fileID: 989342186}
+  - component: {fileID: 989342188}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -9373,6 +9478,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989342184}
   m_CullTransparentMesh: 1
+--- !u!114 &989342188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989342184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: The Taca das Favelas, affectionately known as "Favelao", has been organized by the Central Unica das Favelas (CUFA) since 2011 and has become the largest football tournament between favelas in the world. In women's football, the championship plays a transformative role by opening space and visibility for young athletes from the outskirts, using sport as a powerful tool for social inclusion, talent discovery and the affirmation of identity for communities across the country.
 --- !u!1001 &989460317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10358,6 +10476,8 @@ MonoBehaviour:
   usarCor: 0
   corConcluido: {r: 0.2, g: 1, b: 0.3, a: 1}
   boardFinalCard: {fileID: 0}
+  etapaId: 
+  cartaId: 
   OnFinalizado:
     m_PersistentCalls:
       m_Calls: []
@@ -12989,6 +13109,104 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8390ef98f761bcd4a91db1775dab8cfd, type: 3}
   m_PrefabInstance: {fileID: 1427529881}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1430398527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1430398528}
+  - component: {fileID: 1430398531}
+  - component: {fileID: 1430398530}
+  - component: {fileID: 1430398529}
+  m_Layer: 5
+  m_Name: FadeIn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1430398528
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430398527}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 25309216}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1430398529
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430398527}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 386b164f1228e4d49afc8c221231a764, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1430398530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430398527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1430398531
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430398527}
+  m_CullTransparentMesh: 1
 --- !u!1 &1437565682 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4902534148989153667, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
@@ -13372,6 +13590,7 @@ GameObject:
   - component: {fileID: 1488627379}
   - component: {fileID: 1488627381}
   - component: {fileID: 1488627380}
+  - component: {fileID: 1488627382}
   m_Layer: 0
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -13542,6 +13761,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1488627382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488627378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Score
 --- !u!1 &1498173196
 GameObject:
   m_ObjectHideFlags: 0
@@ -15179,6 +15411,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4864520735198954151, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       propertyPath: doorAnimator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4864520735198954151, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
+      propertyPath: successEffect
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4864520735198954151, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
@@ -20677,6 +20913,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7208622203317698214, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: en
+      value: How many teams took part in the 1st National Quilombola Football Cup in Rio de Janeiro in 2024?
+      objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_text
       value: Quantos times participaram da I Copa Nacional Quilombola de Futebol  no Rio de Janeiro em 2024?
@@ -21312,6 +21552,8 @@ MonoBehaviour:
   usarCor: 0
   corConcluido: {r: 0.2, g: 1, b: 0.3, a: 1}
   boardFinalCard: {fileID: 0}
+  etapaId: 
+  cartaId: 
   OnFinalizado:
     m_PersistentCalls:
       m_Calls: []
@@ -21670,6 +21912,106 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
+--- !u!1001 &8141084710856163284
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 22.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.104112655
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.10411265
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6994002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.6994001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816368065564880662, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: rotationAxis.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816368065564880662, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: rotationAxis.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816368065564880662, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: rotationAxis.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380556186737067413, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: m_Name
+      value: Portal_Hub
+      objectReference: {fileID: 0}
+    - target: {fileID: 3479091806885259217, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: timerAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 25309217}
+    - target: {fileID: 3479091806885259217, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: timerAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 5075699439633411485, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: _OnTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5075699439633411485, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: _OnTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1430398527}
+    - target: {fileID: 5075699439633411485, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: _OnTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 5075699439633411485, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: _OnTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5075699439633411485, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: _OnTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 756399325418399666, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: bf50656f04f34234c90350b3b944664c, type: 3}
 --- !u!4 &8338988565591873055 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4135013735270702856, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
@@ -21857,5 +22199,6 @@ SceneRoots:
   - {fileID: 25309216}
   - {fileID: 2009182360}
   - {fileID: 547379965}
+  - {fileID: 8141084710856163284}
   - {fileID: 337630654}
   - {fileID: 2062478917}

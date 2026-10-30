@@ -10,10 +10,27 @@ Quantos times?;;;2;Prefab_Cadeado_Modular.prefab > Prefab_Cadeado_Modular/Cadead
 "Descricao Descricao Descricao Descricao Descricao Descricao Descricao Descricao Descricao Descricao Descricao Descricao Descricao Descricao Descricao Descricao Descricao Descricao Descricao Descricao 
 ";;sim;1;Prefab_FinalCard.prefab > Prefab_FinalCard/Descricao
 "Qual a cidade no Rio de Janeiro que sediou o I
-Campeonato Brasileiro Sub-17 de Futebol Feminino";;;2;Prefab_Puzzle_Bussola.prefab > Prefab_Puzzle_Bussola/Board/Board/F19 (1)/Dica | Prefab_Puzzle_BussolaSimples.prefab > Prefab_Puzzle_BussolaSimples/Board/Board/F19 (1)/Dica
-Quem o Brasil goleiou na Conquista o Ouro no Futebol Feminino dos Jogos Mundiais Militares no Rio e qual foi o resultado?;;;2;Prefab_Puzzle_Cadeado.prefab > Prefab_Puzzle_Cadeado/Board/Board/black/Dica | Prefab_Puzzle_Modular.prefab > Prefab_Puzzle_Modular/Board/Board/black/Dica
+Campeonato Brasileiro Sub-17 de Futebol Feminino";;;2;Prefab_Puzzle_Bussola.prefab > Prefab_Puzzle_Bussola/Board_Text 2/Board_Puzzle/F19 (1)/Dica | Prefab_Puzzle_BussolaSimples.prefab > Prefab_Puzzle_BussolaSimples/Board_Text 2/Board_Puzzle/F19 (1)/Dica
+Quem o Brasil goleiou na Conquista o Ouro no Futebol Feminino dos Jogos Mundiais Militares no Rio e qual foi o resultado?;;;2;Prefab_Puzzle_Cadeado.prefab > Prefab_Puzzle_Cadeado/Board_Text 2/black/Dica | Prefab_Puzzle_Modular.prefab > Prefab_Puzzle_Modular/Board/Board/black/Dica
 "Em 2018, a Fox Sports formou a primeira equipe só de mulheres a transmitir a Copa do Mundo no Brasil. Quem fazia parte dela?
 ";;;1;Puzzle_PE_E1.prefab > Puzzle_PE_E1/Board_TESTE/Board_Puzzle/Text (TMP)
 1/1;;sim;1;Trigger_Puzzle.prefab > Trigger_Puzzle/Jabulani/TextoNumero
-"A Taça das Favelas, carinhosamente conhecida como \""Favelão\"", é organizada pela Central Única das Favelas (CUFA) desde 2011 e se consolidou como o maior torneio de futebol entre favelas do mundo. No futebol feminino, o campeonato cumpre um papel transformador ao abrir espaço e visibilidade para jovens atletas das periferias, utilizando o esporte como uma potente ferramenta de inclusão social, descobrimento de talentos e afirmação de identidade para as periferias de todo o país.";;;2;CenaArena.unity > Canvas/Panel/Panel/Text (TMP) | CenaPadrao.unity > Canvas/Panel/Panel/Text (TMP)
-Rio de Janeiro;;;1;CenaArena.unity > arena_vortice_v13_Paulo/Empty/Text (TMP)
+DESAFIO;;;1;Trigger_Puzzle.prefab > Trigger_Puzzle/Jabulani/Desafio
+"A Taça das Favelas, carinhosamente conhecida como \""Favelão\"", é organizada pela Central Única das Favelas (CUFA) desde 2011 e se consolidou como o maior torneio de futebol entre favelas do mundo. No futebol feminino, o campeonato cumpre um papel transformador ao abrir espaço e visibilidade para jovens atletas das periferias, utilizando o esporte como uma potente ferramenta de inclusão social, descobrimento de talentos e afirmação de identidade para as periferias de todo o país.";;;2;CenaArena.unity > Canvas/Panel/Panel/Text (TMP) | CenaRiodeJaneiro.unity > Canvas/Panel/Panel/Text (TMP)
+Rio de Janeiro;;;1;CenaArena.unity > PROPS/arena_vortice_v13/Portal_RiodeJaneiro/Molduras_Portais/Test_Cidade
+São Paulo;;;1;CenaArena.unity > PROPS/arena_vortice_v13/Portal_SaoPaulo/Molduras_Portais.003/Test_Cidade
+Belo Horizonte;;;1;CenaArena.unity > PROPS/arena_vortice_v13/Portal_BeloHorizonte/Molduras_Portais.006/Test_Cidade
+Salvador;;;1;CenaArena.unity > PROPS/arena_vortice_v13/Portal_Salvador/Molduras_Portais.009/Test_Cidade
+Brasília;;;1;CenaArena.unity > PROPS/arena_vortice_v13/Portal_Brasilia/Molduras_Portais.012/Test_Cidade
+Recife;;;1;CenaArena.unity > PROPS/arena_vortice_v13/Portal_Recife/Molduras_Portais.015/Test_Cidade
+Fortaleza;;;1;CenaArena.unity > PROPS/arena_vortice_v13/Portal_Fortaleza/Molduras_Portais.018/Test_Cidade
+Porto Alegre;;;1;CenaArena.unity > PROPS/arena_vortice_v13/Portal_PortoAlegre/Test_Cidade
+Puzzle 1/5;;;1;CenaRiodeJaneiro.unity > Canvas/progreespcanvas
+Clique com o botao esquerdo na camiseta e arraste para formar a palavra que a Taça das Favelas é carinhosamente conhecida.;;;1;CenaRiodeJaneiro.unity > PuzzleGeral/Puzzles/Puzzle_E1/Board_Text/Board_Puzzle/Text (TMP)
+Clique no time que perdeu para o Brasil  ;;;1;CenaRiodeJaneiro.unity > PuzzleGeral/Puzzles/Puzzle_E3/Totem/Text (TMP)
+Placar ;;;1;CenaRiodeJaneiro.unity > PuzzleGeral/Puzzles/Puzzle_E3/Totem/Text (TMP) (1)
+Quantos times participaram da I Copa Nacional Quilombola de Futebol  no Rio de Janeiro em 2024?;;;1;CenaRiodeJaneiro.unity > PuzzleGeral/Puzzles/Puzzle_E4/Cadeado/Totem (1)/Dica/Dica
+<< Vencedor;;;1;CenaRiodeJaneiro.unity > PuzzleGeral/Puzzles/Puzzle_E5/Totem2/TimeVencedor
+Placar;;;1;CenaRiodeJaneiro.unity > PuzzleGeral/Puzzles/Puzzle_E5/Totem2/TimeVencedor (1)
+Perdedor >>;;;1;CenaRiodeJaneiro.unity > PuzzleGeral/Puzzles/Puzzle_E5/Totem2/TimePerdeu
+Resultado do Pan-Americano de 2007 no Maracanã,  clique no time e no cadeado no centro para acertar o resultado final;;;1;CenaRiodeJaneiro.unity > PuzzleGeral/Puzzles/Puzzle_E5/Totem2/Dica

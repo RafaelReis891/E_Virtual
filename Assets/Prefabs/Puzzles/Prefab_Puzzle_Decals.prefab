@@ -526,6 +526,7 @@ GameObject:
   - component: {fileID: 5135177481888855634}
   - component: {fileID: 5662881240880297298}
   - component: {fileID: 7420547316839697811}
+  - component: {fileID: 1798051967599198316}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -696,6 +697,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 5662881240880297298}
   m_maskType: 0
+--- !u!114 &1798051967599198316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2280617692383276875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: How many teams?
 --- !u!1 &2698445746553593977
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +764,9 @@ MonoBehaviour:
   dial2: {fileID: 7983964735486639128}
   indexDial2: 0
   rotationDuration: 0.2
+  corretosDial1: 06000000i
+  corretosDial2: 000000000c000000i
+  feedbackDials: {fileID: 0}
 --- !u!1 &4100919212251531899
 GameObject:
   m_ObjectHideFlags: 0

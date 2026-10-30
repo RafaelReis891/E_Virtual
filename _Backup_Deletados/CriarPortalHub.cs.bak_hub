@@ -1,0 +1,306 @@
+#if UNITY_EDITOR
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using System.Text.RegularExpressions;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+/// <summary>
+/// Tools/Hub/Criar Prefab e Colocar nas Cidades
+/// 1) Abre CenaRiodeJaneiro, aplica o material Portal_Hub_Arena no renderer "Portais" do Portal_Hub.
+/// 2) Torna o Portal_Hub autocontido (SimpleLoadScene + PortalHubFade dentro do Trigger_Teleport_HUB)
+///    e cria Assets/Prefabs/Portal_Hub.prefab (SaveAsPrefabAssetAndConnect).
+/// 3) Abre cada cena de cidade, acha o Puzzle_E5 e instancia o prefab perto dele; salva a cena.
+/// Faz backup (.bak_hub) de cada cena em _Backup_Deletados antes de alterar.
+/// </summary>
+public static class CriarPortalHub
+{
+    const string RioNome = "CenaRiodeJaneiro";
+    const string PrefabPath = "Assets/Prefabs/Portal_Hub.prefab";
+    const string MatPath = "Assets/Games/Models/Arena/Materials/Portal_Hub_Arena.mat";
+    const string NomePortal = "Portal_Hub";
+    const string NomeRendererImagem = "Portais";
+    const string NomeTrigger = "Trigger_Teleport_HUB";
+    const float OffsetMetros = 4f; // distancia horizontal do Puzzle_E5
+
+    static readonly string[] Cidades =
+    {
+        "CenaBeloHorizonte", "CenaBrasilia", "CenaFortaleza", "CenaPortoAlegre",
+        "CenaRecife", "CenaSalvador", "CenaPadrao-SaoPaulo"
+    };
+
+    static readonly string[] CaminhosIgnorados = { "_Backup", "TobeDeleted", "_Recovery" };
+
+    [MenuItem("Tools/Hub/Criar Prefab e Colocar nas Cidades")]
+    public static void Executar()
+    {
+        if (EditorApplication.isPlayingOrWillChangePlaymode)
+        {
+            EditorUtility.DisplayDialog("Portal Hub", "Saia do Play Mode antes de executar.", "OK");
+            return;
+        }
+        if (!EditorUtility.DisplayDialog("Portal Hub",
+            "Vai abrir e SALVAR CenaRiodeJaneiro e as cenas das cidades (backup .bak_hub em _Backup_Deletados). Continuar?",
+            "Continuar", "Cancelar"))
+            return;
+        if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+            return;
+
+        StringBuilder rel = new StringBuilder();
+        try
+        {
+            // ---------- RIO ----------
+            string rioPath = AcharCena(RioNome);
+            if (rioPath == null) { Falha("CenaRiodeJaneiro nao encontrada."); return; }
+            Backup(rioPath);
+            Scene rio = EditorSceneManager.OpenScene(rioPath, OpenSceneMode.Single);
+
+            GameObject portal = null;
+            foreach (GameObject r in rio.GetRootGameObjects())
+                if (r.name == NomePortal) { portal = r; break; }
+            if (portal == null) { Falha("Objeto raiz '" + NomePortal + "' nao encontrado na CenaRiodeJaneiro."); return; }
+
+            // material
+            Material mat = AssetDatabase.LoadAssetAtPath<Material>(MatPath);
+            if (mat == null) { Falha("Material nao encontrado: " + MatPath); return; }
+            Transform imagem = portal.transform.Find(NomeRendererImagem);
+            Renderer rend = imagem != null ? imagem.GetComponent<Renderer>() : null;
+            if (rend == null) { Falha("Renderer '" + NomeRendererImagem + "' nao encontrado dentro de " + NomePortal); return; }
+            Undo.RecordObject(rend, "Aplicar Portal_Hub_Arena");
+            Material[] mats = rend.sharedMaterials;
+            for (int i = 0; i < mats.Length; i++) mats[i] = mat;
+            rend.sharedMaterials = mats;
+            EditorUtility.SetDirty(rend);
+            rel.AppendLine("Rio: material Portal_Hub_Arena aplicado em " + NomePortal + "/" + NomeRendererImagem);
+
+            // relacao portal x puzzle no Rio (para manter altura e orientacao nas cidades)
+            Transform rioE5 = AcharE5(rio);
+            Vector3 rioPortalPos = portal.transform.position;
+            Quaternion rioPortalRot = portal.transform.rotation;
+            float yRel = 0f;
+            float angRio = 0f;
+            if (rioE5 != null)
+            {
+                yRel = rioPortalPos.y - rioE5.position.y;
+                angRio = AnguloYaw(rioE5.position - rioPortalPos);
+                rel.AppendLine("Rio: E5 = " + Caminho(rioE5));
+            }
+            else rel.AppendLine("Rio: Puzzle_E5 NAO encontrado (usando yRel=0, yaw=0).");
+
+            // prefab
+            GameObject prefab = null;
+            if (PrefabUtility.IsPartOfPrefabInstance(portal))
+            {
+                prefab = PrefabUtility.GetCorrespondingObjectFromSource(portal);
+                rel.AppendLine("Rio: Portal_Hub ja era instancia de prefab: " + AssetDatabase.GetAssetPath(prefab));
+            }
+            else
+            {
+                GameObject existente = AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath);
+                if (existente != null)
+                {
+                    prefab = existente;
+                    rel.AppendLine("Prefab ja existia em " + PrefabPath + " (reaproveitado, nao sobrescrito).");
+                }
+                else
+                {
+                    if (!TornarAutocontido(portal, rel)) { Falha("Nao foi possivel tornar o portal autocontido:\n" + rel); return; }
+                    prefab = PrefabUtility.SaveAsPrefabAssetAndConnect(portal, PrefabPath, InteractionMode.AutomatedAction);
+                    rel.AppendLine("Prefab criado: " + PrefabPath);
+                }
+            }
+            if (prefab == null) { Falha("Prefab nulo."); return; }
+            EditorSceneManager.MarkSceneDirty(rio);
+            EditorSceneManager.SaveScene(rio);
+            rel.AppendLine("CenaRiodeJaneiro salva.");
+
+            // ---------- CIDADES ----------
+            foreach (string nome in Cidades)
+            {
+                string path = AcharCena(nome);
+                if (path == null) { rel.AppendLine(nome + ": CENA NAO ENCONTRADA"); continue; }
+                Backup(path);
+                Scene sc = EditorSceneManager.OpenScene(path, OpenSceneMode.Single);
+                Transform e5 = AcharE5(sc);
+                if (e5 == null) { rel.AppendLine(nome + ": Puzzle_E5 NAO encontrado - nada colocado"); continue; }
+
+                GameObject inst = null;
+                foreach (GameObject r in sc.GetRootGameObjects())
+                    if (r.name == NomePortal && PrefabUtility.GetCorrespondingObjectFromSource(r) == prefab) { inst = r; break; }
+                if (inst == null) inst = (GameObject)PrefabUtility.InstantiatePrefab(prefab, sc);
+
+                Vector3 dir = e5.right; dir.y = 0f;
+                if (dir.sqrMagnitude < 0.0001f) dir = Vector3.right;
+                dir.Normalize();
+                Vector3 pos = e5.position + dir * OffsetMetros;
+                pos.y = e5.position.y + yRel;
+                float angCidade = AnguloYaw(e5.position - pos);
+                Quaternion rot = Quaternion.Euler(0f, angCidade - angRio, 0f) * rioPortalRot;
+                inst.transform.SetPositionAndRotation(pos, rot);
+
+                EditorSceneManager.MarkSceneDirty(sc);
+                EditorSceneManager.SaveScene(sc);
+                rel.AppendLine(nome + ": E5 = " + Caminho(e5) + " -> portal em " + pos + " (salva)");
+            }
+
+            // volta para o Rio
+            EditorSceneManager.OpenScene(rioPath, OpenSceneMode.Single);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+            Debug.Log("[CriarPortalHub] Concluido:\n" + rel);
+            EditorUtility.DisplayDialog("Portal Hub", "Concluido. Veja o Console para o relatorio.", "OK");
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("[CriarPortalHub] Erro: " + e + "\nProgresso:\n" + rel);
+        }
+    }
+
+    // ------------------------------------------------------------------
+
+    static bool TornarAutocontido(GameObject portal, StringBuilder rel)
+    {
+        Transform trg = portal.transform.Find(NomeTrigger);
+        if (trg == null) { rel.AppendLine("Trigger " + NomeTrigger + " nao encontrado."); return false; }
+        GameObject go = trg.gameObject;
+
+        SimpleLoadScene load = go.GetComponent<SimpleLoadScene>();
+        if (load == null) load = go.AddComponent<SimpleLoadScene>();
+        PortalHubFade fade = go.GetComponent<PortalHubFade>();
+        if (fade == null) fade = go.AddComponent<PortalHubFade>();
+        Michsky.UI.Shift.TimedEvent timed = go.GetComponent<Michsky.UI.Shift.TimedEvent>();
+        TriggerEvent trig = go.GetComponent<TriggerEvent>();
+        if (timed == null || trig == null) { rel.AppendLine("TimedEvent/TriggerEvent ausentes no trigger."); return false; }
+
+        // TimedEvent.timerAction -> SimpleLoadScene local .LoadScene("CenaArena")
+        SerializedObject soT = new SerializedObject(timed);
+        SerializedProperty callsT = soT.FindProperty("timerAction.m_PersistentCalls.m_Calls");
+        if (callsT.arraySize == 0) callsT.arraySize = 1;
+        DefinirChamada(callsT.GetArrayElementAtIndex(0), load, "SimpleLoadScene, Assembly-CSharp", "LoadScene", 5, "CenaArena", false);
+        soT.ApplyModifiedProperties();
+        rel.AppendLine("TimedEvent -> SimpleLoadScene local LoadScene('CenaArena')");
+
+        // TriggerEvent._OnTriggerEnter: chamadas para objetos fora do prefab (FadeIn) -> PortalHubFade.AtivarFade
+        SerializedObject soE = new SerializedObject(trig);
+        SerializedProperty callsE = soE.FindProperty("_OnTriggerEnter.m_PersistentCalls.m_Calls");
+        for (int i = 0; i < callsE.arraySize; i++)
+        {
+            SerializedProperty c = callsE.GetArrayElementAtIndex(i);
+            UnityEngine.Object alvo = c.FindPropertyRelative("m_Target").objectReferenceValue;
+            bool interno = false;
+            if (alvo is Component) interno = ((Component)alvo).transform.IsChildOf(portal.transform);
+            else if (alvo is GameObject) interno = ((GameObject)alvo).transform.IsChildOf(portal.transform);
+            if (!interno)
+            {
+                DefinirChamada(c, fade, "PortalHubFade, Assembly-CSharp", "AtivarFade", 1, "", false);
+                rel.AppendLine("TriggerEvent chamada " + i + " (alvo externo) -> PortalHubFade.AtivarFade (fade opcional)");
+            }
+        }
+        soE.ApplyModifiedProperties();
+        return true;
+    }
+
+    static void DefinirChamada(SerializedProperty call, UnityEngine.Object alvo, string tipo, string metodo, int modo, string str, bool b)
+    {
+        call.FindPropertyRelative("m_Target").objectReferenceValue = alvo;
+        call.FindPropertyRelative("m_TargetAssemblyTypeName").stringValue = tipo;
+        call.FindPropertyRelative("m_MethodName").stringValue = metodo;
+        call.FindPropertyRelative("m_Mode").intValue = modo;
+        call.FindPropertyRelative("m_CallState").intValue = 2;
+        SerializedProperty a = call.FindPropertyRelative("m_Arguments");
+        a.FindPropertyRelative("m_ObjectArgument").objectReferenceValue = null;
+        a.FindPropertyRelative("m_ObjectArgumentAssemblyTypeName").stringValue = "UnityEngine.Object, UnityEngine";
+        a.FindPropertyRelative("m_IntArgument").intValue = 0;
+        a.FindPropertyRelative("m_FloatArgument").floatValue = 0f;
+        a.FindPropertyRelative("m_StringArgument").stringValue = str;
+        a.FindPropertyRelative("m_BoolArgument").boolValue = b;
+    }
+
+    static float AnguloYaw(Vector3 v)
+    {
+        v.y = 0f;
+        if (v.sqrMagnitude < 0.0001f) return 0f;
+        return Mathf.Atan2(v.x, v.z) * Mathf.Rad2Deg;
+    }
+
+    static Transform AcharE5(Scene sc)
+    {
+        Regex exato = new Regex(@"^Puzzle(_[A-Za-z]{2,3})?_E5(_OK)?$");
+        List<Transform> todos = new List<Transform>();
+        foreach (GameObject r in sc.GetRootGameObjects())
+            todos.AddRange(r.GetComponentsInChildren<Transform>(true));
+
+        Transform melhor = null; int melhorProf = int.MaxValue;
+        foreach (Transform t in todos)
+        {
+            if (!exato.IsMatch(t.name)) continue;
+            int p = Profundidade(t);
+            if (p < melhorProf) { melhor = t; melhorProf = p; }
+        }
+        if (melhor != null) return melhor;
+
+        foreach (Transform t in todos)
+        {
+            string n = t.name;
+            if (n.Contains("E5") && n.IndexOf("Puzzle", StringComparison.OrdinalIgnoreCase) >= 0
+                && !n.Contains("Trigger") && !n.Contains("Luneta") && !n.Contains("Anfitri")
+                && !n.Contains("Char") && !n.Contains("Start"))
+            {
+                int p = Profundidade(t);
+                if (p < melhorProf) { melhor = t; melhorProf = p; }
+            }
+        }
+        return melhor;
+    }
+
+    static int Profundidade(Transform t)
+    {
+        int d = 0;
+        while (t.parent != null) { d++; t = t.parent; }
+        return d;
+    }
+
+    static string Caminho(Transform t)
+    {
+        string s = t.name;
+        while (t.parent != null) { t = t.parent; s = t.name + "/" + s; }
+        return s;
+    }
+
+    static string AcharCena(string nome)
+    {
+        string[] guids = AssetDatabase.FindAssets("t:Scene " + nome);
+        foreach (string g in guids)
+        {
+            string p = AssetDatabase.GUIDToAssetPath(g);
+            if (Path.GetFileNameWithoutExtension(p) != nome) continue;
+            bool ignorar = false;
+            foreach (string x in CaminhosIgnorados) if (p.Contains(x)) { ignorar = true; break; }
+            if (!ignorar) return p;
+        }
+        return null;
+    }
+
+    static void Backup(string assetPath)
+    {
+        string raiz = Path.GetDirectoryName(Application.dataPath);
+        string origem = Path.Combine(raiz, assetPath);
+        string pasta = Path.Combine(raiz, "_Backup_Deletados");
+        Directory.CreateDirectory(pasta);
+        string destino = Path.Combine(pasta, Path.GetFileName(assetPath) + ".bak_hub");
+        if (File.Exists(destino))
+            destino = Path.Combine(pasta, Path.GetFileName(assetPath) + "." + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".bak_hub");
+        File.Copy(origem, destino, false);
+    }
+
+    static void Falha(string msg)
+    {
+        Debug.LogError("[CriarPortalHub] " + msg);
+        EditorUtility.DisplayDialog("Portal Hub", msg, "OK");
+    }
+}
+#endif

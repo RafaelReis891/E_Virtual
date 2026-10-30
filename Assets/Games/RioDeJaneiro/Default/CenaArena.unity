@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 25309214}
   - component: {fileID: 25309213}
   - component: {fileID: 25309217}
+  - component: {fileID: 25309218}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -314,6 +315,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2238a5a35ad06043961f5c2385e7d64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleLoadScene
+--- !u!114 &25309218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25309212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edee0bcc9af4c704293457e720fa760d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PularIntroArena
+  sempre: 0
 --- !u!1 &31488854
 GameObject:
   m_ObjectHideFlags: 0
@@ -2121,6 +2135,7 @@ MonoBehaviour:
   dissolveDuration: 3
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: f615482fc04037a4ba51b68f9a4f5bf9, type: 3}
+  voiceClipEng: {fileID: 8300000, guid: 2d136bce055d3a040819d3ade43f2a04, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 0}
   waitAfterAudio: 1
@@ -9596,6 +9611,7 @@ MonoBehaviour:
   dissolveDuration: 3
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: bf3762757ad261940af96248002e7367, type: 3}
+  voiceClipEng: {fileID: 8300000, guid: 8fbca68480634c34c90b35d0390db9b8, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 222805845}
   waitAfterAudio: 1
@@ -9691,6 +9707,7 @@ GameObject:
   - component: {fileID: 989342185}
   - component: {fileID: 989342187}
   - component: {fileID: 989342186}
+  - component: {fileID: 989342188}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -9817,6 +9834,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989342184}
   m_CullTransparentMesh: 1
+--- !u!114 &989342188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989342184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: The Taca das Favelas, affectionately known as "Favelao", has been organized by the Central Unica das Favelas (CUFA) since 2011 and has become the largest football tournament between favelas in the world. In women's football, the championship plays a transformative role by opening space and visibility for young athletes from the outskirts, using sport as a powerful tool for social inclusion, talent discovery and the affirmation of identity for communities across the country.
 --- !u!1001 &1008401834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9963,7 +9993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8190621192071521587, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
       propertyPath: selectedAnimation
-      value: Talking01
+      value: mixamo.com
       objectReference: {fileID: 0}
     - target: {fileID: -8190621192071521587, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
       propertyPath: delayBetweenAnimations
@@ -10053,7 +10083,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4673069119266121683, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+    - {fileID: -8190621192071521587, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
