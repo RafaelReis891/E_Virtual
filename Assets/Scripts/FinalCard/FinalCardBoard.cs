@@ -47,6 +47,7 @@ public class FinalCardBoard : MonoBehaviour
 
     FinalCardAlbum album;
     FinalCardData atual;
+    string idUltimo;
     bool ingles;
     Texture imagemAtual;
     RenderTexture rtVideo;
@@ -67,6 +68,17 @@ public class FinalCardBoard : MonoBehaviour
         if (!string.IsNullOrEmpty(idInicial)) Mostrar(idInicial);
     }
 
+    // Se os dados do site chegarem depois do Mostrar, recarrega o card atual.
+    void OnEnable() { CardRemoteCatalog.Changed += OnCatalogoRemotoMudou; if (atual != null) OnCatalogoRemotoMudou(); } // reaplica se o site chegou enquanto o board estava desligado
+    void OnDisable() { CardRemoteCatalog.Changed -= OnCatalogoRemotoMudou; }
+
+    void OnCatalogoRemotoMudou()
+    {
+        if (string.IsNullOrEmpty(idUltimo) || !CardRemoteCatalog.TryGet(idUltimo, out _)) return;
+        StopAllCoroutines();
+        Mostrar(idUltimo);
+    }
+
     void CarregarJson()
     {
         if (cardsJson == null) { Debug.LogWarning("[FinalCard] cardsJson vazio", this); return; }
@@ -79,9 +91,12 @@ public class FinalCardBoard : MonoBehaviour
     public void Mostrar(string id)
     {
         if (album == null) CarregarJson();
+        idUltimo = id;
         atual = album != null ? album.Buscar(id) : null;
-        if (atual == null) { Debug.LogWarning("[FinalCard] id nao encontrado: " + id, this); return; }
+        atual = CardRemoteCatalog.AplicarSobre(id, atual); // site (se tiver) por cima do json local, em copia
+        if (atual == null) { EmuseuDebug.Warn("card", "id nao encontrado (nem local nem remoto): " + id + " board=" + name); Debug.LogWarning("[FinalCard] id nao encontrado: " + id, this); return; }
         Log("mostrando " + id);
+        EmuseuDebug.CardMostrado(id, CardRemoteCatalog.TryGet(id, out _), atual.imagePath, atual.video, name);
         AtualizarTextos();
         PararVideo();
         temVideo = !string.IsNullOrEmpty(atual.video) && videoPlayer != null;
@@ -134,18 +149,21 @@ public class FinalCardBoard : MonoBehaviour
     IEnumerator CarregarImagem(string caminho)
     {
         string url = CaminhoStreaming(caminho);
-        if (url == null) yield break;
+        if (url == null) { EmuseuDebug.ImagemSemUrl(idUltimo, name); yield break; }
         Log("carregando imagem " + url);
+        EmuseuDebug.ImagemInicio(idUltimo, url, name);
         using (var req = UnityWebRequestTexture.GetTexture(url))
         {
             yield return req.SendWebRequest();
             if (req.result != UnityWebRequest.Result.Success)
             {
+                EmuseuDebug.ImagemResultado(idUltimo, url, false, 0, 0, req.downloadedBytes, req.error, req.responseCode);
                 Debug.LogWarning("[FinalCard] falha ao carregar " + url + " : " + req.error, this);
                 yield break;
             }
             if (imagemAtual != null && imagemAtual is Texture2D) Destroy(imagemAtual);
             imagemAtual = DownloadHandlerTexture.GetContent(req);
+            EmuseuDebug.ImagemResultado(idUltimo, url, true, imagemAtual != null ? imagemAtual.width : 0, imagemAtual != null ? imagemAtual.height : 0, req.downloadedBytes, null, req.responseCode);
             AplicarTextura(imagemAtual);
             OnCardCarregado.Invoke();
         }
@@ -182,6 +200,7 @@ public class FinalCardBoard : MonoBehaviour
         if (!videoPlayer.enabled) { videoPlayer.enabled = true; Log("VideoPlayer estava desativado, ativei"); }
         if (!videoPlayer.gameObject.activeInHierarchy)
         {
+            EmuseuDebug.VideoFallback(idUltimo, null, "objeto do VideoPlayer inativo (" + videoPlayer.name + ")");
             Debug.LogWarning("[FinalCard] o objeto do VideoPlayer (" + videoPlayer.name + ") esta inativo; mostrando imagem", this);
             temVideo = false;
             StartCoroutine(CarregarImagem(atual.imagePath));
@@ -203,12 +222,14 @@ public class FinalCardBoard : MonoBehaviour
         videoPlayer.Prepare();
         AplicarTextura(rtVideo);
         Log("video preparado " + videoPlayer.url);
+        EmuseuDebug.VideoPreparar(videoPlayer, idUltimo, videoPlayer.url);
         if (!videoPorAproximacao) videoPlayer.Play();
         OnCardCarregado.Invoke();
     }
 
     void OnErroVideo(VideoPlayer vp, string msg)
     {
+        EmuseuDebug.VideoFallback(idUltimo, vp.url, msg);
         Debug.LogWarning("[FinalCard] erro no video " + vp.url + " : " + msg + " (mostrando imagem)", this);
         temVideo = false;
         if (atual != null) StartCoroutine(CarregarImagem(atual.imagePath));

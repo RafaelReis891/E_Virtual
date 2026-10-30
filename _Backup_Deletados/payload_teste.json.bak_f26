@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "channel": "unity-react",
+  "type": "play-config",
+  "_aviso": "EXEMPLO DE TESTE - dados e URLs ficticios/publicos, nao sao do site real.",
+  "payload": {
+    "user": { "id": "teste-user", "roles": ["root"] },
+    "campaign": {
+      "id": "teste-campanha",
+      "name": "EXEMPLO - Campanha de Teste",
+      "games": [],
+      "albums": [
+        {
+          "id": "album-elas",
+          "name": "Galerias Virtuais - Elas no Jogo (EXEMPLO)",
+          "description": "Album de teste",
+          "active": true,
+          "pages": [
+            {
+              "id": "page-1",
+              "title": "Pagina 1",
+              "titleEn": "Page 1",
+              "cards": [
+                {
+                  "id": "card-1",
+                  "number": 1,
+                  "title": "[TESTE REMOTO] F11 com video",
+                  "titleEn": "[REMOTE TEST] F11 with video",
+                  "description": "Descricao de teste vinda do payload remoto (PT).",
+                  "descriptionEn": "Test description from the remote payload (EN).",
+                  "frame": "F11",
+                  "border": "common",
+                  "release": { "mode": "immediate" },
+                  "imageUrl": "https://picsum.photos/id/1011/1280/720.jpg",
+                  "thumbUrl": "https://picsum.photos/id/1011/320/180.jpg",
+                  "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                  "media": "video"
+                },
+                {
+                  "id": "card-2",
+                  "number": 2,
+                  "title": "[TESTE REMOTO] F12 so imagem",
+                  "titleEn": "[REMOTE TEST] F12 image only",
+                  "description": "Descricao de teste F12 (PT).",
+                  "descriptionEn": "Test description F12 (EN).",
+                  "frame": "F12",
+                  "border": "host",
+                  "release": { "mode": "immediate" },
+                  "imageUrl": "https://picsum.photos/id/1015/1280/720.jpg",
+                  "thumbUrl": "https://picsum.photos/id/1015/320/180.jpg",
+                  "media": "image"
+                },
+                {
+                  "id": "card-3",
+                  "number": 3,
+                  "title": "Card sem frame (deve ser ignorado)",
+                  "release": { "mode": "closed" },
+                  "imageUrl": "https://picsum.photos/id/1018/1280/720.jpg",
+                  "media": "image"
+                },
+                {
+                  "id": "card-4",
+                  "number": 4,
+                  "title": "Frame invalido (deve ser ignorado)",
+                  "frame": "borda-azul",
+                  "imageUrl": "https://picsum.photos/id/1020/1280/720.jpg",
+                  "media": "image"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "album-stage",
+          "name": "Stage (EXEMPLO)",
+          "description": "Album de teste com 1 card duplicado",
+          "active": true,
+          "pages": [
+            {
+              "id": "page-stage",
+              "title": "Stage",
+              "cards": [
+                {
+                  "id": "card-stage-1",
+                  "number": 1,
+                  "title": "[STAGE] F11 duplicado (deve PERDER para o album maior)",
+                  "frame": "F11",
+                  "imageUrl": "https://picsum.photos/id/1025/1280/720.jpg",
+                  "media": "image"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "sponsors": []
+    }
+  }
+}
