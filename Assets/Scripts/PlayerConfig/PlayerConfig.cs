@@ -17,7 +17,7 @@ public class EstadoProgresso
 [CreateAssetMenu(fileName = "PlayerConfig", menuName = "E_Virtual/Player Config")]
 public class PlayerConfig : ScriptableObject
 {
-    public static readonly string[] Estados = { "RJ", "SP", "BH", "SSA", "DF", "REC", "FOR", "POA" };
+    public static readonly string[] Estados = { "BH", "DF", "CE", "RS", "PE", "RJ", "BA", "SP" };
 
     public IdiomaJogador idioma = IdiomaJogador.PT;
     public List<string> cartas = new List<string>();     // ids que o jogador ja tem, ex: "F11"
@@ -47,6 +47,36 @@ public class PlayerConfig : ScriptableObject
             if (!estados.Exists(e => e.estado == s)) estados.Add(new EstadoProgresso { estado = s });
         foreach (var e in estados) if (e.etapas == null || e.etapas.Length != 5) Array.Resize(ref e.etapas, 5);
     }
+
+    // Ex: "DF_E2" -> marca DF etapa 2 e adiciona a carta
+    public void RegistrarPuzzle(string etapaId, string cartaId)
+    {
+        if (!string.IsNullOrEmpty(etapaId))
+        {
+            var p = etapaId.Split('_');
+            int n;
+            if (p.Length == 2 && p[1].Length > 1 && int.TryParse(p[1].Substring(1), out n)) MarcarEtapa(p[0], n);
+            else Debug.LogWarning("[PlayerConfig] etapaId invalido: " + etapaId);
+        }
+        AdicionarCarta(cartaId);
+        Debug.Log("[PlayerConfig] concluido " + etapaId + (string.IsNullOrEmpty(cartaId) ? "" : " carta " + cartaId));
+    }
+
+    // Sigla pelo nome da cena ativa (CenaBrasilia -> DF)
+    public static string SiglaDaCena()
+    {
+        string c = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name.ToLower();
+        if (c.Contains("belohorizonte")) return "BH";
+        if (c.Contains("brasilia")) return "DF";
+        if (c.Contains("fortaleza")) return "CE";
+        if (c.Contains("portoalegre") || c.Contains("porto_alegre")) return "RS";
+        if (c.Contains("recife")) return "PE";
+        if (c.Contains("riodejaneiro") || c.StartsWith("rj_")) return "RJ";
+        if (c.Contains("salvador")) return "BA";
+        if (c.Contains("saopaulo")) return "SP";
+        return null;
+    }
+    public static string EtapaDaCena(int ordem) { var s = SiglaDaCena(); return s == null ? null : s + "_E" + ordem; }
 
     // ---- Payload (adaptar quando soubermos o formato real) ----
     public string ParaJson() => JsonUtility.ToJson(this, true);

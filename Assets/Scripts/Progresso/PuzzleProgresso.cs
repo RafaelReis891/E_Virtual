@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Events;
 
 // Coloque este script em cada puzzle.
@@ -41,6 +41,12 @@ public class PuzzleProgresso : MonoBehaviour
     [Tooltip("Objeto BoardFinalCard deste puzzle. Sera desligado quando a trigger voltar.")]
     public GameObject boardFinalCard;
 
+    [Header("Player Config")]
+    [Tooltip("Etapa deste puzzle, ex: DF_E2. Vazio = usa a cena e a ordem.")]
+    public string etapaId;
+    [Tooltip("Vazio = usa a carta (idInicial) do BoardFinalCard deste puzzle.")]
+    public string cartaId;
+
     [Header("Eventos")]
     [Tooltip("Chamado uma vez quando este puzzle termina.")]
     public UnityEvent OnFinalizado;
@@ -82,6 +88,16 @@ public class PuzzleProgresso : MonoBehaviour
 
         // d) desliga o BoardFinalCard
         if (boardFinalCard != null) boardFinalCard.SetActive(false);
+
+        // e) salva no PlayerConfig
+        PlayerConfig cfg = PlayerConfig.Instancia;
+        string carta = cartaId;
+        if (string.IsNullOrEmpty(carta) && boardFinalCard != null)
+        {
+            FinalCardBoard fb = boardFinalCard.GetComponentInChildren<FinalCardBoard>(true);
+            if (fb != null) carta = fb.idInicial;
+        }
+        if (cfg != null) cfg.RegistrarPuzzle(string.IsNullOrEmpty(etapaId) ? PlayerConfig.EtapaDaCena(ordem) : etapaId, carta);
 
         OnFinalizado?.Invoke();
     }
