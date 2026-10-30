@@ -1408,6 +1408,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5591255200219362373, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
+      propertyPath: m_text
+      value: "Quem o Brasil goleiou na Conquista o Ouro no Futebol Feminino dos Jogos Mundiais Militares no Rio e qual foi o resultado? Clique nos n\xFAmeros para girar e acertar o resultado e depois clique no time correto do lado direito.\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5591255200219362373, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
       propertyPath: m_fontSize
       value: 8
       objectReference: {fileID: 0}
@@ -1544,6 +1548,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 371546727418162110, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1157306766}
+    - targetCorrespondingSourceObject: {fileID: 8240495700422269416, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 9196682085048462961, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2086048290}
@@ -2785,6 +2792,7 @@ MonoBehaviour:
   dissolveDuration: 3
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: bbe78a6965765d74dac22f78a021f73b, type: 3}
+  voiceClipEng: {fileID: 8300000, guid: 580fb9a5ed1424f42b224cc8c11b484b, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 0}
   waitAfterAudio: 1
@@ -3035,7 +3043,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Resultado do Pan-Americano de 2007 no Maracan\xE3,  clique no time e no cadeado no centro para acertar o resultado final"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -3062,7 +3070,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10.35
+  m_fontSize: 5
   m_fontSizeBase: 5
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4052,7 +4060,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Clique com o botao esquerdo na camiseta e arraste para formar a palavra que a Ta\xE7a das Favelas \xE9 carinhosamente conhecida."
+  m_text: "Clique com o bot\xE3o esquerdo na camiseta e arraste para formar a palavra que a Ta\xE7a das Favelas \xE9 carinhosamente conhecida."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -5345,7 +5353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dee84bd1c079d0d4fab34c61fa9b621d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.71
+      value: -2.0420008
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dee84bd1c079d0d4fab34c61fa9b621d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5353,23 +5361,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dee84bd1c079d0d4fab34c61fa9b621d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.64
+      value: 1.4019997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dee84bd1c079d0d4fab34c61fa9b621d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.4040161
+      value: -0.039140932
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dee84bd1c079d0d4fab34c61fa9b621d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.404016
+      value: 0.03914108
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dee84bd1c079d0d4fab34c61fa9b621d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.5803197
+      value: -0.70602274
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dee84bd1c079d0d4fab34c61fa9b621d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.5803199
+      value: -0.70602256
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dee84bd1c079d0d4fab34c61fa9b621d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5381,7 +5389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dee84bd1c079d0d4fab34c61fa9b621d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -110.309
+      value: -186.346
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dee84bd1c079d0d4fab34c61fa9b621d, type: 3}
       propertyPath: m_Name
@@ -5714,6 +5722,7 @@ MonoBehaviour:
   dissolveDuration: 3
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: c1422dc249ecfd44883d0379df959cf3, type: 3}
+  voiceClipEng: {fileID: 8300000, guid: f66baa4901f302946b4d0d0d51ab8164, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 1232890531}
   waitAfterAudio: 1
@@ -10277,6 +10286,7 @@ MonoBehaviour:
   dissolveDuration: 3
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: de498d571a2edb3498974de552a3a8ef, type: 3}
+  voiceClipEng: {fileID: 8300000, guid: 12c75e1fe271d814cb00d383661bc337, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 0}
   waitAfterAudio: 1
@@ -10797,6 +10807,7 @@ MonoBehaviour:
   dissolveDuration: 3
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: 523f80dcf394be74da6cb0f5591bfe01, type: 3}
+  voiceClipEng: {fileID: 8300000, guid: 7c4090234ed120f4f9055b43d06545ca, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 0}
   waitAfterAudio: 1
@@ -12459,6 +12470,7 @@ MonoBehaviour:
   dissolveDuration: 3
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: 3c8e9fcd6b12a4d4e883ef9a0a995bf9, type: 3}
+  voiceClipEng: {fileID: 8300000, guid: 323d6e1aa082d3641ab9ec9222e542bc, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 0}
   waitAfterAudio: 1
@@ -14292,6 +14304,7 @@ MonoBehaviour:
   dissolveDuration: 3
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: 2368877b985b82e44963e61949b35896, type: 3}
+  voiceClipEng: {fileID: 8300000, guid: 9602fd317f63b8d4095824972b8b77b2, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 0}
   waitAfterAudio: 4
@@ -14437,6 +14450,12 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
+    - target: {fileID: 4423608740542194680, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
+      propertyPath: m_text
+      value: 'Clique na bussola na cidade no Rio de Janeiro que sediou o I
+
+        Campeonato Brasileiro Sub-17 de Futebol Feminino. '
+      objectReference: {fileID: 0}
     - target: {fileID: 4423608740542194680, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       propertyPath: m_fontSize
       value: 7
@@ -14846,6 +14865,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9060700340976407483, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1471297391}
+    - targetCorrespondingSourceObject: {fileID: 5982345744849874558, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
 --- !u!1 &1567816997 stripped
 GameObject:
@@ -15315,7 +15337,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 52214422915394371, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.66
+      value: -9.596
       objectReference: {fileID: 0}
     - target: {fileID: 52214422915394371, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15323,7 +15345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 52214422915394371, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.21
+      value: -10.234
       objectReference: {fileID: 0}
     - target: {fileID: 52214422915394371, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15352,6 +15374,10 @@ PrefabInstance:
     - target: {fileID: 52214422915394371, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144248750320301553, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
+      propertyPath: m_text
+      value: "Resultado do Pan-Americano de 2007 no Maracan\xE3,  clique nos numeros para rodar para acertar o resultado e  nos times que participaram, vencedor na esquerda e perdedor na direita."
       objectReference: {fileID: 0}
     - target: {fileID: 1272517699385011538, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15600,6 +15626,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6602099801085300476, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 238928822}
+    - targetCorrespondingSourceObject: {fileID: 845107133009966358, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
 --- !u!1001 &1601222565
 PrefabInstance:
@@ -16547,7 +16576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5711299324907367225, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 38.55
+      value: 41.66
       objectReference: {fileID: 0}
     - target: {fileID: 5711299324907367225, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16555,7 +16584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5711299324907367225, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.85
+      value: -11.95
       objectReference: {fileID: 0}
     - target: {fileID: 5711299324907367225, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17061,7 +17090,7 @@ Transform:
   m_GameObject: {fileID: 1785001139}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 35.550003, y: 0.87, z: -7.94}
+  m_LocalPosition: {x: 38.74, y: 0.87, z: -9.83}
   m_LocalScale: {x: 2.18, y: 4.1784472, z: 6.4440007}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -17085,6 +17114,7 @@ MonoBehaviour:
   dissolveDuration: 3
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: 7c7a806f38e315b43925829383ba7435, type: 3}
+  voiceClipEng: {fileID: 8300000, guid: 03055979bc169ac459799be3a6f24e6b, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 0}
   waitAfterAudio: 1
@@ -19034,6 +19064,7 @@ MonoBehaviour:
   dissolveDuration: 3
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: cc54b8766b921d04380acca2346a9649, type: 3}
+  voiceClipEng: {fileID: 8300000, guid: 4964d64b94de22e4abdf0f1281da86d9, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 0}
   waitAfterAudio: 1
@@ -19344,6 +19375,7 @@ MonoBehaviour:
   dissolveDuration: 3
   dissolveFromBottom: 1
   voiceClip: {fileID: 8300000, guid: af45a97b4fba67442be994a8a220d310, type: 3}
+  voiceClipEng: {fileID: 8300000, guid: c123af9e07cba8b47a567b48bc558b28, type: 3}
   volume: 0.5
   objectToActivate: {fileID: 0}
   waitAfterAudio: 1
@@ -21205,6 +21237,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4447090411291467480, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4542605019363755516}
+    - targetCorrespondingSourceObject: {fileID: 1602773069419242686, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
 --- !u!1001 &2313048520150036361
 PrefabInstance:
