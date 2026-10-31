@@ -23,6 +23,12 @@ public sealed class EmuseuBridge : MonoBehaviour
     // Disparado depois de ler um play-config (payload nunca e null aqui).
     public static event Action<EmuseuPayload> PlayConfigApplied;
 
+    // Disparado ao enviar qualquer mensagem ao React (tipo, payloadJson). Usado pelo EmuseuUploadModalGuard.
+    public static event Action<string, string> MensagemEnviada;
+
+    // Disparado quando o React envia uma fase do upload (json cru de OnFrameUpload).
+    public static event Action<string> FrameUploadRecebido;
+
     // Ultimo play-config lido (ou null).
     public static EmuseuPayload PlayConfig { get; private set; }
 
@@ -120,6 +126,8 @@ public sealed class EmuseuBridge : MonoBehaviour
         EmuseuDebug.Info("banner", "OnFrameUpload len=" + (json == null ? 0 : json.Length));
         if (string.IsNullOrEmpty(json)) return;
         EmuseuSettingsCatalog.HandleFrameUpload(json);
+        try { FrameUploadRecebido?.Invoke(json); }
+        catch (Exception ex) { EmuseuDebug.Error("bridge", "listener de FrameUploadRecebido falhou: " + ex.Message); }
     }
 
     // Envia ao React qualquer mensagem do canal unity-react (ex: "frame-upload"). payloadJson = so o objeto payload.
@@ -179,6 +187,8 @@ public sealed class EmuseuBridge : MonoBehaviour
         string envelope = "{\"version\":1,\"channel\":\"" + Channel + "\",\"type\":\"" + type +
                           "\",\"payload\":" + (string.IsNullOrEmpty(payloadJson) ? "{}" : payloadJson) + "}";
         EmuseuDebug.Enviado(type, envelope.Length);
+        try { MensagemEnviada?.Invoke(type, payloadJson); }
+        catch (Exception ex) { EmuseuDebug.Error("bridge", "listener de MensagemEnviada falhou: " + ex.Message); }
         EmuseuBridge_SendToReact(envelope);
     }
 }
