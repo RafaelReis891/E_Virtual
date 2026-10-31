@@ -195,24 +195,8 @@ public sealed class RemoteBanner : MonoBehaviour
         foreach (Renderer r in renderers)
         {
             if (r == null || r.GetComponent<Collider>() != null) continue;
-            Mesh mesh = null;
-            var mf = r.GetComponent<MeshFilter>();
-            if (mf != null) mesh = mf.sharedMesh;
-            else if (r is SkinnedMeshRenderer) mesh = ((SkinnedMeshRenderer)r).sharedMesh;
-            if (mesh == null) continue;
-
-            if (r is MeshRenderer && mesh.isReadable)
-            {
-                var mc = r.gameObject.AddComponent<MeshCollider>();
-                mc.sharedMesh = mesh;
-            }
-            else
-            {
-                // Mesh nao legivel: MeshCollider falharia no build; usa caixa pelo bounds do mesh.
-                var bc = r.gameObject.AddComponent<BoxCollider>();
-                bc.center = mesh.bounds.center;
-                bc.size = mesh.bounds.size;
-            }
+            // Trigger + excludeLayers: nao bloqueia o jogador nem o teleporte (ver RemoteBannerSafeCollider).
+            if (RemoteBannerSafeCollider.Adicionar(r) == null) continue;
             EmuseuDebug.Info("banner", Chave + ": collider adicionado em runtime (admin) em " + r.name);
         }
     }

@@ -72,7 +72,13 @@ public sealed class RemoteBannerClickDriver : MonoBehaviour
         }
         EmuseuDebug.Info("banner", sb.ToString());
 
+        // Os colliders de banner sao so trigger/caixa pelo bounds (ver RemoteBannerSafeCollider); um banner grande e oco
+        // (ex.: anel do topo do estadio) pode "cobrir" outro menor. Entre os banners acertados ANTES do primeiro
+        // obstaculo solido, vale o de menor tamanho.
         Transform raizCamera = cam.transform.root;
+        RemoteBanner melhor = null;
+        float melhorTamanho = float.MaxValue;
+        float melhorDistancia = 0f;
         foreach (RaycastHit hit in hits)
         {
             Collider c = hit.collider;
@@ -80,15 +86,22 @@ public sealed class RemoteBannerClickDriver : MonoBehaviour
             RemoteBanner rb = c.GetComponentInParent<RemoteBanner>();
             if (rb != null)
             {
-                EmuseuDebug.Info("banner", "clique: banner '" + rb.Chave + "' a " + hit.distance.ToString("0.0") + "m -> pedindo upload");
-                rb.SolicitarUpload();
-                return;
+                float tamanho = c.bounds.size.sqrMagnitude;
+                if (tamanho < melhorTamanho) { melhor = rb; melhorTamanho = tamanho; melhorDistancia = hit.distance; }
+                continue;
             }
             if (c.isTrigger) continue;                                           // gatilhos nao bloqueiam a mira
             if (c.GetComponentInParent<CharacterController>() != null) continue; // o proprio jogador
             if (c.transform.root == raizCamera) continue;                        // collider junto da camera/jogador
             if (Invisivel(c)) continue;                                          // parede invisivel (Limite_*, sem renderer ou renderer desligado)
+            if (melhor != null) break;                                           // obstaculo atras do banner: ja temos o alvo
             EmuseuDebug.Warn("banner", "clique: '" + c.name + "' (" + hit.distance.ToString("0.0") + "m) esta na frente e bloqueou a mira");
+            return;
+        }
+        if (melhor != null)
+        {
+            EmuseuDebug.Info("banner", "clique: banner '" + melhor.Chave + "' a " + melhorDistancia.ToString("0.0") + "m -> pedindo upload");
+            melhor.SolicitarUpload();
             return;
         }
         EmuseuDebug.Info("banner", "clique: nenhum RemoteBanner na linha de mira");
