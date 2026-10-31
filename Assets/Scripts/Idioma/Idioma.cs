@@ -52,9 +52,10 @@ public static class Idioma
 }
 
 // Para usar em botoes / eventos do Inspector e receber mensagens do site.
+[UnityEngine.Scripting.Preserve]
 public class IdiomaReceptor : MonoBehaviour
 {
-    public void Alternar() => Idioma.Alternar();
-    public void SetIngles(bool v) => Idioma.Definir(v);
-    public void SetLang(string lang) => Idioma.Definir(!string.IsNullOrEmpty(lang) && lang.ToLower().StartsWith("en"));
+    [UnityEngine.Scripting.Preserve] public void Alternar() => Idioma.Alternar();
+    [UnityEngine.Scripting.Preserve] public void SetIngles(bool v) => Idioma.Definir(v);
+    [UnityEngine.Scripting.Preserve] public void SetLang(string lang) => Idioma.Definir(!string.IsNullOrEmpty(lang) && lang.ToLower().StartsWith("en"));
 }

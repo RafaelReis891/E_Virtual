@@ -29,7 +29,7 @@ public sealed class AdminToolsPanel : MonoBehaviour
     {
         new Cena("Arena (Hub)",         "CenaArena",           "Assets/Games/RioDeJaneiro/Default/CenaArena.unity"),
         new Cena("Rio de Janeiro",      "CenaRiodeJaneiro",    "Assets/Games/RioDeJaneiro/Default/CenaRiodeJaneiro.unity"),
-        new Cena("Sao Paulo",           "CenaPadrao-SaoPaulo", "Assets/Games/SaoPaulo/CenaPadrao-SaoPaulo.unity"),
+        new Cena("Sao Paulo",           "CenaSaoPaulo",        "Assets/Games/SaoPaulo/CenaSaoPaulo.unity"),
         new Cena("Belo Horizonte",      "CenaBeloHorizonte",   "Assets/Games/BeloHorizonte/CenaBeloHorizonte.unity"),
         new Cena("Brasilia (DF)",       "CenaBrasilia",        "Assets/Games/Brasilia/CenaBrasilia.unity"),
         new Cena("Fortaleza",           "CenaFortaleza",       "Assets/Games/Fortaleza/CenaFortaleza.unity"),
@@ -494,6 +494,13 @@ public sealed class AdminToolsPanel : MonoBehaviour
         if (Botao(new Rect(l.xMax - 54f, l.y, 54f, l.height), "+", true, Color.white, "Rapido +")) controle.VelRapido = Mathf.Min(120f, controle.VelRapido + 10f);
 
         Rotulo(Linha(40f, 6f), "WASD move (relativo a camera) | Space sobe | Ctrl ou Q desce | Shift rapido | mouse olha. Sem colisao.", estTexto);
+
+        pY += 4f;
+        Rotulo(Linha(28f, 2f), "Idioma / Language", estTitulo);
+        l = Linha(34f, 4f);
+        Rotulo(new Rect(l.x, l.y + 6f, l.width - 232f, l.height), "Atual: " + (Idioma.Ingles ? "EN (English)" : "PT (Portugues)"), estTexto);
+        if (Botao(new Rect(l.xMax - 224f, l.y, 110f, l.height), "PT", true, !Idioma.Ingles ? new Color(0.5f, 0.9f, 0.5f) : Color.white, "Idioma PT")) Idioma.Definir(false);
+        if (Botao(new Rect(l.xMax - 110f, l.y, 110f, l.height), "EN", true, Idioma.Ingles ? new Color(0.5f, 0.9f, 0.5f) : Color.white, "Idioma EN")) Idioma.Definir(true);
 
         pY += 4f;
         Rotulo(Linha(28f, 2f), "Cenas (cidades)  [teclas 1-9]", estTitulo);
