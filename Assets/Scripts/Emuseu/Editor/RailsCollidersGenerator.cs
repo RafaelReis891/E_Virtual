@@ -1,19 +1,21 @@
-// Gera BoxColliders finos no lugar do MeshCollider (mesh completo) do GameObject "Rails".
+// Gera BoxColliders finos (outline simplificado do mesh) para a SELECAO atual, no lugar do MeshCollider completo.
+// Antes era fixo no GameObject "Rails"; agora funciona com qualquer GameObject selecionado que tenha mesh.
 //
-// Menu:  Tools > Emuseu > Gerar Colliders do Rail
-//        Tools > Emuseu > Remover Colliders do Rail
+// Menus:  Tools > Emuseu > Gerar Colliders na Selecao      (tambem: GameObject/Emuseu/... e botao direito na Hierarchy)
+//         Tools > Emuseu > Remover Colliders da Selecao
+//         Tools > Emuseu > Colliders Config                 (parametros, salvos em EditorPrefs; arquivo CollidersConfigWindow.cs)
 //
-// Como funciona (tudo calculado no Editor, em espaco de MUNDO):
-//  1. Le os vertices/triangulos do mesh do Rails (MeshFilter.sharedMesh) e aplica localToWorld.
-//  2. Projeta no plano XZ e rasteriza o "footprint" (celulas de 5 cm). Os balaustres e corrimaos
-//     viram uma faixa continua com um fechamento morfologico (raio 0.4 m). Vaos reais da malha
-//     (escadas, entradas) NAO sao fechados: so some o que estiver mais perto que 2x o raio.
-//  3. Esqueletiza a faixa (Zhang-Suen), traca as cadeias de pixels, poda esporoes curtos e
-//     simplifica com Douglas-Peucker (tolerancia 0.30 m; aumenta sozinha se passar de MaxSegments).
-//  4. Cada segmento vira um BoxCollider fino (0.4 m) e alto (>= 3 m). A altura vem dos vertices do
-//     proprio trecho (rampas funcionam). Os boxes ficam em filhos de um GameObject irmao do Rails
-//     chamado "Rails_Colliders" (mesma layer / static flags do Rails).
-//  5. O MeshCollider do Rails e DESABILITADO (nao removido). Tudo com Undo; cena marcada como suja.
+// Como funciona (tudo calculado no Editor, em espaco de MUNDO), para cada GameObject selecionado:
+//  1. Le os vertices/triangulos do MeshFilter (e dos MeshFilters filhos, se "Incluir filhos" estiver ligado) e aplica localToWorld.
+//  2. Projeta no plano XZ e rasteriza o "footprint" (celulas de 5 cm). Fechamento morfologico (CloseRadius, padrao 0.4 m)
+//     funde balaustres/corrimaos numa faixa continua; vaos maiores que 2x o raio NAO sao fechados.
+//  3. Esqueletiza (Zhang-Suen), traca cadeias, poda esporoes e simplifica com Douglas-Peucker (Tolerance, padrao 0.30 m;
+//     sobe sozinha se passar de MaxSegments).
+//  4. Cada segmento vira um BoxCollider fino (Thickness) e alto (>= MinHeight). Altura vem dos vertices do trecho.
+//     Os boxes ficam em filhos de um GameObject IRMAO do selecionado chamado "<Nome>_Colliders" (mesma layer/static flags).
+//  5. O MeshCollider do selecionado (se houver) e DESABILITADO (nao removido). Tudo com Undo; cena marcada como suja.
+//  Remover: apaga "<Nome>_Colliders" (selecionando o objeto OU o proprio _Colliders) e reabilita o MeshCollider.
+//  Nao funciona em Play Mode.
 //
 // O nucleo (RailsOutlineCore) nao usa UnityEngine; a parte de Unity fica dentro de #if UNITY_EDITOR.
 using System;
@@ -362,143 +364,248 @@ namespace Emuseu.EditorTools
 #if UNITY_EDITOR
 namespace Emuseu.EditorTools
 {
+    using System.Linq;
     using UnityEditor;
     using UnityEditor.SceneManagement;
     using UnityEngine;
 
-    public static class RailsCollidersGenerator
+    public static class SelectionCollidersGenerator
     {
-        const string RailsName = "Rails";
-        const string CollidersName = "Rails_Colliders";
+        public const string Suffix = "_Colliders";
+        const string Titulo = "Colliders na Selecao";
+        const long MaxCells = 80000000; // ~80 M celulas (grade de 5 cm): acima disso recusa por memoria
 
-        [MenuItem("Tools/Emuseu/Gerar Colliders do Rail")]
-        static void Gerar()
+        // ------------------------------------------------------------ menus
+        [MenuItem("Tools/Emuseu/Gerar Colliders na Selecao", false, 100)]
+        static void MenuGerar() { GerarNaSelecao(); }
+        [MenuItem("Tools/Emuseu/Gerar Colliders na Selecao", true)]
+        static bool MenuGerarValidate() { return PodeGerar(); }
+
+        [MenuItem("GameObject/Emuseu/Gerar Colliders na Selecao", false, 20)]
+        static void CtxGerar() { GerarNaSelecao(); }
+        [MenuItem("GameObject/Emuseu/Gerar Colliders na Selecao", true)]
+        static bool CtxGerarValidate() { return PodeGerar(); }
+
+        [MenuItem("Tools/Emuseu/Remover Colliders da Selecao", false, 101)]
+        static void MenuRemover() { RemoverDaSelecao(); }
+        [MenuItem("Tools/Emuseu/Remover Colliders da Selecao", true)]
+        static bool MenuRemoverValidate() { return PodeRemover(); }
+
+        [MenuItem("GameObject/Emuseu/Remover Colliders da Selecao", false, 21)]
+        static void CtxRemover() { RemoverDaSelecao(); }
+        [MenuItem("GameObject/Emuseu/Remover Colliders da Selecao", true)]
+        static bool CtxRemoverValidate() { return PodeRemover(); }
+
+        [MenuItem("Tools/Emuseu/Colliders Config", false, 102)]
+        static void MenuConfig() { CollidersConfigWindow.Abrir(); }
+
+        // ------------------------------------------------------------ selecao
+        static Transform[] SelecaoBase()
         {
-            var rails = FindRails();
-            if (rails == null) return;
-            var mf = rails.GetComponent<MeshFilter>();
-            if (mf == null || mf.sharedMesh == null) { Erro("O GameObject 'Rails' nao tem MeshFilter/mesh."); return; }
-            if (Application.isPlaying) { Erro("Saia do Play Mode antes de gerar os colliders."); return; }
+            var mode = SelectionMode.Editable | SelectionMode.ExcludePrefab;
+            if (CollidersSettings.IncludeChildren) mode |= SelectionMode.TopLevel; // evita duplicar pai+filho
+            return Selection.GetFiltered<Transform>(mode)
+                .Where(t => t != null && t.gameObject.scene.IsValid() && !t.name.EndsWith(Suffix)).ToArray();
+        }
 
-            var parent = rails.transform.parent;
-            var existente = FindSibling(rails.transform, CollidersName);
-            if (existente != null)
+        static List<MeshFilter> Filtros(Transform t)
+        {
+            var arr = CollidersSettings.IncludeChildren ? t.GetComponentsInChildren<MeshFilter>(false) : t.GetComponents<MeshFilter>();
+            var l = new List<MeshFilter>();
+            foreach (var mf in arr) if (mf != null && mf.sharedMesh != null && mf.sharedMesh.vertexCount > 0) l.Add(mf);
+            return l;
+        }
+
+        static Transform[] Alvos() { return SelecaoBase().Where(t => Filtros(t).Count > 0).ToArray(); }
+
+        public static bool PodeGerar() { return !Application.isPlaying && Alvos().Length > 0; }
+
+        // ------------------------------------------------------------ gerar
+        public static void GerarNaSelecao()
+        {
+            if (Application.isPlaying) { Erro("Saia do Play Mode antes de gerar os colliders."); return; }
+            var alvos = Alvos();
+            if (alvos.Length == 0) { Erro("Selecione ao menos um GameObject com MeshFilter (ou com filhos com mesh, se 'Incluir filhos' estiver ligado em Tools > Emuseu > Colliders Config)."); return; }
+
+            var existentes = alvos.Select(t => FindSibling(t, t.name + Suffix)).Where(x => x != null).ToList();
+            if (existentes.Count > 0)
             {
-                if (!EditorUtility.DisplayDialog("Rails_Colliders", "Ja existe '" + CollidersName + "'. Substituir?", "Substituir", "Cancelar")) return;
+                string nomes = string.Join(", ", existentes.Select(x => "'" + x.name + "'").ToArray());
+                if (!EditorUtility.DisplayDialog(Titulo, "Ja existe(m): " + nomes + ". Substituir?", "Substituir", "Cancelar")) return;
             }
 
+            var prm = CollidersSettings.ToParams();
+            var criados = new List<Object>();
+            int totalBoxes = 0, desabilitados = 0;
+            var relatorio = new System.Text.StringBuilder();
+
+            Undo.IncrementCurrentGroup();
+            Undo.SetCurrentGroupName("Gerar Colliders na Selecao");
+            int group = Undo.GetCurrentGroup();
             try
             {
-                // ---- le o mesh em mundo ----
-                var mesh = mf.sharedMesh;
-                var lv = mesh.vertices; var tr = mesh.triangles;
-                var m = rails.transform.localToWorldMatrix;
-                var vx = new float[lv.Length]; var vy = new float[lv.Length]; var vz = new float[lv.Length];
-                for (int i = 0; i < lv.Length; i++) { var w = m.MultiplyPoint3x4(lv[i]); vx[i] = w.x; vy[i] = w.y; vz[i] = w.z; }
-
-                string report;
-                var boxes = RailsOutlineCore.Compute(vx, vy, vz, tr, new RailOutlineParams(), out report,
-                    (s, f) => EditorUtility.DisplayProgressBar("Colliders do Rail", s, f));
-                EditorUtility.ClearProgressBar();
-                if (boxes.Count == 0) { Erro("Nenhum segmento foi gerado.\n" + report); return; }
-
-                // ---- cria os objetos (Undo) ----
-                Undo.IncrementCurrentGroup();
-                Undo.SetCurrentGroupName("Gerar Colliders do Rail");
-                int group = Undo.GetCurrentGroup();
-                if (existente != null) Undo.DestroyObjectImmediate(existente.gameObject);
-
-                var root = new GameObject(CollidersName);
-                Undo.RegisterCreatedObjectUndo(root, "Criar " + CollidersName);
-                if (parent != null) root.transform.SetParent(parent, false);
-                root.transform.localPosition = Vector3.zero; root.transform.localRotation = Quaternion.identity; root.transform.localScale = Vector3.one;
-                root.layer = rails.gameObject.layer;
-                try { root.tag = rails.gameObject.tag; } catch { }
-                GameObjectUtility.SetStaticEditorFlags(root, GameObjectUtility.GetStaticEditorFlags(rails.gameObject));
-                root.transform.SetSiblingIndex(rails.transform.GetSiblingIndex() + 1);
-
-                for (int i = 0; i < boxes.Count; i++)
+                for (int n = 0; n < alvos.Length; n++)
                 {
-                    var b = boxes[i];
-                    var go = new GameObject("Rail_Box_" + i.ToString("000"));
-                    go.layer = rails.gameObject.layer;
-                    GameObjectUtility.SetStaticEditorFlags(go, GameObjectUtility.GetStaticEditorFlags(rails.gameObject));
-                    go.transform.SetParent(root.transform, false);
-                    go.transform.SetPositionAndRotation(new Vector3((float)b.cx, (float)b.cy, (float)b.cz), Quaternion.Euler(0f, (float)b.yaw, 0f));
-                    var bc = go.AddComponent<BoxCollider>();
-                    var ls = go.transform.lossyScale;   // compensa a escala dos pais (ex.: Envirovment 0.6)
-                    bc.center = Vector3.zero;
-                    bc.size = new Vector3((float)b.sx / ls.x, (float)b.sy / ls.y, (float)b.sz / ls.z);
-                    Undo.RegisterCreatedObjectUndo(go, "Criar box");
-                }
+                    var t = alvos[n];
+                    string pfx = alvos.Length > 1 ? "(" + (n + 1) + "/" + alvos.Length + ") " + t.name + ": " : t.name + ": ";
 
-                // ---- desabilita (nao remove) o MeshCollider ----
-                var mc = rails.GetComponent<MeshCollider>();
-                if (mc != null)
-                {
-                    Undo.RecordObject(mc, "Desabilitar MeshCollider do Rails");
-                    mc.enabled = false;
-                    EditorUtility.SetDirty(mc);
-                    if (PrefabUtility.IsPartOfPrefabInstance(mc)) PrefabUtility.RecordPrefabInstancePropertyModifications(mc);
-                }
-                else Debug.LogWarning("[RailsColliders] 'Rails' nao tem MeshCollider (nada a desabilitar).");
+                    // ---- junta os meshes em mundo ----
+                    var vxl = new List<float>(); var vyl = new List<float>(); var vzl = new List<float>(); var tris = new List<int>();
+                    foreach (var mf in Filtros(t))
+                    {
+                        var mesh = mf.sharedMesh;
+                        Vector3[] lv; int[] tr;
+                        try { lv = mesh.vertices; tr = mesh.triangles; }
+                        catch (System.Exception e) { Debug.LogWarning("[Colliders] mesh ilegivel em '" + mf.name + "': " + e.Message); continue; }
+                        var m = mf.transform.localToWorldMatrix; int off = vxl.Count;
+                        for (int i = 0; i < lv.Length; i++) { var w = m.MultiplyPoint3x4(lv[i]); vxl.Add(w.x); vyl.Add(w.y); vzl.Add(w.z); }
+                        for (int i = 0; i < tr.Length; i++) tris.Add(tr[i] + off);
+                    }
+                    if (vxl.Count == 0 || tris.Count < 3) { Debug.LogWarning("[Colliders] " + pfx + "sem triangulos, ignorado."); continue; }
+                    var vx = vxl.ToArray(); var vy = vyl.ToArray(); var vz = vzl.ToArray();
 
-                Undo.CollapseUndoOperations(group);
-                EditorSceneManager.MarkSceneDirty(rails.gameObject.scene);
-                Selection.activeGameObject = root;
-                Debug.Log("[RailsColliders] " + boxes.Count + " BoxColliders criados em '" + CollidersName + "'. " + report +
-                          (mc != null ? " MeshCollider do Rails desabilitado." : ""));
-                EditorUtility.DisplayDialog("Colliders do Rail", boxes.Count + " BoxColliders criados.\nMeshCollider do Rails desabilitado.\nSalve a cena (Ctrl+S).", "OK");
+                    // ---- guarda de memoria ----
+                    float minX = vx.Min(), maxX = vx.Max(), minZ = vz.Min(), maxZ = vz.Max();
+                    double mg = 2 * (prm.CloseRadius + 1.0);
+                    long cells = (long)((maxX - minX + mg) / prm.Cell) * (long)((maxZ - minZ + mg) / prm.Cell);
+                    if (cells > MaxCells) { Debug.LogWarning("[Colliders] " + pfx + "area grande demais (" + (maxX - minX).ToString("0") + "x" + (maxZ - minZ).ToString("0") + " m). Ignorado."); continue; }
+
+                    string rep;
+                    var boxes = RailsOutlineCore.Compute(vx, vy, vz, tris.ToArray(), prm, out rep,
+                        (s, f) => EditorUtility.DisplayProgressBar(Titulo + " - " + t.name, s, f));
+                    EditorUtility.ClearProgressBar();
+                    if (boxes.Count == 0) { Debug.LogWarning("[Colliders] " + pfx + "nenhum segmento gerado. " + rep); continue; }
+
+                    // ---- cria objetos ----
+                    var ex = FindSibling(t, t.name + Suffix);
+                    int sibIndex = t.GetSiblingIndex() + 1;
+                    if (ex != null) Undo.DestroyObjectImmediate(ex.gameObject);
+
+                    var go0 = t.gameObject;
+                    var flags = GameObjectUtility.GetStaticEditorFlags(go0);
+                    var root = new GameObject(t.name + Suffix);
+                    Undo.RegisterCreatedObjectUndo(root, "Criar " + root.name);
+                    if (t.parent != null) root.transform.SetParent(t.parent, false);
+                    root.transform.localPosition = Vector3.zero; root.transform.localRotation = Quaternion.identity; root.transform.localScale = Vector3.one;
+                    root.layer = go0.layer;
+                    try { root.tag = go0.tag; } catch { }
+                    GameObjectUtility.SetStaticEditorFlags(root, flags);
+                    root.transform.SetSiblingIndex(sibIndex);
+
+                    for (int i = 0; i < boxes.Count; i++)
+                    {
+                        var b = boxes[i];
+                        var go = new GameObject(t.name + "_Box_" + i.ToString("000"));
+                        go.layer = go0.layer;
+                        GameObjectUtility.SetStaticEditorFlags(go, flags);
+                        go.transform.SetParent(root.transform, false);
+                        go.transform.SetPositionAndRotation(new Vector3((float)b.cx, (float)b.cy, (float)b.cz), Quaternion.Euler(0f, (float)b.yaw, 0f));
+                        var bc = go.AddComponent<BoxCollider>();
+                        var ls = go.transform.lossyScale;   // compensa a escala dos pais
+                        bc.center = Vector3.zero;
+                        bc.size = new Vector3((float)b.sx / ls.x, (float)b.sy / ls.y, (float)b.sz / ls.z);
+                        Undo.RegisterCreatedObjectUndo(go, "Criar box");
+                    }
+                    criados.Add(root);
+                    totalBoxes += boxes.Count;
+
+                    // ---- desabilita (nao remove) o MeshCollider do proprio objeto ----
+                    var mc = t.GetComponent<MeshCollider>();
+                    if (mc != null)
+                    {
+                        Undo.RecordObject(mc, "Desabilitar MeshCollider");
+                        mc.enabled = false;
+                        EditorUtility.SetDirty(mc);
+                        if (PrefabUtility.IsPartOfPrefabInstance(mc)) PrefabUtility.RecordPrefabInstancePropertyModifications(mc);
+                        desabilitados++;
+                    }
+                    else Debug.LogWarning("[Colliders] " + pfx + "sem MeshCollider proprio (nada a desabilitar).");
+
+                    EditorSceneManager.MarkSceneDirty(go0.scene);
+                    relatorio.AppendLine(pfx + boxes.Count + " boxes. " + rep);
+                }
             }
             catch (System.Exception e)
             {
-                EditorUtility.ClearProgressBar();
-                Debug.LogError("[RailsColliders] falhou: " + e);
+                Debug.LogError("[Colliders] falhou: " + e);
             }
+            finally { EditorUtility.ClearProgressBar(); }
+
+            Undo.CollapseUndoOperations(group);
+            if (criados.Count == 0) { Erro("Nenhum collider foi gerado. Veja o Console."); return; }
+            Selection.objects = criados.ToArray();
+            Debug.Log("[Colliders] " + totalBoxes + " BoxColliders em " + criados.Count + " objeto(s); " + desabilitados + " MeshCollider(s) desabilitado(s).\n" + relatorio);
+            EditorUtility.DisplayDialog(Titulo, totalBoxes + " BoxColliders criados em " + criados.Count + " objeto(s).\n" +
+                desabilitados + " MeshCollider(s) desabilitado(s).\nSalve a cena (Ctrl+S).", "OK");
         }
 
-        [MenuItem("Tools/Emuseu/Remover Colliders do Rail")]
-        static void Remover()
+        // ------------------------------------------------------------ remover
+        // Para cada selecionado: acha (colliders, dono). Selecionar o proprio '<Nome>_Colliders' tambem vale.
+        static List<KeyValuePair<Transform, Transform>> AlvosRemover()
         {
-            var rails = FindRails();
-            if (rails == null) return;
-            var existente = FindSibling(rails.transform, CollidersName);
-            var mc = rails.GetComponent<MeshCollider>();
-            if (existente == null && (mc == null || mc.enabled)) { Erro("Nada para remover: nao existe '" + CollidersName + "' e o MeshCollider ja esta habilitado."); return; }
+            var res = new List<KeyValuePair<Transform, Transform>>();
+            var vistos = new HashSet<Transform>();
+            foreach (var t in Selection.GetFiltered<Transform>(SelectionMode.Editable | SelectionMode.ExcludePrefab))
+            {
+                if (t == null || !t.gameObject.scene.IsValid()) continue;
+                Transform cols = null, dono = null;
+                if (t.name.EndsWith(Suffix) && t.name.Length > Suffix.Length)
+                {
+                    cols = t; dono = FindSibling(t, t.name.Substring(0, t.name.Length - Suffix.Length));
+                }
+                else
+                {
+                    dono = t; cols = FindSibling(t, t.name + Suffix);
+                }
+                var mc = dono != null ? dono.GetComponent<MeshCollider>() : null;
+                bool reabilita = mc != null && !mc.enabled;
+                if (cols == null && !reabilita) continue;
+                Transform key = cols != null ? cols : dono;
+                if (!vistos.Add(key)) continue;
+                res.Add(new KeyValuePair<Transform, Transform>(cols, dono));
+            }
+            return res;
+        }
+
+        public static bool PodeRemover() { return !Application.isPlaying && AlvosRemover().Count > 0; }
+
+        public static void RemoverDaSelecao()
+        {
+            if (Application.isPlaying) { Erro("Saia do Play Mode antes de remover os colliders."); return; }
+            var alvos = AlvosRemover();
+            if (alvos.Count == 0) { Erro("Nada para remover na selecao: nao existe '<Nome>_Colliders' nem MeshCollider desabilitado."); return; }
 
             Undo.IncrementCurrentGroup();
-            Undo.SetCurrentGroupName("Remover Colliders do Rail");
+            Undo.SetCurrentGroupName("Remover Colliders da Selecao");
             int group = Undo.GetCurrentGroup();
-            if (existente != null) Undo.DestroyObjectImmediate(existente.gameObject);
-            if (mc != null)
+            int removidos = 0, reabilitados = 0;
+            var donos = new List<Object>();
+            foreach (var kv in alvos)
             {
-                Undo.RecordObject(mc, "Reabilitar MeshCollider do Rails");
-                mc.enabled = true;
-                EditorUtility.SetDirty(mc);
-                if (PrefabUtility.IsPartOfPrefabInstance(mc)) PrefabUtility.RecordPrefabInstancePropertyModifications(mc);
+                var cols = kv.Key; var dono = kv.Value;
+                var scene = (cols != null ? cols.gameObject : dono.gameObject).scene;
+                if (cols != null) { Undo.DestroyObjectImmediate(cols.gameObject); removidos++; }
+                if (dono != null)
+                {
+                    var mc = dono.GetComponent<MeshCollider>();
+                    if (mc != null && !mc.enabled)
+                    {
+                        Undo.RecordObject(mc, "Reabilitar MeshCollider");
+                        mc.enabled = true;
+                        EditorUtility.SetDirty(mc);
+                        if (PrefabUtility.IsPartOfPrefabInstance(mc)) PrefabUtility.RecordPrefabInstancePropertyModifications(mc);
+                        reabilitados++;
+                    }
+                    donos.Add(dono.gameObject);
+                }
+                EditorSceneManager.MarkSceneDirty(scene);
             }
             Undo.CollapseUndoOperations(group);
-            EditorSceneManager.MarkSceneDirty(rails.gameObject.scene);
-            Debug.Log("[RailsColliders] '" + CollidersName + "' removido e MeshCollider do Rails reabilitado.");
+            if (donos.Count > 0) Selection.objects = donos.ToArray();
+            Debug.Log("[Colliders] " + removidos + " grupo(s) '_Colliders' removido(s); " + reabilitados + " MeshCollider(s) reabilitado(s).");
         }
 
-        static GameObject FindRails()
-        {
-            GameObject best = null;
-            foreach (var t in Resources.FindObjectsOfTypeAll<Transform>())
-            {
-                if (t.name != RailsName) continue;
-                var go = t.gameObject;
-                if (EditorUtility.IsPersistent(go) || !go.scene.IsValid() || !go.scene.isLoaded) continue;
-                if (go.GetComponent<MeshFilter>() == null) continue;
-                bool underCristo = t.parent != null && t.parent.name == "CristoBase";
-                if (best == null || underCristo) best = go;
-                if (underCristo) break;
-            }
-            if (best == null) Erro("Nao encontrei o GameObject 'Rails' na cena aberta (abra CenaRiodeJaneiro).");
-            return best;
-        }
-
+        // ------------------------------------------------------------ util
         static Transform FindSibling(Transform of, string name)
         {
             var parent = of.parent;
@@ -507,7 +614,7 @@ namespace Emuseu.EditorTools
             return null;
         }
 
-        static void Erro(string msg) { Debug.LogWarning("[RailsColliders] " + msg); EditorUtility.DisplayDialog("Colliders do Rail", msg, "OK"); }
+        static void Erro(string msg) { Debug.LogWarning("[Colliders] " + msg); EditorUtility.DisplayDialog(Titulo, msg, "OK"); }
     }
 }
 #endif
