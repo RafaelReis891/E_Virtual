@@ -1,0 +1,51 @@
+using System;
+using UnityEngine;
+
+// Clique do admin (root) em banners: raio do centro da tela (cursor travado, FPS com mira) ou do mouse (cursor livre).
+// Criado sozinho pelo RemoteBanner quando o usuario e admin. Um unico Update para a cena toda.
+public sealed class RemoteBannerClickDriver : MonoBehaviour
+{
+    public static float DistanciaMaxima = 80f;
+
+    static RemoteBannerClickDriver instancia;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    static void Resetar() { instancia = null; }
+
+    public static void Garantir()
+    {
+        if (instancia != null) return;
+        var go = new GameObject("RemoteBannerClickDriver");
+        DontDestroyOnLoad(go);
+        instancia = go.AddComponent<RemoteBannerClickDriver>();
+    }
+
+    void Update()
+    {
+        if (!Input.GetMouseButtonDown(0)) return;
+        if (!EmuseuSettingsCatalog.IsAdmin) return;
+
+        Camera cam = Camera.main;
+        if (cam == null && Camera.allCamerasCount > 0) cam = Camera.allCameras[0];
+        if (cam == null) return;
+
+        Ray ray = Cursor.lockState == CursorLockMode.Locked
+            ? cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f))
+            : cam.ScreenPointToRay(Input.mousePosition);
+
+        RaycastHit[] hits = Physics.RaycastAll(ray, DistanciaMaxima, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Collide);
+        if (hits == null || hits.Length == 0) return;
+        Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
+
+        foreach (RaycastHit hit in hits)
+        {
+            Collider c = hit.collider;
+            if (c == null) continue;
+            RemoteBanner rb = c.GetComponentInParent<RemoteBanner>();
+            if (rb != null) { rb.SolicitarUpload(); return; }
+            if (c.isTrigger) continue;                                   // gatilhos nao bloqueiam a mira
+            if (c.GetComponentInParent<CharacterController>() != null) continue; // o proprio jogador
+            return;                                                      // parede/objeto na frente do banner
+        }
+    }
+}

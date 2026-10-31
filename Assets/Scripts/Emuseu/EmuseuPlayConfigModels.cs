@@ -54,6 +54,8 @@ public class EmuseuGame
 [Preserve]
 public class EmuseuSetting
 {
+    public string id;
+    public string alias;
     public string key;
     public string type;
     public JToken value;
@@ -65,6 +67,8 @@ public class EmuseuFile
 {
     public string url;
     public string contentType;
+    public float width;
+    public float height;
 }
 
 [Preserve]

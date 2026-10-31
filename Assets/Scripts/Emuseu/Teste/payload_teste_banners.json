@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "channel": "unity-react",
+  "type": "play-config",
+  "_aviso": "TESTE de banners - URLs publicas do picsum, nao sao do site real. Chaves reais da CenaArena.",
+  "payload": {
+    "user": { "id": "teste-user", "roles": ["root"] },
+    "campaign": {
+      "id": "teste-campanha",
+      "name": "TESTE Banners",
+      "games": [
+        {
+          "id": "game-teste",
+          "name": "E_Virtual (teste)",
+          "settings": [
+            { "id": "s1", "key": "led_hub", "alias": "LED do HUB", "type": "image", "file": { "url": "https://picsum.photos/id/1015/1024/512.jpg", "width": 1024, "height": 512 } },
+            { "id": "s2", "key": "led_topo_estadio", "alias": "LED topo do estadio", "type": "image", "file": { "url": "https://picsum.photos/id/1025/1024/256.jpg", "width": 1024, "height": 256 } },
+            { "id": "s3", "key": "telao_topo_1", "alias": "Telao topo 1", "type": "image", "file": { "url": "https://picsum.photos/id/1039/1280/720.jpg", "width": 1280, "height": 720 } },
+            { "id": "s4", "key": "banner_vert_big_1", "alias": "Banner vertical grande 1", "type": "image", "file": { "url": "https://picsum.photos/id/1043/512/1024.jpg", "width": 512, "height": 1024 } },
+            { "id": "s5", "key": "banner_escadaria_1", "alias": "Banner escadaria 1", "type": "image", "file": { "url": "https://picsum.photos/id/1050/512/1024.jpg", "width": 512, "height": 1024 } },
+            { "id": "s6", "key": "logo_campo_centro", "alias": "Logo centro do campo", "type": "image", "file": { "url": "https://picsum.photos/id/1062/1024/1024.jpg", "width": 1024, "height": 1024 } },
+            { "id": "s7", "key": "texto_exemplo", "alias": "Texto (ignorado pelos banners)", "type": "text" }
+          ]
+        }
+      ],
+      "albums": []
+    }
+  }
+}

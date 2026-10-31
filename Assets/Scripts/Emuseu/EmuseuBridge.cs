@@ -112,6 +112,22 @@ public sealed class EmuseuBridge : MonoBehaviour
         catch (Exception ex) { EmuseuDebug.Error("bridge", "listener de PlayConfigApplied falhou: " + ex.GetType().Name + ": " + ex.Message); Debug.LogWarning("[EmuseuBridge] listener de PlayConfigApplied falhou: " + ex.Message); }
     }
 
+    // Entrada chamada pelo React via SendMessage: fases do upload de quadro (picking/uploading/completed/failed...).
+    // 'completed' com url troca o banner na hora (ver EmuseuSettingsCatalog.HandleFrameUpload).
+    [Preserve]
+    public void OnFrameUpload(string json)
+    {
+        EmuseuDebug.Info("banner", "OnFrameUpload len=" + (json == null ? 0 : json.Length));
+        if (string.IsNullOrEmpty(json)) return;
+        EmuseuSettingsCatalog.HandleFrameUpload(json);
+    }
+
+    // Envia ao React qualquer mensagem do canal unity-react (ex: "frame-upload"). payloadJson = so o objeto payload.
+    public static void SendToReact(string type, string payloadJson)
+    {
+        Send(type, payloadJson);
+    }
+
     // Le o JSON (envelope completo ou payload puro) com Newtonsoft. Retorna null se nao der.
     public static EmuseuPayload ParsePayload(string json)
     {
