@@ -159,10 +159,8 @@ public sealed class AdminPlayerControl : MonoBehaviour
         {
             foreach (StarterAssets.StarterAssetsInputs s in FindObjectsByType<StarterAssets.StarterAssetsInputs>(FindObjectsInactive.Include))
                 Adicionar(s, Tipo.Inputs);
-#if ENABLE_INPUT_SYSTEM
-            foreach (PlayerInput pi in FindObjectsByType<PlayerInput>(FindObjectsInactive.Include))
-                Adicionar(pi, Tipo.SoPainel);
-#endif
+            // PlayerInput NAO e mais desligado: StarterAssetsInputs/FirstPersonController desligados ja bloqueiam o jogador, e mexer no
+            // PlayerInput (ativar/desativar action maps) pode interferir nas actions de UI do Input System (InputForUI/IMGUI).
             foreach (RemoteBannerClickDriver cd in FindObjectsByType<RemoteBannerClickDriver>(FindObjectsInactive.Include))
                 Adicionar(cd, Tipo.Clique);
         }
@@ -231,6 +229,7 @@ public sealed class AdminPlayerControl : MonoBehaviour
                 {
                     e.sai.cursorLocked = false;
                     e.sai.cursorInputForLook = false;
+                    e.sai.move = Vector2.zero; e.sai.look = Vector2.zero; e.sai.jump = false; e.sai.sprint = false; // PlayerInput segue ativo e continua enviando OnMove/OnLook
                     EscreverForcado(e.sai, true);
                 }
                 if (e.comp.enabled) e.comp.enabled = false;
@@ -253,6 +252,7 @@ public sealed class AdminPlayerControl : MonoBehaviour
         {
             proximaBuscaEntradas = Time.unscaledTime + 0.5f;
             Descobrir();
+            if (PainelAberto) EmuseuUploadGuard_ReleasePointer(); // o navegador pode manter o pointer lock mesmo com Cursor.lockState = None
         }
         ProcessarEntradas();
 
@@ -274,6 +274,12 @@ public sealed class AdminPlayerControl : MonoBehaviour
             return;
         }
         Voar();
+    }
+
+    void LateUpdate()
+    {
+        // algo que rode depois do Update (ou no mesmo frame) nao pode religar o cursor com o painel aberto
+        if (PainelAberto && (Cursor.lockState != CursorLockMode.None || !Cursor.visible)) AplicarCursorLivre();
     }
 
     void OnApplicationFocus(bool temFoco)

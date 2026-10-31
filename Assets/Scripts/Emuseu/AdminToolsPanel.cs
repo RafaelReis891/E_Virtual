@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 // Ferramentas de ADMIN (so admin; jogador normal nunca ve nem usa):
 //  - F2 abre/fecha o painel (Esc fecha). Painel aberto: cursor livre e input do jogo bloqueado (AdminPlayerControl).
+//  - Interacao por polling de mouse/teclado (AdminInput), nao por eventos IMGUI: ver comentario na secao GUI.
 //  - Botoes para cada cena de cidade (desabilitados/cinza se a cena nao esta na build).
 //  - God mode: voar com WASD relativo a camera, Space sobe, Ctrl/Q desce, Shift rapido (AdminPlayerControl).
 //
@@ -62,7 +63,6 @@ public sealed class AdminToolsPanel : MonoBehaviour
     bool pularIntro = true;
     bool eraAdmin;
     float hintAte;
-    Vector2 scroll;
 
     GUIStyle estBox, estBotao, estTitulo, estTexto, estHud;
     Texture2D fundo, fundoHud;
@@ -146,6 +146,7 @@ public sealed class AdminToolsPanel : MonoBehaviour
         }
         else if (aberto && AdminInput.Apertou(AdminInput.Tecla.Esc)) pedidoFechar = true;
 
+        if (aberto && !pedidoFechar) ProcessarPainel();
         if (pedidoFechar)
         {
             pedidoFechar = false;
@@ -165,6 +166,8 @@ public sealed class AdminToolsPanel : MonoBehaviour
     {
         AtualizarDisponibilidade();
         aberto = true;
+        scrollY = 0f;
+        arrastandoBarra = false;
         controle.DefinirPainel(true);
         EmuseuDebug.Info(Tag, "painel admin aberto");
     }
@@ -239,6 +242,92 @@ public sealed class AdminToolsPanel : MonoBehaviour
     }
 
     // ---------- GUI (chamado pelo AdminToolsGui.OnGUI) ----------
+    // O IMGUI aqui so DESENHA (evento Repaint). Cliques, roda e teclas sao lidos por polling no Update
+    // (AdminInput: Mouse.current / Input legado), o mesmo caminho que o RemoteBannerClickDriver usa e que funciona no WebGL.
+    // Motivo: os botoes GUI.Button/GUILayout dependem dos eventos de mouse do IMGUI (InputForUI + Input System novo no WebGL),
+    // e na build o painel abria mas nao reagia ao clique. O layout e um so (Passo): o mesmo codigo desenha e testa o clique.
+
+    const float Barra = 12f;
+
+    static float Escala() { return Mathf.Clamp(Screen.height / 800f, 1f, 2.5f); }
+
+    // geometria em coordenadas "virtuais" (pixels da tela / Escala())
+    Rect rPainel, rFechar, rView, rTrilho, rRodape;
+    float alturaConteudo;
+    float scrollY;
+    bool arrastandoBarra;
+    Vector2 mouseGui;
+    string ultimoClique = "-";
+    int cliquesLidos;
+
+    // estado do passo de layout
+    bool pDesenha, pClicou;
+    float pY, pLargura;
+    Vector2 pPonto, pHover;
+
+    void CalcularGeometria()
+    {
+        float esc = Escala();
+        float sw = Screen.width / esc, sh = Screen.height / esc;
+        float w = Mathf.Min(600f, sw - 20f), h = Mathf.Min(640f, sh - 20f);
+        rPainel = new Rect((sw - w) * 0.5f, (sh - h) * 0.5f, w, h);
+        rFechar = new Rect(rPainel.xMax - 12f - 110f, rPainel.y + 10f, 110f, 26f);
+        rView = new Rect(rPainel.x + 12f, rPainel.y + 66f, w - 24f, Mathf.Max(60f, h - 66f - 46f));
+        rTrilho = new Rect(rView.xMax - 8f, rView.y, 8f, rView.height);
+        rRodape = new Rect(rPainel.x + 12f, rPainel.yMax - 40f, w - 24f, 34f);
+    }
+
+    // Update: mouse/roda/teclas do painel aberto.
+    void ProcessarPainel()
+    {
+        CalcularGeometria();
+        float esc = Escala();
+        Vector2 px = AdminInput.PosicaoMouse();
+        mouseGui = new Vector2(px.x / esc, (Screen.height - px.y) / esc);
+
+        float maxScroll = Mathf.Max(0f, alturaConteudo - rView.height);
+        float roda = AdminInput.Roda();
+        if (roda != 0f && rPainel.Contains(mouseGui)) scrollY -= Mathf.Sign(roda) * 56f;
+
+        bool pressionou = AdminInput.CliquePressionado();
+        if (!AdminInput.CliqueSegurando()) arrastandoBarra = false;
+        if (pressionou && maxScroll > 0f && new Rect(rTrilho.x - 8f, rTrilho.y, rTrilho.width + 8f, rTrilho.height).Contains(mouseGui)) arrastandoBarra = true;
+        if (arrastandoBarra) scrollY = Mathf.Clamp01((mouseGui.y - rView.y) / rView.height) * maxScroll;
+        scrollY = Mathf.Clamp(scrollY, 0f, maxScroll);
+
+        // atalhos de teclado (reserva caso o mouse falhe): G = god mode, 1-9 = cidades
+        if (AdminInput.Apertou(AdminInput.Tecla.G))
+        {
+            controle.DefinirGod(!controle.GodLigado);
+            ultimoClique = "tecla G";
+        }
+        for (int i = 0; i < 9 && i < Cidades.Length; i++)
+        {
+            if (AdminInput.Apertou((AdminInput.Tecla)((int)AdminInput.Tecla.N1 + i)) && Cidades[i].ok && !carregando)
+            {
+                pedidoCena = Cidades[i];
+                ultimoClique = "tecla " + (i + 1);
+            }
+        }
+
+        if (pressionou && !arrastandoBarra)
+        {
+            if (rFechar.Contains(mouseGui))
+            {
+                pedidoFechar = true;
+                ultimoClique = "Fechar";
+            }
+            else if (rView.Contains(mouseGui) && !rTrilho.Contains(mouseGui))
+            {
+                var pc = new Vector2(mouseGui.x - rView.x, mouseGui.y - rView.y + scrollY);
+                ultimoClique = "(" + (int)mouseGui.x + "," + (int)mouseGui.y + ") sem botao";
+                Passo(false, rView.width - Barra, pc, true);
+            }
+            else ultimoClique = "(" + (int)mouseGui.x + "," + (int)mouseGui.y + ") fora da area";
+            cliquesLidos++;
+            EmuseuDebug.Info(Tag, "clique no painel: " + ultimoClique + " cursor=" + Cursor.lockState + " visivel=" + Cursor.visible);
+        }
+    }
 
     void CriarEstilos()
     {
@@ -268,10 +357,10 @@ public sealed class AdminToolsPanel : MonoBehaviour
         CriarEstilos();
         GUI.depth = -1000;
 
-        float esc = Mathf.Clamp(Screen.height / 800f, 1f, 2.5f);
+        float esc = Escala();
         Matrix4x4 antiga = GUI.matrix;
         GUI.matrix = Matrix4x4.Scale(new Vector3(esc, esc, 1f));
-        float sw = Screen.width / esc, sh = Screen.height / esc;
+        float sw = Screen.width / esc;
 
         if (!aberto)
         {
@@ -280,99 +369,169 @@ public sealed class AdminToolsPanel : MonoBehaviour
             return;
         }
 
-        float w = Mathf.Min(600f, sw - 20f), h = Mathf.Min(640f, sh - 20f);
-        var r = new Rect((sw - w) * 0.5f, (sh - h) * 0.5f, w, h);
-        GUI.Box(r, GUIContent.none, estBox);
-        GUILayout.BeginArea(new Rect(r.x + 12f, r.y + 10f, w - 24f, h - 20f));
-
-        GUILayout.BeginHorizontal();
-        GUILayout.Label("Admin Tools", estTitulo);
-        GUILayout.FlexibleSpace();
-        if (GUILayout.Button("Fechar (F2)", estBotao, GUILayout.Width(110f), GUILayout.Height(26f))) pedidoFechar = true;
-        GUILayout.EndHorizontal();
-
-#if UNITY_EDITOR
-        GUILayout.Label("Modo Editor (teste). No jogo so aparece para admin (root).", estTexto);
-#else
-        GUILayout.Label("Admin (root).", estTexto);
-#endif
-
-        scroll = GUILayout.BeginScrollView(scroll);
-
-        GUILayout.Space(6f);
-        GUILayout.Label("God mode", estTitulo);
-        DesenharGod();
-
-        GUILayout.Space(10f);
-        GUILayout.Label("Cenas (cidades)", estTitulo);
-        pularIntro = GUILayout.Toggle(pularIntro, " Arena: pular a intro ao carregar", GUILayout.Height(22f));
-        Grade(Cidades);
-
-        GUILayout.Space(8f);
-        GUILayout.Label("Puzzles Rio", estTitulo);
-        Grade(Puzzles);
-
-        if (extras.Count > 0)
+        if (Event.current.type == EventType.Repaint)
         {
-            GUILayout.Space(8f);
-            GUILayout.Label("Outras cenas da build", estTitulo);
-            Grade(extras.ToArray());
-        }
-        GUILayout.Space(6f);
-        GUILayout.Label("Cena atual: " + SceneManager.GetActiveScene().name + "   |   Botao cinza = cena fora da build.", estTexto);
+            CalcularGeometria();
+            GUI.Box(rPainel, GUIContent.none, estBox);
+            GUI.Label(new Rect(rPainel.x + 12f, rPainel.y + 8f, 300f, 28f), "Admin Tools", estTitulo);
+            DesenharBotao(rFechar, "Fechar (F2)", true, Color.white, rFechar.Contains(mouseGui));
+#if UNITY_EDITOR
+            string info = "Modo Editor (teste). No jogo so aparece para admin (root).";
+#else
+            string info = "Admin (root).";
+#endif
+            GUI.Label(new Rect(rPainel.x + 12f, rPainel.y + 40f, rPainel.width - 24f, 22f), info, estTexto);
 
-        GUILayout.EndScrollView();
-        GUILayout.EndArea();
+            GUI.BeginGroup(rView);
+            alturaConteudo = Passo(true, rView.width - Barra, Vector2.zero, false);
+            GUI.EndGroup();
+
+            if (alturaConteudo > rView.height)
+            {
+                GUI.DrawTexture(rTrilho, fundoHud);
+                float maxScroll = alturaConteudo - rView.height;
+                float th = Mathf.Max(24f, rView.height * rView.height / alturaConteudo);
+                float ty = rView.y + (rView.height - th) * Mathf.Clamp01(scrollY / maxScroll);
+                Color c = GUI.color;
+                GUI.color = new Color(0.7f, 0.75f, 0.85f, 0.9f);
+                GUI.DrawTexture(new Rect(rTrilho.x, ty, rTrilho.width, th), Texture2D.whiteTexture);
+                GUI.color = c;
+            }
+
+            string diag = "Cena: " + SceneManager.GetActiveScene().name + " | botao cinza = fora da build | mouse " + (int)mouseGui.x + "," + (int)mouseGui.y +
+                          " | cursor " + Cursor.lockState + (Cursor.visible ? "" : " (oculto)") + " | ultimo clique: " + ultimoClique + " (n=" + cliquesLidos + ")";
+            GUI.Label(rRodape, diag, estTexto);
+        }
         GUI.matrix = antiga;
     }
 
-    void DesenharGod()
+    void DesenharBotao(Rect d, string txt, bool hab, Color cor, bool hover)
     {
-        string rotulo = controle.GodLigado ? "God mode: LIGADO (clique para desligar)" : "God mode: desligado (clique para ligar)";
-        Color bg = GUI.backgroundColor;
-        if (controle.GodLigado) GUI.backgroundColor = new Color(1f, 0.65f, 0.2f);
-        if (GUILayout.Button(rotulo, estBotao, GUILayout.Height(34f))) controle.DefinirGod(!controle.GodLigado);
+        Color bg = GUI.backgroundColor, c = GUI.color;
+        GUI.backgroundColor = cor;
+        if (!hab) GUI.color = new Color(1f, 1f, 1f, 0.45f);
+        estBotao.Draw(d, new GUIContent(txt), hover && hab, false, false, false);
         GUI.backgroundColor = bg;
-
-        if (controle.GodLigado && !controle.GodAplicado)
-            GUILayout.Label("Aguardando o jogador aparecer na cena...", estTexto);
-
-        controle.GodPersistente = GUILayout.Toggle(controle.GodPersistente, " Manter god mode ao trocar de cena", GUILayout.Height(22f));
-
-        GUILayout.BeginHorizontal();
-        GUILayout.Label("Velocidade " + controle.VelNormal.ToString("0") + " m/s", estTexto, GUILayout.Width(150f));
-        controle.VelNormal = GUILayout.HorizontalSlider(controle.VelNormal, 2f, 40f);
-        GUILayout.EndHorizontal();
-        GUILayout.BeginHorizontal();
-        GUILayout.Label("Rapido (Shift) " + controle.VelRapido.ToString("0") + " m/s", estTexto, GUILayout.Width(150f));
-        controle.VelRapido = GUILayout.HorizontalSlider(controle.VelRapido, 10f, 120f);
-        GUILayout.EndHorizontal();
-        GUILayout.Label("WASD move (relativo a camera) | Space sobe | Ctrl ou Q desce | Shift rapido | mouse olha. Sem colisao.", estTexto);
+        GUI.color = c;
     }
 
-    void Grade(IList<Cena> lista)
+    // ---------- layout (um so codigo para desenhar e para testar o clique) ----------
+
+    Rect Linha(float h, float depois)
     {
+        var r = new Rect(0f, pY, pLargura, h);
+        pY += h + depois;
+        return r;
+    }
+
+    void Rotulo(Rect r, string t, GUIStyle st)
+    {
+        if (!pDesenha) return;
+        r.y -= scrollY;
+        GUI.Label(r, t, st);
+    }
+
+    // true so no passo de clique, quando o clique caiu no botao (e habilitado)
+    bool Botao(Rect r, string txt, bool hab, Color cor, string nome)
+    {
+        if (pDesenha)
+        {
+            Rect d = r;
+            d.y -= scrollY;
+            DesenharBotao(d, txt, hab, cor, r.Contains(pHover));
+            return false;
+        }
+        if (!pClicou || !hab || !r.Contains(pPonto)) return false;
+        pClicou = false;
+        ultimoClique = nome;
+        return true;
+    }
+
+    bool Marcador(Rect r, bool valor, string txt, string nome)
+    {
+        if (pDesenha)
+        {
+            Rect d = r;
+            d.y -= scrollY;
+            GUI.Label(d, (valor ? "[x]  " : "[   ]  ") + txt, estTexto);
+            return valor;
+        }
+        if (pClicou && r.Contains(pPonto))
+        {
+            pClicou = false;
+            ultimoClique = nome;
+            return !valor;
+        }
+        return valor;
+    }
+
+    // Retorna a altura total do conteudo.
+    float Passo(bool desenha, float largura, Vector2 ponto, bool clicou)
+    {
+        pDesenha = desenha;
+        pLargura = largura;
+        pPonto = ponto;
+        pClicou = clicou;
+        pY = 0f;
+        pHover = new Vector2(mouseGui.x - rView.x, mouseGui.y - rView.y + scrollY);
+
+        Rotulo(Linha(28f, 2f), "God mode", estTitulo);
+        string rotulo = controle.GodLigado ? "God mode: LIGADO (clique para desligar)  [G]" : "God mode: desligado (clique para ligar)  [G]";
+        if (Botao(Linha(34f, 4f), rotulo, true, controle.GodLigado ? new Color(1f, 0.65f, 0.2f) : Color.white, "God mode"))
+            controle.DefinirGod(!controle.GodLigado);
+        if (controle.GodLigado && !controle.GodAplicado)
+            Rotulo(Linha(20f, 2f), "Aguardando o jogador aparecer na cena...", estTexto);
+        controle.GodPersistente = Marcador(Linha(24f, 2f), controle.GodPersistente, "Manter god mode ao trocar de cena", "Manter god mode");
+
+        Rect l = Linha(30f, 2f);
+        Rotulo(new Rect(l.x, l.y, l.width - 120f, l.height), "Velocidade " + controle.VelNormal.ToString("0") + " m/s", estTexto);
+        if (Botao(new Rect(l.xMax - 112f, l.y, 54f, l.height), "-", true, Color.white, "Velocidade -")) controle.VelNormal = Mathf.Max(2f, controle.VelNormal - 2f);
+        if (Botao(new Rect(l.xMax - 54f, l.y, 54f, l.height), "+", true, Color.white, "Velocidade +")) controle.VelNormal = Mathf.Min(40f, controle.VelNormal + 2f);
+
+        l = Linha(30f, 2f);
+        Rotulo(new Rect(l.x, l.y, l.width - 120f, l.height), "Rapido (Shift) " + controle.VelRapido.ToString("0") + " m/s", estTexto);
+        if (Botao(new Rect(l.xMax - 112f, l.y, 54f, l.height), "-", true, Color.white, "Rapido -")) controle.VelRapido = Mathf.Max(10f, controle.VelRapido - 10f);
+        if (Botao(new Rect(l.xMax - 54f, l.y, 54f, l.height), "+", true, Color.white, "Rapido +")) controle.VelRapido = Mathf.Min(120f, controle.VelRapido + 10f);
+
+        Rotulo(Linha(40f, 6f), "WASD move (relativo a camera) | Space sobe | Ctrl ou Q desce | Shift rapido | mouse olha. Sem colisao.", estTexto);
+
+        pY += 4f;
+        Rotulo(Linha(28f, 2f), "Cenas (cidades)  [teclas 1-9]", estTitulo);
+        pularIntro = Marcador(Linha(24f, 4f), pularIntro, "Arena: pular a intro ao carregar", "Pular intro");
+        Grade(Cidades, true);
+
+        pY += 8f;
+        Rotulo(Linha(28f, 2f), "Puzzles Rio", estTitulo);
+        Grade(Puzzles, false);
+
+        if (extras.Count > 0)
+        {
+            pY += 8f;
+            Rotulo(Linha(28f, 2f), "Outras cenas da build", estTitulo);
+            Grade(extras.ToArray(), false);
+        }
+        pY += 6f;
+        return pY;
+    }
+
+    void Grade(IList<Cena> lista, bool numerar)
+    {
+        float lw = (pLargura - 6f) * 0.5f;
         for (int i = 0; i < lista.Count; i += 2)
         {
-            GUILayout.BeginHorizontal();
-            BotaoCena(lista[i]);
-            if (i + 1 < lista.Count) BotaoCena(lista[i + 1]);
-            else GUILayout.FlexibleSpace();
-            GUILayout.EndHorizontal();
+            Rect l = Linha(44f, 4f);
+            BotaoCena(new Rect(0f, l.y, lw, l.height), lista[i], numerar ? i + 1 : 0);
+            if (i + 1 < lista.Count) BotaoCena(new Rect(lw + 6f, l.y, lw, l.height), lista[i + 1], numerar ? i + 2 : 0);
         }
     }
 
-    void BotaoCena(Cena c)
+    void BotaoCena(Rect r, Cena c, int numero)
     {
         bool atual = c.nome == SceneManager.GetActiveScene().name;
-        string txt = c.rotulo + (!c.ok ? "\n(fora da build)" : (atual ? "\n(cena atual)" : "\n" + c.nome));
-        bool enabledAntes = GUI.enabled;
-        Color bg = GUI.backgroundColor;
-        GUI.enabled = enabledAntes && c.ok && !carregando;
-        if (atual && c.ok) GUI.backgroundColor = new Color(0.5f, 0.9f, 0.5f);
-        if (GUILayout.Button(txt, estBotao, GUILayout.Height(44f))) pedidoCena = c;
-        GUI.backgroundColor = bg;
-        GUI.enabled = enabledAntes;
+        string txt = (numero > 0 ? "[" + numero + "] " : "") + c.rotulo + (!c.ok ? "\n(fora da build)" : (atual ? "\n(cena atual)" : "\n" + c.nome));
+        bool hab = c.ok && !carregando;
+        Color cor = (atual && c.ok) ? new Color(0.5f, 0.9f, 0.5f) : Color.white;
+        if (Botao(r, txt, hab, cor, c.rotulo)) pedidoCena = c;
     }
 
     void DesenharHud(float sw)
