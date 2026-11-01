@@ -123,7 +123,7 @@ public static class EmuseuSettingsCatalog
         Disparar(key);
     }
 
-    // JSON do React: envelope {type:'frame-upload', payload:{frameId, phase, progress?, url?}} ou so o payload.
+    // JSON do React: envelope {type:'frame-upload', payload:{key, type, phase, url?, fileName?, text?, number?, boolean?}}.
     public static void HandleFrameUpload(string json)
     {
         JObject raiz;
@@ -132,22 +132,81 @@ public static class EmuseuSettingsCatalog
         if (raiz == null) { EmuseuDebug.Error("banner", "OnFrameUpload: raiz nao e objeto"); return; }
 
         JObject p = raiz["payload"] as JObject ?? raiz;
-        string frameId = Texto(p, "frameId");
+        string key = Texto(p, "key");
         string phase = Texto(p, "phase");
+        string type = Texto(p, "type");
         string url = Texto(p, "url");
+        string fileName = Texto(p, "fileName");
         string progress = Texto(p, "progress");
         string erro = Texto(p, "error");
 
-        EmuseuDebug.Info("banner", "frame-upload frameId=" + frameId + " phase=" + phase +
+        EmuseuDebug.Info("banner", "frame-upload key=" + key + " type=" + type + " phase=" + phase +
                          (string.IsNullOrEmpty(progress) ? "" : " progress=" + progress) +
                          (string.IsNullOrEmpty(erro) ? "" : " erro=" + erro));
-        if (string.IsNullOrEmpty(frameId)) return;
+        if (string.IsNullOrEmpty(key)) return;
+        if (!string.Equals(phase, "completed", StringComparison.OrdinalIgnoreCase)) return;
 
-        if (string.Equals(phase, "completed", StringComparison.OrdinalIgnoreCase))
+        if (string.Equals(type, "text", StringComparison.OrdinalIgnoreCase))
         {
-            if (string.IsNullOrEmpty(url)) { EmuseuDebug.Warn("banner", "completed sem url para " + frameId); return; }
-            SetImageUrl(frameId, url);
+            EmuseuSetting s = ObterOuCriar(key);
+            s.type = "text";
+            s.text = Texto(p, "text") ?? "";
+            Disparar(key);
+            return;
         }
+        if (string.Equals(type, "number", StringComparison.OrdinalIgnoreCase))
+        {
+            EmuseuSetting s = ObterOuCriar(key);
+            s.type = "number";
+            float numero;
+            if (float.TryParse(Texto(p, "number"), System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out numero))
+                s.number = numero;
+            Disparar(key);
+            return;
+        }
+        if (string.Equals(type, "boolean", StringComparison.OrdinalIgnoreCase))
+        {
+            EmuseuSetting s = ObterOuCriar(key);
+            s.type = "boolean";
+            bool ligado;
+            s.boolean = bool.TryParse(Texto(p, "boolean"), out ligado) && ligado;
+            Disparar(key);
+            return;
+        }
+
+        bool imagem = string.IsNullOrEmpty(type) || string.Equals(type, "image", StringComparison.OrdinalIgnoreCase);
+        if (imagem)
+        {
+            if (!string.IsNullOrEmpty(url)) SetImageUrl(key, url);
+            if (!string.IsNullOrEmpty(fileName)) DefinirNomeArquivo(key, fileName);
+            return;
+        }
+
+        EmuseuSetting arquivo = ObterOuCriar(key);
+        arquivo.type = type;
+        if (arquivo.file == null) arquivo.file = new EmuseuFile();
+        if (!string.IsNullOrEmpty(fileName)) arquivo.file.name = fileName;
+        if (!string.IsNullOrEmpty(url)) arquivo.file.url = url;
+        Disparar(key);
+    }
+
+    static EmuseuSetting ObterOuCriar(string key)
+    {
+        EmuseuSetting s;
+        if (!porChave.TryGetValue(key, out s) || s == null)
+        {
+            s = new EmuseuSetting { key = key };
+            porChave[key] = s;
+        }
+        return s;
+    }
+
+    static void DefinirNomeArquivo(string key, string fileName)
+    {
+        EmuseuSetting s = ObterOuCriar(key);
+        if (s.file == null) s.file = new EmuseuFile();
+        s.file.name = fileName;
+        Disparar(key);
     }
 
     static string Texto(JObject o, string campo)

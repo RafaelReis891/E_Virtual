@@ -389,6 +389,7 @@ public sealed class AdminPlayerControl : MonoBehaviour
     {
         if (alvo == null || cc == null) { EsquecerAlvo(); return; } // jogador destruido (troca de cena): religa na proxima cena se persistente
         if (EmuseuUploadModalGuard.Ativo) return; // modal de upload: teclado e do React
+        if (EmuseuBridge.Paused) return; // pause do site: nem o voo nem o olhar andam
 
         // o RemoteBannerTour (N/B) religa o CharacterController depois de teleportar; mantem desligado
         if (cc.enabled) cc.enabled = false;

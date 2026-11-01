@@ -150,6 +150,12 @@ namespace StarterAssets
 
 		private void CameraRotation()
 		{
+			if (StarterAssetsInputs.GamePaused)
+			{
+				if (_input != null) _input.look = Vector2.zero;
+				return;
+			}
+
 			// if there is an input
 			if (_input.look.sqrMagnitude >= _threshold)
 			{

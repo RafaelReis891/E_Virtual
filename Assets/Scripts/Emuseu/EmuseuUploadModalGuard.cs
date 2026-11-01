@@ -112,7 +112,7 @@ public sealed class EmuseuUploadModalGuard : MonoBehaviour
             if (p == null) return;
             string fase = Texto(p, "phase");
             if (!string.Equals(fase, "requested", StringComparison.OrdinalIgnoreCase)) return;
-            Abrir(Texto(p, "frameId"));
+            Abrir(Texto(p, "key"));
         }
         catch (Exception ex) { EmuseuDebug.Warn(Tag, "mensagem frame-upload ilegivel: " + ex.Message); }
     }
@@ -126,7 +126,7 @@ public sealed class EmuseuUploadModalGuard : MonoBehaviour
             if (raiz == null) return;
             JObject p = raiz["payload"] as JObject ?? raiz;
             string fase = Texto(p, "phase");
-            string id = Texto(p, "frameId");
+            string id = Texto(p, "key");
             if (!string.IsNullOrEmpty(id) && !string.IsNullOrEmpty(frameId) && id != frameId) return;
             if (string.IsNullOrEmpty(fase)) return;
             foreach (string f in FasesFinais)
@@ -223,8 +223,25 @@ public sealed class EmuseuUploadModalGuard : MonoBehaviour
         foreach (var kv in desligados)
             if (kv.Key != null) kv.Key.enabled = kv.Value;
 
-        Cursor.visible = visivelAnterior;
-        Cursor.lockState = lockAnterior; // no WebGL o navegador so trava no proximo clique no jogo
+        if (EmuseuBridge.Paused)
+        {
+            foreach (EstadoInputs e in estadosInputs)
+            {
+                if (e.inputs == null) continue;
+                e.inputs.look = Vector2.zero;
+                e.inputs.move = Vector2.zero;
+                e.inputs.cursorLocked = false;
+                e.inputs.cursorInputForLook = false;
+                e.inputs.UnlockCursor(true);
+            }
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.visible = visivelAnterior;
+            Cursor.lockState = lockAnterior; // no WebGL o navegador so trava no proximo clique no jogo
+        }
         SetarCapturaTeclado(capturaAnterior, false);
 
         estadosInputs.Clear();

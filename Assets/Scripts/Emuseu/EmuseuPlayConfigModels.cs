@@ -21,6 +21,8 @@ public class EmuseuEnvelope
 public class EmuseuPayload
 {
     public EmuseuUser user;
+    /// <summary>ptbr ou eng. O conteudo de cada idioma fica em campaign.ptbr e campaign.eng.</summary>
+    public string language;
     public EmuseuCampaign campaign;
     public List<JToken> sponsors;   // ainda nao usado (proximo passo)
 }
@@ -39,6 +41,23 @@ public class EmuseuCampaign
     public string name;
     public List<EmuseuGame> games;
     public List<EmuseuAlbum> albums;
+    public EmuseuLanguage ptbr;
+    public EmuseuLanguage eng;
+}
+
+[Preserve]
+public class EmuseuLanguage
+{
+    public EmuseuAssistant assistant;
+    public List<EmuseuGame> games;
+    public List<EmuseuAlbum> albums;
+    public List<JToken> sponsors;
+}
+
+[Preserve]
+public class EmuseuAssistant
+{
+    public string name;
 }
 
 [Preserve]
@@ -59,12 +78,17 @@ public class EmuseuSetting
     public string key;
     public string type;
     public JToken value;
+    public string text;
+    public string textEn;
+    public float number;
+    public bool boolean;
     public EmuseuFile file;
 }
 
 [Preserve]
 public class EmuseuFile
 {
+    public string name;
     public string url;
     public string contentType;
     public float width;

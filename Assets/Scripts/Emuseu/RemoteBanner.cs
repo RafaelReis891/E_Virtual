@@ -204,9 +204,8 @@ public sealed class RemoteBanner : MonoBehaviour
     // Chamado pelo RemoteBannerClickDriver quando o admin clica neste banner.
     public void SolicitarUpload()
     {
-        if (!EmuseuSettingsCatalog.IsAdmin) return;
-        string k = Chave.Replace("\\", "\\\\").Replace("\"", "\\\"");
+        if (!EmuseuSettingsCatalog.IsAdmin || EmuseuBridge.Instance == null) return;
         EmuseuDebug.Info("banner", "upload solicitado: " + Chave);
-        EmuseuBridge.SendToReact("frame-upload", "{\"frameId\":\"" + k + "\",\"phase\":\"requested\"}");
+        EmuseuBridge.Instance.RequestFileSetting(Chave, SettingKind.Image);
     }
 }
