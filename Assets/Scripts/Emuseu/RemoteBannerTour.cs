@@ -10,7 +10,9 @@ using UnityEngine.InputSystem;
 // Tour de banners para o admin (root): N = proximo banner, B = anterior (ordem natural pela chave).
 // Teleporta o jogador para um ponto de frente para o banner (distancia pelo tamanho, 3..25 m, no chao, com visada livre)
 // e vira o olhar para o centro dele; ai o admin clica no banner (RemoteBannerClickDriver) para enviar a imagem.
-// - N/B pulam banners que ja tem imagem (catalogo do site tem url, ou enviado nesta sessao). Shift+N / Shift+B inclui todos.
+// - N/B vao so nos banners FALTANTES: chave fora da lista ConfiguradasNoSite (abaixo), sem setting no catalogo do site
+//   (deteccao automatica pelo play-config) e nao enviada nesta sessao. Shift+N / Shift+B = todos os banners.
+//   Alt+N / Alt+B = comportamento antigo (pula so os que ja tem imagem/url no catalogo).
 // - So teleporta para ponto SEGURO: chao achado por raio para baixo (ignora gatilhos/jogador/banner), dentro dos limites
 //   (o caminho reto de um ponto conhecido dentro do estadio ate o candidato nao atravessa nenhum collider 'Limite_*'),
 //   capsula livre e visada livre. Sem ponto seguro: nao move, loga e mostra 'sem ponto seguro para <chave>'.
@@ -23,7 +25,22 @@ public sealed class RemoteBannerTour : MonoBehaviour
     const float ChaoAbaixoMax = 45f;      // chao tem que estar a ate 45 m abaixo do topo (centro do banner + 1 m)
     const float AnguloVertMax = 65f;      // olhar do ponto ate o centro do banner: ate 65 graus para cima/baixo
 
-    // Ja enviados pelo Teco antes desta sessao (o payload do site pode ainda nao refletir); alem disso vale o catalogo.
+    // Chaves ja configuradas no site pelo Teco (fallback manual: vale mesmo que o payload ainda nao reflita).
+    // Alem desta lista, qualquer chave que ja exista como setting no catalogo do site conta como configurada.
+    // Para incluir/remover chaves, edite esta lista.
+    static readonly string[] ConfiguradasNoSite =
+    {
+        "led_hub", "logo_campo_1", "logo_campo_2", "logo_campo_centro",
+        "banner_escadaria_1", "banner_escadaria_2", "banner_escadaria_3", "banner_escadaria_4", "banner_escadaria_5",
+        "banner_escadaria_6", "banner_escadaria_7", "banner_escadaria_8", "banner_escadaria_9", "banner_escadaria_10",
+        "banner_escadaria_11", "banner_escadaria_12", "banner_escadaria_13", "banner_escadaria_14", "banner_escadaria_15",
+        "banner_escadaria_16", "banner_escadaria_17", "banner_escadaria_18", "banner_escadaria_19", "banner_escadaria_20",
+        "banner_vert_big_1", "banner_vert_big_3", "banner_vert_big_4",
+        "led_topo_estadio", "marca_tag",
+        "telao_topo_1", "telao_topo_2", "telao_topo_3", "telao_topo_4",
+    };
+
+    // Lista antiga (modo Alt+N/B): ja enviados antes desta sessao.
     static readonly string[] EnviadosConhecidos =
     {
         "banner_escadaria_1", "banner_escadaria_5", "banner_escadaria_6", "banner_vert_big_3",
@@ -39,6 +56,9 @@ public sealed class RemoteBannerTour : MonoBehaviour
 
     readonly List<RemoteBanner> lista = new List<RemoteBanner>();
     readonly HashSet<string> enviados = new HashSet<string>();
+    readonly HashSet<string> legado = new HashSet<string>();
+    readonly HashSet<string> configuradas = new HashSet<string>(ConfiguradasNoSite, StringComparer.Ordinal);
+    bool modoLegado; // Alt+N/B: comportamento antigo
     int indice = -1;
     bool listaSuja = true;
     float proximaBusca;
@@ -73,7 +93,7 @@ public sealed class RemoteBannerTour : MonoBehaviour
 
     void OnEnable()
     {
-        foreach (string k in EnviadosConhecidos) enviados.Add(k);
+        foreach (string k in EnviadosConhecidos) legado.Add(k);
         EmuseuSettingsCatalog.Changed += AoMudarCatalogo;
         SceneManager.sceneLoaded += AoCarregarCena;
         SceneManager.sceneUnloaded += AoDescarregarCena;
@@ -120,6 +140,7 @@ public sealed class RemoteBannerTour : MonoBehaviour
         if (!proximo && !anterior) return;
 
         bool todos = ShiftSegurado();
+        modoLegado = !todos && AltSegurado();
         Reconstruir(); // pega banners novos/removidos desde a ultima vez
         if (lista.Count == 0) return;
         int n = lista.Count;
@@ -133,22 +154,33 @@ public sealed class RemoteBannerTour : MonoBehaviour
         }
         if (alvo < 0)
         {
-            Mensagem("todos os banners ja tem imagem (Shift+N / Shift+B para revisar todos)", 4f);
-            EmuseuDebug.Info(Tag, "nenhum banner pendente (todos com imagem); Shift+N/B inclui todos");
+            Mensagem(modoLegado ? "todos os banners ja tem imagem (Shift+N / Shift+B para revisar todos)"
+                                : "nenhum banner faltante (Shift+N / Shift+B revisa todos, Alt+N/B so sem imagem)", 4f);
+            EmuseuDebug.Info(Tag, modoLegado ? "nenhum banner sem imagem; Shift+N/B inclui todos" : "nenhum banner faltante; Shift+N/B inclui todos, Alt+N/B so sem imagem");
             return;
         }
         indice = alvo;
         IrPara(indice);
     }
 
-    // Banner sem imagem no site (catalogo sem url) e nao enviado nesta sessao.
+    string Rot { get { return modoLegado ? "sem imagem" : "faltantes"; } }
+
+    // Padrao (faltante): chave fora da lista ConfiguradasNoSite, sem setting no catalogo do site e nao enviada nesta sessao.
+    // Modo Alt (legado): sem imagem no catalogo (url) e nao enviado (lista antiga/sessao).
     bool Pendente(RemoteBanner b)
     {
         if (b == null) return false;
         string k = b.Chave;
         if (enviados.Contains(k)) return false;
-        string url;
-        return !EmuseuSettingsCatalog.TryGetImageUrl(k, out url);
+        if (modoLegado)
+        {
+            if (legado.Contains(k)) return false;
+            string url;
+            return !EmuseuSettingsCatalog.TryGetImageUrl(k, out url);
+        }
+        if (configuradas.Contains(k)) return false;
+        EmuseuSetting setting;
+        return !EmuseuSettingsCatalog.TryGet(k, out setting);
     }
 
     int ContarPendentes()
@@ -170,6 +202,26 @@ public sealed class RemoteBannerTour : MonoBehaviour
     {
         mensagemGui = txt;
         mensagemAte = Time.unscaledTime + segundos;
+    }
+
+    static bool AltSegurado()
+    {
+#if ENABLE_INPUT_SYSTEM
+        try
+        {
+            Keyboard k = Keyboard.current;
+            if (k != null && (k.leftAltKey.isPressed || k.rightAltKey.isPressed)) return true;
+        }
+        catch (Exception) { }
+#endif
+#if ENABLE_LEGACY_INPUT_MANAGER
+        try
+        {
+            if (Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt)) return true;
+        }
+        catch (Exception) { }
+#endif
+        return false;
     }
 
     static bool ShiftSegurado()
@@ -272,7 +324,7 @@ public sealed class RemoteBannerTour : MonoBehaviour
     void IrPara(int idx)
     {
         RemoteBanner rb = lista[idx];
-        string rotulo = PosicaoPendente(idx) + "/" + ContarPendentes() + " pendentes " + rb.Chave;
+        string rotulo = PosicaoPendente(idx) + "/" + ContarPendentes() + " " + Rot + " " + rb.Chave;
         if (!AcharJogador())
         {
             if (!avisouSemJogador) { avisouSemJogador = true; EmuseuDebug.Warn(Tag, "jogador nao encontrado (intro ainda tocando?) - nada feito"); }
@@ -764,12 +816,12 @@ public sealed class RemoteBannerTour : MonoBehaviour
         {
             string k = lista[indice].Chave;
             bool feito = !Pendente(lista[indice]);
-            txt = "Banner " + PosicaoPendente(indice) + "/" + pend + " pendentes: " + k + (feito ? "  [enviado]" : "") +
-                  "  (N proximo, B anterior, Shift+N/B todos, clique para enviar)";
+            txt = "Banner " + PosicaoPendente(indice) + "/" + pend + " " + Rot + ": " + k + (feito ? "  [ja configurado]" : "") +
+                  "  (N proximo, B anterior, Shift+N/B todos, Alt+N/B sem imagem, clique para enviar)";
         }
         else
         {
-            txt = "Banner -/" + pend + " pendentes  (N proximo, B anterior, Shift+N/B todos, clique para enviar)";
+            txt = "Banner -/" + pend + " " + Rot + "  (N proximo, B anterior, Shift+N/B todos, Alt+N/B sem imagem, clique para enviar)";
         }
 
         Vector2 tam = estilo.CalcSize(new GUIContent(txt));

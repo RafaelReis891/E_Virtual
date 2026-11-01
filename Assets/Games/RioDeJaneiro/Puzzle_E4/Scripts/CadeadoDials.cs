@@ -164,13 +164,19 @@ public class CadeadoDials : MonoBehaviour
         if (doorAnimator != null) doorAnimator.SetTrigger("Open");
 
         Invoke(nameof(CallEndGame), 3f);
+        Debug.Log($"[Cadeado][DBG] {name}: CallEndGame agendado para 3s (timeScale={Time.timeScale})", this);
     }
 
     void CallEndGame()
     {
+        Debug.Log($"[Cadeado][DBG] {name}: CallEndGame rodou. OnEndGame tem {(OnEndGame != null ? OnEndGame.GetPersistentEventCount() : -1)} acoes", this);
+        if (OnEndGame != null) for (int i = 0; i < OnEndGame.GetPersistentEventCount(); i++) Debug.Log($"[Cadeado][DBG]   [{i}] {(OnEndGame.GetPersistentTarget(i) != null ? OnEndGame.GetPersistentTarget(i).name : "NULL")}.{OnEndGame.GetPersistentMethodName(i)}", this);
         OnEndGame?.Invoke();
         Invoke(nameof(PassNextSceneEvent), 3f);
     }
+
+    void OnDisable() { if (isSolved) Debug.LogWarning($"[Cadeado][DBG] {name}: desativado depois de resolvido (activeInHierarchy={gameObject.activeInHierarchy})", this); }
+    void OnDestroy() { if (isSolved) Debug.LogWarning($"[Cadeado][DBG] {name}: DESTRUIDO depois de resolvido", this); }
 
     void PassNextSceneEvent()
     {
