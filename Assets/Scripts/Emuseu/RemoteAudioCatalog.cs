@@ -7,8 +7,15 @@ using UnityEngine.Networking;
 // Catalogo de AUDIOS remotos (vozes/musicas) vindos do site (payload play-config).
 // - Key de tipo audio:  setting.file.url (MP3).
 // - Key de tipo texto:  setting.audio (PT) / setting.audioEn (EN) = TTS, objeto {url,...} ou string.
-// - EN: usa audioEn da propria key; se nao tiver, usa a key EN (explicita ou key + "_en") do tipo audio.
-// - Baixa com UnityWebRequestMultimedia (MPEG) e guarda o AudioClip em memoria por key+idioma.
+// - PT: audio.url da key, senao file.url da key (pacote campaign.ptbr).
+// - EN (nesta ordem): audioEn da key (pacote eng, depois ptbr) -> audio da key no pacote eng -> key EN (explicita ou key + "_en";
+//   file.url / audioEn / audio) no pacote eng, depois no ptbr -> FALLBACK: o resultado do PT (audio.url / file.url da key, pacote ptbr).
+//   O pacote eng do site costuma vir com todo "file" nulo, entao sem o fallback nada era achado em ingles.
+// - Os dois pacotes (campaign.ptbr e campaign.eng) ficam sempre no EmuseuBridge.PlayConfig; o EmuseuSettingsCatalog guarda so o ativo.
+//   Aqui lemos o pacote pedido direto do PlayConfig (o do idioma ativo vem do catalogo vivo, que inclui uploads recentes).
+// - Cada busca (Pedir) escreve UMA linha de log [audio] sempre ligada: achado (qual fonte/idioma) ou nao achado.
+// - Baixa com UnityWebRequestMultimedia (MPEG) e guarda o AudioClip em memoria por key+idioma. O mesmo arquivo (mesma URL sem query)
+//   e baixado uma vez so, mesmo que PT e EN (fallback) pecam ao mesmo tempo.
 // - URLs sao assinadas e expiram: so a parte antes do "?" e guardada (para saber se o arquivo mudou). Nunca persiste URL.
 // - Qualquer erro (sem key, sem url, falha de rede, mp3 invalido) -> callback com null (quem chama mantem o clip do build).
 public static class RemoteAudioCatalog
@@ -21,15 +28,45 @@ public static class RemoteAudioCatalog
         public AudioClip clip;
     }
 
+    struct Pedido
+    {
+        public string cacheKey;
+        public Action<AudioClip> callback;
+    }
+
+    // Indice key -> setting de um pacote de idioma (reconstruido quando o pacote muda).
+    sealed class MapaPacote
+    {
+        public EmuseuLanguage fonte;
+        public List<EmuseuGame> jogos;
+        public int total;
+        public readonly Dictionary<string, EmuseuSetting> porChave = new Dictionary<string, EmuseuSetting>(StringComparer.Ordinal);
+    }
+
     static readonly Dictionary<string, Entrada> prontos = new Dictionary<string, Entrada>(StringComparer.Ordinal);
-    static readonly Dictionary<string, List<Action<AudioClip>>> pendentes = new Dictionary<string, List<Action<AudioClip>>>(StringComparer.Ordinal);
+    static readonly Dictionary<string, AudioClip> clipsPorUrl = new Dictionary<string, AudioClip>(StringComparer.Ordinal);
+    // Pendentes por urlBase (o mesmo arquivo nao baixa duas vezes).
+    static readonly Dictionary<string, List<Pedido>> pendentes = new Dictionary<string, List<Pedido>>(StringComparer.Ordinal);
+    static readonly MapaPacote mapaPt = new MapaPacote();
+    static readonly MapaPacote mapaEn = new MapaPacote();
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     static void Resetar()
     {
         // Seguro com o Domain Reload do editor desligado.
         prontos.Clear();
+        clipsPorUrl.Clear();
         pendentes.Clear();
+        LimparMapa(mapaPt);
+        LimparMapa(mapaEn);
+    }
+
+    static void LimparMapa(MapaPacote m)
+    {
+        m.fonte = null;
+        m.jogos = null;
+        m.total = 0;
+        m.porChave.Clear();
     }
 
     public static string ChaveEn(string key, string keyEn)
@@ -39,38 +76,164 @@ public static class RemoteAudioCatalog
     }
 
     // Resolve a URL (assinada) atual no catalogo de settings. false se a key/URL nao existe no payload.
+    // EN cai no PT quando nao acha o EN. Nao escreve log (o log e feito em Pedir).
     public static bool TryResolverUrl(string key, string keyEn, bool ingles, out string url)
     {
+        string origem;
+        return Resolver(key, keyEn, ingles, out url, out origem);
+    }
+
+    // Resolve a URL e diz de onde veio (origem = texto curto para o log).
+    static bool Resolver(string key, string keyEn, bool ingles, out string url, out string origem)
+    {
         url = null;
-        if (string.IsNullOrWhiteSpace(key)) return false;
+        origem = null;
+        if (string.IsNullOrWhiteSpace(key)) { origem = "key vazia"; return false; }
         key = key.Trim();
-        EmuseuSetting s;
 
         if (!ingles)
         {
-            if (EmuseuSettingsCatalog.TryGet(key, out s) && s != null)
-            {
-                url = UrlDe(s.audio);
-                if (!CardRemoteImageCache.EhHttp(url)) url = s.file != null ? s.file.url : null;
-            }
-            return CardRemoteImageCache.EhHttp(url);
+            if (AcharPt(key, out url, out origem)) return true;
+            origem = "nao achado em PT (audio/file da key)";
+            return false;
         }
 
-        // EN: 1) audioEn da propria key (TTS)
-        if (EmuseuSettingsCatalog.TryGet(key, out s) && s != null) url = UrlDe(s.audioEn);
-        // 2) key EN do tipo audio
-        if (!CardRemoteImageCache.EhHttp(url))
+        if (AcharEn(key, keyEn, out url, out origem)) return true;
+
+        // Fallback: sem EN -> toca o PT.
+        string urlPt, origemPt;
+        if (AcharPt(key, out urlPt, out origemPt))
         {
-            string k2 = ChaveEn(key, keyEn);
-            EmuseuSetting s2;
-            if (k2 != null && k2 != key && EmuseuSettingsCatalog.TryGet(k2, out s2) && s2 != null)
+            url = urlPt;
+            origem = "PT (fallback, EN nao achado): " + origemPt;
+            return true;
+        }
+        url = null;
+        origem = "nao achado (nem EN nem PT)";
+        return false;
+    }
+
+    // PT: audio.url da key; senao file.url da key (pacote ptbr).
+    static bool AcharPt(string key, out string url, out string origem)
+    {
+        url = null;
+        origem = null;
+        EmuseuSetting s;
+        if (!TryGetPacote(false, key, out s)) return false;
+
+        url = UrlDe(s.audio);
+        if (CardRemoteImageCache.EhHttp(url)) { origem = "ptbr:" + key + ".audio"; return true; }
+        url = s.file != null ? s.file.url : null;
+        if (CardRemoteImageCache.EhHttp(url)) { origem = "ptbr:" + key + ".file"; return true; }
+        url = null;
+        return false;
+    }
+
+    // EN: audioEn / audio da propria key (TTS) e key EN do tipo audio, nos pacotes eng e ptbr.
+    static bool AcharEn(string key, string keyEn, out string url, out string origem)
+    {
+        url = null;
+        origem = null;
+        EmuseuSetting s;
+
+        // 1) TTS da propria key: audioEn (eng, depois ptbr); audio do pacote eng.
+        if (TryGetPacote(true, key, out s))
+        {
+            if (Usar(UrlDe(s.audioEn), "eng:" + key + ".audioEn", out url, out origem)) return true;
+            if (Usar(UrlDe(s.audio), "eng:" + key + ".audio", out url, out origem)) return true;
+        }
+        if (TryGetPacote(false, key, out s))
+        {
+            if (Usar(UrlDe(s.audioEn), "ptbr:" + key + ".audioEn", out url, out origem)) return true;
+        }
+
+        // 2) key EN do tipo audio: keyEn explicita e/ou key + "_en" (eng primeiro, depois ptbr).
+        string k1 = ChaveEn(key, keyEn);
+        string k2 = key + "_en";
+        for (int i = 0; i < 2; i++)
+        {
+            string k = i == 0 ? k1 : k2;
+            if (string.IsNullOrEmpty(k) || k == key || (i == 1 && k == k1)) continue;
+            for (int b = 0; b < 2; b++)
             {
-                url = s2.file != null ? s2.file.url : null;
-                if (!CardRemoteImageCache.EhHttp(url)) url = UrlDe(s2.audioEn);
-                if (!CardRemoteImageCache.EhHttp(url)) url = UrlDe(s2.audio);
+                bool eng = b == 0;
+                string nome = (eng ? "eng:" : "ptbr:") + k;
+                if (!TryGetPacote(eng, k, out s)) continue;
+                if (Usar(s.file != null ? s.file.url : null, nome + ".file", out url, out origem)) return true;
+                if (Usar(UrlDe(s.audioEn), nome + ".audioEn", out url, out origem)) return true;
+                if (Usar(UrlDe(s.audio), nome + ".audio", out url, out origem)) return true;
             }
         }
-        return CardRemoteImageCache.EhHttp(url);
+        url = null;
+        origem = null;
+        return false;
+    }
+
+    static bool Usar(string candidato, string nome, out string url, out string origem)
+    {
+        if (CardRemoteImageCache.EhHttp(candidato)) { url = candidato; origem = nome; return true; }
+        url = null;
+        origem = null;
+        return false;
+    }
+
+    // Procura a key no pacote de idioma pedido (eng=true: campaign.eng; false: campaign.ptbr), sempre a partir do PlayConfig.
+    // - Idioma ativo: usa o EmuseuSettingsCatalog (vivo; inclui uploads/atualizacoes recentes), depois o pacote.
+    // - Outro idioma: usa o pacote guardado no PlayConfig (o catalogo so guarda o ativo).
+    // - Payload antigo (sem campaign.ptbr/eng) ou sem PlayConfig: so existe o catalogo.
+    static bool TryGetPacote(bool eng, string key, out EmuseuSetting setting)
+    {
+        setting = null;
+        if (string.IsNullOrEmpty(key)) return false;
+
+        EmuseuPayload p = EmuseuBridge.PlayConfig;
+        EmuseuCampaign c = p != null ? p.campaign : null;
+        if (c == null || (c.ptbr == null && c.eng == null))
+            return EmuseuSettingsCatalog.TryGet(key, out setting) && setting != null;
+
+        bool ativoEng = string.Equals(p.language, "eng", StringComparison.OrdinalIgnoreCase);
+        if (eng == ativoEng && EmuseuSettingsCatalog.TryGet(key, out setting) && setting != null) return true;
+
+        EmuseuLanguage pacote = eng ? c.eng : c.ptbr;
+        if (pacote == null) return false;
+        MapaPacote mapa = Mapa(pacote, eng ? mapaEn : mapaPt);
+        return mapa.porChave.TryGetValue(key, out setting) && setting != null;
+    }
+
+    static MapaPacote Mapa(EmuseuLanguage pacote, MapaPacote m)
+    {
+        int total = 0;
+        if (pacote.games != null)
+            foreach (EmuseuGame g in pacote.games)
+                if (g != null && g.settings != null) total += g.settings.Count;
+
+        if (ReferenceEquals(m.fonte, pacote) && ReferenceEquals(m.jogos, pacote.games) && m.total == total) return m;
+
+        m.porChave.Clear();
+        m.fonte = pacote;
+        m.jogos = pacote.games;
+        m.total = total;
+        if (pacote.games == null) return m;
+        foreach (EmuseuGame g in pacote.games)
+        {
+            if (g == null || g.settings == null) continue;
+            foreach (EmuseuSetting s in g.settings)
+            {
+                if (s == null || string.IsNullOrEmpty(s.key)) continue;
+                EmuseuSetting antigo;
+                // Chave duplicada: mantem a que tem audio/arquivo; senao a ultima.
+                if (m.porChave.TryGetValue(s.key, out antigo) && TemMidia(antigo) && !TemMidia(s)) continue;
+                m.porChave[s.key] = s;
+            }
+        }
+        return m;
+    }
+
+    static bool TemMidia(EmuseuSetting s)
+    {
+        if (s == null) return false;
+        if (s.file != null && !string.IsNullOrEmpty(s.file.url)) return true;
+        return !string.IsNullOrEmpty(UrlDe(s.audio)) || !string.IsNullOrEmpty(UrlDe(s.audioEn));
     }
 
     // Clip ja baixado (e ainda valido) para esta key/idioma, sem iniciar download.
@@ -93,11 +256,19 @@ public static class RemoteAudioCatalog
     {
         try
         {
-            string url;
-            if (!TryResolverUrl(key, keyEn, ingles, out url)) { Chamar(callback, null); return; }
+            string url, origem;
+            bool achou = Resolver(key, keyEn, ingles, out url, out origem);
+            string rotulo = (key == null ? "" : key.Trim()) + " [" + (ingles ? "EN" : "PT") + "]";
+            if (!achou)
+            {
+                EmuseuDebug.Warn("audio", "busca " + rotulo + " -> NAO ACHADO: " + origem);
+                Chamar(callback, null);
+                return;
+            }
+            string urlBase = UrlBase(url);
+            EmuseuDebug.Info("audio", "busca " + rotulo + " -> achado em " + origem + " (" + NomeCurto(urlBase) + ")");
 
             string cacheKey = ChaveCache(key, keyEn, ingles);
-            string urlBase = UrlBase(url);
 
             Entrada e;
             if (prontos.TryGetValue(cacheKey, out e) && e != null && e.clip != null && e.urlBase == urlBase)
@@ -106,17 +277,26 @@ public static class RemoteAudioCatalog
                 return;
             }
 
-            string idPendente = cacheKey + "|" + urlBase;
-            List<Action<AudioClip>> lista;
-            if (pendentes.TryGetValue(idPendente, out lista))
+            // Mesmo arquivo ja baixado por outra key/idioma (ex: EN caindo no PT).
+            AudioClip existente;
+            if (clipsPorUrl.TryGetValue(urlBase, out existente) && existente != null)
             {
-                if (callback != null) lista.Add(callback);
+                prontos[cacheKey] = new Entrada { urlBase = urlBase, clip = existente };
+                Chamar(callback, existente);
                 return;
             }
-            lista = new List<Action<AudioClip>>();
-            if (callback != null) lista.Add(callback);
-            pendentes[idPendente] = lista;
-            Baixar(idPendente, cacheKey, url, urlBase);
+
+            var pedido = new Pedido { cacheKey = cacheKey, callback = callback };
+            List<Pedido> lista;
+            if (pendentes.TryGetValue(urlBase, out lista))
+            {
+                lista.Add(pedido);
+                return;
+            }
+            lista = new List<Pedido>();
+            lista.Add(pedido);
+            pendentes[urlBase] = lista;
+            Baixar(urlBase, cacheKey, url);
         }
         catch (Exception ex)
         {
@@ -125,7 +305,7 @@ public static class RemoteAudioCatalog
         }
     }
 
-    static void Baixar(string idPendente, string cacheKey, string url, string urlBase)
+    static void Baixar(string urlBase, string cacheKey, string url)
     {
         UnityWebRequest req = null;
         try
@@ -135,17 +315,17 @@ public static class RemoteAudioCatalog
             req.timeout = TimeoutSegundos;
             UnityWebRequestAsyncOperation op = req.SendWebRequest();
             UnityWebRequest r = req;
-            op.completed += _ => Concluir(idPendente, cacheKey, urlBase, r);
+            op.completed += _ => Concluir(urlBase, cacheKey, r);
         }
         catch (Exception ex)
         {
             EmuseuDebug.Error("audio", "falha ao iniciar download " + cacheKey + ": " + ex.GetType().Name + ": " + ex.Message);
             if (req != null) { try { req.Dispose(); } catch (Exception) { } }
-            Finalizar(idPendente, null);
+            Finalizar(urlBase, null);
         }
     }
 
-    static void Concluir(string idPendente, string cacheKey, string urlBase, UnityWebRequest req)
+    static void Concluir(string urlBase, string cacheKey, UnityWebRequest req)
     {
         AudioClip clip = null;
         try
@@ -170,18 +350,23 @@ public static class RemoteAudioCatalog
 
         if (clip != null)
         {
-            prontos[cacheKey] = new Entrada { urlBase = urlBase, clip = clip };
+            clipsPorUrl[urlBase] = clip;
             EmuseuDebug.Info("audio", "pronto " + cacheKey + " (" + clip.length.ToString("0.00") + "s)");
         }
-        Finalizar(idPendente, clip);
+        Finalizar(urlBase, clip);
     }
 
-    static void Finalizar(string idPendente, AudioClip clip)
+    // Entrega o resultado a todos que pediram esse arquivo (PT e EN podem ser o mesmo).
+    static void Finalizar(string urlBase, AudioClip clip)
     {
-        List<Action<AudioClip>> lista;
-        if (!pendentes.TryGetValue(idPendente, out lista)) return;
-        pendentes.Remove(idPendente);
-        foreach (Action<AudioClip> cb in lista) Chamar(cb, clip);
+        List<Pedido> lista;
+        if (!pendentes.TryGetValue(urlBase, out lista)) return;
+        pendentes.Remove(urlBase);
+        foreach (Pedido p in lista)
+        {
+            if (clip != null) prontos[p.cacheKey] = new Entrada { urlBase = urlBase, clip = clip };
+            Chamar(p.callback, clip);
+        }
     }
 
     static void Chamar(Action<AudioClip> cb, AudioClip clip)
@@ -207,6 +392,14 @@ public static class RemoteAudioCatalog
         if (string.IsNullOrEmpty(url)) return "";
         int i = url.IndexOf('?');
         return i >= 0 ? url.Substring(0, i) : url;
+    }
+
+    // So o nome do arquivo (para o log curto).
+    static string NomeCurto(string urlBase)
+    {
+        if (string.IsNullOrEmpty(urlBase)) return "";
+        int i = urlBase.LastIndexOf('/');
+        return i >= 0 && i < urlBase.Length - 1 ? urlBase.Substring(i + 1) : urlBase;
     }
 
     // audio/audioEn pode ser string (url) ou objeto {url,...}.

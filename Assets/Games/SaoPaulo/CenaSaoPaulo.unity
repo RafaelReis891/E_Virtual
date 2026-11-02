@@ -4319,22 +4319,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E5
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.27
-      objectReference: {fileID: 0}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E5
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4390,6 +4374,18 @@ PrefabInstance:
     - target: {fileID: 8947324078878182574, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
+    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4631,6 +4627,7 @@ GameObject:
   - component: {fileID: 267856626}
   - component: {fileID: 267856625}
   - component: {fileID: 267856624}
+  - component: {fileID: 267856628}
   m_Layer: 0
   m_Name: StartAnfitrian_4_E3
   m_TagString: Untagged
@@ -4756,6 +4753,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267856622}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &267856628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267856622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 690641a24114d494c89f2dfc2cb42c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteVoiceClip
+  key: voz_anfitrian_sp_e3
+  keyEn: 
+  showLogs: 1
 --- !u!1 &276250475
 GameObject:
   m_ObjectHideFlags: 0
@@ -6093,14 +6105,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E1
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E1
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -6157,6 +6161,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9379,18 +9387,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_Start
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.69629085
-      objectReference: {fileID: 0}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_Start
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -9446,6 +9442,14 @@ PrefabInstance:
     - target: {fileID: 8947324078878182574, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
+    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.69629085
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10469,6 +10473,7 @@ GameObject:
   - component: {fileID: 644790612}
   - component: {fileID: 644790611}
   - component: {fileID: 644790610}
+  - component: {fileID: 644790614}
   m_Layer: 0
   m_Name: StartAnfitrian_7_E3
   m_TagString: Untagged
@@ -10594,6 +10599,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644790608}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &644790614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644790608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 690641a24114d494c89f2dfc2cb42c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteVoiceClip
+  key: voz_anfitrian_parabens
+  keyEn: 
+  showLogs: 1
 --- !u!1001 &650084976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12378,14 +12398,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E3
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E3
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -12442,6 +12454,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14982,14 +14998,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E2
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E2
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -15046,6 +15054,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17571,6 +17583,7 @@ GameObject:
   - component: {fileID: 1121708552}
   - component: {fileID: 1121708551}
   - component: {fileID: 1121708550}
+  - component: {fileID: 1121708554}
   m_Layer: 0
   m_Name: StartAnfitrian_5_E4
   m_TagString: Untagged
@@ -17696,6 +17709,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121708548}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1121708554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121708548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 690641a24114d494c89f2dfc2cb42c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteVoiceClip
+  key: voz_anfitrian_sp_e4
+  keyEn: 
+  showLogs: 1
 --- !u!1 &1125571500
 GameObject:
   m_ObjectHideFlags: 0
@@ -21344,6 +21372,7 @@ GameObject:
   - component: {fileID: 1341426027}
   - component: {fileID: 1341426026}
   - component: {fileID: 1341426025}
+  - component: {fileID: 1341426029}
   m_Layer: 0
   m_Name: StartAnfitrian_3_E2
   m_TagString: Untagged
@@ -21469,6 +21498,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341426023}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1341426029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341426023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 690641a24114d494c89f2dfc2cb42c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteVoiceClip
+  key: voz_anfitrian_sp_e2
+  keyEn: 
+  showLogs: 1
 --- !u!1001 &1341579747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23156,13 +23200,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 2064500466822972560, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1602773069419242686, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
 --- !u!1001 &1437140559
 PrefabInstance:
@@ -24590,6 +24628,7 @@ GameObject:
   - component: {fileID: 1517577763}
   - component: {fileID: 1517577762}
   - component: {fileID: 1517577766}
+  - component: {fileID: 1517577767}
   m_Layer: 0
   m_Name: StartAnfitrian_1
   m_TagString: Untagged
@@ -24715,6 +24754,21 @@ MonoBehaviour:
   sairAoDeixarTrigger: 1
   aparecerSoUmaVez: 0
   showLogs: 0
+--- !u!114 &1517577767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517577760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 690641a24114d494c89f2dfc2cb42c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteVoiceClip
+  key: voz_anfitrian_sp_start
+  keyEn: 
+  showLogs: 1
 --- !u!1001 &1537863517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27551,14 +27605,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E4
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E4
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -27615,6 +27661,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32675,6 +32725,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2009182360}
   - component: {fileID: 2009182359}
+  - component: {fileID: 2009182361}
   m_Layer: 0
   m_Name: SFX
   m_TagString: Untagged
@@ -32794,6 +32845,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2009182361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009182358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d633c8cfa58324e8b94213a2cbc1e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteAudioSource
+  key: music_ambiente
+  keyEn: 
+  porIdioma: 0
+  showLogs: 1
 --- !u!1001 &2010683435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33080,6 +33147,7 @@ GameObject:
   - component: {fileID: 2012903120}
   - component: {fileID: 2012903119}
   - component: {fileID: 2012903118}
+  - component: {fileID: 2012903122}
   m_Layer: 0
   m_Name: StartAnfitrian_2_E1
   m_TagString: Untagged
@@ -33205,6 +33273,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012903115}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2012903122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012903115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 690641a24114d494c89f2dfc2cb42c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteVoiceClip
+  key: voz_anfitrian_sp_e1
+  keyEn: 
+  showLogs: 1
 --- !u!1001 &2013462523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33213,18 +33296,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 402216150}
     m_Modifications:
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.27
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_Name
       value: Anfitrian_V4
@@ -33284,6 +33355,18 @@ PrefabInstance:
     - target: {fileID: 8947324078878182574, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
+    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33452,6 +33535,7 @@ GameObject:
   - component: {fileID: 2035332494}
   - component: {fileID: 2035332493}
   - component: {fileID: 2035332492}
+  - component: {fileID: 2035332496}
   m_Layer: 0
   m_Name: StartAnfitrian_6_E5
   m_TagString: Untagged
@@ -33577,6 +33661,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2035332490}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2035332496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035332490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 690641a24114d494c89f2dfc2cb42c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteVoiceClip
+  key: voz_anfitrian_sp_e5
+  keyEn: 
+  showLogs: 1
 --- !u!1001 &2056043288
 PrefabInstance:
   m_ObjectHideFlags: 0
