@@ -8,7 +8,20 @@
     "campaign": {
       "id": "teste-campanha",
       "name": "EXEMPLO - Campanha de Teste",
-      "games": [],
+      "games": [
+        {
+          "id": "emuseu-games",
+          "name": "EXEMPLO - settings de audio (URLs publicas de teste)",
+          "settings": [
+            { "id": "teste-voz-pt", "key": "voz_anfitrian_teste", "type": "audio",
+              "file": { "name": "sample-3s.mp3", "contentType": "audio/mpeg", "url": "https://download.samplelib.com/mp3/sample-3s.mp3" } },
+            { "id": "teste-voz-en", "key": "voz_anfitrian_teste_en", "type": "audio",
+              "file": { "name": "sample-6s.mp3", "contentType": "audio/mpeg", "url": "https://download.samplelib.com/mp3/sample-6s.mp3" } },
+            { "id": "teste-crowd-long", "key": "crowd_long", "type": "audio",
+              "file": { "name": "sample-12s.mp3", "contentType": "audio/mpeg", "url": "https://samplelib.com/mp3/sample-12s.mp3" } }
+          ]
+        }
+      ],
       "albums": [
         {
           "id": "album-elas",

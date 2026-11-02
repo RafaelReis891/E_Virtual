@@ -83,6 +83,9 @@ public class EmuseuSetting
     public float number;
     public bool boolean;
     public EmuseuFile file;
+    // Voz TTS dos settings de texto: objeto {url,...} (ou string). JToken = nao quebra o payload se o formato mudar.
+    public JToken audio;
+    public JToken audioEn;
 }
 
 [Preserve]

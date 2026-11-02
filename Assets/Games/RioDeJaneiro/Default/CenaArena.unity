@@ -1768,6 +1768,7 @@ GameObject:
   - component: {fileID: 222805849}
   - component: {fileID: 222805848}
   - component: {fileID: 222805847}
+  - component: {fileID: 222805851}
   m_Layer: 0
   m_Name: StartAnfitrian_2
   m_TagString: Untagged
@@ -1893,6 +1894,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 222805845}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &222805851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222805845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 690641a24114d494c89f2dfc2cb42c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteVoiceClip
+  key: voz_anfitrian_teste
+  keyEn: voz_anfitrian_teste_en
+  showLogs: 1
 --- !u!1 &239798885
 GameObject:
   m_ObjectHideFlags: 0
@@ -2401,6 +2417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 384535693}
   - component: {fileID: 384535692}
+  - component: {fileID: 384535694}
   m_Layer: 0
   m_Name: CrowdsWin
   m_TagString: Untagged
@@ -2520,6 +2537,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &384535694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384535691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d633c8cfa58324e8b94213a2cbc1e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteAudioSource
+  key: crowd_long
+  keyEn: crowd_long
+  porIdioma: 0
+  showLogs: 1
 --- !u!1 &385680639 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5171bc5d502fa714d9d8615885a442af, type: 3}
@@ -7428,6 +7461,7 @@ GameObject:
   - component: {fileID: 985769545}
   - component: {fileID: 985769544}
   - component: {fileID: 985769543}
+  - component: {fileID: 985769547}
   m_Layer: 0
   m_Name: StartAnfitrian_1
   m_TagString: Untagged
@@ -7553,6 +7587,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985769541}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &985769547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985769541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 690641a24114d494c89f2dfc2cb42c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteVoiceClip
+  key: voz_anfitrian_teste
+  keyEn: voz_anfitrian_teste_en
+  showLogs: 1
 --- !u!1 &989342184
 GameObject:
   m_ObjectHideFlags: 0
