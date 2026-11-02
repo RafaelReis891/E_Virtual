@@ -2,7 +2,8 @@
 // procurando cada objeto pelo caminho na hierarquia. Nao salva a cena sozinho.
 // Menu: Tools > Emuseu > Aplicar chaves de audio (cena aberta)
 //       Tools > Emuseu > Conferir chaves de audio (so mostra, nao altera)
-// Cenas atendidas: CenaSaoPaulo, CenaRiodeJaneiro, CenaArena (pelo nome da cena aberta).
+// Cenas atendidas (pelo nome da cena aberta): CenaSaoPaulo, CenaRiodeJaneiro, CenaArena,
+// CenaBeloHorizonte, CenaBrasilia, CenaFortaleza, CenaPortoAlegre, CenaRecife, CenaSalvador.
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -58,6 +59,80 @@ public static class AplicarChavesAudio
             new Entrada("Anfitrian/StartAnfitrian_2", "voz_anfitrian_estadio_hub", false),
             new Entrada("CrowdsWin", "crowd_long", true),
         };
+
+        // Demais estados: 6 triggers da Anfitria (Start, E1..E5) + musica (SFX).
+        const string bh = "PuzzleGeral/AnfitrianModel/";
+        t["CenaBeloHorizonte"] = new[]
+        {
+            new Entrada(bh + "Anfitria_Trigger_Start", "voz_anfitrian_bh_start", false),
+            new Entrada(bh + "Anfitria_Trigger_E1", "voz_anfitrian_bh_e1", false),
+            new Entrada(bh + "Anfitria_Trigger_E2", "voz_anfitrian_bh_e2", false),
+            new Entrada(bh + "Anfitria_Trigger_E3", "voz_anfitrian_bh_e3", false),
+            new Entrada(bh + "Anfitria_Trigger_E4", "voz_anfitrian_bh_e4", false),
+            new Entrada(bh + "Anfitria_Trigger_E5", "voz_anfitrian_bh_e5", false),
+            new Entrada("SFX", "music_ambiente", true),
+        };
+
+        const string df = "PuzzleGeral/AnfitrianModel/";
+        t["CenaBrasilia"] = new[]
+        {
+            new Entrada(df + "Anfitria_Trigger_Start", "voz_anfitrian_df_start", false),
+            new Entrada(df + "Anfitria_Trigger_E1", "voz_anfitrian_df_e1", false),
+            new Entrada(df + "Anfitria_Trigger_E2", "voz_anfitrian_df_e2", false),
+            new Entrada(df + "Anfitria_Trigger_E3", "voz_anfitrian_df_e3", false),
+            new Entrada(df + "Anfitria_Trigger_E4", "voz_anfitrian_df_e4", false),
+            new Entrada(df + "Anfitria_Trigger_E5", "voz_anfitrian_df_e5", false),
+            new Entrada("SFX", "music_ambiente", true),
+        };
+
+        const string ce = "PuzzleGeral/AnfitrianModel/";
+        t["CenaFortaleza"] = new[]
+        {
+            new Entrada(ce + "Anfitria_Trigger_Start", "voz_anfitrian_ce_start", false),
+            new Entrada(ce + "Anfitria_Trigger_E1", "voz_anfitrian_ce_e1", false),
+            new Entrada(ce + "Anfitria_Trigger_E2", "voz_anfitrian_ce_e2", false),
+            new Entrada(ce + "Anfitria_Trigger_E3", "voz_anfitrian_ce_e3", false),
+            new Entrada(ce + "Anfitria_Trigger_E4", "voz_anfitrian_ce_e4", false),
+            new Entrada(ce + "Anfitria_Trigger_E5", "voz_anfitrian_ce_e5", false),
+            new Entrada("SFX", "music_ambiente", true),
+        };
+
+        const string rs = "PuzzleGeral/AnfitrianModel/";
+        t["CenaPortoAlegre"] = new[]
+        {
+            new Entrada(rs + "Anfitria_Trigger_Start", "voz_anfitrian_rs_start", false),
+            new Entrada(rs + "Anfitria_Trigger_E1", "voz_anfitrian_rs_e1", false),
+            new Entrada(rs + "Anfitria_Trigger_E2", "voz_anfitrian_rs_e2", false),
+            new Entrada(rs + "Anfitria_Trigger_E3", "voz_anfitrian_rs_e3", false),
+            new Entrada(rs + "Anfitria_Trigger_E4", "voz_anfitrian_rs_e4", false),
+            new Entrada(rs + "Anfitria_Trigger_E5", "voz_anfitrian_rs_e5", false),
+            new Entrada("SFX", "music_ambiente", true),
+        };
+
+        const string pe = "PuzzleGeral/AnfitrianModel/";
+        t["CenaRecife"] = new[]
+        {
+            new Entrada(pe + "Anfitria_Trigger_Start", "voz_anfitrian_pe_start", false),
+            new Entrada(pe + "Anfitria_Trigger_E1", "voz_anfitrian_pe_e1", false),
+            new Entrada(pe + "Anfitria_Trigger_E2", "voz_anfitrian_pe_e2", false),
+            new Entrada(pe + "Anfitria_Trigger_E3", "voz_anfitrian_pe_e3", false),
+            new Entrada(pe + "Anfitria_Trigger_E4", "voz_anfitrian_pe_e4", false),
+            new Entrada(pe + "Anfitria_Trigger_E5", "voz_anfitrian_pe_e5", false),
+            new Entrada("SFX", "music_ambiente", true),
+        };
+
+        const string ba = "PuzzlesGeral/AnfitrianModel/";
+        t["CenaSalvador"] = new[]
+        {
+            new Entrada(ba + "Anfitria_Trigger_Start", "voz_anfitrian_ba_start", false),
+            new Entrada(ba + "Anfitria_Trigger_E1", "voz_anfitrian_ba_e1", false),
+            new Entrada(ba + "Anfitria_Trigger_E2", "voz_anfitrian_ba_e2", false),
+            new Entrada(ba + "Anfitria_Trigger_E3", "voz_anfitrian_ba_e3", false),
+            new Entrada(ba + "Anfitria_Trigger_E4", "voz_anfitrian_ba_e4", false),
+            new Entrada(ba + "Anfitria_Trigger_E5", "voz_anfitrian_ba_e5", false),
+            new Entrada("SFX", "music_ambiente", true),
+        };
+
         return t;
     }
 
@@ -74,7 +149,7 @@ public static class AplicarChavesAudio
         if (!Tabela().TryGetValue(cena.name, out lista))
         {
             EditorUtility.DisplayDialog("Chaves de audio",
-                "A cena aberta (" + cena.name + ") nao esta na tabela.\nAbra CenaSaoPaulo, CenaRiodeJaneiro ou CenaArena.", "OK");
+                "A cena aberta (" + cena.name + ") nao esta na tabela.\nAbra uma cena de estado (SP, RJ, BH, DF, CE, RS, PE, BA) ou a CenaArena.", "OK");
             return;
         }
 
