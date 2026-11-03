@@ -1857,6 +1857,7 @@ GameObject:
   - component: {fileID: 206982509}
   - component: {fileID: 206982511}
   - component: {fileID: 206982510}
+  - component: {fileID: 206982512}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -1903,7 +1904,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Serie A3
+  m_text: "S\xE9rie A3"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -2027,6 +2028,19 @@ MeshRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &206982512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206982508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "S\xE9rie A3"
 --- !u!224 &208982812
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3582,6 +3596,7 @@ GameObject:
   - component: {fileID: 456463456}
   - component: {fileID: 456463458}
   - component: {fileID: 456463457}
+  - component: {fileID: 456463459}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -3628,7 +3643,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Serie A1
+  m_text: "S\xE9rie A1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -3752,6 +3767,19 @@ MeshRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &456463459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456463455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "S\xE9rie A1"
 --- !u!224 &483624392
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4821,6 +4849,7 @@ GameObject:
   - component: {fileID: 625522145}
   - component: {fileID: 625522147}
   - component: {fileID: 625522146}
+  - component: {fileID: 625522148}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -4867,7 +4896,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Serie A1
+  m_text: "S\xE9rie A1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -4991,6 +5020,19 @@ MeshRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &625522148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625522144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "S\xE9rie A1"
 --- !u!1 &633819166
 GameObject:
   m_ObjectHideFlags: 0
@@ -7620,6 +7662,7 @@ GameObject:
   - component: {fileID: 989342185}
   - component: {fileID: 989342187}
   - component: {fileID: 989342186}
+  - component: {fileID: 989342188}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -7746,6 +7789,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989342184}
   m_CullTransparentMesh: 1
+--- !u!114 &989342188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989342184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "The Ta\xE7a das Favelas, affectionately known as \"Favel\xE3o\", has been organized by the Central \xDAnica das Favelas (CUFA) since 2011 and has established itself as the largest football tournament between favelas in the world. In women's football, the championship plays a transformative role by creating space and visibility for young athletes from the urban peripheries, using sport as a powerful tool for social inclusion, talent discovery and the affirmation of identity for peripheral communities across the country."
 --- !u!1001 &989460317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8393,6 +8449,7 @@ GameObject:
   - component: {fileID: 1120875740}
   - component: {fileID: 1120875742}
   - component: {fileID: 1120875741}
+  - component: {fileID: 1120875743}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -8439,7 +8496,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Serie A2
+  m_text: "S\xE9rie A2"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -8563,6 +8620,19 @@ MeshRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1120875743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120875739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "S\xE9rie A2"
 --- !u!1 &1121708548
 GameObject:
   m_ObjectHideFlags: 0
@@ -12596,6 +12666,7 @@ GameObject:
   - component: {fileID: 1398516476}
   - component: {fileID: 1398516478}
   - component: {fileID: 1398516477}
+  - component: {fileID: 1398516479}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -12642,7 +12713,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Serie A2
+  m_text: "S\xE9rie A2"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -12766,6 +12837,19 @@ MeshRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1398516479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398516475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "S\xE9rie A2"
 --- !u!1001 &1402472000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15212,6 +15296,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7208622203317698214, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: en
+      value: 'Fonte Nova Stadium.
+
+        Preliminary match
+
+        Ypiranga 7 x 2 Tejo'
+      objectReference: {fileID: 0}
     - target: {fileID: 7269877982547691058, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.0034
@@ -16027,6 +16119,7 @@ GameObject:
   - component: {fileID: 1723121376}
   - component: {fileID: 1723121378}
   - component: {fileID: 1723121377}
+  - component: {fileID: 1723121379}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -16073,7 +16166,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Serie A3
+  m_text: "S\xE9rie A3"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -16197,6 +16290,19 @@ MeshRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1723121379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723121375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "S\xE9rie A3"
 --- !u!1 &1750921592
 GameObject:
   m_ObjectHideFlags: 0
@@ -16414,6 +16520,7 @@ GameObject:
   - component: {fileID: 1787720081}
   - component: {fileID: 1787720083}
   - component: {fileID: 1787720082}
+  - component: {fileID: 1787720084}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -16460,7 +16567,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Serie A3
+  m_text: "S\xE9rie A3"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -16584,6 +16691,19 @@ MeshRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1787720084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787720080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "S\xE9rie A3"
 --- !u!1 &1797490591
 GameObject:
   m_ObjectHideFlags: 0
@@ -19401,16 +19521,100 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6096791607754913585, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6096791607754913585, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3503502827144975219}
     - targetCorrespondingSourceObject: {fileID: 3289483531185673203, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 3289483531185673203, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3503502827144975218}
+    - targetCorrespondingSourceObject: {fileID: 3206780679787470050, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 3206780679787470050, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 0}
+      addedObject: {fileID: 3503502827144975217}
     - targetCorrespondingSourceObject: {fileID: 8815581617458378690, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8815581617458378690, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3503502827144975216}
   m_SourcePrefab: {fileID: 100100000, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+--- !u!1 &3503502827144975212 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8815581617458378690, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+  m_PrefabInstance: {fileID: 3503502827144975211}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3503502827144975213 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3206780679787470050, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+  m_PrefabInstance: {fileID: 3503502827144975211}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3503502827144975214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3289483531185673203, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+  m_PrefabInstance: {fileID: 3503502827144975211}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3503502827144975215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6096791607754913585, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+  m_PrefabInstance: {fileID: 3503502827144975211}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3503502827144975216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503502827144975212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: AMAZON
+--- !u!114 &3503502827144975217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503502827144975213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: MADEIRA
+--- !u!114 &3503502827144975218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503502827144975214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: PURUS
+--- !u!114 &3503502827144975219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503502827144975215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "TAPAJ\xD3S"
 --- !u!1001 &5393215579111688471
 PrefabInstance:
   m_ObjectHideFlags: 0

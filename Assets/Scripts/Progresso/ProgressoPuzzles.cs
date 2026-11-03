@@ -24,6 +24,9 @@ public class ProgressoPuzzles : MonoBehaviour
     [Tooltip("Formato do texto. {0} = feitos, {1} = total. Ex: \"{0}/{1}\" ou \"Puzzles: {0}/{1}\".")]
     public string formato = "Desafios {0}/{1}";
 
+    [Tooltip("Formato em ingles ({0} = feitos, {1} = total). Vazio = usa o formato acima.")]
+    public string formatoEn = "Challenges {0}/{1}";
+
     [Header("Numero nas triggers")]
     [Tooltip("Ligado = escreve sozinho o numero em cada trigger (1/5, 2/5...) na ordem da lista. Desligado = voce escreve o texto na mao.")]
     public bool numerarTriggersAutomatico = true;
@@ -46,6 +49,22 @@ public class ProgressoPuzzles : MonoBehaviour
 
     // Total de puzzles da cena
     public int Total { get { return puzzles != null && puzzles.Count > 0 ? puzzles.Count : totalPadrao; } }
+
+    private void OnEnable()
+    {
+        Idioma.OnMudou += AoMudarIdioma;
+        AtualizarTexto();
+    }
+
+    private void OnDisable()
+    {
+        Idioma.OnMudou -= AoMudarIdioma;
+    }
+
+    private void AoMudarIdioma(bool ingles)
+    {
+        AtualizarTexto();
+    }
 
     private void Awake()
     {
@@ -95,6 +114,11 @@ public class ProgressoPuzzles : MonoBehaviour
     public void AtualizarTexto()
     {
         if (textoProgresso != null)
-            textoProgresso.text = string.Format(formato, Feitos, Total);
+        {
+            // PT usa "formato" (mesmo que a cena tenha sobrescrito). EN usa "formatoEn"; se vazio, cai no "formato".
+            string f = Idioma.Ingles && !string.IsNullOrEmpty(formatoEn) ? formatoEn : formato;
+            if (string.IsNullOrEmpty(f)) f = "{0}/{1}";
+            textoProgresso.text = string.Format(f, Feitos, Total);
+        }
     }
 }

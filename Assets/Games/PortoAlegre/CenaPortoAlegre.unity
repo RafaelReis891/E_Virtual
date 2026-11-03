@@ -761,6 +761,7 @@ GameObject:
   - component: {fileID: 86890074}
   - component: {fileID: 86890076}
   - component: {fileID: 86890075}
+  - component: {fileID: 86890077}
   m_Layer: 0
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -931,6 +932,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &86890077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86890073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Creation of the First Brazilian Women's Blind Football National Team Made Official. What is the organization's acronym? Click and drag the shirts to form the acronym.
 --- !u!1 &124588118
 GameObject:
   m_ObjectHideFlags: 0
@@ -2873,6 +2887,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 45672189}
     m_Modifications:
+    - target: {fileID: 312102272996328978, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: en
+      value: "Who scored two goals and was the standout player in 2024 at Arena de Pernambuco, on a memorable night that drew more than 33,000 fans to watch the Brazilian Women's National Team beat Jamaica 4\u20130? Click and drag the image of the correct player"
+      objectReference: {fileID: 0}
     - target: {fileID: 553429993027347524, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_Size.x
       value: 4.11
@@ -3239,7 +3257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7274161844819948141, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_text
-      value: "Quem fez dois gols e FOI DESTAQUE em 2024 na Arena de Pernambuco, que teve uma noite memor\xE1vel e recebeu mais de 33 mil torcedores para acompanhar a goleada por 4 a 0 da Sele\xE7\xE3o Brasileira Feminina sobre a Jamaica? Clique e arraste a  imagem da jogadora correta\r\n"
+      value: "Quem fez dois gols e FOI DESTAQUE em 2024 na Arena de Pernambuco, que teve uma noite memor\xE1vel e recebeu mais de 33 mil torcedores para acompanhar a goleada por 4 a 0 da Sele\xE7\xE3o Brasileira Feminina sobre a Jamaica? Clique e arraste a imagem da jogadora correta\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7274161844819948141, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_fontSize
@@ -3759,6 +3777,7 @@ GameObject:
   - component: {fileID: 456463456}
   - component: {fileID: 456463458}
   - component: {fileID: 456463457}
+  - component: {fileID: 456463459}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -3805,7 +3824,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Serie A1
+  m_text: "S\xE9rie A1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -3929,6 +3948,19 @@ MeshRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &456463459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456463455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "S\xE9rie A1"
 --- !u!1 &489135715
 GameObject:
   m_ObjectHideFlags: 0
@@ -8857,6 +8889,7 @@ GameObject:
   - component: {fileID: 989342185}
   - component: {fileID: 989342187}
   - component: {fileID: 989342186}
+  - component: {fileID: 989342188}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -8983,6 +9016,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989342184}
   m_CullTransparentMesh: 1
+--- !u!114 &989342188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989342184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "The Ta\xE7a das Favelas, affectionately known as \"Favel\xE3o\", has been organized by the Central \xDAnica das Favelas (CUFA) since 2011 and has established itself as the largest football tournament between favelas in the world. In women's football, the championship plays a transformative role by creating space and visibility for young athletes from the urban peripheries, using sport as a powerful tool for social inclusion, talent discovery and the affirmation of identity for peripheral communities across the country."
 --- !u!1001 &989460317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9454,6 +9500,7 @@ GameObject:
   - component: {fileID: 1120875740}
   - component: {fileID: 1120875742}
   - component: {fileID: 1120875741}
+  - component: {fileID: 1120875743}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -9500,7 +9547,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Serie A2
+  m_text: "S\xE9rie A2"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -9624,6 +9671,19 @@ MeshRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1120875743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120875739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "S\xE9rie A2"
 --- !u!1 &1121708548
 GameObject:
   m_ObjectHideFlags: 0
@@ -10144,7 +10204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7425936138261032342, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: en
-      value: 
+      value: In which country did Brazil win the first FIFA Futsal Women's World Cup?
       objectReference: {fileID: 0}
     - target: {fileID: 7743807982617565152, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15323,6 +15383,7 @@ GameObject:
   - component: {fileID: 1787720081}
   - component: {fileID: 1787720083}
   - component: {fileID: 1787720082}
+  - component: {fileID: 1787720084}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -15369,7 +15430,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Serie A3
+  m_text: "S\xE9rie A3"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -15493,6 +15554,19 @@ MeshRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1787720084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787720080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "S\xE9rie A3"
 --- !u!1 &1789431076 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1017601605901077078, guid: acc2daa1a289cee4aae2d8cd92ba0ecd, type: 3}
@@ -15957,6 +16031,7 @@ GameObject:
   - component: {fileID: 1889953559}
   - component: {fileID: 1889953561}
   - component: {fileID: 1889953560}
+  - component: {fileID: 1889953562}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -16127,6 +16202,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1889953562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889953558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: In 2018, Fox Sports formed the first all-women team to broadcast the World Cup in Brazil. Who was on it? Click and drag the shirts with the correct names
 --- !u!4 &1902811637 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5052264629267279113, guid: 7d001cacf887eb14cbf269a09e3ec3ba, type: 3}
@@ -17735,6 +17823,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 45672189}
     m_Modifications:
+    - target: {fileID: 312102272996328978, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: en
+      value: 'Qatar 2022: for the first time, women refereed a men''s World Cup. Drag the shirts of the referees'' countries of origin'
+      objectReference: {fileID: 0}
     - target: {fileID: 2088633716944232001, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: _OnTriggerExit.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -17889,7 +17981,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7274161844819948141, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_text
-      value: "Catar 2022: pela primeira vez, mulheres apitaram uma Copa do Mundo masculina. Arraste as comisetas dos pa\xEDses de origem das \xE1rbitras"
+      value: "Catar 2022: pela primeira vez, mulheres apitaram uma Copa do Mundo masculina. Arraste as camisetas dos pa\xEDses de origem das \xE1rbitras"
       objectReference: {fileID: 0}
     - target: {fileID: 7274161844819948141, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_fontSize

@@ -942,6 +942,7 @@ GameObject:
   - component: {fileID: 4635627074076537338}
   - component: {fileID: 3263525678080474713}
   - component: {fileID: 6707277833563221982}
+  - component: {fileID: 3057194591509604801}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1037,7 +1038,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Clique nas pe\xE7as, arraste  e encaixe nas marca\xE7\xF5es do centro para forma a imagem "
+  m_text: "Clique nas pe\xE7as, arraste e encaixe nas marca\xE7\xF5es do centro para formar a imagem "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -1112,6 +1113,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 3263525678080474713}
   m_maskType: 0
+--- !u!114 &3057194591509604801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3124490687163800668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Click the pieces, drag them and fit them into the marks in the center to form the image.
 --- !u!1 &3284612528693624707
 GameObject:
   m_ObjectHideFlags: 0

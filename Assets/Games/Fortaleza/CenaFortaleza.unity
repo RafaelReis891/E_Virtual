@@ -639,15 +639,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 32301577}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7022656, y: -0.082600884, z: -0.08260081, w: 0.70226574}
-  m_LocalPosition: {x: -0.00189, y: 0.00088, z: 0.00561}
+  m_LocalRotation: {x: 0.7046887, y: -0.058427565, z: -0.058427487, w: 0.70468885}
+  m_LocalPosition: {x: -0.0017196941, y: 0.0015736001, z: 0.0056100073}
   m_LocalScale: {x: 0.00089999987, y: 0.00089520647, z: 0.00089520647}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1360887834}
   - {fileID: 1546955753}
   m_Father: {fileID: 1746030031}
-  m_LocalEulerAnglesHint: {x: 76.583, y: -90, z: -90}
+  m_LocalEulerAnglesHint: {x: 80.521, y: -90, z: -90}
 --- !u!114 &32301579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,6 +893,7 @@ GameObject:
   - component: {fileID: 82483579}
   - component: {fileID: 82483581}
   - component: {fileID: 82483580}
+  - component: {fileID: 82483582}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -939,7 +940,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Serie A1
+  m_text: "S\xE9rie A1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -1063,6 +1064,19 @@ MeshRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &82483582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82483578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "S\xE9rie A1"
 --- !u!1 &88514551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,6 +1088,7 @@ GameObject:
   - component: {fileID: 88514552}
   - component: {fileID: 88514554}
   - component: {fileID: 88514553}
+  - component: {fileID: 88514555}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -1120,7 +1135,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Serie A1
+  m_text: "S\xE9rie A1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -1244,6 +1259,19 @@ MeshRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &88514555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88514551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "S\xE9rie A1"
 --- !u!1 &124588118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1846,15 +1874,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -41.35
+      value: -42.02
       objectReference: {fileID: 0}
     - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.69
+      value: 21.61
       objectReference: {fileID: 0}
     - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -38.28
+      value: -36.72
       objectReference: {fileID: 0}
     - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4501,6 +4529,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_text
+      value: "Qual o placar da final da edi\xE7\xE3o inaugural da Copa do Mundo Feminina Sub-17 da FIFA, realizada em 2008 na Nova Zel\xE2ndia?\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_fontSize
+      value: 9.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_margin.w
+      value: -1.969625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_margin.y
+      value: -0.5024886
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5994873896946836996, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalPosition.x
       value: -50.39
@@ -4528,6 +4580,14 @@ PrefabInstance:
     - target: {fileID: 6926790004960952221, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208622203317698214, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: en
+      value: Click the numbers to spin them and form the correct score of this match.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936397045867350101, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: en
+      value: What was the score of the final of the inaugural FIFA U-17 Women's World Cup, held in New Zealand in 2008?
       objectReference: {fileID: 0}
     - target: {fileID: 8110574064184956822, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4563,11 +4623,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_text
-      value: "Qual o placar da final da edi\xE7\xE3o inaugural da Copa do Mundo Feminina Sub-17 da FIFA, realizada em 2008 na Nova Zel\xE2ndia?\r\n"
+      value: "Clique nos n\xFAmeros para girar e formar o placar correto desta partida.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontSize
-      value: 5.55
+      value: 6.25
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_margin.w
@@ -4579,7 +4639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_margin.y
-      value: -0.523276
+      value: -0.054921865
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_margin.z
@@ -4588,6 +4648,22 @@ PrefabInstance:
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontStyle
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 9009063391969802213, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: dials.Array.size
@@ -7423,6 +7499,34 @@ PrefabInstance:
       propertyPath: timerAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1223074408}
+    - target: {fileID: 2910056586047903181, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.22811577
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910056586047903181, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.32088175
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910056586047903181, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910056586047903181, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.6384222
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910056586047903181, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.76968634
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910056586047903181, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00000017881393
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910056586047903181, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -100.651
+      objectReference: {fileID: 0}
     - target: {fileID: 4353901529674523881, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0008597923
@@ -7471,6 +7575,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_text
+      value: "Qual o ano que foi a estreia do Futebol Feminino nos Jogos Pan-Americanos de Winnipeg Termina com Ouro dos EUA? Clique nos n\xFAmeros para girar e formar o ano correto."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_fontSize
+      value: 7.55
+      objectReference: {fileID: 0}
     - target: {fileID: 5994873896946836996, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalPosition.x
       value: -43.71
@@ -7511,15 +7623,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7936397045867350101, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: en
+      value: In what year did women's football debut at the Pan American Games in Winnipeg, ending with gold for the USA? Click the numbers to spin them and form the correct year.
+      objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_text
-      value: ' Estreia do Futebol Feminino nos Jogos Pan-Americanos de Winnipeg Termina com Ouro dos EUA
-
-'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontSize
-      value: 7.2
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_margin.x
@@ -7948,15 +8062,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904009527}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7022656, y: -0.082600884, z: -0.08260081, w: 0.70226574}
-  m_LocalPosition: {x: -0.00541, y: 0.00093, z: 0.00316}
+  m_LocalRotation: {x: 0.7046887, y: -0.058427565, z: -0.058427487, w: 0.70468885}
+  m_LocalPosition: {x: -0.0052356147, y: 0.00138689, z: 0.0031599998}
   m_LocalScale: {x: 0.00089999987, y: 0.00089520647, z: 0.00089520647}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 82483579}
   - {fileID: 835165300}
   m_Father: {fileID: 1746030031}
-  m_LocalEulerAnglesHint: {x: 76.583, y: -90, z: -90}
+  m_LocalEulerAnglesHint: {x: 80.521, y: -90, z: -90}
 --- !u!114 &904009529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9159,6 +9273,7 @@ GameObject:
   - component: {fileID: 989342185}
   - component: {fileID: 989342187}
   - component: {fileID: 989342186}
+  - component: {fileID: 989342188}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -9285,6 +9400,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989342184}
   m_CullTransparentMesh: 1
+--- !u!114 &989342188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989342184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "The Ta\xE7a das Favelas, affectionately known as \"Favel\xE3o\", has been organized by the Central \xDAnica das Favelas (CUFA) since 2011 and has established itself as the largest football tournament between favelas in the world. In women's football, the championship plays a transformative role by creating space and visibility for young athletes from the urban peripheries, using sport as a powerful tool for social inclusion, talent discovery and the affirmation of identity for peripheral communities across the country."
 --- !u!1001 &989460317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10011,6 +10139,30 @@ PrefabInstance:
       propertyPath: wait
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
+      propertyPath: m_text
+      value: "Em qual pa\xEDs a Sele\xE7\xE3o brasileira disputa as quartas-finais da Copa do Mundo de Futebol Feminino Sub-20? (2026)\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
+      propertyPath: m_fontSize
+      value: 7.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
+      propertyPath: m_margin.w
+      value: -2.7556202
+      objectReference: {fileID: 0}
+    - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
+      propertyPath: m_margin.x
+      value: -0.96594036
+      objectReference: {fileID: 0}
+    - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
+      propertyPath: m_margin.z
+      value: -1.2782116
+      objectReference: {fileID: 0}
+    - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 6693754050857276094, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: pergunta
       value: "Em qual pa\xEDs  a Sele\xE7\xE3o brasileira disputa as quartas-finais da Copa do Mundo de Futebol Feminino Sub-20 2026?\r\n"
@@ -10198,6 +10350,10 @@ PrefabInstance:
     - target: {fileID: 7077935501700057207, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: wait
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7425936138261032342, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
+      propertyPath: en
+      value: In which country does the Brazilian national team play the quarter-finals of the FIFA U-20 Women's World Cup? (2026)
       objectReference: {fileID: 0}
     - target: {fileID: 7743807982617565152, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11071,7 +11227,7 @@ Transform:
   m_GameObject: {fileID: 1209283942}
   serializedVersion: 2
   m_LocalRotation: {x: 0.019466328, y: -0.706839, z: -0.70683867, w: 0.01946686}
-  m_LocalPosition: {x: 0.00012, y: 0.00271, z: 0.00563}
+  m_LocalPosition: {x: 0.00017, y: 0.00173, z: 0.00563}
   m_LocalScale: {x: 0.001, y: 0.000994674, z: 0.000994674}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -11137,7 +11293,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: deb8600d9486fe34fa7e81a76e0759bd, type: 2}
+  - {fileID: 2100000, guid: b8f4d2e3c5a6479801b2c3d4e5f60712, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11161,7 +11317,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7513052620996950568, guid: 392ba7ad1f4fcdf4a9bb599a25d9f2ad, type: 3}
-  m_Color: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 1}
+  m_Color: {r: 1, g: 0.76761675, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12545,6 +12701,7 @@ GameObject:
   - component: {fileID: 1360887834}
   - component: {fileID: 1360887836}
   - component: {fileID: 1360887835}
+  - component: {fileID: 1360887837}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -12591,7 +12748,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Serie A1
+  m_text: "S\xE9rie A1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -12715,6 +12872,19 @@ MeshRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1360887837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360887833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "S\xE9rie A1"
 --- !u!1001 &1385662200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14396,6 +14566,7 @@ GameObject:
   - component: {fileID: 1560318526}
   - component: {fileID: 1560318528}
   - component: {fileID: 1560318527}
+  - component: {fileID: 1560318529}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -14442,7 +14613,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Serie A1
+  m_text: "S\xE9rie A1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -14566,6 +14737,19 @@ MeshRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1560318529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560318525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "S\xE9rie A1"
 --- !u!1001 &1573877012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14985,15 +15169,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621150924}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7022656, y: -0.082600884, z: -0.08260081, w: 0.70226574}
-  m_LocalPosition: {x: 0.00184, y: 0.00083, z: 0.0042}
+  m_LocalRotation: {x: 0.7046887, y: -0.058427565, z: -0.058427487, w: 0.70468885}
+  m_LocalPosition: {x: 0.0020058346, y: 0.0017767135, z: 0.004200001}
   m_LocalScale: {x: 0.00089999987, y: 0.00089520647, z: 0.00089520647}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1560318526}
   - {fileID: 613549741}
   m_Father: {fileID: 1746030031}
-  m_LocalEulerAnglesHint: {x: 76.583, y: -90, z: -90}
+  m_LocalEulerAnglesHint: {x: 80.521, y: -90, z: -90}
 --- !u!114 &1621150926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17331,6 +17515,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_text
+      value: "Qual foi o resultado da final do Campeonato Cearense Feminino de 1983, no est\xE1dio do Castel\xE3o? "
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_fontSize
+      value: 10.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_margin.w
+      value: -1.7930129
+      objectReference: {fileID: 0}
     - target: {fileID: 5994873896946836996, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalPosition.x
       value: -49.02
@@ -17358,6 +17554,14 @@ PrefabInstance:
     - target: {fileID: 6926790004960952221, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208622203317698214, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: en
+      value: Click the numbers to spin them and form the result of the match
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936397045867350101, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: en
+      value: "What was the result of the 1983 Cear\xE1 Women's Championship final, at the Castel\xE3o stadium?"
       objectReference: {fileID: 0}
     - target: {fileID: 8110574064184956822, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17393,11 +17597,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_text
-      value: "Qual foi o resultado da final do Campeonato Cearense Feminino de 1983, no est\xE1dio\r\ndo Castel\xE3o?\r\n"
+      value: "Clique nos n\xFAmeros para girar e formar o resultado da partida"
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontSize
-      value: 5.45
+      value: 7.45
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_margin.w
@@ -17418,6 +17622,26 @@ PrefabInstance:
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontStyle
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 9009063391969802213, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: dials.Array.size
@@ -18355,6 +18579,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 45672189}
     m_Modifications:
+    - target: {fileID: 312102272996328978, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: en
+      value: What position did the Brazilian national team finish in at the inaugural FIFA U-20 Women's World Cup in Canada in 2002? Click the ball and drag it to the correct position
+      objectReference: {fileID: 0}
     - target: {fileID: 1032780825653854052, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -18409,7 +18637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4223787613680532703, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.00335
+      value: -0.00199
       objectReference: {fileID: 0}
     - target: {fileID: 4566678102569743647, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: volume
@@ -18621,11 +18849,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7274161844819948141, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_text
-      value: " Qual a posi\xE7\xE3o da Sele\xE7\xE3o Brasileira na Edi\xE7\xE3o Inaugural da Copa do Mundo Sub-20 no Canad\xE1 de 2002?"
+      value: " Qual a posi\xE7\xE3o da Sele\xE7\xE3o Brasileira na Edi\xE7\xE3o Inaugural da Copa do Mundo Sub-20 no Canad\xE1 de 2002? Clique na bola e arraste para a posi\xE7\xE3o correta"
       objectReference: {fileID: 0}
     - target: {fileID: 7274161844819948141, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_fontSize
-      value: 11.75
+      value: 9.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274161844819948141, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: m_margin.x
+      value: -2.7768488
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274161844819948141, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: m_margin.z
+      value: -2.7627687
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274161844819948141, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274161844819948141, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7294393970565324933, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: timerAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -18645,15 +18889,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7561043711318201276, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00538
+      value: 0.0055414867
       objectReference: {fileID: 0}
     - target: {fileID: 7561043711318201276, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00078
+      value: 0.0019740195
       objectReference: {fileID: 0}
     - target: {fileID: 7561043711318201276, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00231
+      value: 0.002310009
+      objectReference: {fileID: 0}
+    - target: {fileID: 7561043711318201276, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70468885
+      objectReference: {fileID: 0}
+    - target: {fileID: 7561043711318201276, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7046887
+      objectReference: {fileID: 0}
+    - target: {fileID: 7561043711318201276, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.058427565
+      objectReference: {fileID: 0}
+    - target: {fileID: 7561043711318201276, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.058427487
+      objectReference: {fileID: 0}
+    - target: {fileID: 7561043711318201276, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 80.521
       objectReference: {fileID: 0}
     - target: {fileID: 7701099793243992091, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_Name

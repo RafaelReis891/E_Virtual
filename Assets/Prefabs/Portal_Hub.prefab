@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1203030371277635331}
   - component: {fileID: 6783566469293664386}
   - component: {fileID: 5791770749176317863}
+  - component: {fileID: 324117364027488996}
   m_Layer: 0
   m_Name: Test_Cidade
   m_TagString: Untagged
@@ -106,7 +107,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Estadio
+  m_text: "Est\xE1dio"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -181,6 +182,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 6783566469293664386}
   m_maskType: 0
+--- !u!114 &324117364027488996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756399325418399666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Stadium
 --- !u!1 &1340365486327412442
 GameObject:
   m_ObjectHideFlags: 0

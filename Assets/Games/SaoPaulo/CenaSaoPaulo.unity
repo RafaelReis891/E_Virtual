@@ -2286,7 +2286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2035864647638333540, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       propertyPath: m_text
-      value: "\u201C2024: Com Recorde de _________ Torcedores na Neo Qu\xEDmica Arena, Corinthians Vence o S\xE3o Paulo por 2\u20130 e Conquista o Brasileir\xE3o\u201D - Clique no botao com o numero correto de espectadores\r\n"
+      value: "\u201C2024: Com Recorde de _________ Torcedores na Neo Qu\xEDmica Arena, Corinthians Vence o S\xE3o Paulo por 2\u20130 e Conquista o Brasileir\xE3o\u201D - Clique no bot\xE3o com o n\xFAmero correto de espectadores\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 2084018814946615982, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       propertyPath: id
@@ -2395,6 +2395,10 @@ PrefabInstance:
     - target: {fileID: 5710115930412918859, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 87
+      objectReference: {fileID: 0}
+    - target: {fileID: 6103710188388503591, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      propertyPath: en
+      value: "\u201C2024: With a Record of _________ Fans at Neo Qu\xEDmica Arena, Corinthians Beat S\xE3o Paulo 2\u20130 and Win the Brasileir\xE3o\u201D \u2013 Click the button with the correct attendance figure"
       objectReference: {fileID: 0}
     - target: {fileID: 7058674722678909112, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6526,6 +6530,7 @@ GameObject:
   - component: {fileID: 370814510}
   - component: {fileID: 370814512}
   - component: {fileID: 370814511}
+  - component: {fileID: 370814513}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -6572,7 +6577,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Como foi a coloca\xE7\xE3o do  I Campeonato Brasileiro de Futebol Feminino 2013. Clique e arraste o emblema na medalha correta,\n "
+  m_text: "Como foi a coloca\xE7\xE3o do I Campeonato Brasileiro de Futebol Feminino 2013. Clique e arraste o emblema na medalha correta,\n "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -6696,6 +6701,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &370814513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370814509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: How did the teams place in the first Brazilian Women's Football Championship in 2013? Click and drag each crest onto the correct medal.
 --- !u!1 &379127325
 GameObject:
   m_ObjectHideFlags: 0
@@ -15966,6 +15984,7 @@ GameObject:
   - component: {fileID: 989342185}
   - component: {fileID: 989342187}
   - component: {fileID: 989342186}
+  - component: {fileID: 989342188}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -16092,6 +16111,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989342184}
   m_CullTransparentMesh: 1
+--- !u!114 &989342188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989342184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "The Ta\xE7a das Favelas, affectionately known as \"Favel\xE3o\", has been organized by the Central \xDAnica das Favelas (CUFA) since 2011 and has established itself as the largest football tournament between favelas in the world. In women's football, the championship plays a transformative role by creating space and visibility for young athletes from the urban peripheries, using sport as a powerful tool for social inclusion, talent discovery and the affirmation of identity for peripheral communities across the country."
 --- !u!1 &999843856 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6711504072856626148, guid: dee84bd1c079d0d4fab34c61fa9b621d, type: 3}
@@ -23708,7 +23740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_text
-      value: "Ano que Sele\xE7\xE3o Paulista e Sele\xE7\xE3o Carioca Duelam no Morumbi Durante o Festival Internacional das Mulheres nas Artes? Clique nos numeros para girar e forme o ano com os quatro n\xFAmeros"
+      value: "Em que ano a Sele\xE7\xE3o Paulista e a Sele\xE7\xE3o Carioca duelam no Morumbi durante o Festival Internacional das Mulheres nas Artes? Clique nos n\xFAmeros para girar e forme o ano com os quatro n\xFAmeros"
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontSize
@@ -23798,6 +23830,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 87
       objectReference: {fileID: 0}
+    - target: {fileID: 7208622203317698214, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: en
+      value: Click the numbers to spin them and form the correct date
+      objectReference: {fileID: 0}
     - target: {fileID: 7269877982547691058, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.0038
@@ -23841,6 +23877,10 @@ PrefabInstance:
     - target: {fileID: 7269877982547691058, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.475
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936397045867350101, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: en
+      value: "In what year did the S\xE3o Paulo State and Rio de Janeiro State teams face each other at the Morumbi during the International Festival of Women in the Arts? Click the numbers to spin them and form the year with the four digits"
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_text
@@ -26225,7 +26265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
-  en: Who did Brazil thrash to win gold in women's football at the Military World Games in Rio, and what was the score?
+  en: "In what year did the S\xE3o Paulo State and Rio de Janeiro State teams face each other at the Morumbi during the International Festival of Women in the Arts? Click the numbers to spin them and form the year with the four digits"
 --- !u!114 &1567604655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26246,7 +26286,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ano que Sele\xE7\xE3o Paulista e Sele\xE7\xE3o Carioca Duelam no Morumbi Durante o Festival Internacional das Mulheres nas Artes? Clique nos numeros para girar e forme o ano com os quatro n\xFAmeros\n\n"
+  m_text: "Em que ano a Sele\xE7\xE3o Paulista e a Sele\xE7\xE3o Carioca duelam no Morumbi durante o Festival Internacional das Mulheres nas Artes? Clique nos n\xFAmeros para girar e forme o ano com os quatro n\xFAmeros\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -27003,7 +27043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1144248750320301553, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       propertyPath: m_text
-      value: "Em  2014 qual foi o resultado  do Mundial de Clubes de Futebol Feminino  no Jap\xE3o ? Clique nos numeros no centro para girar e acertar o resultado e clique no time vencedor no quadro da esquerda e no time perdedor na direita\r\n"
+      value: "Em 2014 qual foi o resultado do Mundial de Clubes de Futebol Feminino no Jap\xE3o? Clique nos n\xFAmeros no centro para girar e acertar o resultado e clique no time vencedor no quadro da esquerda e no time perdedor na direita\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 1311845478383547328, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -27260,6 +27300,10 @@ PrefabInstance:
     - target: {fileID: 6602099801085300476, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891975017454624571, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
+      propertyPath: en
+      value: In 2014, what was the result of the Women's Club World Cup in Japan? Click the numbers in the center to spin them to the correct score, then click the winning team on the left board and the losing team on the right.
       objectReference: {fileID: 0}
     - target: {fileID: 6946814324627528054, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       propertyPath: m_StaticEditorFlags

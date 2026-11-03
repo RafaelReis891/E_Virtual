@@ -7752,7 +7752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
-  en: The Taca das Favelas, affectionately known as "Favelao", has been organized by the Central Unica das Favelas (CUFA) since 2011 and has become the largest football tournament between favelas in the world. In women's football, the championship plays a transformative role by opening space and visibility for young athletes from the outskirts, using sport as a powerful tool for social inclusion, talent discovery and the affirmation of identity for communities across the country.
+  en: "The Ta\xE7a das Favelas, affectionately known as \"Favel\xE3o\", has been organized by the Central \xDAnica das Favelas (CUFA) since 2011 and has established itself as the largest football tournament between favelas in the world. In women's football, the championship plays a transformative role by creating space and visibility for young athletes from the urban peripheries, using sport as a powerful tool for social inclusion, talent discovery and the affirmation of identity for peripheral communities across the country."
 --- !u!1001 &1008401834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13607,6 +13607,7 @@ GameObject:
   - component: {fileID: 1812998847}
   - component: {fileID: 1812998849}
   - component: {fileID: 1812998848}
+  - component: {fileID: 1812998850}
   m_Layer: 0
   m_Name: Test_Cidade
   m_TagString: Untagged
@@ -13777,6 +13778,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1812998850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812998846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Rio de Janeiro
 --- !u!1 &1812999100
 GameObject:
   m_ObjectHideFlags: 0
@@ -13788,6 +13802,7 @@ GameObject:
   - component: {fileID: 1812999101}
   - component: {fileID: 1812999103}
   - component: {fileID: 1812999102}
+  - component: {fileID: 1812999105}
   m_Layer: 0
   m_Name: Test_Cidade
   m_TagString: Untagged
@@ -13963,6 +13978,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1534502819786220410, guid: 50b8115680a58ff408b45beee65999ff, type: 3}
   m_PrefabInstance: {fileID: 1382961876}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1812999105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812999100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "S\xE3o Paulo"
 --- !u!1 &1812999110
 GameObject:
   m_ObjectHideFlags: 0
@@ -13974,6 +14002,7 @@ GameObject:
   - component: {fileID: 1812999111}
   - component: {fileID: 1812999113}
   - component: {fileID: 1812999112}
+  - component: {fileID: 1812999115}
   m_Layer: 0
   m_Name: Test_Cidade
   m_TagString: Untagged
@@ -14149,6 +14178,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -2462983442539985431, guid: 50b8115680a58ff408b45beee65999ff, type: 3}
   m_PrefabInstance: {fileID: 1382961876}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1812999115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812999110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Belo Horizonte
 --- !u!1 &1812999120
 GameObject:
   m_ObjectHideFlags: 0
@@ -14160,6 +14202,7 @@ GameObject:
   - component: {fileID: 1812999121}
   - component: {fileID: 1812999123}
   - component: {fileID: 1812999122}
+  - component: {fileID: 1812999125}
   m_Layer: 0
   m_Name: Test_Cidade
   m_TagString: Untagged
@@ -14335,6 +14378,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8731232813758164814, guid: 50b8115680a58ff408b45beee65999ff, type: 3}
   m_PrefabInstance: {fileID: 1382961876}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1812999125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812999120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Salvador
 --- !u!1 &1812999130
 GameObject:
   m_ObjectHideFlags: 0
@@ -14346,6 +14402,7 @@ GameObject:
   - component: {fileID: 1812999131}
   - component: {fileID: 1812999133}
   - component: {fileID: 1812999132}
+  - component: {fileID: 1812999135}
   m_Layer: 0
   m_Name: Test_Cidade
   m_TagString: Untagged
@@ -14521,6 +14578,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7911766526513483863, guid: 50b8115680a58ff408b45beee65999ff, type: 3}
   m_PrefabInstance: {fileID: 1382961876}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1812999135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812999130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "Bras\xEDlia"
 --- !u!1 &1812999140
 GameObject:
   m_ObjectHideFlags: 0
@@ -14532,6 +14602,7 @@ GameObject:
   - component: {fileID: 1812999141}
   - component: {fileID: 1812999143}
   - component: {fileID: 1812999142}
+  - component: {fileID: 1812999145}
   m_Layer: 0
   m_Name: Test_Cidade
   m_TagString: Untagged
@@ -14707,6 +14778,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6268510265954793362, guid: 50b8115680a58ff408b45beee65999ff, type: 3}
   m_PrefabInstance: {fileID: 1382961876}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1812999145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812999140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Recife
 --- !u!1 &1812999150
 GameObject:
   m_ObjectHideFlags: 0
@@ -14718,6 +14802,7 @@ GameObject:
   - component: {fileID: 1812999151}
   - component: {fileID: 1812999153}
   - component: {fileID: 1812999152}
+  - component: {fileID: 1812999155}
   m_Layer: 0
   m_Name: Test_Cidade
   m_TagString: Untagged
@@ -14893,6 +14978,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -2521966806689734002, guid: 50b8115680a58ff408b45beee65999ff, type: 3}
   m_PrefabInstance: {fileID: 1382961876}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1812999155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812999150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Fortaleza
 --- !u!1 &1812999160
 GameObject:
   m_ObjectHideFlags: 0
@@ -14904,6 +15002,7 @@ GameObject:
   - component: {fileID: 1812999161}
   - component: {fileID: 1812999163}
   - component: {fileID: 1812999162}
+  - component: {fileID: 1812999164}
   m_Layer: 0
   m_Name: Test_Cidade
   m_TagString: Untagged
@@ -15074,6 +15173,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1812999164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812999160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Porto Alegre
 --- !u!1001 &1816602934
 PrefabInstance:
   m_ObjectHideFlags: 0

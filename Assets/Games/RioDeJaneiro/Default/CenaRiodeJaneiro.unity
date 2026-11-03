@@ -1542,7 +1542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5591255200219362373, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
       propertyPath: m_text
-      value: "Quem o Brasil goleiou na Conquista o Ouro no Futebol Feminino dos Jogos Mundiais Militares no Rio e qual foi o resultado? Clique nos n\xFAmeros para girar e acertar o resultado e depois clique no time correto do lado direito.\n"
+      value: "Quem o Brasil goleou na conquista do ouro no Futebol Feminino dos Jogos Mundiais Militares no Rio e qual foi o resultado? Clique nos n\xFAmeros para girar e acertar o resultado e depois clique no time correto do lado direito.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5591255200219362373, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
       propertyPath: m_fontSize
@@ -1595,6 +1595,10 @@ PrefabInstance:
     - target: {fileID: 5591255200219362373, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5714360652648871473, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
+      propertyPath: en
+      value: Who did Brazil beat to win the gold medal in women's football at the Military World Games in Rio, and what was the score? Click the numbers to spin them to the correct score, then click the correct team on the right.
       objectReference: {fileID: 0}
     - target: {fileID: 6607878749380670056, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
@@ -5125,7 +5129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
-  en: Click the left mouse button on the shirt and drag to form the word by which the Taca das Favelas is affectionately known.
+  en: "Left-click a shirt and drag it to spell the word by which the Ta\xE7a das Favelas is affectionately known."
 --- !u!1 &412609921 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6488686400550564261, guid: 8080b5a2a43ff8c49ab4868b0ac514f4, type: 3}
@@ -11497,7 +11501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
-  en: The Taca das Favelas, affectionately known as "Favelao", has been organized by the Central Unica das Favelas (CUFA) since 2011 and has become the largest football tournament between favelas in the world. In women's football, the championship plays a transformative role by opening space and visibility for young athletes from the outskirts, using sport as a powerful tool for social inclusion, talent discovery and the affirmation of identity for communities across the country.
+  en: "The Ta\xE7a das Favelas, affectionately known as \"Favel\xE3o\", has been organized by the Central \xDAnica das Favelas (CUFA) since 2011 and has established itself as the largest football tournament between favelas in the world. In women's football, the championship plays a transformative role by creating space and visibility for young athletes from the urban peripheries, using sport as a powerful tool for social inclusion, talent discovery and the affirmation of identity for peripheral communities across the country."
 --- !u!1001 &989460317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17091,9 +17095,7 @@ PrefabInstance:
       objectReference: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
     - target: {fileID: 4423608740542194680, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       propertyPath: m_text
-      value: 'Clique na bussola na cidade no Rio de Janeiro que sediou o I
-
-        Campeonato Brasileiro Sub-17 de Futebol Feminino. '
+      value: "Clique na b\xFAssola na cidade do Rio de Janeiro que sediou o I\nCampeonato Brasileiro Sub-17 de Futebol Feminino. "
       objectReference: {fileID: 0}
     - target: {fileID: 4423608740542194680, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       propertyPath: m_fontSize
@@ -17466,6 +17468,12 @@ PrefabInstance:
     - target: {fileID: 5982345744849874558, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       propertyPath: m_Name
       value: Dica_E2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7185499177588530579, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
+      propertyPath: en
+      value: 'Click the compass on the city in Rio de Janeiro that hosted the first
+
+        Brazilian Women''s U-17 Football Championship.'
       objectReference: {fileID: 0}
     - target: {fileID: 7480154478084453209, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18397,7 +18405,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1144248750320301553, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       propertyPath: m_text
-      value: "Resultado do Pan-Americano de 2007 no Maracan\xE3,  clique nos numeros para rodar para acertar o resultado e  nos times que participaram, vencedor na esquerda e perdedor na direita."
+      value: "Resultado do Pan-Americano de 2007 no Maracan\xE3, clique nos n\xFAmeros para rodar para acertar o resultado e nos times que participaram, vencedor na esquerda e perdedor na direita."
       objectReference: {fileID: 0}
     - target: {fileID: 1272517699385011538, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18622,6 +18630,10 @@ PrefabInstance:
     - target: {fileID: 6602099801085300476, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891975017454624571, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
+      propertyPath: en
+      value: "Result of the 2007 Pan American Games at the Maracan\xE3: click the numbers to spin them to the correct score, then click the teams that played, with the winner on the left and the loser on the right."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -24952,9 +24964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_text
-      value: 'Quantos times participaram da I Copa Nacional Quilombola de Futebol  no Rio de Janeiro em 2024?
-
-'
+      value: "Quantos times participaram da I Copa Nacional Quilombola de Futebol no Rio de Janeiro em 2024?\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontSize
@@ -25022,7 +25032,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7208622203317698214, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: en
-      value: How many teams took part in the 1st National Quilombola Football Cup in Rio de Janeiro in 2024?
+      value: Click the numbers to spin them and form the correct answer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936397045867350101, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: en
+      value: How many teams took part in the first National Quilombola Football Cup in Rio de Janeiro in 2024?
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_text

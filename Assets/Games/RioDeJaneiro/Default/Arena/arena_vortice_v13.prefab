@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5880580809571107134}
   - component: {fileID: 4565945206796674619}
   - component: {fileID: 5910530276436737655}
+  - component: {fileID: 6121594018976908860}
   m_Layer: 0
   m_Name: Test_Cidade
   m_TagString: Untagged
@@ -181,6 +182,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 4565945206796674619}
   m_maskType: 0
+--- !u!114 &6121594018976908860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719099274696830372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Rio de Janeiro
 --- !u!1 &4026285853146170794
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,6 +206,7 @@ GameObject:
   - component: {fileID: 3315952367847696744}
   - component: {fileID: 1663638017935192747}
   - component: {fileID: 1070712453718290903}
+  - component: {fileID: 9019601940905839961}
   m_Layer: 0
   m_Name: Test_Cidade
   m_TagString: Untagged
@@ -362,6 +377,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1663638017935192747}
   m_maskType: 0
+--- !u!114 &9019601940905839961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4026285853146170794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Recife
 --- !u!1 &4684083861108812679
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,6 +432,7 @@ GameObject:
   - component: {fileID: 1391270295441090358}
   - component: {fileID: 1216838255212705134}
   - component: {fileID: 5396228251698079612}
+  - component: {fileID: 3425648398910631612}
   m_Layer: 0
   m_Name: Test_Cidade
   m_TagString: Untagged
@@ -574,6 +603,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1216838255212705134}
   m_maskType: 0
+--- !u!114 &3425648398910631612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5514597229734154103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Porto Alegre
 --- !u!1 &6018944088511024416
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,6 +819,7 @@ GameObject:
   - component: {fileID: 8034632332806267588}
   - component: {fileID: 669976309531989370}
   - component: {fileID: 793286877645217424}
+  - component: {fileID: 3615451037166962212}
   m_Layer: 0
   m_Name: Test_Cidade
   m_TagString: Untagged
@@ -947,6 +990,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 669976309531989370}
   m_maskType: 0
+--- !u!114 &3615451037166962212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6280822239462627195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "S\xE3o Paulo"
 --- !u!1 &6444730265898662959
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,6 +1014,7 @@ GameObject:
   - component: {fileID: 8415291096587202470}
   - component: {fileID: 6232206055945832647}
   - component: {fileID: 6859253081207822666}
+  - component: {fileID: 1174023528049292723}
   m_Layer: 0
   m_Name: Test_Cidade
   m_TagString: Untagged
@@ -1128,6 +1185,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 6232206055945832647}
   m_maskType: 0
+--- !u!114 &1174023528049292723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444730265898662959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "Bras\xEDlia"
 --- !u!1 &6907644514795785517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,6 +1209,7 @@ GameObject:
   - component: {fileID: 598731351298127814}
   - component: {fileID: 6842996720652596948}
   - component: {fileID: 1000194301355318423}
+  - component: {fileID: 2364911003788544515}
   m_Layer: 0
   m_Name: Test_Cidade
   m_TagString: Untagged
@@ -1309,6 +1380,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 6842996720652596948}
   m_maskType: 0
+--- !u!114 &2364911003788544515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6907644514795785517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Fortaleza
 --- !u!1 &6957799674383709751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,6 +1462,7 @@ GameObject:
   - component: {fileID: 9109347445422434393}
   - component: {fileID: 2611574892418125039}
   - component: {fileID: 1122271560649456450}
+  - component: {fileID: 2800409322543298856}
   m_Layer: 0
   m_Name: Test_Cidade
   m_TagString: Untagged
@@ -1548,6 +1633,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 2611574892418125039}
   m_maskType: 0
+--- !u!114 &2800409322543298856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7397101531366377567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Salvador
 --- !u!1 &8666468544498647345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1559,6 +1657,7 @@ GameObject:
   - component: {fileID: 4167818017606245020}
   - component: {fileID: 8659191085966004119}
   - component: {fileID: 1184149832245295380}
+  - component: {fileID: 7174101229674060517}
   m_Layer: 0
   m_Name: Test_Cidade
   m_TagString: Untagged
@@ -1729,6 +1828,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 8659191085966004119}
   m_maskType: 0
+--- !u!114 &7174101229674060517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8666468544498647345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: Belo Horizonte
 --- !u!1001 &5125448080654744506
 PrefabInstance:
   m_ObjectHideFlags: 0

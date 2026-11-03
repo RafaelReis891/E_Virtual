@@ -4151,6 +4151,7 @@ GameObject:
   - component: {fileID: 625522145}
   - component: {fileID: 625522147}
   - component: {fileID: 625522146}
+  - component: {fileID: 625522148}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -4197,7 +4198,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Serie A1
+  m_text: "S\xE9rie A1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -4321,6 +4322,19 @@ MeshRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &625522148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625522144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "S\xE9rie A1"
 --- !u!1001 &640630413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4935,6 +4949,7 @@ GameObject:
   - component: {fileID: 731345042}
   - component: {fileID: 731345044}
   - component: {fileID: 731345043}
+  - component: {fileID: 731345045}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4981,7 +4996,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Clique e arraste o escudo com os times para a Serie correta
+  m_text: "Clique e arraste o escudo com os times para a S\xE9rie correta"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -5105,6 +5120,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &731345045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731345041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "Click and drag the crest with the teams to the correct S\xE9rie"
 --- !u!1001 &740209396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7019,6 +7047,7 @@ GameObject:
   - component: {fileID: 989342185}
   - component: {fileID: 989342187}
   - component: {fileID: 989342186}
+  - component: {fileID: 989342188}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -7145,6 +7174,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989342184}
   m_CullTransparentMesh: 1
+--- !u!114 &989342188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989342184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "The Ta\xE7a das Favelas, affectionately known as \"Favel\xE3o\", has been organized by the Central \xDAnica das Favelas (CUFA) since 2011 and has established itself as the largest football tournament between favelas in the world. In women's football, the championship plays a transformative role by creating space and visibility for young athletes from the urban peripheries, using sport as a powerful tool for social inclusion, talent discovery and the affirmation of identity for peripheral communities across the country."
 --- !u!1001 &989460317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7929,7 +7971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2035864647638333540, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       propertyPath: m_text
-      value: "Clique no botao que representa o manifesto da Sele\xE7\xE3o Brasileira Feminina de Futebol ? (Ano 2021) "
+      value: "Clique no bot\xE3o que representa o manifesto da Sele\xE7\xE3o Brasileira Feminina de Futebol? (Ano 2021) "
       objectReference: {fileID: 0}
     - target: {fileID: 2035864647638333540, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       propertyPath: m_margin.x
@@ -8099,6 +8141,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6103710188388503591, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      propertyPath: en
+      value: 'Click the button that represents the manifesto of the Brazilian Women''s National Football Team (year: 2021)'
+      objectReference: {fileID: 0}
     - target: {fileID: 6117542732576100341, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -8234,9 +8280,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3509302801024370808, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1149764027}
-    - targetCorrespondingSourceObject: {fileID: 2702752533640588288, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
 --- !u!1 &1149764025 stripped
 GameObject:
@@ -11112,6 +11155,7 @@ GameObject:
   - component: {fileID: 1398516476}
   - component: {fileID: 1398516478}
   - component: {fileID: 1398516477}
+  - component: {fileID: 1398516479}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -11158,7 +11202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Serie A2
+  m_text: "S\xE9rie A2"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -11282,6 +11326,19 @@ MeshRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1398516479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398516475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "S\xE9rie A2"
 --- !u!1001 &1402472000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12460,7 +12517,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3dd56c22c4204f740b81731422234a1b, type: 2}
     - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_text
-      value: "Em qual Pa\xEDs, por ocasi\xE3o da Copa do Mundo Feminina , a Panini lan\xE7ou o primeiro \xE1lbum de figurinhas da hist\xF3ria inteiramente dedicado ao futebol feminino internacional? (ano:2011)"
+      value: "Em qual pa\xEDs, por ocasi\xE3o da Copa do Mundo Feminina, a Panini lan\xE7ou o primeiro \xE1lbum de figurinhas da hist\xF3ria inteiramente dedicado ao futebol feminino internacional? (ano:2011)"
       objectReference: {fileID: 0}
     - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_fontSize
@@ -12613,6 +12670,10 @@ PrefabInstance:
     - target: {fileID: 6693754050857276094, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: OnEndGame.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7425936138261032342, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
+      propertyPath: en
+      value: 'In which country, on the occasion of the Women''s World Cup, did Panini release the first sticker album in history dedicated entirely to international women''s football? (year: 2011)'
       objectReference: {fileID: 0}
     - target: {fileID: 2446471668381002725, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       propertyPath: m_Enabled
@@ -12872,9 +12933,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 157116396840515750, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 885310972}
-    - targetCorrespondingSourceObject: {fileID: 5092428124841923690, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
 --- !u!114 &1527947194 stripped
 MonoBehaviour:
@@ -13846,7 +13904,7 @@ PrefabInstance:
       objectReference: {fileID: -9204361919535305926, guid: 9851803238f846f3813ec6283104d2f4, type: 3}
     - target: {fileID: 6707277833563221982, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
       propertyPath: m_text
-      value: "Clique nas pe\xE7as, arraste  e encaixe nas marca\xE7\xF5es do centro para formar a imagem "
+      value: "Clique nas pe\xE7as, arraste e encaixe nas marca\xE7\xF5es do centro para formar a imagem "
       objectReference: {fileID: 0}
     - target: {fileID: 6707277833563221982, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
       propertyPath: m_fontSize
@@ -14274,9 +14332,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 63021995255806111, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1189709946}
-    - targetCorrespondingSourceObject: {fileID: 3124490687163800668, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
 --- !u!1001 &1601222565
 PrefabInstance:
@@ -14806,6 +14861,7 @@ GameObject:
   - component: {fileID: 1723121376}
   - component: {fileID: 1723121378}
   - component: {fileID: 1723121377}
+  - component: {fileID: 1723121379}
   m_Layer: 0
   m_Name: Dica
   m_TagString: Untagged
@@ -14852,7 +14908,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Serie A3
+  m_text: "S\xE9rie A3"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -14976,6 +15032,19 @@ MeshRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1723121379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723121375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "S\xE9rie A3"
 --- !u!1 &1750921592
 GameObject:
   m_ObjectHideFlags: 0
@@ -17226,7 +17295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_text
-      value: "Em que ano a Empresa Brasileira de Correios e Tel\xE9grafos emitiu o primeiro selo postal dedicado exclusivamente ao futebol feminino no Brasil? Clique nos numeros para girar e formar o ano \n"
+      value: "Em que ano a Empresa Brasileira de Correios e Tel\xE9grafos emitiu o primeiro selo postal dedicado exclusivamente ao futebol feminino no Brasil? Clique nos n\xFAmeros para girar e formar o ano \n"
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontSize
@@ -17275,6 +17344,14 @@ PrefabInstance:
     - target: {fileID: 6033476467304251525, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208622203317698214, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: en
+      value: Click the numbers to spin them and form the answer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936397045867350101, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: en
+      value: In what year did the Brazilian Post and Telegraph Company (Correios) issue the first postage stamp dedicated exclusively to women's football in Brazil? Click the numbers to spin them and form the year
       objectReference: {fileID: 0}
     - target: {fileID: 8110574064184956822, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalPosition.y
@@ -17509,12 +17586,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4447090411291467480, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 302142728}
-    - targetCorrespondingSourceObject: {fileID: 1602773069419242686, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
 --- !u!1001 &5393215579111688471
 PrefabInstance:

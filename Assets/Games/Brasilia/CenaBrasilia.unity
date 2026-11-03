@@ -5675,6 +5675,7 @@ GameObject:
   - component: {fileID: 989342185}
   - component: {fileID: 989342187}
   - component: {fileID: 989342186}
+  - component: {fileID: 989342188}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -5801,6 +5802,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989342184}
   m_CullTransparentMesh: 1
+--- !u!114 &989342188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989342184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf60008119c9194b9013fc87626e3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
+  en: "The Ta\xE7a das Favelas, affectionately known as \"Favel\xE3o\", has been organized by the Central \xDAnica das Favelas (CUFA) since 2011 and has established itself as the largest football tournament between favelas in the world. In women's football, the championship plays a transformative role by creating space and visibility for young athletes from the urban peripheries, using sport as a powerful tool for social inclusion, talent discovery and the affirmation of identity for peripheral communities across the country."
 --- !u!1001 &989460317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6854,7 +6868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_text
-      value: "A CBF Garante Custeio para M\xE3es Atletas e Consolida Direitos de Maternidade no Futebol Feminino com a Lei 15522.  Essa conquista representa um marco de repara\xE7\xE3o hist\xF3rica e um forte contraponto ao Decreto-Lei n\xBA _ _ _ _  de 1941 \u2014 que outrora proibia as mulheres de jogar futebol sob o pretexto de incompatibilidade com a maternidade"
+      value: "A CBF Garante Custeio para M\xE3es Atletas e Consolida Direitos de Maternidade no Futebol Feminino com a Lei 15522. Essa conquista representa um marco de repara\xE7\xE3o hist\xF3rica e um forte contraponto ao Decreto-Lei n\xBA _ _ _ _ de 1941 \u2014 que outrora proibia as mulheres de jogar futebol sob o pretexto de incompatibilidade com a maternidade"
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontSize
@@ -6924,9 +6938,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7208622203317698214, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: en
+      value: Click the numbers to spin them and form the law that fills in the blank on the board
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936397045867350101, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: en
+      value: CBF Guarantees Funding for Athlete Mothers and Consolidates Maternity Rights in Women's Football with Law 15522. This achievement is a milestone of historical redress and a strong counterpoint to Decree-Law No. _ _ _ _ of 1941, which once banned women from playing football on the pretext that it was incompatible with motherhood
+      objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_text
-      value: "Clique nos n\xFAmero para girar e formar a llei que preenche o espa\xE7o em branco do quadro"
+      value: "Clique nos n\xFAmeros para girar e formar a lei que preenche o espa\xE7o em branco do quadro"
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontSize
@@ -8635,6 +8657,14 @@ PrefabInstance:
     - target: {fileID: 6926790004960952221, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208622203317698214, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: en
+      value: Click the numbers to spin them and enter the correct result
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936397045867350101, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: en
+      value: "In the final of the Nations Cup, played at Arena Guariroba in the Federal District, the Brazilian Women's Beach Soccer Team beat the Bras\xEDlia team and finished the tournament undefeated. What was the score of the final? Enter Brazil's goals first, then Bras\xEDlia's."
       objectReference: {fileID: 0}
     - target: {fileID: 8110574064184956822, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10973,7 +11003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2035864647638333540, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       propertyPath: m_text
-      value: "2026: Sancionada a Lei n\xBA _ _ _ _ _ , que Estabelece Diretrizes Nacionais para o Futebol Feminino\r\nClique no botao com o n\xFAmero da lei correta"
+      value: "2026: Sancionada a Lei n\xBA _ _ _ _ _, que Estabelece Diretrizes Nacionais para o Futebol Feminino\r\nClique no bot\xE3o com o n\xFAmero da lei correta"
       objectReference: {fileID: 0}
     - target: {fileID: 2084018814946615982, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       propertyPath: id
@@ -11118,6 +11148,12 @@ PrefabInstance:
     - target: {fileID: 5349175598073710990, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       propertyPath: texto
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6103710188388503591, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      propertyPath: en
+      value: '2026: Law No. _ _ _ _ _ Is Enacted, Establishing National Guidelines for Women''s Football
+
+        Click the button with the correct law number'
       objectReference: {fileID: 0}
     - target: {fileID: 7275298780803402109, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       propertyPath: id
@@ -13057,7 +13093,7 @@ PrefabInstance:
       objectReference: {fileID: -4015498429434916558, guid: 0bdbeba4232e44b78c80eb1c2264c05d, type: 3}
     - target: {fileID: 6707277833563221982, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
       propertyPath: m_text
-      value: "Clique nas pe\xE7as, arraste  e encaixe nas marca\xE7\xF5es do centro para formar a imagem "
+      value: "Clique nas pe\xE7as, arraste e encaixe nas marca\xE7\xF5es do centro para formar a imagem "
       objectReference: {fileID: 0}
     - target: {fileID: 6707277833563221982, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
       propertyPath: m_fontSize
@@ -16128,7 +16164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 360242338907979266, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
       propertyPath: m_text
-      value: "Clique nas pe\xE7as, arraste  e encaixe nas marca\xE7\xF5es do centro para formar a iamgem\n"
+      value: "Clique nas pe\xE7as, arraste e encaixe nas marca\xE7\xF5es do centro para formar a imagem\n"
       objectReference: {fileID: 0}
     - target: {fileID: 360242338907979266, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
       propertyPath: m_fontSize
@@ -16325,6 +16361,10 @@ PrefabInstance:
     - target: {fileID: 2878802929062412189, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
       propertyPath: OnItemCorreto.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208479781319450707, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
+      propertyPath: en
+      value: Click the pieces, drag them and fit them into the marks in the center to form the image.
       objectReference: {fileID: 0}
     - target: {fileID: 4907227685728372780, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
       propertyPath: idCorreto
