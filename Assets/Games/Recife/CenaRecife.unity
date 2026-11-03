@@ -2272,7 +2272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 690641a24114d494c89f2dfc2cb42c42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RemoteVoiceClip
-  key: voz_anfitrian_pe_e3
+  key: voz_anfitrian_rj_e1
   keyEn: 
   showLogs: 1
 --- !u!1 &288711589 stripped
@@ -2438,6 +2438,7 @@ MonoBehaviour:
   totalPadrao: 5
   textoProgresso: {fileID: 203694312}
   formato: DESAFIOS {0}/{1}
+  formatoEn: Challenges {0}/{1}
   numerarTriggersAutomatico: 1
   formatoTrigger: '{0}/{1}'
   OnPuzzleCompleto:
@@ -3063,6 +3064,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7701099793243992091, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       insertIndex: -1
       addedObject: {fileID: 561060838}
+    - targetCorrespondingSourceObject: {fileID: 505551766725402958, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
 --- !u!4 &312291010 stripped
 Transform:
@@ -10433,6 +10437,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 157116396840515750, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1189709946}
+    - targetCorrespondingSourceObject: {fileID: 5092428124841923690, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
 --- !u!1 &1149764025 stripped
 GameObject:
@@ -15719,7 +15726,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Forme a palavra que completa a hashtag #DeixaEla\n"
+  m_text: 'Forme a palavra que completa a hashtag #DeixaEla
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -17991,6 +18000,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7701099793243992091, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1351527726}
+    - targetCorrespondingSourceObject: {fileID: 505551766725402958, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
 --- !u!1001 &5393215579111688471
 PrefabInstance:

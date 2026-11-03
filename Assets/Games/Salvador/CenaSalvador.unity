@@ -1616,7 +1616,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: fc9cad2788b782b4aa078b573ca746b7, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -1624,7 +1624,7 @@ SpriteRenderer:
   m_Size: {x: 3.71, y: 3.73}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!114 &203694312
@@ -2171,7 +2171,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: fc9cad2788b782b4aa078b573ca746b7, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -2179,7 +2179,7 @@ SpriteRenderer:
   m_Size: {x: 3.71, y: 3.73}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!114 &233484672
@@ -2879,6 +2879,7 @@ MonoBehaviour:
   totalPadrao: 5
   textoProgresso: {fileID: 203694312}
   formato: DESAFIOS {0}/{1}
+  formatoEn: Challenges {0}/{1}
   numerarTriggersAutomatico: 1
   formatoTrigger: '{0}/{1}'
   OnPuzzleCompleto:
@@ -10187,7 +10188,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: fc9cad2788b782b4aa078b573ca746b7, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -10195,7 +10196,7 @@ SpriteRenderer:
   m_Size: {x: 3.71, y: 3.73}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!1 &1223074408
@@ -15683,11 +15684,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23.38851
+      value: 21.95
       objectReference: {fileID: 0}
     - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.101215
+      value: -39
       objectReference: {fileID: 0}
     - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17240,7 +17241,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: fc9cad2788b782b4aa078b573ca746b7, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -17248,7 +17249,7 @@ SpriteRenderer:
   m_Size: {x: 3.71, y: 3.73}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!4 &1902811637 stripped
@@ -19520,28 +19521,28 @@ PrefabInstance:
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 6096791607754913585, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6096791607754913585, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 3503502827144975219}
-    - targetCorrespondingSourceObject: {fileID: 3289483531185673203, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 6096791607754913585, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 3289483531185673203, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3503502827144975218}
-    - targetCorrespondingSourceObject: {fileID: 3206780679787470050, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 3289483531185673203, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 3206780679787470050, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3503502827144975217}
-    - targetCorrespondingSourceObject: {fileID: 8815581617458378690, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 3206780679787470050, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 8815581617458378690, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3503502827144975216}
+    - targetCorrespondingSourceObject: {fileID: 8815581617458378690, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
 --- !u!1 &3503502827144975212 stripped
 GameObject:
