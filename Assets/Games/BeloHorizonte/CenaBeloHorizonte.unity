@@ -8280,6 +8280,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3509302801024370808, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1149764027}
+    - targetCorrespondingSourceObject: {fileID: 2702752533640588288, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
 --- !u!1 &1149764025 stripped
 GameObject:
@@ -8819,6 +8822,7 @@ MonoBehaviour:
   totalPadrao: 5
   textoProgresso: {fileID: 1497871144}
   formato: DESAFIOS {0}/{1}
+  formatoEn: Challenges {0}/{1}
   numerarTriggersAutomatico: 1
   formatoTrigger: '{0}/{1}'
   OnPuzzleCompleto:
@@ -12933,6 +12937,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 157116396840515750, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 885310972}
+    - targetCorrespondingSourceObject: {fileID: 5092428124841923690, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
 --- !u!114 &1527947194 stripped
 MonoBehaviour:
@@ -14332,6 +14339,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 63021995255806111, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1189709946}
+    - targetCorrespondingSourceObject: {fileID: 3124490687163800668, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
 --- !u!1001 &1601222565
 PrefabInstance:
@@ -16761,7 +16771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 690641a24114d494c89f2dfc2cb42c42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RemoteVoiceClip
-  key: voz_anfitrian_bh_e5
+  key: voz_anfitrian_sp_e2
   keyEn: 
   showLogs: 1
 --- !u!1001 &2061403005
@@ -17295,11 +17305,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_text
-      value: "Em que ano a Empresa Brasileira de Correios e Tel\xE9grafos emitiu o primeiro selo postal dedicado exclusivamente ao futebol feminino no Brasil? Clique nos n\xFAmeros para girar e formar o ano \n"
+      value: "Em que ano a Empresa Brasileira de Correios e Tel\xE9grafos emitiu o primeiro selo postal dedicado exclusivamente ao futebol feminino no Brasil? \n"
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontSize
-      value: 7.3
+      value: 7.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5994873896946836996, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17586,6 +17604,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4447090411291467480, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 302142728}
+    - targetCorrespondingSourceObject: {fileID: 1602773069419242686, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
 --- !u!1001 &5393215579111688471
 PrefabInstance:
