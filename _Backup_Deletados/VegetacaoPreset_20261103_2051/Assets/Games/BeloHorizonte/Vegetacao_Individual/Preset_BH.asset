@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f7d0a48721ae244480cd2aaf0ed72d9, type: 3}
+  m_Name: Preset_BH
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::Vegetacao.EditorTools.VegetacaoPreset
+  nomeRaiz: Vegetacao_Individual
+  paiNome: Vegetacao
+  seed: 12345
+  desativarOriginais: 1
+  extrRazaoFino: 0.5
+  extrTolY: 1
+  extrDistMax: 15
+  classes:
+  - nome: Arvores_Grandes
+    ativa: 1
+    origem: 1
+    fbxFonte: {fileID: 919132149155446097, guid: e27daf62fdfac234388409ce50358268, type: 3}
+    objetoCena: Pampulha_VEG_ARVORES_GRANDES
+    csv: {fileID: 4900000, guid: 6f6a9f657f55eea40b69e081996415fb, type: 3}
+    csvTipo: ARVORES_GRANDES
+    prefabs:
+    - {fileID: 8069780934006102704, guid: 4766da69b864ff14daeeb20d8383e2f4, type: 3}
+    - {fileID: 2397862082467003821, guid: 4a5b5433169f687428e3dc1eeecb11b0, type: 3}
+    - {fileID: 3224998589937940653, guid: bfd29568ad773224e86b5acca33eeb71, type: 3}
+    escala: 1
+    multiplicador: 1
+    escalaMin: 0.4
+    escalaMax: 3.2
+    rotacaoAleatoria: 1
+    batchingStatic: 0
+  - nome: Arvores_Medias
+    ativa: 1
+    origem: 1
+    fbxFonte: {fileID: 919132149155446097, guid: ad5c4e061291da54aa939a6c70cc66af, type: 3}
+    objetoCena: Pampulha_VEG_ARVORES_MEDIAS
+    csv: {fileID: 4900000, guid: 6f6a9f657f55eea40b69e081996415fb, type: 3}
+    csvTipo: ARVORES_MEDIAS
+    prefabs:
+    - {fileID: 3848921227125960585, guid: 6f2d9a05e67ae4a4cac1c7c73afeefa1, type: 3}
+    escala: 3
+    multiplicador: 1
+    escalaMin: 0.3
+    escalaMax: 3
+    rotacaoAleatoria: 1
+    batchingStatic: 1
+  - nome: Arbustos
+    ativa: 1
+    origem: 1
+    fbxFonte: {fileID: 919132149155446097, guid: a054ce2a6305bca4e9f961cc6e02b577, type: 3}
+    objetoCena: Pampulha_VEG_ARBUSTOS
+    csv: {fileID: 4900000, guid: 6f6a9f657f55eea40b69e081996415fb, type: 3}
+    csvTipo: ARBUSTOS
+    prefabs:
+    - {fileID: 4191068343382583017, guid: 8b8c0fe025cec564f989f6a62bd075a9, type: 3}
+    - {fileID: 5132855884499293929, guid: cec1c9e058ed7c049bf583d536540146, type: 3}
+    - {fileID: 1738815495889524953, guid: c856729145906b5468ec45b1608a8ebc, type: 3}
+    - {fileID: 1364341144883412901, guid: fdba3d0dc324357449a22a23687634e0, type: 3}
+    - {fileID: 8342735418789335524, guid: f66094f727a79d24496ac34e4314f028, type: 3}
+    - {fileID: 3981955141330066718, guid: cfff1961c79c33f49be00c2ab1482777, type: 3}
+    - {fileID: 2081065994862742913, guid: a963f75a715496f4887be1f8b484830f, type: 3}
+    escala: 2
+    multiplicador: 1
+    escalaMin: 0.3
+    escalaMax: 2.5
+    rotacaoAleatoria: 1
+    batchingStatic: 0
+  - nome: Palmeiras
+    ativa: 1
+    origem: 1
+    fbxFonte: {fileID: 919132149155446097, guid: 35174772b4b68df4292cf0c0d2b96679, type: 3}
+    objetoCena: Pampulha_VEG_PALMEIRAS
+    csv: {fileID: 4900000, guid: 6f6a9f657f55eea40b69e081996415fb, type: 3}
+    csvTipo: PALMEIRAS
+    prefabs:
+    - {fileID: 8069780934006102704, guid: 4766da69b864ff14daeeb20d8383e2f4, type: 3}
+    - {fileID: 2397862082467003821, guid: 4a5b5433169f687428e3dc1eeecb11b0, type: 3}
+    - {fileID: 3224998589937940653, guid: bfd29568ad773224e86b5acca33eeb71, type: 3}
+    escala: 1
+    multiplicador: 1
+    escalaMin: 0.4
+    escalaMax: 3.2
+    rotacaoAleatoria: 1
+    batchingStatic: 0
