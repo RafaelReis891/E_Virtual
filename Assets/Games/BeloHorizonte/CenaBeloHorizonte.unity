@@ -5229,7 +5229,7 @@ MonoBehaviour:
   objectToActivate: {fileID: 1121708548}
   waitAfterAudio: 1
   sairAoDeixarTrigger: 1
-  aparecerSoUmaVez: 0
+  aparecerSoUmaVez: 1
   showLogs: 1
 --- !u!135 &267856625
 SphereCollider:
@@ -5250,7 +5250,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.87
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &267856626
 MeshRenderer:
@@ -9679,7 +9679,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.09
+      value: 29.73
       objectReference: {fileID: 0}
     - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9687,23 +9687,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 26.16
+      value: 33.58
       objectReference: {fileID: 0}
     - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.21597087
+      value: 0.08667564
       objectReference: {fileID: 0}
     - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.21597087
+      value: -0.08667563
       objectReference: {fileID: 0}
     - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.6733176
+      value: -0.7017744
       objectReference: {fileID: 0}
     - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.6733176
+      value: -0.7017744
       objectReference: {fileID: 0}
     - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9715,7 +9715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 215.568
+      value: 194.082
       objectReference: {fileID: 0}
     - target: {fileID: 2380556186737067413, guid: bf50656f04f34234c90350b3b944664c, type: 3}
       propertyPath: m_Name
@@ -20590,7 +20590,7 @@ MonoBehaviour:
   objectToActivate: {fileID: 2035332490}
   waitAfterAudio: 1
   sairAoDeixarTrigger: 1
-  aparecerSoUmaVez: 0
+  aparecerSoUmaVez: 1
   showLogs: 1
 --- !u!135 &1121708551
 SphereCollider:
@@ -20611,7 +20611,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.87
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1121708552
 MeshRenderer:
@@ -26615,7 +26615,7 @@ MonoBehaviour:
   objectToActivate: {fileID: 0}
   waitAfterAudio: 1
   sairAoDeixarTrigger: 1
-  aparecerSoUmaVez: 0
+  aparecerSoUmaVez: 1
   showLogs: 1
 --- !u!135 &1341426026
 SphereCollider:
@@ -26636,7 +26636,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1.11
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1341426027
 MeshRenderer:
@@ -30247,7 +30247,7 @@ MonoBehaviour:
   objectToActivate: {fileID: 2012903115}
   waitAfterAudio: 4
   sairAoDeixarTrigger: 1
-  aparecerSoUmaVez: 0
+  aparecerSoUmaVez: 1
   showLogs: 1
 --- !u!114 &1517577767
 MonoBehaviour:
@@ -41036,7 +41036,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0.21170242, z: -0, w: 0.97733414}
   m_LocalPosition: {x: -6.21, y: 0, z: 10.88}
   m_LocalScale: {x: 5.88, y: 3.51, z: 6.91}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 402216150}
   m_LocalEulerAnglesHint: {x: 0, y: -24.444, z: 0}
@@ -41063,7 +41063,7 @@ MonoBehaviour:
   objectToActivate: {fileID: 1341426023}
   waitAfterAudio: 1
   sairAoDeixarTrigger: 1
-  aparecerSoUmaVez: 0
+  aparecerSoUmaVez: 1
   showLogs: 1
 --- !u!135 &2012903119
 SphereCollider:
@@ -41084,7 +41084,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.87
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2012903120
 MeshRenderer:
@@ -41412,7 +41412,7 @@ Transform:
   m_LocalRotation: {x: -0, y: 0.36206508, z: -0, w: 0.93215287}
   m_LocalPosition: {x: 3.1621466, y: 0, z: -21.653572}
   m_LocalScale: {x: 4.9068, y: 4.9068, z: 7.5672665}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 402216150}
   m_LocalEulerAnglesHint: {x: 0, y: 42.454, z: 0}
@@ -41439,7 +41439,7 @@ MonoBehaviour:
   objectToActivate: {fileID: 0}
   waitAfterAudio: 1
   sairAoDeixarTrigger: 1
-  aparecerSoUmaVez: 0
+  aparecerSoUmaVez: 1
   showLogs: 1
 --- !u!135 &2035332493
 SphereCollider:
@@ -41460,7 +41460,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.87
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2035332494
 MeshRenderer:
