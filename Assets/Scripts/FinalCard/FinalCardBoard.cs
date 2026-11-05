@@ -282,10 +282,8 @@ public class FinalCardBoard : MonoBehaviour
 
     public void AlternarIdioma()
     {
-        ingles = !ingles;
-        AtualizarTextos();
-        AtualizarBotao();
-        Log("idioma: " + (ingles ? "EN" : "BR"));
+        Idioma.Definir(!Idioma.Ingles); // SetIngles via AplicarFinalCards + AtualizarTextos
+        Log("idioma: " + (Idioma.Ingles ? "EN" : "BR"));
     }
 
     public void SetIngles(bool valor) { ingles = valor; AtualizarTextos(); AtualizarBotao(); }
@@ -295,6 +293,9 @@ public class FinalCardBoard : MonoBehaviour
     void AtualizarTextos()
     {
         if (atual == null) return;
+        // Alinha ao idioma global (site header / Idioma.Definir). Sem isso o board pode ficar em PT
+        // enquanto o catalogo ja tem titleEN do pacote eng.
+        ingles = Idioma.Ingles;
         string t = ingles && !string.IsNullOrEmpty(atual.titleEN) ? atual.titleEN : atual.title;
         string d = ingles && !string.IsNullOrEmpty(atual.descriptionEN) ? atual.descriptionEN : atual.description;
         if (ingles && string.IsNullOrEmpty(atual.titleEN)) Log("card " + atual.id + " sem titleEN, usando PT");
@@ -304,6 +305,7 @@ public class FinalCardBoard : MonoBehaviour
                                  " tmpTitulo=" + (titulo != null ? "ok(ativoHier=" + titulo.gameObject.activeInHierarchy + ", leitura=" + Trecho(titulo.text) + ")" : "NULL") +
                                  " tmpDescricao=" + (descricao != null ? "ok(ativoHier=" + descricao.gameObject.activeInHierarchy + ")" : "NULL"));
         FinalCardTextWatcher.Aplicado(this, titulo, t, descricao, d);
+        AtualizarBotao();
     }
 
     void LimparTextos()
