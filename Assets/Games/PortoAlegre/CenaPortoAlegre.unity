@@ -718,12 +718,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (2)
+      value: rb_totem_portoalrege_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 607944368}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &27962259 stripped
 Transform:
@@ -1760,12 +1763,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (12)
+      value: rb_totem_portoalrege_7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1873740120}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &135254569 stripped
 Transform:
@@ -1982,6 +1988,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
       objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: RB_bannervert_portoalegre_7
+      objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
       value: BannerDeChao_Jogadora (2)
@@ -2041,7 +2051,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1868588232}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &168826380 stripped
 Transform:
@@ -2671,12 +2684,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (11)
+      value: rb_totem_portoalrege_5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 534473668}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &192045267 stripped
 Transform:
@@ -4741,10 +4757,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      propertyPath: m_Name
+      value: RB_bannervert_portoalegre_4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 921561598}
   m_SourcePrefab: {fileID: 100100000, guid: 5013ea25269253447bd320d296f94b64, type: 3}
 --- !u!4 &331111252 stripped
 Transform:
@@ -5177,6 +5200,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_portoalegre_3
+      objectReference: {fileID: 0}
     - target: {fileID: 6764567532087930011, guid: de006963d82078d47935b9018c972090, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.9603673
@@ -5196,7 +5223,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1803112475}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &417260581 stripped
 Transform:
@@ -5412,10 +5442,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      propertyPath: m_Name
+      value: RB_bannervert_portoalegre_3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1796419772}
   m_SourcePrefab: {fileID: 100100000, guid: 5013ea25269253447bd320d296f94b64, type: 3}
 --- !u!4 &420915042 stripped
 Transform:
@@ -5477,12 +5514,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (3)
+      value: rb_totem_portoalrege_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1618838531}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &424033433 stripped
 Transform:
@@ -5558,6 +5598,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_portoalegre_6
+      objectReference: {fileID: 0}
     - target: {fileID: 6764567532087930011, guid: de006963d82078d47935b9018c972090, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.9603673
@@ -5577,7 +5621,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1968873702}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &444316386 stripped
 Transform:
@@ -6042,6 +6089,25 @@ Transform:
   - {fileID: 1902811637}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &534473665 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 192045266}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &534473668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534473665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &538154841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6154,12 +6220,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (8)
+      value: rb_totem_portoalrege_11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2010486600}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &546536591 stripped
 Transform:
@@ -7514,6 +7583,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8947324078878182574, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
   m_PrefabInstance: {fileID: 605559983}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &607944365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 27962258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &607944368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607944365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!4 &608241631 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5964695232275787143, guid: 5e1ff177585604b458490b2ef19fffd1, type: 3}
@@ -7791,12 +7879,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (9)
+      value: rb_totem_portoalrege_4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1972600228}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &635560786 stripped
 Transform:
@@ -9137,10 +9228,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      propertyPath: m_Name
+      value: RB_bannervert_portoalegre_2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1543175354}
   m_SourcePrefab: {fileID: 100100000, guid: 5013ea25269253447bd320d296f94b64, type: 3}
 --- !u!4 &793522916 stripped
 Transform:
@@ -10204,12 +10302,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (5)
+      value: rb_totem_portoalrege_8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 874239791}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &868462547 stripped
 Transform:
@@ -10340,6 +10441,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5047546524333631533, guid: 814ad8c191089f340bae276dae5cede2, type: 3}
   m_PrefabInstance: {fileID: 870914386}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &874239788 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 868462546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &874239791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874239788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &878731869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10816,6 +10936,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_portoalegre_7
+      objectReference: {fileID: 0}
     - target: {fileID: 6764567532087930011, guid: de006963d82078d47935b9018c972090, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.9603673
@@ -10835,7 +10959,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1818192339}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &913977057 stripped
 Transform:
@@ -11148,6 +11275,30 @@ MonoBehaviour:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3750047251547080828, guid: 24c2c69b6fe4f6943806fc8dfa51c1a7, type: 3}
   m_PrefabInstance: {fileID: 918025421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &921561594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+  m_PrefabInstance: {fileID: 331111251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &921561598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921561594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
+--- !u!1 &924231938 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1564670198}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &926203638
 GameObject:
@@ -11894,6 +12045,25 @@ Transform:
   - {fileID: 1964058444}
   m_Father: {fileID: 729496478}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &998242660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 1597372780}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &998242663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998242660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &1036078333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12396,12 +12566,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (6)
+      value: rb_totem_portoalrege_9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1106059523}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1066220922 stripped
 Transform:
@@ -12470,6 +12643,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 994e875add7063d4cbb41aaae88ff2bd, type: 3}
   m_PrefabInstance: {fileID: 1071375592}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1094846318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 1562820090}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1094846322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094846318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
+--- !u!1 &1106059520 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1066220921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1106059523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106059520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &1108318513
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12598,6 +12809,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 994e875add7063d4cbb41aaae88ff2bd, type: 3}
   m_PrefabInstance: {fileID: 1118728771}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1120133136 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 2142554140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1120133139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120133136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1 &1121708548
 GameObject:
   m_ObjectHideFlags: 0
@@ -12752,6 +12982,25 @@ MonoBehaviour:
   key: voz_anfitrian_rs_e4
   keyEn: 
   showLogs: 1
+--- !u!1 &1126894541 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+  m_PrefabInstance: {fileID: 1198363549}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1126894545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126894541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1 &1132286343
 GameObject:
   m_ObjectHideFlags: 0
@@ -14051,6 +14300,7 @@ Transform:
   - {fileID: 1520237977}
   - {fileID: 124588119}
   - {fileID: 133202853}
+  - {fileID: 1501711209}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1189709946
@@ -14206,10 +14456,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      propertyPath: m_Name
+      value: RB_bannervert_portoalegre_1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1126894545}
   m_SourcePrefab: {fileID: 100100000, guid: 5013ea25269253447bd320d296f94b64, type: 3}
 --- !u!4 &1198363550 stripped
 Transform:
@@ -14544,6 +14801,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 994e875add7063d4cbb41aaae88ff2bd, type: 3}
   m_PrefabInstance: {fileID: 1255825250}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1262642294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1334002556}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1268529210
 GameObject:
@@ -15201,18 +15463,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (7)
+      value: rb_totem_portoalrege_10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1334002560}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1334002557 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 1334002556}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1334002560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262642294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1 &1334363292
 GameObject:
   m_ObjectHideFlags: 0
@@ -16507,12 +16786,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (4)
+      value: rb_totem_portoalrege_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1654747122}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1401547608 stripped
 Transform:
@@ -16781,6 +17063,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_portoalegre_5
+      objectReference: {fileID: 0}
     - target: {fileID: 6764567532087930011, guid: de006963d82078d47935b9018c972090, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.9603673
@@ -16800,7 +17086,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1949787554}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &1424906344 stripped
 Transform:
@@ -17796,9 +18085,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501711208}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6666665, y: 1.6666665, z: 1.6666665}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2007748629}
@@ -17808,7 +18097,7 @@ Transform:
   - {fileID: 1767331887}
   - {fileID: 154969332}
   - {fileID: 23979884}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1186639622}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1503764301
 GameObject:
@@ -18326,6 +18615,25 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+--- !u!1 &1543175350 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+  m_PrefabInstance: {fileID: 793522915}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1543175354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543175350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1 &1548333319
 GameObject:
   m_ObjectHideFlags: 0
@@ -18480,6 +18788,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
       objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: RB_bannervert_portoalegre_5
+      objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
       value: BannerDeChao_Jogadora (1)
@@ -18539,7 +18851,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1094846322}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &1562820091 stripped
 Transform:
@@ -18596,18 +18911,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (10)
+      value: rb_totem_portoalrege_6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1564670202}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1564670199 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 1564670198}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1564670202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924231938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &1573877012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19259,6 +19591,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_portoalegre_2
+      objectReference: {fileID: 0}
     - target: {fileID: 6764567532087930011, guid: de006963d82078d47935b9018c972090, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.9603673
@@ -19278,7 +19614,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 998242663}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &1597372781 stripped
 Transform:
@@ -19413,6 +19752,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1875939315315724018, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
   m_PrefabInstance: {fileID: 1601723186}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1618838528 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 424033432}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1618838531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618838528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &1619744686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19652,6 +20010,25 @@ Transform:
   - {fileID: 1974116813}
   m_Father: {fileID: 993421152}
   m_LocalEulerAnglesHint: {x: 0, y: -195.892, z: 0}
+--- !u!1 &1654747119 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1401547607}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1654747122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654747119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &1657222521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20117,6 +20494,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1017601605901077078, guid: acc2daa1a289cee4aae2d8cd92ba0ecd, type: 3}
   m_PrefabInstance: {fileID: 981863657}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1700474399 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 2042544013}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1700474402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700474399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &1702164760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20339,6 +20735,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
       objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: RB_bannervert_portoalegre_6
+      objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
       value: BannerDeChao_Jogadora (3)
@@ -20398,7 +20798,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1750872334}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &1731869387 stripped
 Transform:
@@ -20467,6 +20870,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 994e875add7063d4cbb41aaae88ff2bd, type: 3}
   m_PrefabInstance: {fileID: 1748550094}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1750872330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 1731869386}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1750872334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750872330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1 &1767331886
 GameObject:
   m_ObjectHideFlags: 0
@@ -20693,6 +21115,63 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1017601605901077078, guid: acc2daa1a289cee4aae2d8cd92ba0ecd, type: 3}
   m_PrefabInstance: {fileID: 1584456687}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1796419768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+  m_PrefabInstance: {fileID: 420915041}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1796419772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796419768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
+--- !u!1 &1803112472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 417260580}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1803112475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803112472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
+--- !u!1 &1818192336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 913977056}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1818192339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818192336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &1840574045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21056,6 +21535,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 994e875add7063d4cbb41aaae88ff2bd, type: 3}
   m_PrefabInstance: {fileID: 1867742073}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1868588228 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 168826379}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1868588232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868588228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
+--- !u!1 &1873740117 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 135254568}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1873740120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873740117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1 &1879247884
 GameObject:
   m_ObjectHideFlags: 0
@@ -21649,6 +22166,25 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d001cacf887eb14cbf269a09e3ec3ba, type: 3}
+--- !u!1 &1949787551 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 1424906343}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1949787554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949787551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1 &1964058443
 GameObject:
   m_ObjectHideFlags: 0
@@ -21778,6 +22314,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 994e875add7063d4cbb41aaae88ff2bd, type: 3}
   m_PrefabInstance: {fileID: 1967783418}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1968873699 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 444316385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1968873702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968873699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
+--- !u!1 &1972600225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 635560785}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1972600228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972600225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!4 &1972851317 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4321305965692916418, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
@@ -23104,6 +23678,25 @@ MonoBehaviour:
   keyEn: 
   porIdioma: 0
   showLogs: 1
+--- !u!1 &2010486597 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 546536590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2010486600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010486597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1 &2012903115
 GameObject:
   m_ObjectHideFlags: 0
@@ -23538,6 +24131,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_portoalegre_1
+      objectReference: {fileID: 0}
     - target: {fileID: 6764567532087930011, guid: de006963d82078d47935b9018c972090, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.9603673
@@ -23557,7 +24154,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1700474402}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &2042544014 stripped
 Transform:
@@ -24175,6 +24775,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_portoalegre_4
+      objectReference: {fileID: 0}
     - target: {fileID: 6764567532087930011, guid: de006963d82078d47935b9018c972090, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.9603673
@@ -24194,7 +24798,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1120133139}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &2142554141 stripped
 Transform:
@@ -25166,4 +25773,3 @@ SceneRoots:
   - {fileID: 1159123296}
   - {fileID: 499512695}
   - {fileID: 729496478}
-  - {fileID: 1501711209}
