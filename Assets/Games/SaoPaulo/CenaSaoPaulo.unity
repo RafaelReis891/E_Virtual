@@ -663,6 +663,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1615452748}
     m_Modifications:
+    - target: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_sp_8
+      objectReference: {fileID: 0}
     - target: {fileID: 1875939315315724018, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.9
@@ -715,16 +719,64 @@ PrefabInstance:
       propertyPath: m_Name
       value: Benchs (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_sp_7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 29439529}
+    - targetCorrespondingSourceObject: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 29439528}
   m_SourcePrefab: {fileID: 100100000, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
 --- !u!4 &29439525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1875939315315724018, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
   m_PrefabInstance: {fileID: 29439524}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &29439526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+  m_PrefabInstance: {fileID: 29439524}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &29439527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+  m_PrefabInstance: {fileID: 29439524}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &29439528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29439526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
+--- !u!114 &29439529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29439527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
 --- !u!114 &36632772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2486,21 +2538,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3509302801024370808, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       insertIndex: -1
       addedObject: {fileID: 224551738}
-    - targetCorrespondingSourceObject: {fileID: 2702752533640588288, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6096791607754913585, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 3289483531185673203, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 3206780679787470050, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8815581617458378690, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
 --- !u!1001 &119845196
 PrefabInstance:
@@ -3438,13 +3475,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 199986020}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &199986018 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 199986017}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &199986019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 199986017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &199986020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199986019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
 --- !u!1 &203694312
 GameObject:
   m_ObjectHideFlags: 0
@@ -5855,6 +5914,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1615452748}
     m_Modifications:
+    - target: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_sp_12
+      objectReference: {fileID: 0}
     - target: {fileID: 1875939315315724018, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.6500006
@@ -5907,16 +5970,64 @@ PrefabInstance:
       propertyPath: m_Name
       value: Benchs (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_sp_11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 322624235}
+    - targetCorrespondingSourceObject: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 322624234}
   m_SourcePrefab: {fileID: 100100000, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
 --- !u!4 &322624231 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1875939315315724018, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
   m_PrefabInstance: {fileID: 322624230}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &322624232 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+  m_PrefabInstance: {fileID: 322624230}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &322624233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+  m_PrefabInstance: {fileID: 322624230}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &322624234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322624232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
+--- !u!114 &322624235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322624233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
 --- !u!1001 &334065259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8947,6 +9058,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1615452748}
     m_Modifications:
+    - target: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_sp_6
+      objectReference: {fileID: 0}
     - target: {fileID: 1875939315315724018, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
       propertyPath: m_LocalPosition.x
       value: -24.69
@@ -8999,16 +9114,64 @@ PrefabInstance:
       propertyPath: m_Name
       value: Benchs (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_sp_5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 565413358}
+    - targetCorrespondingSourceObject: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 565413357}
   m_SourcePrefab: {fileID: 100100000, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
 --- !u!4 &565413354 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1875939315315724018, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
   m_PrefabInstance: {fileID: 565413353}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &565413355 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+  m_PrefabInstance: {fileID: 565413353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &565413356 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+  m_PrefabInstance: {fileID: 565413353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &565413357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565413355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
+--- !u!114 &565413358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565413356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
 --- !u!1 &567299495
 GameObject:
   m_ObjectHideFlags: 0
@@ -12939,13 +13102,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 819076777}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &819076775 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 819076774}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &819076776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 819076774}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &819076777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819076776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
 --- !u!1 &823372529
 GameObject:
   m_ObjectHideFlags: 0
@@ -13134,6 +13319,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1615452748}
     m_Modifications:
+    - target: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_sp_10
+      objectReference: {fileID: 0}
     - target: {fileID: 1875939315315724018, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
       propertyPath: m_LocalPosition.x
       value: 41.95
@@ -13186,16 +13375,64 @@ PrefabInstance:
       propertyPath: m_Name
       value: Benchs (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_sp_9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 834058017}
+    - targetCorrespondingSourceObject: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 834058016}
   m_SourcePrefab: {fileID: 100100000, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
 --- !u!4 &834058013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1875939315315724018, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
   m_PrefabInstance: {fileID: 834058012}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &834058014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+  m_PrefabInstance: {fileID: 834058012}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &834058015 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+  m_PrefabInstance: {fileID: 834058012}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &834058016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834058014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
+--- !u!114 &834058017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834058015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
 --- !u!1 &842662059
 GameObject:
   m_ObjectHideFlags: 0
@@ -14452,13 +14689,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 885318079}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &885318077 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 885318076}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &885318078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 885318076}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &885318079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885318078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
 --- !u!1001 &886176747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26133,13 +26392,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1558977392}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1558977390 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 1558977389}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1558977391 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1558977389}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1558977392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558977391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
 --- !u!1 &1562552842
 GameObject:
   m_ObjectHideFlags: 0
@@ -27580,6 +27861,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1615452748}
     m_Modifications:
+    - target: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_sp_2
+      objectReference: {fileID: 0}
     - target: {fileID: 1875939315315724018, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.43
@@ -27632,16 +27917,64 @@ PrefabInstance:
       propertyPath: m_Name
       value: Benchs
       objectReference: {fileID: 0}
+    - target: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_sp_1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1611780896}
+    - targetCorrespondingSourceObject: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1611780895}
   m_SourcePrefab: {fileID: 100100000, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
 --- !u!4 &1611780892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1875939315315724018, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
   m_PrefabInstance: {fileID: 1611780891}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1611780893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+  m_PrefabInstance: {fileID: 1611780891}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1611780894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+  m_PrefabInstance: {fileID: 1611780891}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1611780895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611780893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
+--- !u!114 &1611780896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611780894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
 --- !u!1001 &1613717597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28629,13 +28962,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1671679533}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1671679531 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 1671679530}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1671679532 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1671679530}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1671679533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671679532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
 --- !u!1001 &1679529683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28644,6 +28999,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1615452748}
     m_Modifications:
+    - target: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_sp_4
+      objectReference: {fileID: 0}
     - target: {fileID: 1875939315315724018, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20.54
@@ -28696,16 +29055,64 @@ PrefabInstance:
       propertyPath: m_Name
       value: Benchs (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_sp_3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1679529688}
+    - targetCorrespondingSourceObject: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1679529687}
   m_SourcePrefab: {fileID: 100100000, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
 --- !u!4 &1679529684 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1875939315315724018, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
   m_PrefabInstance: {fileID: 1679529683}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1679529685 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+  m_PrefabInstance: {fileID: 1679529683}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1679529686 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+  m_PrefabInstance: {fileID: 1679529683}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1679529687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679529685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
+--- !u!114 &1679529688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679529686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
 --- !u!1001 &1684408115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33608,13 +34015,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1952683128}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1952683126 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 1952683125}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1952683127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1952683125}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1952683128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952683127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
 --- !u!1 &1955838425 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
@@ -34046,6 +34475,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1615452748}
     m_Modifications:
+    - target: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_sp_14
+      objectReference: {fileID: 0}
     - target: {fileID: 1875939315315724018, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
       propertyPath: m_LocalPosition.x
       value: -17.53
@@ -34098,16 +34531,64 @@ PrefabInstance:
       propertyPath: m_Name
       value: Benchs (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      propertyPath: m_Name
+      value: rb_windflag_sp_13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1994051849}
+    - targetCorrespondingSourceObject: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1994051848}
   m_SourcePrefab: {fileID: 100100000, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
 --- !u!4 &1994051845 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1875939315315724018, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
   m_PrefabInstance: {fileID: 1994051844}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1994051846 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1688093540437113305, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+  m_PrefabInstance: {fileID: 1994051844}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1994051847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8540994444115353624, guid: 3da9fe5d721af784bb1b711ee92a0a81, type: 3}
+  m_PrefabInstance: {fileID: 1994051844}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1994051848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994051846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
+--- !u!114 &1994051849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994051847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
 --- !u!1 &2006260993
 GameObject:
   m_ObjectHideFlags: 0
@@ -35504,13 +35985,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2087389563}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &2087389561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 2087389560}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2087389562 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 2087389560}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2087389563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087389562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
 --- !u!1 &2101913182
 GameObject:
   m_ObjectHideFlags: 0
