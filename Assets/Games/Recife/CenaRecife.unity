@@ -1780,7 +1780,7 @@ Transform:
   m_GameObject: {fileID: 245649897}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
-  m_LocalPosition: {x: 0.00762, y: 0.00125, z: -0.0037}
+  m_LocalPosition: {x: 0.00762, y: 0.00125, z: -0.00414}
   m_LocalScale: {x: 0.0022, y: 0.0022, z: 0.0022}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2030,22 +2030,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E5
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.27
-      objectReference: {fileID: 0}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E5
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2101,6 +2085,18 @@ PrefabInstance:
     - target: {fileID: 8947324078878182574, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
+    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2999,7 +2995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7274161844819948141, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_text
-      value: "Quem fez dois gols e FOI DESTAQUE em 2024 na Arena de Pernambuco, que teve uma noite memor\xE1vel e recebeu mais de 33 mil torcedores para acompanhar a goleada por 4 a 0 da Sele\xE7\xE3o Brasileira Feminina sobre a Jamaica?\r\n"
+      value: "Quem fez dois gols e FOI DESTAQUE em 2024  na Arena de Pernambuco, que teve uma noite memor\xE1vel e recebeu mais de 33 mil torcedores para acompanhar a goleada             por 4 a 0 da Sele\xE7\xE3o Brasileira Feminina sobre   a Jamaica?\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7274161844819948141, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_fontSize
@@ -3039,7 +3035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7701099793243992091, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8851123087689723953, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_Sprite
@@ -3068,6 +3064,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7701099793243992091, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       insertIndex: -1
       addedObject: {fileID: 561060838}
+    - targetCorrespondingSourceObject: {fileID: 505551766725402958, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
 --- !u!4 &312291010 stripped
 Transform:
@@ -3199,14 +3198,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E1
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E1
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3263,6 +3254,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4095,7 +4090,7 @@ Transform:
   m_GameObject: {fileID: 552047118}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7022656, y: -0.082600884, z: -0.08260081, w: 0.70226574}
-  m_LocalPosition: {x: 0.00713, y: 0.00076, z: 0.00563}
+  m_LocalPosition: {x: 0.00713, y: 0.00076, z: 0.00502}
   m_LocalScale: {x: 0.001, y: 0.000994674, z: 0.000994674}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -4250,7 +4245,7 @@ Transform:
   m_GameObject: {fileID: 574393553}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
-  m_LocalPosition: {x: 0.00224, y: 0.00125, z: -0.0037}
+  m_LocalPosition: {x: 0.00224, y: 0.00125, z: -0.00414}
   m_LocalScale: {x: 0.0022, y: 0.0022, z: 0.0022}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4443,7 +4438,7 @@ Transform:
   m_GameObject: {fileID: 585754400}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
-  m_LocalPosition: {x: -0.00283, y: 0.00125, z: -0.0037}
+  m_LocalPosition: {x: -0.00283, y: 0.00125, z: -0.00414}
   m_LocalScale: {x: 0.0022, y: 0.0022, z: 0.0022}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -5197,7 +5192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8995700534859193685, guid: 5e1ff177585604b458490b2ef19fffd1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9216373689037554279, guid: 5e1ff177585604b458490b2ef19fffd1, type: 3}
       propertyPath: m_LocalScale.x
@@ -5406,18 +5401,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_Start
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 4673069119266121683, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_Start
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -5472,6 +5455,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8947324078878182574, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
+    - target: {fileID: 4673069119266121683, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6224,7 +6215,7 @@ Transform:
   m_GameObject: {fileID: 764172553}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
-  m_LocalPosition: {x: -0.0074, y: 0.00125, z: -0.0037}
+  m_LocalPosition: {x: -0.0074, y: 0.00125, z: -0.00414}
   m_LocalScale: {x: 0.0022, y: 0.0022, z: 0.0022}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -6344,14 +6335,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E3
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E3
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -6408,6 +6391,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8003,14 +7990,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E2
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E2
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -8067,6 +8046,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9004,7 +8987,7 @@ Transform:
   m_GameObject: {fileID: 1093600549}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
-  m_LocalPosition: {x: 0.01255, y: 0.00125, z: -0.0037}
+  m_LocalPosition: {x: 0.01255, y: 0.00125, z: -0.00414}
   m_LocalScale: {x: 0.0022, y: 0.0022, z: 0.0022}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -9487,7 +9470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 157116396840515750, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2333525211152392437, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_Sprite
@@ -9603,7 +9586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_text
-      value: "Em 2022, qual jornalista alcan\xE7ou um marco in\xE9dito na hist\xF3ria da radiodifus\xE3o esportiva ao se tornar a primeira mulher a comentar um jogo da Sele\xE7\xE3o Brasileira masculina na TV aberta durante a Copa do Mundo FIFA no Catar"
+      value: "Em 2022, qual jornalista alcan\xE7ou um marco in\xE9dito na hist\xF3ria da radiodifus\xE3o esportiva ao se tornar           a primeira mulher                    a comentar um jogo              da Sele\xE7\xE3o Brasileira masculina na TV aberta durante a Copa do Mundo FIFA no Catar"
       objectReference: {fileID: 0}
     - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_fontSize
@@ -9612,6 +9595,10 @@ PrefabInstance:
     - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_margin.w
       value: -2.8321939
+      objectReference: {fileID: 0}
+    - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_VerticalAlignment
@@ -10454,6 +10441,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 157116396840515750, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1189709946}
+    - targetCorrespondingSourceObject: {fileID: 5092428124841923690, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
 --- !u!1 &1149764025 stripped
 GameObject:
@@ -10604,7 +10594,7 @@ Transform:
   m_GameObject: {fileID: 1183407665}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70195097, y: 0.085234225, z: 0.08523436, w: 0.70195097}
-  m_LocalPosition: {x: -0.00727, y: 0.00233, z: 0.00563}
+  m_LocalPosition: {x: -0.00727, y: 0.00233, z: 0.00502}
   m_LocalScale: {x: 0.001, y: 0.000994674, z: 0.000994674}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -11026,7 +11016,7 @@ Transform:
   m_GameObject: {fileID: 1264385298}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
-  m_LocalPosition: {x: -0.01264, y: 0.00125, z: -0.0037}
+  m_LocalPosition: {x: -0.01264, y: 0.00125, z: -0.00414}
   m_LocalScale: {x: 0.0022, y: 0.0022, z: 0.0022}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -13762,7 +13752,7 @@ Transform:
   m_GameObject: {fileID: 1532288995}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70667887, y: 0.024597032, z: 0.024597127, w: 0.70667887}
-  m_LocalPosition: {x: -0.00028, y: 0.00242, z: 0.00563}
+  m_LocalPosition: {x: -0.00028, y: 0.00242, z: 0.00502}
   m_LocalScale: {x: 0.001, y: 0.000994674, z: 0.000994674}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -14069,7 +14059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1571940919
 Transform:
   m_ObjectHideFlags: 0
@@ -14739,14 +14729,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E4
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E4
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -14803,6 +14785,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15721,7 +15707,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.658, y: 0.228}
+  m_AnchoredPosition: {x: -0.658, y: 0.12}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1889209463
@@ -15910,7 +15896,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889953558}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.00085}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00052}
   m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -15941,7 +15927,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Em 2018, a Fox Sports formou a primeira equipe s\xF3 de mulheres a transmitir a Copa do Mundo no Brasil. Quem fazia parte dela? Clique e arraste as camisetas com os nomes corretos para cima\r\n"
+  m_text: "Em 2018, a Fox Sports formou a primeira equipe s\xF3 de mulheres a transmitir a Copa do Mundo no Brasil. Quem fazia parte dela? Clique e arraste                 as camisetas com os nomes corretos para cima\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -15968,15 +15954,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9.85
+  m_fontSize: 8.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 2
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -16007,7 +15993,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -3.722478, y: 0.21820068, z: -3.8508081, w: 1.2262726}
+  m_margin: {x: -2.625927, y: 0.84028244, z: -3.8508081, w: 1.2262726}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -17989,7 +17975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7274161844819948141, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_fontSize
-      value: 9.85
+      value: 9.5
       objectReference: {fileID: 0}
     - target: {fileID: 7274161844819948141, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_margin.x
@@ -18009,7 +17995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7701099793243992091, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18018,6 +18004,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7701099793243992091, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1351527726}
+    - targetCorrespondingSourceObject: {fileID: 505551766725402958, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
 --- !u!1001 &5393215579111688471
 PrefabInstance:
