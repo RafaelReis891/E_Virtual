@@ -777,7 +777,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86890073}
   m_LocalRotation: {x: 0.0047143786, y: -0.7070911, z: -0.7070911, w: 0.0047143768}
-  m_LocalPosition: {x: 0, y: 0, z: 0.00574}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00479}
   m_LocalScale: {x: 0.00075890514, y: 0.0009143435, z: 0.0007589051}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -785,7 +785,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 0.00257}
+  m_AnchoredPosition: {x: -0.00059, y: 0.00114}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &86890075
@@ -808,7 +808,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Qual organiza\xE7\xE3o oficializou a Cria\xE7\xE3o da Primeira Sele\xE7\xE3o Brasileira Feminina de Futebol de Cegas. Qual a sigla da organiza\xE7\xE3o? Clique e arraste as camisetas para formar a sigla."
+  m_text: "Qual organiza\xE7\xE3o oficializou a Cria\xE7\xE3o da Primeira Sele\xE7\xE3o Brasileira Feminina de Futebol de Cegas. Qual a sigla  da organiza\xE7\xE3o? Clique e arraste as camisetas para formar a sigla."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
   m_sharedMaterial: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
@@ -835,10 +835,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9.85
-  m_fontSizeBase: 36
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 2
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -874,7 +874,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -4.411393, y: 0.21820068, z: -4.159727, w: 1.2262726}
+  m_margin: {x: -4.6288013, y: 0.21820068, z: -2.8565435, w: 1.2262726}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -1956,22 +1956,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E5
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.27
-      objectReference: {fileID: 0}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E5
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2027,6 +2011,18 @@ PrefabInstance:
     - target: {fileID: 8947324078878182574, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
+    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.27
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6709364581167968791, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
@@ -3022,15 +3018,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3270525849424363970, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.02
+      value: 0.75042456
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270525849424363970, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.0062125945
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270525849424363970, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.013322811
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270525849424363970, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.999892
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270525849424363970, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00008726121
       objectReference: {fileID: 0}
     - target: {fileID: 3270525849424363970, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3.4
+      value: 5.3827863
       objectReference: {fileID: 0}
     - target: {fileID: 3270525849424363970, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.09
+      value: -1.6934257
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270525849424363970, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.019
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270525849424363970, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 179.288
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270525849424363970, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 1.527
       objectReference: {fileID: 0}
     - target: {fileID: 3816936097574170546, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3082,15 +3106,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4447090411291467480, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_text
-      value: "Em 1983, o Est\xE1dio Beira-Rio fez hist\xF3ria ao sediar o primeiro cl\xE1ssico\r\nGre-Nal oficial do futebol feminino, no qual o Internacional venceu o\r\nGr\xEAmio. Qual foi o placar desta partida?\n"
+      value: "Em 1983, o Est\xE1dio Beira-Rio fez hist\xF3ria ao sediar o primeiro cl\xE1ssico\r\nGre-Nal oficial do futebol feminino,            no qual o Internacional venceu  o\r\nGr\xEAmio. Qual foi o placar desta partida?\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontSize
-      value: 7.3
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_margin.w
+      value: -2.583696
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_margin.x
+      value: -4.009332
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_margin.y
+      value: -1.2575037
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_margin.z
+      value: -4.735085
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_VerticalAlignment
@@ -3198,7 +3246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontSize
-      value: 36
+      value: 5.95
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_margin.w
@@ -3207,6 +3255,10 @@ PrefabInstance:
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_margin.y
       value: -0.5436336
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_margin.z
+      value: -3.341655
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontColor.b
@@ -3392,6 +3444,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4447090411291467480, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 561060838}
+    - targetCorrespondingSourceObject: {fileID: 1602773069419242686, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
 --- !u!4 &312291010 stripped
 Transform:
@@ -3578,14 +3636,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E1
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E1
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3642,6 +3692,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     m_RemovedComponents:
     - {fileID: 6709364581167968791, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
     m_RemovedGameObjects: []
@@ -4860,7 +4914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 703483188615222378, guid: 5e1ff177585604b458490b2ef19fffd1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.18999957
+      value: -0.344
       objectReference: {fileID: 0}
     - target: {fileID: 703483188615222378, guid: 5e1ff177585604b458490b2ef19fffd1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5048,7 +5102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6665224089211299111, guid: 5e1ff177585604b458490b2ef19fffd1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.18999957
+      value: -0.344
       objectReference: {fileID: 0}
     - target: {fileID: 6665224089211299111, guid: 5e1ff177585604b458490b2ef19fffd1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5148,7 +5202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7666680062469212555, guid: 5e1ff177585604b458490b2ef19fffd1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.18999957
+      value: -0.344
       objectReference: {fileID: 0}
     - target: {fileID: 7666680062469212555, guid: 5e1ff177585604b458490b2ef19fffd1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5200,7 +5254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8715242234393419943, guid: 5e1ff177585604b458490b2ef19fffd1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.18999957
+      value: -0.344
       objectReference: {fileID: 0}
     - target: {fileID: 8715242234393419943, guid: 5e1ff177585604b458490b2ef19fffd1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5228,7 +5282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8995700534859193685, guid: 5e1ff177585604b458490b2ef19fffd1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9216373689037554279, guid: 5e1ff177585604b458490b2ef19fffd1, type: 3}
       propertyPath: m_LocalScale.x
@@ -5430,18 +5484,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_Start
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 4673069119266121683, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_Start
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -5496,6 +5538,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8947324078878182574, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
+    - target: {fileID: 4673069119266121683, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -6181,14 +6231,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E3
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E3
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -6245,6 +6287,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     m_RemovedComponents:
     - {fileID: 6709364581167968791, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
     m_RemovedGameObjects: []
@@ -7792,14 +7838,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E2
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E2
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7856,6 +7894,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     m_RemovedComponents:
     - {fileID: 6709364581167968791, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
     m_RemovedGameObjects: []
@@ -8784,7 +8826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 157116396840515750, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 252615204188540349, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8912,7 +8954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_text
-      value: "Em que pa\xEDs o Brasil conquistou a I Copa do Mundo Feminina de Futsal da FIFA?"
+      value: "Em que pa\xEDs o Brasil conquistou a I Copa do Mundo Feminina  de Futsal da FIFA?"
       objectReference: {fileID: 0}
     - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_fontSize
@@ -8929,6 +8971,10 @@ PrefabInstance:
     - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_margin.z
       value: -1.6612787
+      objectReference: {fileID: 0}
+    - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_fontSizeBase
@@ -9807,6 +9853,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 157116396840515750, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 885310972}
+    - targetCorrespondingSourceObject: {fileID: 5092428124841923690, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
 --- !u!1 &1149764025 stripped
 GameObject:
@@ -13045,14 +13094,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E4
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E4
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -13109,6 +13150,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     m_RemovedComponents:
     - {fileID: 6709364581167968791, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
     m_RemovedGameObjects: []
@@ -14184,6 +14229,18 @@ PrefabInstance:
       propertyPath: timerAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1223074408}
+    - target: {fileID: 3095014599835585680, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095014599835585680, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095014599835585680, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.66
+      objectReference: {fileID: 0}
     - target: {fileID: 3270525849424363970, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.04
@@ -14242,7 +14299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4447090411291467480, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_text
@@ -14250,7 +14307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontSize
-      value: 7.5
+      value: 8.8
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_margin.w
@@ -14258,7 +14315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_margin.x
-      value: -4.967249
+      value: -6.8237724
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_margin.y
@@ -14266,7 +14323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_margin.z
-      value: -5.2580433
+      value: -6.6936274
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_VerticalAlignment
@@ -14696,6 +14753,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4447090411291467480, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1998437287}
+    - targetCorrespondingSourceObject: {fileID: 1602773069419242686, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
 --- !u!1 &1998437285 stripped
 GameObject:
@@ -16165,7 +16228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2035864647638333540, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       propertyPath: m_text
-      value: "A Sele\xE7\xE3o Brasileira Feminina de Futebol 7 consolidou sua hegemonia\r\ninternacional ao conquistar o bicampeonato mundial consecutivo/ Clique no bot\xE3o com os anos corretos deste bicampeonato."
+      value: "A Sele\xE7\xE3o Brasileira Feminina de Futebol 7 consolidou sua hegemonia\r\ninternacional ao conquistar o bicampeonato mundial consecutivo/ Clique no bot\xE3o             com os anos corretos deste bicampeonato."
       objectReference: {fileID: 0}
     - target: {fileID: 2084018814946615982, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       propertyPath: id
@@ -16185,7 +16248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3509302801024370808, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4321305965692916418, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16262,6 +16325,21 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3509302801024370808, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1351527726}
+    - targetCorrespondingSourceObject: {fileID: 2702752533640588288, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6096791607754913585, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 3289483531185673203, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 3206780679787470050, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8815581617458378690, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
 --- !u!1001 &5393215579111688471
 PrefabInstance:
