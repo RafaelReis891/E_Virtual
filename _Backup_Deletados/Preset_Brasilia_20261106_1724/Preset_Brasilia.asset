@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f7d0a48721ae244480cd2aaf0ed72d9, type: 3}
+  m_Name: Preset_Brasilia
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::Vegetacao.EditorTools.VegetacaoPreset
+  nomeRaiz: BRASILIA_VEG_PONTOS
+  paiNome: 
+  seed: 12345
+  desativarOriginais: 1
+  extrRazaoFino: 0.5
+  extrTolY: 1
+  extrDistMax: 15
+  classes:
+  - nome: POA_Fileiras
+    ativa: 1
+    origem: 0
+    fbxFonte: {fileID: 0}
+    objetoCena: VEG_ARVORES_FILEIRAS_pontos
+    csv: {fileID: 0}
+    csvTipo: 
+    prefabs:
+    - {fileID: 8069780934006102704, guid: 4766da69b864ff14daeeb20d8383e2f4, type: 3}
+    - {fileID: 2397862082467003821, guid: 4a5b5433169f687428e3dc1eeecb11b0, type: 3}
+    - {fileID: 3224998589937940653, guid: bfd29568ad773224e86b5acca33eeb71, type: 3}
+    escala: 0
+    multiplicador: 1
+    escalaMin: 0.4
+    escalaMax: 3.2
+    rotacaoAleatoria: 1
+    batchingStatic: 0
+  - nome: POA_OSM
+    ativa: 1
+    origem: 0
+    fbxFonte: {fileID: 0}
+    objetoCena: VEG_ARVORES_OSM_pontos.001
+    csv: {fileID: 0}
+    csvTipo: 
+    prefabs:
+    - {fileID: 4191068343382583017, guid: 8b8c0fe025cec564f989f6a62bd075a9, type: 3}
+    - {fileID: 5132855884499293929, guid: cec1c9e058ed7c049bf583d536540146, type: 3}
+    - {fileID: 1906753135980228467, guid: 31d245e69d61797439040334461423bc, type: 3}
+    - {fileID: 5629105993524299799, guid: a3c7284b1fc23d141ab68c9a3bc5f402, type: 3}
+    - {fileID: 2081065994862742913, guid: a963f75a715496f4887be1f8b484830f, type: 3}
+    - {fileID: 3981955141330066718, guid: cfff1961c79c33f49be00c2ab1482777, type: 3}
+    escala: 0
+    multiplicador: 1
+    escalaMin: 0.4
+    escalaMax: 3.2
+    rotacaoAleatoria: 1
+    batchingStatic: 0
+  - nome: POA_Propostas
+    ativa: 1
+    origem: 0
+    fbxFonte: {fileID: 0}
+    objetoCena: VEG_ARVORES_PROPOSTAS_pontos
+    csv: {fileID: 0}
+    csvTipo: 
+    prefabs:
+    - {fileID: 8069780934006102704, guid: 4766da69b864ff14daeeb20d8383e2f4, type: 3}
+    - {fileID: 2397862082467003821, guid: 4a5b5433169f687428e3dc1eeecb11b0, type: 3}
+    - {fileID: 3224998589937940653, guid: bfd29568ad773224e86b5acca33eeb71, type: 3}
+    escala: 0
+    multiplicador: 1
+    escalaMin: 0.4
+    escalaMax: 3.2
+    rotacaoAleatoria: 1
+    batchingStatic: 0
