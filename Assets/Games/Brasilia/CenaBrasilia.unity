@@ -1317,22 +1317,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E5
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.27
-      objectReference: {fileID: 0}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E5
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1388,6 +1372,18 @@ PrefabInstance:
     - target: {fileID: 8947324078878182574, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
+    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291506487518502596, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1864,14 +1860,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E1
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E1
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1928,6 +1916,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2165,8 +2157,16 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1159123296}
     m_Modifications:
+    - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 48.799995
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 48.799995
+      objectReference: {fileID: 0}
     - target: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -39.215683
@@ -2239,6 +2239,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+--- !u!4 &524633833 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1262287243381360948, guid: bf50656f04f34234c90350b3b944664c, type: 3}
+  m_PrefabInstance: {fileID: 524633832}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &526516680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2647,7 +2652,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547379961}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2706,11 +2711,11 @@ Transform:
   m_GameObject: {fileID: 547379961}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -41.712162, y: 31.7, z: -1.6666665}
-  m_LocalScale: {x: 23.53, y: 8.125873, z: 20.914156}
+  m_LocalPosition: {x: -25.027298, y: 19.02, z: -1}
+  m_LocalScale: {x: 14.118001, y: 4.8755236, z: 12.548494}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1186639622}
+  m_Father: {fileID: 1159123296}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &561386090
 GameObject:
@@ -3182,18 +3187,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_Start
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 4673069119266121683, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_Start
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3248,6 +3241,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8947324078878182574, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
+    - target: {fileID: 4673069119266121683, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3841,14 +3842,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E3
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E3
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3905,6 +3898,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5352,14 +5349,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E2
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E2
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -5416,6 +5405,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6847,17 +6840,29 @@ PrefabInstance:
       propertyPath: OnItemCorreto.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3270525849424363970, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270525849424363970, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270525849424363970, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 4353901529674523881, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.003030053
+      value: -0.00005
       objectReference: {fileID: 0}
     - target: {fileID: 4353901529674523881, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0003733373
+      value: -0.0013
       objectReference: {fileID: 0}
     - target: {fileID: 4353901529674523881, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.011213313
+      value: 0.01077
       objectReference: {fileID: 0}
     - target: {fileID: 4353901529674523881, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6889,7 +6894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_text
-      value: "A CBF Garante Custeio para M\xE3es Atletas e Consolida Direitos de Maternidade no Futebol Feminino com a Lei 15522. Essa conquista representa um marco de repara\xE7\xE3o hist\xF3rica e um forte contraponto ao Decreto-Lei n\xBA _ _ _ _ de 1941 \u2014 que outrora proibia as mulheres de jogar futebol sob o pretexto de incompatibilidade com a maternidade"
+      value: "A CBF Garante Custeio para M\xE3es Atletas                   e Consolida Direitos de Maternidade no Futebol Feminino com a Lei 15522. Essa conquista representa um marco de repara\xE7\xE3o hist\xF3rica           e um forte contraponto ao Decreto-Lei n\xBA _ _ _ _   de 1941 \u2014 que outrora proibia as mulheres de jogar futebol sob o pretexto de incompatibilidade        com a maternidade"
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontSize
@@ -6973,15 +6978,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontSize
-      value: 5.85
+      value: 5.35
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_margin.w
-      value: -1.0855131
+      value: 1.3736008
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_margin.x
-      value: -0.08859408
+      value: -5.453471
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_margin.y
@@ -7460,6 +7465,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4447090411291467480, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1149764028}
+    - targetCorrespondingSourceObject: {fileID: 1602773069419242686, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
 --- !u!1 &1149764025 stripped
 GameObject:
@@ -7533,6 +7544,8 @@ Transform:
   - {fileID: 621165095}
   - {fileID: 402216150}
   - {fileID: 2024771723}
+  - {fileID: 524633833}
+  - {fileID: 547379965}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1160234425
@@ -7644,7 +7657,6 @@ Transform:
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 547379965}
   - {fileID: 27063964}
   - {fileID: 58617941}
   - {fileID: 1858697971}
@@ -8599,11 +8611,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_text
-      value: "Na final da Copa das Na\xE7\xF5es, disputada na Arena Guariroba, no Distrito Federal, a Sele\xE7\xE3o Brasileira Feminina de Beach Soccer venceu a Sele\xE7\xE3o de Bras\xEDlia e terminou o torneio invicta. Qual foi o placar da final? Digite primeiro os gols do Brasil e depois os de Bras\xEDlia.\n"
+      value: "Na final da Copa das Na\xE7\xF5es, disputada na Arena Guariroba, no Distrito Federal, a Sele\xE7\xE3o Brasileira Feminina de Beach Soccer venceu a Sele\xE7\xE3o de Bras\xEDlia       e terminou o torneio invicta.                     Qual foi o placar da final? Digite primeiro os gols do Brasil e depois os de Bras\xEDlia.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontSize
-      value: 8.45
+      value: 8.3
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_margin.w
@@ -8932,6 +8944,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4447090411291467480, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1318660619}
+    - targetCorrespondingSourceObject: {fileID: 1602773069419242686, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
 --- !u!4 &1318660617 stripped
 Transform:
@@ -11012,7 +11030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2035864647638333540, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       propertyPath: m_text
-      value: "2026: Sancionada a Lei n\xBA _ _ _ _ _, que Estabelece Diretrizes Nacionais para o Futebol Feminino\r\nClique no bot\xE3o com o n\xFAmero da lei correta"
+      value: "2026: Sancionada a Lei n\xBA _ _ _ _ _,                     que Estabelece Diretrizes Nacionais                 para o Futebol Feminino\r\nClique no bot\xE3o com o n\xFAmero da lei correta"
       objectReference: {fileID: 0}
     - target: {fileID: 2084018814946615982, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       propertyPath: id
@@ -11313,6 +11331,21 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3509302801024370808, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1408334214}
+    - targetCorrespondingSourceObject: {fileID: 2702752533640588288, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6096791607754913585, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 3289483531185673203, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 3206780679787470050, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8815581617458378690, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
 --- !u!4 &1408334210 stripped
 Transform:
@@ -13091,15 +13124,35 @@ PrefabInstance:
       objectReference: {fileID: -4015498429434916558, guid: 0bdbeba4232e44b78c80eb1c2264c05d, type: 3}
     - target: {fileID: 6707277833563221982, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
       propertyPath: m_text
-      value: "Clique nas pe\xE7as, arraste e encaixe nas marca\xE7\xF5es do centro para formar a imagem "
+      value: "Clique nas pe\xE7as, arraste e encaixe nas marca\xE7\xF5es         do centro para formar a imagem "
       objectReference: {fileID: 0}
     - target: {fileID: 6707277833563221982, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
       propertyPath: m_fontSize
-      value: 1.9
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707277833563221982, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
+      propertyPath: m_margin.w
+      value: 0.571049
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707277833563221982, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
+      propertyPath: m_margin.x
+      value: 6.527588
       objectReference: {fileID: 0}
     - target: {fileID: 6707277833563221982, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
       propertyPath: m_margin.y
-      value: 3.7373378
+      value: 3.848289
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707277833563221982, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
+      propertyPath: m_margin.z
+      value: 9.541287
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707277833563221982, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707277833563221982, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7054762763701406893, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13439,6 +13492,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 63021995255806111, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 238928822}
+    - targetCorrespondingSourceObject: {fileID: 3124490687163800668, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
 --- !u!1001 &1601222565
 PrefabInstance:
@@ -13715,14 +13771,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anfitrian_V4_E4
       objectReference: {fileID: 0}
-    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
-    - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
-      propertyPath: m_Name
-      value: Anfitrian_V4_E4
-      objectReference: {fileID: 0}
     - target: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -13779,6 +13827,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1605478482602837116, guid: 9de1b9bd0c0612d488560934d88bfe67, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5572484d3a81edf4a80473abe5b6b38c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16163,11 +16215,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 360242338907979266, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
       propertyPath: m_text
-      value: "Clique nas pe\xE7as, arraste e encaixe nas marca\xE7\xF5es do centro para formar a imagem\n"
+      value: "Clique nas pe\xE7as, arraste e encaixe nas marca\xE7\xF5es              do centro para formar a imagem\n"
       objectReference: {fileID: 0}
     - target: {fileID: 360242338907979266, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
       propertyPath: m_fontSize
-      value: 1.7
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 360242338907979266, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
       propertyPath: m_margin.w
@@ -16175,7 +16227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 360242338907979266, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
       propertyPath: m_margin.x
-      value: 6.721575
+      value: 6.5546236
       objectReference: {fileID: 0}
     - target: {fileID: 360242338907979266, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
       propertyPath: m_margin.y
@@ -16183,7 +16235,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 360242338907979266, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
       propertyPath: m_margin.z
-      value: 10.008211
+      value: 9.611929
+      objectReference: {fileID: 0}
+    - target: {fileID: 360242338907979266, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 360242338907979266, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 360242338907979266, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
       propertyPath: m_VerticalAlignment
@@ -16441,6 +16501,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5297850441305131560, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.415
+      objectReference: {fileID: 0}
     - target: {fileID: 5335444432452063599, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
       propertyPath: OnEndGame.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
@@ -16666,6 +16730,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 63021995255806111, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 50628201}
+    - targetCorrespondingSourceObject: {fileID: 925437733581116284, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
 --- !u!1001 &5393215579111688471
 PrefabInstance:
@@ -17022,5 +17089,4 @@ SceneRoots:
   - {fileID: 25309216}
   - {fileID: 2009182360}
   - {fileID: 1159123296}
-  - {fileID: 524633832}
   - {fileID: 1212824718}

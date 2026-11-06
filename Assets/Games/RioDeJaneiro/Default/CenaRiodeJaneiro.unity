@@ -1542,7 +1542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5591255200219362373, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
       propertyPath: m_text
-      value: "Quem o Brasil goleou na conquista do ouro no Futebol Feminino dos Jogos Mundiais Militares no Rio e qual foi o resultado? Clique nos n\xFAmeros para girar e acertar o resultado e depois clique no time correto do lado direito.\n"
+      value: "Quem o Brasil goleou na conquista do ouro      no Futebol Feminino dos Jogos Mundiais Militares no Rio e qual foi o resultado? Clique nos n\xFAmeros para girar e acertar o resultado, depois clique no time correto do lado direito.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5591255200219362373, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
       propertyPath: m_fontSize
@@ -1685,6 +1685,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 371546727418162110, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1157306766}
+    - targetCorrespondingSourceObject: {fileID: 8240495700422269416, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 9196682085048462961, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2086048290}
@@ -4298,6 +4301,7 @@ MonoBehaviour:
   totalPadrao: 5
   textoProgresso: {fileID: 341015989}
   formato: DESAFIOS {0}/{1}
+  formatoEn: Challenges {0}/{1}
   numerarTriggersAutomatico: 1
   formatoTrigger: '{0}/{1}'
   OnPuzzleCompleto:
@@ -15847,11 +15851,9 @@ MonoBehaviour:
   cameraJogador: {fileID: 433591348}
   alcanceClique: 100
   textoFeedback: {fileID: 469549447}
-  pergunta: 'Qual a cidade no Rio de Janeiro que sediou o I
-
-    Campeonato Brasileiro Sub-17 de Futebol Feminino'
-  textoAcerto: Resposta correta!
-  textoErro: Nao e essa direcao, tente novamente!
+  pergunta: 
+  textoAcerto: 
+  textoErro: 
   tempoAteFim: 3
   tempoAteProximaCena: 3
   OnEndGame:
@@ -17095,27 +17097,27 @@ PrefabInstance:
       objectReference: {fileID: -7886218632511405634, guid: 76fbf3dea52fd9649bdbae2a3b8cbce4, type: 2}
     - target: {fileID: 4423608740542194680, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       propertyPath: m_text
-      value: "Clique na b\xFAssola na cidade do Rio de Janeiro que sediou o I\nCampeonato Brasileiro Sub-17 de Futebol Feminino. "
+      value: "Clique na b\xFAssola na cidade       do Rio de Janeiro que sediou       o I Campeonato Brasileiro Sub-17 de Futebol Feminino. "
       objectReference: {fileID: 0}
     - target: {fileID: 4423608740542194680, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       propertyPath: m_fontSize
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4423608740542194680, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       propertyPath: m_margin.w
-      value: -3.3926783
+      value: -2.9096675
       objectReference: {fileID: 0}
     - target: {fileID: 4423608740542194680, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       propertyPath: m_margin.x
-      value: -1.3478271
+      value: -1.2909845
       objectReference: {fileID: 0}
     - target: {fileID: 4423608740542194680, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       propertyPath: m_margin.y
-      value: -1.5607947
+      value: -1.0464255
       objectReference: {fileID: 0}
     - target: {fileID: 4423608740542194680, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       propertyPath: m_margin.z
-      value: -2.015414
+      value: -2.2574415
       objectReference: {fileID: 0}
     - target: {fileID: 4423608740542194680, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       propertyPath: m_fontAsset
@@ -17134,8 +17136,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4423608740542194680, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423608740542194680, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       propertyPath: m_fontSizeBase
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4423608740542194680, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       propertyPath: m_sharedMaterial
@@ -17512,6 +17518,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9060700340976407483, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1471297391}
+    - targetCorrespondingSourceObject: {fileID: 5982345744849874558, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
 --- !u!1001 &1527989895
 PrefabInstance:
@@ -18405,7 +18414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1144248750320301553, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       propertyPath: m_text
-      value: "Resultado do Pan-Americano de 2007 no Maracan\xE3, clique nos n\xFAmeros para rodar para acertar o resultado e nos times que participaram, vencedor na esquerda e perdedor na direita."
+      value: "Resultado do Pan-Americano de 2007                 no Maracan\xE3, clique nos n\xFAmeros para rodar para acertar o resultado e nos times                  que participaram, vencedor na esquerda             e perdedor na direita."
       objectReference: {fileID: 0}
     - target: {fileID: 1272517699385011538, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18658,6 +18667,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6602099801085300476, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 238928822}
+    - targetCorrespondingSourceObject: {fileID: 845107133009966358, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
 --- !u!1001 &1601222565
 PrefabInstance:
@@ -24938,21 +24950,61 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 45672189}
     m_Modifications:
+    - target: {fileID: 3270525849424363970, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270525849424363970, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270525849424363970, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.18
+      objectReference: {fileID: 0}
     - target: {fileID: 3616974668976132965, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4353901529674523881, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00211
+      value: -0.0013396792
       objectReference: {fileID: 0}
     - target: {fileID: 4353901529674523881, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00034
+      value: -0.0012692051
       objectReference: {fileID: 0}
     - target: {fileID: 4353901529674523881, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0113
+      value: 0.0108440975
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353901529674523881, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5737574
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353901529674523881, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.414429
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353901529674523881, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.40800306
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353901529674523881, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.57670146
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353901529674523881, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 71.112
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353901529674523881, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -1.737
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353901529674523881, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -91.535
       objectReference: {fileID: 0}
     - target: {fileID: 4447090411291467480, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_Name
@@ -24964,7 +25016,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_text
-      value: "Quantos times participaram da I Copa Nacional Quilombola de Futebol no Rio de Janeiro em 2024?\n"
+      value: 'Quantos times participaram da I Copa Nacional Quilombola de Futebol no    Rio de Janeiro em 2024?
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 4520563000468071122, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontSize
@@ -25044,15 +25098,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontSize
-      value: 6.65
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_margin.w
-      value: -0.515188
+      value: 1.2669739
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_margin.x
-      value: -1.2319872
+      value: -2.6014507
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_margin.y
@@ -25060,7 +25114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_margin.z
-      value: -0.3488946
+      value: -0.9370651
       objectReference: {fileID: 0}
     - target: {fileID: 8472050796673591345, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_fontColor.b
@@ -25330,6 +25384,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4447090411291467480, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4542605019363755516}
+    - targetCorrespondingSourceObject: {fileID: 1602773069419242686, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
 --- !u!1001 &2313048520150036361
 PrefabInstance:
