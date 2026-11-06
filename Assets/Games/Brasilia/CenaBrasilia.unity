@@ -119,6 +119,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1196785 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+  m_PrefabInstance: {fileID: 1604207770}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1196789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &1970238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -173,12 +192,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ed91ad5a3f1169a459aa0d5c3b7b1583, type: 2}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (4)
+      value: rb_totem_brasilia_7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1374991515}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1970239 stripped
 Transform:
@@ -1279,6 +1301,7 @@ Transform:
   - {fileID: 1573877015}
   - {fileID: 589135653}
   - {fileID: 353776782}
+  - {fileID: 954197745}
   m_Father: {fileID: 1186639622}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &66005968
@@ -1740,6 +1763,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 387763197772585835, guid: bfd29568ad773224e86b5acca33eeb71, type: 3}
   m_PrefabInstance: {fileID: 103370095}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &112358103 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+  m_PrefabInstance: {fileID: 511542488}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &112358107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112358103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &117881288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3466,6 +3508,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1955929617362154165, guid: 4766da69b864ff14daeeb20d8383e2f4, type: 3}
   m_PrefabInstance: {fileID: 183634997}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &185138182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 1244950791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &185138186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185138182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &192504020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4029,6 +4090,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1955929617362154165, guid: 4766da69b864ff14daeeb20d8383e2f4, type: 3}
   m_PrefabInstance: {fileID: 206399485}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &209942188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+  m_PrefabInstance: {fileID: 398035902}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &209942192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209942188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &216342592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4326,7 +4406,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1601853693120873943, guid: 5013ea25269253447bd320d296f94b64, type: 3}
       propertyPath: m_Name
-      value: BannerDeChao_Goleira (1)
+      value: rb_bannervert_brasilia_4
       objectReference: {fileID: 0}
     - target: {fileID: 1601853693120873943, guid: 5013ea25269253447bd320d296f94b64, type: 3}
       propertyPath: m_IsActive
@@ -4384,10 +4464,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_brasilia_4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1973889310}
   m_SourcePrefab: {fileID: 100100000, guid: 5013ea25269253447bd320d296f94b64, type: 3}
 --- !u!4 &241018139 stripped
 Transform:
@@ -4526,12 +4613,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ed91ad5a3f1169a459aa0d5c3b7b1583, type: 2}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (6)
+      value: rb_totem_brasilia_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 941976714}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &245034659 stripped
 Transform:
@@ -5462,6 +5552,49 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1955929617362154165, guid: 4766da69b864ff14daeeb20d8383e2f4, type: 3}
   m_PrefabInstance: {fileID: 294650134}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &299013321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 839006560}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &299013325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299013321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
+--- !u!1 &299573954 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1342399330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &302195295 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+  m_PrefabInstance: {fileID: 1161958325}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &302195299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302195295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &302328491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7595,7 +7728,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1601853693120873943, guid: 5013ea25269253447bd320d296f94b64, type: 3}
       propertyPath: m_Name
-      value: BannerDeChao_Goleira (4)
+      value: rb_bannervert_brasilia_11
       objectReference: {fileID: 0}
     - target: {fileID: 1601853693120873943, guid: 5013ea25269253447bd320d296f94b64, type: 3}
       propertyPath: m_IsActive
@@ -7653,10 +7786,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_brasilia_11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 209942192}
   m_SourcePrefab: {fileID: 100100000, guid: 5013ea25269253447bd320d296f94b64, type: 3}
 --- !u!4 &398035903 stripped
 Transform:
@@ -9426,7 +9566,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1601853693120873943, guid: 5013ea25269253447bd320d296f94b64, type: 3}
       propertyPath: m_Name
-      value: BannerDeChao_Goleira (2)
+      value: rb_bannervert_brasilia_7
       objectReference: {fileID: 0}
     - target: {fileID: 1601853693120873943, guid: 5013ea25269253447bd320d296f94b64, type: 3}
       propertyPath: m_IsActive
@@ -9484,10 +9624,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_brasilia_7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 112358107}
   m_SourcePrefab: {fileID: 100100000, guid: 5013ea25269253447bd320d296f94b64, type: 3}
 --- !u!4 &511542489 stripped
 Transform:
@@ -11594,6 +11741,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1955929617362154165, guid: 4766da69b864ff14daeeb20d8383e2f4, type: 3}
   m_PrefabInstance: {fileID: 609539571}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &617814989 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+  m_PrefabInstance: {fileID: 1975201034}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &617814993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617814989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1 &621165094
 GameObject:
   m_ObjectHideFlags: 0
@@ -11630,6 +11796,25 @@ Transform:
   - {fileID: 661821376}
   m_Father: {fileID: 1159123296}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &623892372 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 2088024909}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &623892376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623892372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &626432214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13876,6 +14061,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 387763197772585835, guid: bfd29568ad773224e86b5acca33eeb71, type: 3}
   m_PrefabInstance: {fileID: 742471279}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &742717638 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 989819325}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &742717642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742717638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &746329221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14061,12 +14265,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (9)
+      value: rb_totem_brasilia_6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1989370956}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &755576372 stripped
 Transform:
@@ -15473,9 +15680,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
       objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_brasilia_6
+      objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
-      value: BannerDeChao_Jogadora (5)
+      value: rb_bannervert_brasilia_6
       objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_IsActive
@@ -15536,7 +15747,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 299013325}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &839006561 stripped
 Transform:
@@ -17575,6 +17789,25 @@ Transform:
   - {fileID: 417844243}
   m_Father: {fileID: 1250512231}
   m_LocalEulerAnglesHint: {x: 0, y: 33.942, z: 0}
+--- !u!1 &941976711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 245034658}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &941976714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941976711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 2
 --- !u!1001 &947064481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17724,6 +17957,111 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1955929617362154165, guid: 4766da69b864ff14daeeb20d8383e2f4, type: 3}
   m_PrefabInstance: {fileID: 948409026}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &954197744
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 58617941}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 901f5494aae2209479a81652f7960242, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.74999994
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 901f5494aae2209479a81652f7960242, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 901f5494aae2209479a81652f7960242, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.74999994
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 901f5494aae2209479a81652f7960242, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -323.99762
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 901f5494aae2209479a81652f7960242, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 113.39997
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 901f5494aae2209479a81652f7960242, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -146.40842
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 901f5494aae2209479a81652f7960242, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7780492
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 901f5494aae2209479a81652f7960242, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 901f5494aae2209479a81652f7960242, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6282034
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 901f5494aae2209479a81652f7960242, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 901f5494aae2209479a81652f7960242, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 901f5494aae2209479a81652f7960242, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 77.835
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 901f5494aae2209479a81652f7960242, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 901f5494aae2209479a81652f7960242, type: 3}
+      propertyPath: m_Name
+      value: Airfly (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 901f5494aae2209479a81652f7960242, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 954197747}
+  m_SourcePrefab: {fileID: 100100000, guid: 901f5494aae2209479a81652f7960242, type: 3}
+--- !u!4 &954197745 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 901f5494aae2209479a81652f7960242, type: 3}
+  m_PrefabInstance: {fileID: 954197744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &954197746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 901f5494aae2209479a81652f7960242, type: 3}
+  m_PrefabInstance: {fileID: 954197744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &954197747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954197746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a074d529cf945029ef7cf40540c9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineAnimate
+  m_Target: {fileID: 1474669801}
+  m_PlayOnAwake: 1
+  m_LoopMode: 1
+  m_Method: 1
+  m_Duration: 153.50055
+  m_MaxSpeed: 10
+  m_EasingMode: 0
+  m_AlignmentMode: 1
+  m_ObjectForwardAxis: 2
+  m_ObjectUpAxis: 1
+  m_StartOffset: 0
 --- !u!1001 &963096138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18735,9 +19073,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
       objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_brasilia_1
+      objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
-      value: BannerDeChao_Jogadora (1)
+      value: rb_bannervert_brasilia_1
       objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_IsActive
@@ -18798,7 +19140,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 742717642}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &989819326 stripped
 Transform:
@@ -23194,7 +23539,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1601853693120873943, guid: 5013ea25269253447bd320d296f94b64, type: 3}
       propertyPath: m_Name
-      value: BannerDeChao_Goleira (5)
+      value: rb_bannervert_brasilia_8
       objectReference: {fileID: 0}
     - target: {fileID: 1601853693120873943, guid: 5013ea25269253447bd320d296f94b64, type: 3}
       propertyPath: m_IsActive
@@ -23252,10 +23597,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_brasilia_8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 302195299}
   m_SourcePrefab: {fileID: 100100000, guid: 5013ea25269253447bd320d296f94b64, type: 3}
 --- !u!4 &1161958326 stripped
 Transform:
@@ -24121,9 +24473,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
       objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_brasilia_9
+      objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
-      value: BannerDeChao_Jogadora (4)
+      value: rb_bannervert_brasilia_9
       objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_IsActive
@@ -24184,7 +24540,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 185138186}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &1244950792 stripped
 Transform:
@@ -25307,6 +25666,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1858697971}
   m_LocalEulerAnglesHint: {x: 0, y: 151.54, z: 0}
+--- !u!1 &1283539451 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 2121637554}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1285310408 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8762286023885395077, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
@@ -27695,18 +28059,35 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ed91ad5a3f1169a459aa0d5c3b7b1583, type: 2}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (2)
+      value: rb_totem_brasilia_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1342399334}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1342399331 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 1342399330}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1342399334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299573954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 2
 --- !u!1 &1343692581
 GameObject:
   m_ObjectHideFlags: 0
@@ -28021,6 +28402,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 387763197772585835, guid: bfd29568ad773224e86b5acca33eeb71, type: 3}
   m_PrefabInstance: {fileID: 1370249705}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1374991512 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1970238}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1374991515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374991512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 2
 --- !u!1001 &1386330612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29792,6 +30192,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8390ef98f761bcd4a91db1775dab8cfd, type: 3}
   m_PrefabInstance: {fileID: 1427529881}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1434052326 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1787175412}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1437565682 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8602041816396928532, guid: 98952f22bba151741aa373e8ae4db515, type: 3}
@@ -30653,6 +31058,258 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7954055797520285238, guid: 4a5b5433169f687428e3dc1eeecb11b0, type: 3}
   m_PrefabInstance: {fileID: 1474610119}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1474669799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1474669800}
+  - component: {fileID: 1474669801}
+  m_Layer: 0
+  m_Name: Spline Dirigigel (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1474669800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474669799}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.83534384, z: -0, w: 0.54972786}
+  m_LocalPosition: {x: 129.3, y: 56.9, z: 11.2}
+  m_LocalScale: {x: 0.21867199, y: 2.99, z: 1.0552572}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1858697971}
+  m_LocalEulerAnglesHint: {x: 0, y: 113.303, z: 0}
+--- !u!114 &1474669801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474669799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineContainer
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: 0
+        y: 0
+        z: 0
+      TangentIn:
+        x: 0
+        y: 0
+        z: -52.960976
+      TangentOut:
+        x: 0
+        y: 0
+        z: 63.981373
+      Rotation:
+        value:
+          x: 0
+          y: -0.5099452
+          z: -0
+          w: 0.86020696
+    - Position:
+        x: -213.80843
+        y: 0
+        z: 50.710953
+      TangentIn:
+        x: -0
+        y: -0
+        z: -69.879654
+      TangentOut:
+        x: 0
+        y: 0
+        z: 65.343445
+      Rotation:
+        value:
+          x: 0
+          y: -0.6810615
+          z: -0
+          w: 0.73222625
+    - Position:
+        x: -405.2
+        y: 0
+        z: 33.8
+      TangentIn:
+        x: -0
+        y: -0
+        z: -58.89601
+      TangentOut:
+        x: 0
+        y: 0
+        z: 56.043873
+      Rotation:
+        value:
+          x: 0
+          y: 0.84098744
+          z: 0
+          w: -0.54105455
+    - Position:
+        x: -530.5
+        y: 0
+        z: -86.9
+      TangentIn:
+        x: 0
+        y: 0
+        z: -42.644535
+      TangentOut:
+        x: 0
+        y: 0
+        z: 32.6975
+      Rotation:
+        value:
+          x: 0.005609803
+          y: 0.9925529
+          z: -0.00068774
+          w: -0.121683106
+    - Position:
+        x: -498.7
+        y: 0
+        z: -184.1128
+      TangentIn:
+        x: -0
+        y: -0
+        z: -32.472057
+      TangentOut:
+        x: 0
+        y: 0
+        z: 32.78615
+      Rotation:
+        value:
+          x: 0
+          y: 0.9491619
+          z: 0
+          w: 0.31478846
+    - Position:
+        x: -412.99744
+        y: 0
+        z: -243.50397
+      TangentIn:
+        x: 0
+        y: 0
+        z: -32.155674
+      TangentOut:
+        x: 0
+        y: 0
+        z: 32.155674
+      Rotation:
+        value:
+          x: 0
+          y: 0.8317473
+          z: 0
+          w: 0.55515444
+    - Position:
+        x: -211.06729
+        y: 0
+        z: -269.54477
+      TangentIn:
+        x: 0
+        y: 0
+        z: -12.865166
+      TangentOut:
+        x: 0
+        y: 0
+        z: 12.865166
+      Rotation:
+        value:
+          x: 0
+          y: 0.7438183
+          z: 0
+          w: 0.66838187
+    - Position:
+        x: 12.791992
+        y: 0
+        z: -207.41245
+      TangentIn:
+        x: 0
+        y: 0
+        z: -13.082343
+      TangentOut:
+        x: 0
+        y: 0
+        z: 13.082343
+      Rotation:
+        value:
+          x: 0
+          y: 0.5389523
+          z: 0
+          w: 0.8423363
+    - Position:
+        x: 108.274765
+        y: 0
+        z: -104.61993
+      TangentIn:
+        x: 0
+        y: 0
+        z: -17.360497
+      TangentOut:
+        x: 0
+        y: 0
+        z: 17.360497
+      Rotation:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+    m_MetaData:
+    - Mode: 3
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 3
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 2
+      Tension: 0.5
+    - Mode: 2
+      Tension: 0.5
+    - Mode: 2
+      Tension: 0.5
+    - Mode: 2
+      Tension: 0.5
+    m_Closed: 1
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
 --- !u!1001 &1480765795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31362,12 +32019,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (5)
+      value: rb_totem_brasilia_8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1518204380}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1500079758 stripped
 Transform:
@@ -31759,6 +32419,25 @@ MonoBehaviour:
   key: voz_anfitrian_df_start
   keyEn: 
   showLogs: 1
+--- !u!1 &1518204377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1500079757}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1518204380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518204377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 2
 --- !u!1 &1520066932 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6550317585025965054, guid: bf5401b9840643ffae8a1a70996556a8, type: 3}
@@ -32334,9 +33013,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
       objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_brasilia_5
+      objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
-      value: BannerDeChao_Jogadora (3)
+      value: rb_bannervert_brasilia_5
       objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_IsActive
@@ -32397,7 +33080,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1597582575}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &1540868719 stripped
 Transform:
@@ -34131,6 +34817,25 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 238928822}
   m_SourcePrefab: {fileID: 100100000, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
+--- !u!1 &1597582571 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 1540868718}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1597582575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597582571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &1601222565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34347,7 +35052,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1601853693120873943, guid: 5013ea25269253447bd320d296f94b64, type: 3}
       propertyPath: m_Name
-      value: BannerDeChao_Goleira
+      value: rb_bannervert_brasilia_2
       objectReference: {fileID: 0}
     - target: {fileID: 1601853693120873943, guid: 5013ea25269253447bd320d296f94b64, type: 3}
       propertyPath: m_IsActive
@@ -34405,10 +35110,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_brasilia_2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1196789}
   m_SourcePrefab: {fileID: 100100000, guid: 5013ea25269253447bd320d296f94b64, type: 3}
 --- !u!4 &1604207771 stripped
 Transform:
@@ -37199,18 +37911,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (3)
+      value: rb_totem_brasilia_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1787175416}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1787175413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 1787175412}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1787175416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434052326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 2
 --- !u!1001 &1792923458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37641,12 +38370,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ed91ad5a3f1169a459aa0d5c3b7b1583, type: 2}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (8)
+      value: rb_totem_brasilia_5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2045227046}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1815789751 stripped
 Transform:
@@ -38211,6 +38943,7 @@ Transform:
   - {fileID: 1498173198}
   - {fileID: 803047650}
   - {fileID: 1279833805}
+  - {fileID: 1474669800}
   - {fileID: 804463158}
   m_Father: {fileID: 1186639622}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -39847,6 +40580,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2191000a6861b3249989d606d27c9285, type: 3}
   m_PrefabInstance: {fileID: 1967283927}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1973889306 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+  m_PrefabInstance: {fileID: 241018138}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1973889310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973889306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1 &1974014843 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1017601605901077078, guid: acc2daa1a289cee4aae2d8cd92ba0ecd, type: 3}
@@ -39862,7 +40614,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1601853693120873943, guid: 5013ea25269253447bd320d296f94b64, type: 3}
       propertyPath: m_Name
-      value: BannerDeChao_Goleira (3)
+      value: rb_bannervert_brasilia_10
       objectReference: {fileID: 0}
     - target: {fileID: 1601853693120873943, guid: 5013ea25269253447bd320d296f94b64, type: 3}
       propertyPath: m_IsActive
@@ -39920,10 +40672,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_brasilia_10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 617814993}
   m_SourcePrefab: {fileID: 100100000, guid: 5013ea25269253447bd320d296f94b64, type: 3}
 --- !u!4 &1975201035 stripped
 Transform:
@@ -40519,6 +41278,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 387763197772585835, guid: bfd29568ad773224e86b5acca33eeb71, type: 3}
   m_PrefabInstance: {fileID: 1988488790}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1989370953 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 755576371}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1989370956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989370953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 2
 --- !u!1001 &1989759580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41831,6 +42609,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1955929617362154165, guid: 4766da69b864ff14daeeb20d8383e2f4, type: 3}
   m_PrefabInstance: {fileID: 2039361800}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2045227043 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1815789750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2045227046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045227043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 2
 --- !u!1001 &2049264247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42617,9 +43414,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
       objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_brasilia_3
+      objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
-      value: BannerDeChao_Jogadora (2)
+      value: rb_bannervert_brasilia_3
       objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_IsActive
@@ -42680,7 +43481,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 623892376}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &2088024910 stripped
 Transform:
@@ -43084,18 +43888,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (7)
+      value: rb_totem_brasilia_4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2121637558}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &2121637555 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 2121637554}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2121637558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283539451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 2
 --- !u!1 &2127645703
 GameObject:
   m_ObjectHideFlags: 0
