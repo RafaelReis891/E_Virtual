@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5890054639379304312}
   m_Layer: 0
-  m_Name: WindFlag
+  m_Name: rb_windflag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,6 +95,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 89d5c7d6bb8b6674ab86cb17f53caa12, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8196160210551597069, guid: 89d5c7d6bb8b6674ab86cb17f53caa12, type: 3}
+      propertyPath: m_Name
+      value: rb_wingflag
       objectReference: {fileID: 0}
     - target: {fileID: -2859109400176981367, guid: 89d5c7d6bb8b6674ab86cb17f53caa12, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
