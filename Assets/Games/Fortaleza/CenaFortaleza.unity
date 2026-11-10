@@ -514,16 +514,42 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 2bf6b776a225efe4aaeb02ff9372fbfd, type: 2}
+    - target: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_fortaleza_13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8716183}
   m_SourcePrefab: {fileID: 100100000, guid: 5013ea25269253447bd320d296f94b64, type: 3}
 --- !u!4 &8716181 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2204699687388806475, guid: 5013ea25269253447bd320d296f94b64, type: 3}
   m_PrefabInstance: {fileID: 8716180}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8716182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+  m_PrefabInstance: {fileID: 8716180}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8716183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8716182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &10380524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2601,13 +2627,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 95075981}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &95075979 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890054639379304312, guid: de006963d82078d47935b9018c972090, type: 3}
   m_PrefabInstance: {fileID: 95075978}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &95075980 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 95075978}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &95075981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95075980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &95191044
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3132,13 +3180,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 122647419}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &122647417 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890054639379304312, guid: de006963d82078d47935b9018c972090, type: 3}
   m_PrefabInstance: {fileID: 122647416}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &122647418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 122647416}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &122647419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122647418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1 &124588118
 GameObject:
   m_ObjectHideFlags: 0
@@ -6025,16 +6095,42 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 2bf6b776a225efe4aaeb02ff9372fbfd, type: 2}
+    - target: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_fortaleza_14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 248355942}
   m_SourcePrefab: {fileID: 100100000, guid: 5013ea25269253447bd320d296f94b64, type: 3}
 --- !u!4 &248355940 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2204699687388806475, guid: 5013ea25269253447bd320d296f94b64, type: 3}
   m_PrefabInstance: {fileID: 248355939}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &248355941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+  m_PrefabInstance: {fileID: 248355939}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &248355942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248355941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1 &251023997
 GameObject:
   m_ObjectHideFlags: 0
@@ -8098,13 +8194,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 341202938}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &341202936 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890054639379304312, guid: de006963d82078d47935b9018c972090, type: 3}
   m_PrefabInstance: {fileID: 341202935}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &341202937 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 341202935}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &341202938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341202937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &348873705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8987,6 +9105,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
       objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_fortaleza_10
+      objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
       value: BannerDeChao_Jogadora (5)
@@ -9046,13 +9168,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 394879042}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &394879040 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6863468537098632359, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
   m_PrefabInstance: {fileID: 394879039}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &394879041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 394879039}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &394879042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394879041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &401284594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10961,18 +11105,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (7)
+      value: rb_totem_fortaleza_6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 481642226}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &481642224 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 481642223}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &481642225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 481642223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &481642226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481642225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &484554028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11087,6 +11253,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
       objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_fortaleza_11
+      objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
       value: BannerDeChao_Jogadora (6)
@@ -11146,13 +11316,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 488129316}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &488129314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6863468537098632359, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
   m_PrefabInstance: {fileID: 488129313}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &488129315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 488129313}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &488129316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488129315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &489085821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11203,18 +11395,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (9)
+      value: rb_totem_fortaleza_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 489085824}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &489085822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 489085821}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &489085823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 489085821}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &489085824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489085823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &494058134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11637,18 +11851,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (17)
+      value: rb_totem_fortaleza_16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 516836242}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &516836240 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 516836239}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &516836241 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 516836239}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &516836242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516836241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1 &517798014
 GameObject:
   m_ObjectHideFlags: 0
@@ -12695,9 +12931,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
       objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_fortaleza_1
+      objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
-      value: BannerDeChao_Jogadora (7)
+      value: rb_bannervert_fortaleza_1
       objectReference: {fileID: 0}
     - target: {fileID: 6863468537098632359, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_LocalScale.x
@@ -12754,13 +12994,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 542669655}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &542669653 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6863468537098632359, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
   m_PrefabInstance: {fileID: 542669652}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &542669654 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 542669652}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &542669655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542669654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &543807566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12844,13 +13106,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 543807569}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &543807567 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890054639379304312, guid: de006963d82078d47935b9018c972090, type: 3}
   m_PrefabInstance: {fileID: 543807566}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &543807568 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 543807566}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &543807569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543807568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &545621073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15397,18 +15681,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (6)
+      value: rb_totem_fortaleza_4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 622443697}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &622443695 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 622443694}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &622443696 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 622443694}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &622443697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622443696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &622544526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15477,16 +15783,42 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 2bf6b776a225efe4aaeb02ff9372fbfd, type: 2}
+    - target: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_fortaleza_15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 622544529}
   m_SourcePrefab: {fileID: 100100000, guid: 5013ea25269253447bd320d296f94b64, type: 3}
 --- !u!4 &622544527 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2204699687388806475, guid: 5013ea25269253447bd320d296f94b64, type: 3}
   m_PrefabInstance: {fileID: 622544526}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &622544528 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+  m_PrefabInstance: {fileID: 622544526}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &622544529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622544528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &625901766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15835,18 +16167,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (11)
+      value: rb_totem_fortaleza_7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 639882375}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &639882373 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 639882372}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &639882374 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 639882372}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &639882375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639882374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &641851700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16483,13 +16837,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 665560869}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &665560867 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890054639379304312, guid: de006963d82078d47935b9018c972090, type: 3}
   m_PrefabInstance: {fileID: 665560866}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &665560868 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 665560866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &665560869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665560868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &668027091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17053,18 +17429,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (5)
+      value: rb_totem_fortaleza_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 722625547}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &722625545 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 722625544}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &722625546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 722625544}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &722625547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722625546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &728475066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17510,13 +17908,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 740426137}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &740426135 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890054639379304312, guid: de006963d82078d47935b9018c972090, type: 3}
   m_PrefabInstance: {fileID: 740426134}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &740426136 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 740426134}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &740426137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740426136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &742490655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19013,13 +19433,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 802472980}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &802472978 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890054639379304312, guid: de006963d82078d47935b9018c972090, type: 3}
   m_PrefabInstance: {fileID: 802472977}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &802472979 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 802472977}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &802472980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802472979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &803128107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20157,18 +20599,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (4)
+      value: rb_totem_fortaleza_11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 813316028}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &813316026 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 813316025}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &813316027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 813316025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &813316028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813316027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1 &814070672
 GameObject:
   m_ObjectHideFlags: 0
@@ -20244,6 +20708,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
       objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_fortaleza_8
+      objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
       value: BannerDeChao_Jogadora (2)
@@ -20303,13 +20771,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 819348744}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &819348742 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6863468537098632359, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
   m_PrefabInstance: {fileID: 819348741}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &819348743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 819348741}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &819348744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819348743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &821909546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21799,18 +22289,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (12)
+      value: rb_totem_fortaleza_9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 867979693}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &867979691 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 867979690}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &867979692 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 867979690}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &867979693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867979692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &869588045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23069,16 +23581,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_fortaleza_3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 919051161}
   m_SourcePrefab: {fileID: 100100000, guid: 5013ea25269253447bd320d296f94b64, type: 3}
 --- !u!4 &919051159 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2204699687388806475, guid: 5013ea25269253447bd320d296f94b64, type: 3}
   m_PrefabInstance: {fileID: 919051158}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &919051160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+  m_PrefabInstance: {fileID: 919051158}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &919051161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919051160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &921821152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23240,13 +23778,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 927670205}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &927670203 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890054639379304312, guid: de006963d82078d47935b9018c972090, type: 3}
   m_PrefabInstance: {fileID: 927670202}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &927670204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 927670202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &927670205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927670204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &927796085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23411,6 +23971,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
       objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_fortaleza_7
+      objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
       value: BannerDeChao_Jogadora (3)
@@ -23470,13 +24034,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 934672213}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &934672211 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6863468537098632359, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
   m_PrefabInstance: {fileID: 934672210}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &934672212 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 934672210}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &934672213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934672212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &935573960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24180,13 +24766,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 958158868}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &958158866 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890054639379304312, guid: de006963d82078d47935b9018c972090, type: 3}
   m_PrefabInstance: {fileID: 958158865}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &958158867 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 958158865}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &958158868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958158867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &970483897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24270,13 +24878,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 970483900}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &970483898 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890054639379304312, guid: de006963d82078d47935b9018c972090, type: 3}
   m_PrefabInstance: {fileID: 970483897}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &970483899 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 970483897}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &970483900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970483899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &972887488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27320,18 +27950,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (13)
+      value: rb_totem_fortaleza_12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1064924804}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1064924802 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 1064924801}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1064924803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1064924801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1064924804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064924803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1 &1068194391
 GameObject:
   m_ObjectHideFlags: 0
@@ -27843,13 +28495,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1107213992}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &1107213990 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890054639379304312, guid: de006963d82078d47935b9018c972090, type: 3}
   m_PrefabInstance: {fileID: 1107213989}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1107213991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 1107213989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1107213992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107213991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &1108160287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28684,6 +29358,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
       objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_fortaleza_4
+      objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
       value: BannerDeChao_Jogadora (8)
@@ -28743,13 +29421,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1146446647}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &1146446645 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6863468537098632359, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
   m_PrefabInstance: {fileID: 1146446644}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1146446646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 1146446644}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1146446647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146446646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &1149764024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29775,9 +30475,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 157116396840515750, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1189709946}
-    - targetCorrespondingSourceObject: {fileID: 5092428124841923690, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
 --- !u!1 &1149764025 stripped
 GameObject:
@@ -30740,18 +31437,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (8)
+      value: rb_totem_fortaleza_8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1191568421}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1191568419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 1191568418}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1191568420 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1191568418}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1191568421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191568420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1 &1191963720
 GameObject:
   m_ObjectHideFlags: 0
@@ -32710,18 +33429,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (10)
+      value: rb_totem_fortaleza_5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1297446357}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1297446355 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 1297446354}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1297446356 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1297446354}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1297446357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297446356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &1301245789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32772,18 +33513,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (2)
+      value: rb_totem_fortaleza_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1301245792}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1301245790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 1301245789}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1301245791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1301245789}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1301245792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301245791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1 &1304249043
 GameObject:
   m_ObjectHideFlags: 0
@@ -35080,18 +35843,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (14)
+      value: rb_totem_fortaleza_13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1393024352}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1393024350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 1393024349}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1393024351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1393024349}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1393024352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393024351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &1395087684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35828,18 +36613,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (18)
+      value: rb_totem_fortaleza_17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1421672247}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1421672245 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 1421672244}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1421672246 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1421672244}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1421672247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421672246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &1422324753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36523,13 +37330,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1447372362}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &1447372360 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890054639379304312, guid: de006963d82078d47935b9018c972090, type: 3}
   m_PrefabInstance: {fileID: 1447372359}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1447372361 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 1447372359}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1447372362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447372361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &1449182853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37426,13 +38255,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1478740625}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &1478740623 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890054639379304312, guid: de006963d82078d47935b9018c972090, type: 3}
   m_PrefabInstance: {fileID: 1478740622}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1478740624 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 1478740622}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1478740625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478740624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &1480765795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39860,6 +40711,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
       objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_fortaleza_2
+      objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
       value: BannerDeChao_Jogadora (9)
@@ -39919,13 +40774,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1547833484}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &1547833482 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6863468537098632359, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
   m_PrefabInstance: {fileID: 1547833481}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1547833483 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 1547833481}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1547833484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547833483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1 &1549115660
 GameObject:
   m_ObjectHideFlags: 0
@@ -41673,18 +42550,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (3)
+      value: rb_totem_fortaleza_10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1581023752}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1581023750 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 1581023749}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1581023751 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1581023749}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1581023752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581023751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &1584456687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42002,13 +42901,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1600941269}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &1600941267 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890054639379304312, guid: de006963d82078d47935b9018c972090, type: 3}
   m_PrefabInstance: {fileID: 1600941266}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1600941268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 1600941266}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1600941269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600941268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &1601222565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42983,18 +43904,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (15)
+      value: rb_totem_fortaleza_14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1626463019}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1626463017 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 1626463016}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1626463018 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1626463016}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1626463019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626463018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &1630681290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44095,13 +45038,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1680953008}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &1680953006 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890054639379304312, guid: de006963d82078d47935b9018c972090, type: 3}
   m_PrefabInstance: {fileID: 1680953005}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1680953007 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 1680953005}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1680953008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680953007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &1682901079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45469,6 +46434,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
       objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_fortaleza_9
+      objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
       value: BannerDeChao_Jogadora (4)
@@ -45528,13 +46497,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1760272424}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &1760272422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6863468537098632359, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
   m_PrefabInstance: {fileID: 1760272421}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1760272423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 1760272421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1760272424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760272423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &1761488163
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45618,13 +46609,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1761488166}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &1761488164 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890054639379304312, guid: de006963d82078d47935b9018c972090, type: 3}
   m_PrefabInstance: {fileID: 1761488163}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1761488165 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 1761488163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1761488166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761488165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &1763540743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45664,6 +46677,10 @@ PrefabInstance:
     - target: {fileID: 1196386069604760609, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_fortaleza_5
       objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
@@ -45724,13 +46741,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1763540746}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &1763540744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6863468537098632359, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
   m_PrefabInstance: {fileID: 1763540743}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1763540745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 1763540743}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1763540746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763540745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1 &1764821297
 GameObject:
   m_ObjectHideFlags: 0
@@ -46126,18 +47165,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (16)
+      value: rb_totem_fortaleza_15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1780265488}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1780265486 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 1780265485}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1780265487 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1780265485}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1780265488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780265487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &1784959926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46557,6 +47618,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
       objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_fortaleza_6
+      objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
       value: BannerDeChao_Jogadora (1)
@@ -46616,13 +47681,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1801580806}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &1801580804 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6863468537098632359, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
   m_PrefabInstance: {fileID: 1801580803}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1801580805 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 1801580803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1801580806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801580805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1 &1810602044
 GameObject:
   m_ObjectHideFlags: 0
@@ -52434,13 +53521,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2091693177}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &2091693175 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890054639379304312, guid: de006963d82078d47935b9018c972090, type: 3}
   m_PrefabInstance: {fileID: 2091693174}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2091693176 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 2091693174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2091693177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091693176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &2092810912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52882,13 +53991,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2108119388}
   m_SourcePrefab: {fileID: 100100000, guid: de006963d82078d47935b9018c972090, type: 3}
 --- !u!4 &2108119386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890054639379304312, guid: de006963d82078d47935b9018c972090, type: 3}
   m_PrefabInstance: {fileID: 2108119385}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2108119387 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065021172404264067, guid: de006963d82078d47935b9018c972090, type: 3}
+  m_PrefabInstance: {fileID: 2108119385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2108119388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108119387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &2110071436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53510,16 +54641,42 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 2bf6b776a225efe4aaeb02ff9372fbfd, type: 2}
+    - target: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_fortaleza_12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2144659007}
   m_SourcePrefab: {fileID: 100100000, guid: 5013ea25269253447bd320d296f94b64, type: 3}
 --- !u!4 &2144659005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2204699687388806475, guid: 5013ea25269253447bd320d296f94b64, type: 3}
   m_PrefabInstance: {fileID: 2144659004}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2144659006 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+  m_PrefabInstance: {fileID: 2144659004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2144659007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144659006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 0
 --- !u!1001 &2145140654
 PrefabInstance:
   m_ObjectHideFlags: 0

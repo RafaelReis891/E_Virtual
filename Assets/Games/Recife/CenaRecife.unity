@@ -8494,31 +8494,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.28
+      value: 10.28069
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.13
+      value: 0.12999994
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.23
+      value: 21.229836
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.9748726
+      value: 0.22276284
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -9.947597e-14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.22276333
+      value: -0.9748727
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 3.5527133e-14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8526,7 +8526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 385.743
+      value: 565.743
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -8534,18 +8534,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (2)
+      value: rb_totem_recife_4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 425772293}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &425772291 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 425772290}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &425772292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 425772290}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &425772293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425772292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &426766540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9902,6 +9924,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 154395206}
     m_Modifications:
+    - target: {fileID: 58905330588550990, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7ad912a37004b43488410cf85d32c20f, type: 2}
     - target: {fileID: 1196386069604760609, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9999972
@@ -9929,6 +9955,10 @@ PrefabInstance:
     - target: {fileID: 1196386069604760609, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_recife_01
       objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
@@ -9989,13 +10019,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 467732048}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &467732046 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6863468537098632359, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
   m_PrefabInstance: {fileID: 467732045}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &467732047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 467732045}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &467732048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467732047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
 --- !u!1 &473654676
 GameObject:
   m_ObjectHideFlags: 0
@@ -14197,16 +14249,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4716989530504660642, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2bf6b776a225efe4aaeb02ff9372fbfd, type: 2}
+    - target: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_recife_04
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 634711373}
   m_SourcePrefab: {fileID: 100100000, guid: 5013ea25269253447bd320d296f94b64, type: 3}
 --- !u!4 &634711371 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2204699687388806475, guid: 5013ea25269253447bd320d296f94b64, type: 3}
   m_PrefabInstance: {fileID: 634711370}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &634711372 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+  m_PrefabInstance: {fileID: 634711370}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &634711373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634711372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
 --- !u!1001 &636214702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22764,7 +22846,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.28
+      value: 10.2800665
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22772,11 +22854,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.23
+      value: 21.229965
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.9748726
+      value: -0.22276302
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalRotation.x
@@ -22784,7 +22866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.22276333
+      value: 0.97487265
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalRotation.z
@@ -22796,7 +22878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 385.743
+      value: 205.743
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -22804,18 +22886,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (2)
+      value: rb_totem_recife_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 973301728}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &973301726 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 973301725}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &973301727 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 973301725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &973301728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973301727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &979077423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22914,6 +23018,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.195
       objectReference: {fileID: 0}
+    - target: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_recife_02
+      objectReference: {fileID: 0}
     - target: {fileID: 6313404116633781307, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
       propertyPath: m_Name
       value: BannerDeChao_Jogadora (1)
@@ -22973,13 +23081,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 981312339}
   m_SourcePrefab: {fileID: 100100000, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
 --- !u!4 &981312337 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6863468537098632359, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
   m_PrefabInstance: {fileID: 981312336}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &981312338 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2004588257474782875, guid: fa2d1fe47f26e2c4d92631108777144a, type: 3}
+  m_PrefabInstance: {fileID: 981312336}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &981312339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981312338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
 --- !u!1001 &981863657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28232,9 +28362,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 157116396840515750, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1189709946}
-    - targetCorrespondingSourceObject: {fileID: 5092428124841923690, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
 --- !u!1 &1149764025 stripped
 GameObject:
@@ -35961,7 +36088,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.28
+      value: 10.28008
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalPosition.y
@@ -35969,11 +36096,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.23
+      value: 21.229954
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.9748726
+      value: 0.22276321
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalRotation.x
@@ -35981,7 +36108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.22276333
+      value: -0.97487265
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalRotation.z
@@ -35993,7 +36120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 385.743
+      value: 565.743
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -36001,18 +36128,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (2)
+      value: rb_totem_recife_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1501604018}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1501604016 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 1501604015}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1501604017 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1501604015}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1501604018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501604017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &1502171627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42188,16 +42337,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4716989530504660642, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2bf6b776a225efe4aaeb02ff9372fbfd, type: 2}
+    - target: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      propertyPath: m_Name
+      value: rb_bannervert_recife_03
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1726262006}
   m_SourcePrefab: {fileID: 100100000, guid: 5013ea25269253447bd320d296f94b64, type: 3}
 --- !u!4 &1726262004 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2204699687388806475, guid: 5013ea25269253447bd320d296f94b64, type: 3}
   m_PrefabInstance: {fileID: 1726262003}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1726262005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6518644403779151735, guid: 5013ea25269253447bd320d296f94b64, type: 3}
+  m_PrefabInstance: {fileID: 1726262003}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1726262006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726262005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: -1
 --- !u!1001 &1731359677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46952,7 +47131,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.28
+      value: 10.280059
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalPosition.y
@@ -46960,11 +47139,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.23
+      value: 21.229973
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.9748726
+      value: -0.22276396
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalRotation.x
@@ -46972,7 +47151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.22276333
+      value: 0.97487247
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalRotation.z
@@ -46984,7 +47163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 385.743
+      value: 205.743
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -46992,18 +47171,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
       propertyPath: m_Name
-      value: Totem_A (2)
+      value: rb_totem_recife_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1924540598}
   m_SourcePrefab: {fileID: 100100000, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
 --- !u!4 &1924540596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
   m_PrefabInstance: {fileID: 1924540595}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1924540597 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d25fa50f16e3dfe4782cbfa03ad70aab, type: 3}
+  m_PrefabInstance: {fileID: 1924540595}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1924540598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924540597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e467041558ff663469c60222b4620a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteBanner
+  chave: 
+  slot: 3
 --- !u!1001 &1929250014
 PrefabInstance:
   m_ObjectHideFlags: 0
