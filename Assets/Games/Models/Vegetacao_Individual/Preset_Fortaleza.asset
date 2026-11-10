@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f7d0a48721ae244480cd2aaf0ed72d9, type: 3}
+  m_Name: Preset_Fortaleza
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::Vegetacao.EditorTools.VegetacaoPreset
+  nomeRaiz: FORTALEZA_VEG
+  paiNome: VEG_REF
+  seed: 12345
+  desativarOriginais: 1
+  extrRazaoFino: 0.5
+  extrTolY: 1
+  extrDistMax: 15
+  classes:
+  - nome: Estadio
+    ativa: 1
+    origem: 0
+    fbxFonte: {fileID: 0}
+    objetoCena: VEGETACAO_ESTADIO
+    csv: {fileID: 0}
+    csvTipo: 
+    extrMinTriangulos: 20
+    prefabs:
+    - {fileID: 8069780934006102704, guid: 4766da69b864ff14daeeb20d8383e2f4, type: 3}
+    - {fileID: 2397862082467003821, guid: 4a5b5433169f687428e3dc1eeecb11b0, type: 3}
+    - {fileID: 3224998589937940653, guid: bfd29568ad773224e86b5acca33eeb71, type: 3}
+    escala: 0
+    multiplicador: 1
+    escalaMin: 0.4
+    escalaMax: 3.2
+    rotacaoAleatoria: 1
+    batchingStatic: 0
+  - nome: Ponte
+    ativa: 1
+    origem: 0
+    fbxFonte: {fileID: 0}
+    objetoCena: VEGETACAO_PONTE
+    csv: {fileID: 0}
+    csvTipo: 
+    extrMinTriangulos: 20
+    prefabs:
+    - {fileID: 8069780934006102704, guid: 4766da69b864ff14daeeb20d8383e2f4, type: 3}
+    - {fileID: 2397862082467003821, guid: 4a5b5433169f687428e3dc1eeecb11b0, type: 3}
+    - {fileID: 3224998589937940653, guid: bfd29568ad773224e86b5acca33eeb71, type: 3}
+    escala: 0
+    multiplicador: 1
+    escalaMin: 0.4
+    escalaMax: 3.2
+    rotacaoAleatoria: 1
+    batchingStatic: 0
