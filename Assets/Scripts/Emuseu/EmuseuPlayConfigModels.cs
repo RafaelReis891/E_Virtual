@@ -132,8 +132,13 @@ public class EmuseuCard
     public string border;       // common | host | special
     public EmuseuRelease release;
     public string imageUrl;     // URLs assinadas: podem expirar
+    public string imageUrlEn;
     public string thumbUrl;
+    public string thumbUrlEn;
     public string videoUrl;
+    public string videoUrlEn;
+    public string audioDescriptionUrl;
+    public string audioDescriptionUrlEn;
     public string media;        // "image" ou "video"
 }
 

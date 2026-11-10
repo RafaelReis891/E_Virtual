@@ -185,15 +185,58 @@ public class CharacterAppearDissolve : MonoBehaviour
             SetDissolve(0f);
         }
 
-        // Áudio
-        AudioClip clip = (Idioma.Ingles && voiceClipEng != null) ? voiceClipEng : voiceClip;
+        // Áudio. Com RemoteVoiceClip, espera o clipe do idioma do site. Sem ele, usa o OGG do objeto.
+        AudioClip clip;
+        RemoteVoiceClip voz = GetComponent<RemoteVoiceClip>();
+        if (voz != null)
+        {
+            yield return voz.EsperarClip();
+            if (encerrando) yield break;
+            clip = voz.ClipEmUso;
+        }
+        else
+            clip = (Idioma.Ingles && voiceClipEng != null) ? voiceClipEng : voiceClip;
+
         if (clip != null && audioSource != null)
         {
             Log("Tocando áudio: " + clip.name);
             audioSource.clip = clip;
             audioSource.volume = volume;
             audioSource.Play();
-            yield return new WaitForSeconds(clip.length);
+            // WebGL MPEG (UnityWebRequestMultimedia) não segura isPlaying.
+            // Espera o length do clipe atribuído ao AudioSource; Encerrar interrompe.
+            AudioClip tocando = audioSource.clip;
+            if (tocando == null || tocando.length <= 0f)
+            {
+                while (audioSource.isPlaying && !encerrando)
+                    yield return null;
+            }
+            else
+            {
+                float elapsed = 0f;
+                float duration = tocando.length;
+                while (!encerrando)
+                {
+                    if (audioSource.clip != tocando)
+                    {
+                        tocando = audioSource.clip;
+                        elapsed = 0f;
+                        if (tocando == null || tocando.length <= 0f)
+                        {
+                            while (audioSource.isPlaying && !encerrando)
+                                yield return null;
+                            break;
+                        }
+                        duration = tocando.length;
+                    }
+
+                    if (elapsed >= duration)
+                        break;
+
+                    elapsed += Time.deltaTime;
+                    yield return null;
+                }
+            }
         }
 
         if (objectToActivate != null)
