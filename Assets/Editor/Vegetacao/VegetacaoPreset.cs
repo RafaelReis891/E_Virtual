@@ -33,6 +33,8 @@ namespace Vegetacao.EditorTools
         public TextAsset csv;
         [Tooltip("Coluna 'type' do CSV a filtrar (vazio = todas as linhas).")]
         public string csvTipo;
+        [Tooltip("Na origem por malha mesclada, ignora ilhas com menos triangulos que este valor (ex.: folhas soltas). 0 = nao filtrar.")]
+        public int extrMinTriangulos = 0;
 
         [Header("Substituicao")]
         public List<GameObject> prefabs = new List<GameObject>();

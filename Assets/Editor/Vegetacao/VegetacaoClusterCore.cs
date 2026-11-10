@@ -18,6 +18,8 @@ namespace Vegetacao.EditorTools
         public float WeldPrecision = 1e-4f;
         /// <summary>Diferenca minima (m) de altura de base para uma ilha ser considerada "abaixo" de outra.</summary>
         public float BelowEps = 0.05f;
+        /// <summary>Ilhas com menos triangulos que isso sao ignoradas. 0 = nao filtrar.</summary>
+        public int MinTris = 0;
     }
 
     /// <summary>Uma arvore/planta encontrada (ou lida de CSV). Posicao = centro da base.</summary>
@@ -117,11 +119,22 @@ namespace Vegetacao.EditorTools
                 area[i] = (maxX[i] - minX[i]) * (maxZ[i] - minZ[i]);
             }
 
+            // 2b) ignorar ilhas pequenas (ex.: cartoes de folha). 0 = nao filtrar.
+            var use = new bool[N];
+            int used = 0;
+            for (int i = 0; i < N; i++)
+            {
+                use[i] = o.MinTris <= 0 || triCnt[i] >= o.MinTris;
+                if (use[i]) used++;
+            }
+            if (used == 0) return result;
+
             // 3) grade espacial dos centros das ilhas
             const float cs = 4f;
             var grid = new Dictionary<long, List<int>>();
             for (int i = 0; i < N; i++)
             {
+                if (!use[i]) continue;
                 long key = Key((int)Math.Floor(cx[i] / cs), (int)Math.Floor(cz[i] / cs));
                 List<int> l;
                 if (!grid.TryGetValue(key, out l)) { l = new List<int>(); grid[key] = l; }
@@ -132,6 +145,7 @@ namespace Vegetacao.EditorTools
             var isAnchor = new bool[N];
             for (int a = 0; a < N; a++)
             {
+                if (!use[a]) { isAnchor[a] = false; continue; }
                 isAnchor[a] = true;
                 float x0 = minX[a] - 0.05f, x1 = maxX[a] + 0.05f, z0 = minZ[a] - 0.05f, z1 = maxZ[a] + 0.05f;
                 int gx0 = (int)Math.Floor(x0 / cs), gx1 = (int)Math.Floor(x1 / cs);
@@ -171,7 +185,7 @@ namespace Vegetacao.EditorTools
             float maxD2 = o.MaxAssignDist * o.MaxAssignDist;
             for (int i = 0; i < N; i++)
             {
-                if (isAnchor[i]) continue;
+                if (!use[i] || isAnchor[i]) continue;
                 int gx = (int)Math.Floor(cx[i] / acs), gz = (int)Math.Floor(cz[i] / acs);
                 int best = -1; float bestD = float.MaxValue;
                 for (int dx = -1; dx <= 1; dx++)
@@ -228,6 +242,7 @@ namespace Vegetacao.EditorTools
             for (int i = 0; i < M; i++) { tx0[i] = tz0[i] = float.MaxValue; tx1[i] = tz1[i] = ty1[i] = float.MinValue; }
             for (int i = 0; i < N; i++)
             {
+                if (!use[i] || anchorOf[i] < 0) continue;
                 int tr = treeOfAnchor[anchorOf[i]];
                 var rec = result[tr];
                 rec.IslandCount++;
@@ -243,7 +258,12 @@ namespace Vegetacao.EditorTools
                 rec.CrownW = tx1[i] - tx0[i];
                 rec.CrownD = tz1[i] - tz0[i];
             }
-            for (int t = 0; t < T; t++) triTree[t] = treeOfAnchor[anchorOf[triIsland[t]]];
+            for (int t = 0; t < T; t++)
+            {
+                int isl = triIsland[t];
+                if (!use[isl] || anchorOf[isl] < 0) triTree[t] = -1;
+                else triTree[t] = treeOfAnchor[anchorOf[isl]];
+            }
             return result;
         }
     }

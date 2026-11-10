@@ -23,9 +23,9 @@ namespace Vegetacao.EditorTools
 
         static string F(float v) { return v.ToString("0.##", CultureInfo.InvariantCulture); }
 
-        static ClusterOptions Opt(VegetacaoPreset p)
+        static ClusterOptions Opt(VegetacaoPreset p, VegClasse c)
         {
-            return new ClusterOptions { ThinRatio = p.extrRazaoFino, YTol = p.extrTolY, MaxAssignDist = p.extrDistMax };
+            return new ClusterOptions { ThinRatio = p.extrRazaoFino, YTol = p.extrTolY, MaxAssignDist = p.extrDistMax, MinTris = c != null ? Math.Max(0, c.extrMinTriangulos) : 0 };
         }
 
         static List<TreeRecord> GetRecords(VegetacaoPreset p, VegClasse c, Transform parent, StringBuilder log, out string err)
@@ -51,7 +51,7 @@ namespace Vegetacao.EditorTools
             var d = VegMerged.Build(src, out err);
             if (d == null) return null;
             int[] triTree; int orphans;
-            var recs = d.Cluster(Opt(p), out triTree, out orphans);
+            var recs = d.Cluster(Opt(p, c), out triTree, out orphans);
             log.AppendLine("  [" + c.nome + "] extraidas " + recs.Count + " de " + srcDesc + (orphans > 0 ? " (AVISO: " + orphans + " ilhas orfas viraram arvores proprias)" : ""));
             return recs;
         }
