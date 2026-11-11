@@ -109,3 +109,10 @@ InitTestScene*.unity*
 /[Aa]ssets/[Ss]ceneDependencyCache*
 Assets/Interlagos/interlagos 1.obj
 Assets/Interlagos/interlagos 1.obj.meta
+
+# Stadium Creator 2 stays on disk for local editor use; do not commit (WebGL/OOM, LFS).
+/Assets/Stadium Creator 2/
+/Assets/Stadium Creator 2.meta
+# Local-only stadium test scene (crowd experiment); do not commit.
+/Assets/Games/RioDeJaneiro/Default/CenaArena_estadio.unity
+/Assets/Games/RioDeJaneiro/Default/CenaArena_estadio.unity.meta
