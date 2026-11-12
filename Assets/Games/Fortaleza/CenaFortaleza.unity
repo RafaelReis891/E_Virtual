@@ -893,7 +893,7 @@ Transform:
   m_GameObject: {fileID: 32301577}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7046887, y: -0.058427565, z: -0.058427487, w: 0.70468885}
-  m_LocalPosition: {x: -0.0017196941, y: 0.0015736001, z: 0.0056100073}
+  m_LocalPosition: {x: -0.00183, y: 0.0009, z: 0.00561}
   m_LocalScale: {x: 0.00089999987, y: 0.00089520647, z: 0.00089520647}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -982,7 +982,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: fc9cad2788b782b4aa078b573ca746b7, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -990,7 +990,7 @@ SpriteRenderer:
   m_Size: {x: 3.71, y: 3.73}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!1001 &38485689
@@ -15027,10 +15027,10 @@ PrefabInstance:
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 0}
+      addedObject: {fileID: 601035643}
     - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 601035643}
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
 --- !u!4 &601035641 stripped
 Transform:
@@ -15054,7 +15054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
-  keyOverride: 
+  keyOverride: Puzzle_CE_E3
   showLogs: 0
 --- !u!1 &602904567
 GameObject:
@@ -15487,7 +15487,7 @@ Transform:
   m_GameObject: {fileID: 613549740}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00000014901161, y: 0.080566816, z: -0.000000074505806, w: 0.9967492}
-  m_LocalPosition: {x: 0.04, y: -0.02, z: -0.38}
+  m_LocalPosition: {x: 0.1, y: -0.02, z: -0}
   m_LocalScale: {x: 0.4, y: 0.4000413, z: 0.40003896}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -15542,7 +15542,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -7228728672694839847, guid: 486dcf159a1ec8c448330bb725c2d98d, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 0.99442315, g: 1, b: 0.035294116, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -15550,7 +15550,7 @@ SpriteRenderer:
   m_Size: {x: 10.8, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!1001 &613560949
@@ -21314,7 +21314,7 @@ Transform:
   m_GameObject: {fileID: 835165299}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00000014901161, y: 0.080566816, z: -0.000000074505806, w: 0.9967492}
-  m_LocalPosition: {x: 0.04, y: -0.02, z: -0.38}
+  m_LocalPosition: {x: 0.1, y: -0.02, z: -0}
   m_LocalScale: {x: 0.4, y: 0.4000413, z: 0.40003896}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -21369,7 +21369,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -7228728672694839847, guid: 486dcf159a1ec8c448330bb725c2d98d, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 0.99442315, g: 1, b: 0.035294116, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -21377,7 +21377,7 @@ SpriteRenderer:
   m_Size: {x: 10.8, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!1001 &839243479
@@ -22182,10 +22182,10 @@ PrefabInstance:
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 0}
+      addedObject: {fileID: 846375503}
     - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 846375503}
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
 --- !u!4 &846375501 stripped
 Transform:
@@ -22209,7 +22209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
-  keyOverride: 
+  keyOverride: Puzzle_CE_E1
   showLogs: 0
 --- !u!1 &854475576
 GameObject:
@@ -23025,7 +23025,7 @@ Transform:
   m_GameObject: {fileID: 904009527}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7046887, y: -0.058427565, z: -0.058427487, w: 0.70468885}
-  m_LocalPosition: {x: -0.0052356147, y: 0.00138689, z: 0.0031599998}
+  m_LocalPosition: {x: -0.00535, y: 0.00071, z: 0.00316}
   m_LocalScale: {x: 0.00089999987, y: 0.00089520647, z: 0.00089520647}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -23114,7 +23114,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: fc9cad2788b782b4aa078b573ca746b7, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -23122,7 +23122,7 @@ SpriteRenderer:
   m_Size: {x: 3.71, y: 3.73}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!1 &904599717
@@ -30545,10 +30545,10 @@ PrefabInstance:
       addedObject: {fileID: 1189709946}
     - targetCorrespondingSourceObject: {fileID: 5092428124841923690, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 0}
+      addedObject: {fileID: 1149764028}
     - targetCorrespondingSourceObject: {fileID: 5092428124841923690, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1149764028}
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
 --- !u!1 &1149764025 stripped
 GameObject:
@@ -30577,7 +30577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
-  keyOverride: 
+  keyOverride: Puzzle_CE_E4
   showLogs: 0
 --- !u!1001 &1152203970
 PrefabInstance:
@@ -31813,7 +31813,7 @@ Transform:
   m_GameObject: {fileID: 1209283942}
   serializedVersion: 2
   m_LocalRotation: {x: 0.019466328, y: -0.706839, z: -0.70683867, w: 0.01946686}
-  m_LocalPosition: {x: 0.00017, y: 0.00173, z: 0.00563}
+  m_LocalPosition: {x: 0.00017, y: 0.00176, z: 0.00563}
   m_LocalScale: {x: 0.001, y: 0.000994674, z: 0.000994674}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -40698,7 +40698,7 @@ Transform:
   m_GameObject: {fileID: 1546955752}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00000014901161, y: 0.080566816, z: -0.000000074505806, w: 0.9967492}
-  m_LocalPosition: {x: 0.04, y: -0.02, z: -0.38}
+  m_LocalPosition: {x: 0.1, y: -0.02, z: -0}
   m_LocalScale: {x: 0.4, y: 0.4000413, z: 0.40003896}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -40753,7 +40753,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -7228728672694839847, guid: 486dcf159a1ec8c448330bb725c2d98d, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 0.99442315, g: 1, b: 0.035294116, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -40761,7 +40761,7 @@ SpriteRenderer:
   m_Size: {x: 10.8, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!1001 &1547833481
@@ -43614,7 +43614,7 @@ Transform:
   m_GameObject: {fileID: 1621150924}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7046887, y: -0.058427565, z: -0.058427487, w: 0.70468885}
-  m_LocalPosition: {x: 0.0020058346, y: 0.0017767135, z: 0.004200001}
+  m_LocalPosition: {x: 0.00189, y: 0.0011, z: 0.0042}
   m_LocalScale: {x: 0.00089999987, y: 0.00089520647, z: 0.00089520647}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -43703,7 +43703,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: fc9cad2788b782b4aa078b573ca746b7, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -43711,7 +43711,7 @@ SpriteRenderer:
   m_Size: {x: 3.71, y: 3.73}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!1001 &1621996634
@@ -53207,10 +53207,10 @@ PrefabInstance:
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 0}
+      addedObject: {fileID: 2083199986}
     - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2083199986}
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
 --- !u!4 &2083199981 stripped
 Transform:
@@ -53249,7 +53249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
-  keyOverride: 
+  keyOverride: Puzzle_CE_E5
   showLogs: 0
 --- !u!1 &2090539248
 GameObject:
@@ -55048,6 +55048,14 @@ PrefabInstance:
       propertyPath: _OnTriggerExit.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1223074408}
+    - target: {fileID: 2517605654141398846, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517605654141398846, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.37
+      objectReference: {fileID: 0}
     - target: {fileID: 3233894643255630517, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_LocalPosition.x
       value: -50.6
@@ -55134,7 +55142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4644488876819969979, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00101
+      value: 0.00097
       objectReference: {fileID: 0}
     - target: {fileID: 4644488876819969979, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_LocalPosition.z
@@ -55147,6 +55155,14 @@ PrefabInstance:
     - target: {fileID: 4751404711912654232, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: idCorreto
       value: BRA
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186705404404979940, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186705404404979940, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6407076548865262978, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: modo
@@ -55370,15 +55386,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7561043711318201276, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0055414867
+      value: 0.00543
       objectReference: {fileID: 0}
     - target: {fileID: 7561043711318201276, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0019740195
+      value: 0.0013
       objectReference: {fileID: 0}
     - target: {fileID: 7561043711318201276, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.002310009
+      value: 0.00231
       objectReference: {fileID: 0}
     - target: {fileID: 7561043711318201276, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_LocalRotation.w
@@ -55406,6 +55422,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7701099793243992091, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035600094695453931, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035600094695453931, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -55436,10 +55460,10 @@ PrefabInstance:
       addedObject: {fileID: 1351527726}
     - targetCorrespondingSourceObject: {fileID: 505551766725402958, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 0}
+      addedObject: {fileID: 2022267645717311150}
     - targetCorrespondingSourceObject: {fileID: 505551766725402958, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2022267645717311150}
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
 --- !u!1 &2022267645717311149 stripped
 GameObject:
@@ -55458,7 +55482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
-  keyOverride: 
+  keyOverride: Puzzle_CE_E2
   showLogs: 0
 --- !u!1001 &5393215579111688471
 PrefabInstance:
