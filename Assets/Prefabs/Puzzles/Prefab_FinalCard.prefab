@@ -375,6 +375,7 @@ GameObject:
   - component: {fileID: 8927272388808854212}
   - component: {fileID: 2574827098239628776}
   - component: {fileID: 108858403872987410}
+  - component: {fileID: 7760140027863065220}
   m_Layer: 0
   m_Name: Prefab_FinalCard
   m_TagString: Untagged
@@ -423,8 +424,8 @@ MonoBehaviour:
   indiceMaterial: 0
   usarTambemNaEmissao: 0
   rawImage: {fileID: 0}
-  videoPlayer: {fileID: 0}
-  videoPorAproximacao: 1
+  videoPlayer: {fileID: 7760140027863065220}
+  videoPorAproximacao: 0
   jogador: {fileID: 0}
   distanciaVideo: 4
   resolucaoVideo: 1024
@@ -522,6 +523,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RotateObject
   rotationAxis: {x: 0, y: 1, z: 0}
   rotationSpeed: 30
+--- !u!328 &7760140027863065220
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3750047251547080828}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 0}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 2
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_TimeUpdateMode: 2
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01o
+  m_DirectAudioMutes: 00o
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
 --- !u!1 &4050114332115795412
 GameObject:
   m_ObjectHideFlags: 0
