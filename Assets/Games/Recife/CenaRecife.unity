@@ -7014,6 +7014,14 @@ PrefabInstance:
       propertyPath: m_margin.y
       value: -4.925747
       objectReference: {fileID: 0}
+    - target: {fileID: 7274161844819948141, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274161844819948141, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7294393970565324933, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       propertyPath: timerAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7101,12 +7109,37 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7701099793243992091, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       insertIndex: -1
       addedObject: {fileID: 561060838}
+    - targetCorrespondingSourceObject: {fileID: 505551766725402958, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 505551766725402958, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 312291012}
   m_SourcePrefab: {fileID: 100100000, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
 --- !u!4 &312291010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3233894643255630517, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
   m_PrefabInstance: {fileID: 312291009}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &312291011 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 505551766725402958, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+  m_PrefabInstance: {fileID: 312291009}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &312291012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312291011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
+  keyOverride: 
+  showLogs: 0
 --- !u!1001 &314516437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28409,6 +28442,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 157116396840515750, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1189709946}
+    - targetCorrespondingSourceObject: {fileID: 5092428124841923690, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5092428124841923690, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1149764028}
   m_SourcePrefab: {fileID: 100100000, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
 --- !u!1 &1149764025 stripped
 GameObject:
@@ -28420,6 +28459,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2526536057239392793, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
   m_PrefabInstance: {fileID: 1149764024}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1149764027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5092428124841923690, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
+  m_PrefabInstance: {fileID: 1149764024}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1149764028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149764027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
+  keyOverride: 
+  showLogs: 0
 --- !u!1001 &1158217330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46284,6 +46342,7 @@ GameObject:
   - component: {fileID: 1889209464}
   - component: {fileID: 1889209463}
   - component: {fileID: 1889209465}
+  - component: {fileID: 1889209466}
   m_Layer: 0
   m_Name: Descricao (1)
   m_TagString: Untagged
@@ -46469,6 +46528,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
   en: Form the word that completes the hashtag #DeixaEla
+--- !u!114 &1889209466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889209461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
+  keyOverride: 
+  showLogs: 0
 --- !u!1 &1889953558
 GameObject:
   m_ObjectHideFlags: 0
@@ -46481,6 +46554,7 @@ GameObject:
   - component: {fileID: 1889953561}
   - component: {fileID: 1889953560}
   - component: {fileID: 1889953562}
+  - component: {fileID: 1889953563}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -46664,6 +46738,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
   en: In 2018, Fox Sports formed the first all-women team to broadcast the World Cup in Brazil. Who was on it? Click and drag the shirts with the correct names to the top
+--- !u!114 &1889953563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889953558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
+  keyOverride: 
+  showLogs: 0
 --- !u!1001 &1901654968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51232,7 +51320,32 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7701099793243992091, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1351527726}
+    - targetCorrespondingSourceObject: {fileID: 505551766725402958, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 505551766725402958, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2022267645717311150}
   m_SourcePrefab: {fileID: 100100000, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+--- !u!1 &2022267645717311149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 505551766725402958, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
+  m_PrefabInstance: {fileID: 2022267645717311148}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2022267645717311150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022267645717311149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
+  keyOverride: 
+  showLogs: 0
 --- !u!1001 &5393215579111688471
 PrefabInstance:
   m_ObjectHideFlags: 0

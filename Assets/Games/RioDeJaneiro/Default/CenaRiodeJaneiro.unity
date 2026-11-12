@@ -1150,7 +1150,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 371546727418162110, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
       propertyPath: m_Name
-      value: Puzzle_E3
+      value: Puzzle_RJ_E3
       objectReference: {fileID: 0}
     - target: {fileID: 371546727418162110, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
       propertyPath: m_IsActive
@@ -1685,10 +1685,35 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 371546727418162110, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1157306766}
+    - targetCorrespondingSourceObject: {fileID: 8240495700422269416, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8240495700422269416, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 117914661}
     - targetCorrespondingSourceObject: {fileID: 9196682085048462961, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2086048290}
   m_SourcePrefab: {fileID: 100100000, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
+--- !u!1 &117914660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8240495700422269416, guid: 3d925a57a3c42ba48a284ebffddd4518, type: 3}
+  m_PrefabInstance: {fileID: 117914659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &117914661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117914660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
+  keyOverride: 
+  showLogs: 0
 --- !u!1 &124588118
 GameObject:
   m_ObjectHideFlags: 0
@@ -4948,6 +4973,7 @@ GameObject:
   - component: {fileID: 412609505}
   - component: {fileID: 412609504}
   - component: {fileID: 412609506}
+  - component: {fileID: 412609507}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -5131,6 +5157,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
   en: "Left-click a shirt and drag it to spell the word by which the Ta\xE7a das Favelas is affectionately known."
+--- !u!114 &412609507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412609502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
+  keyOverride: 
+  showLogs: 0
 --- !u!1 &412609921 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6488686400550564261, guid: 8080b5a2a43ff8c49ab4868b0ac514f4, type: 3}
@@ -5534,7 +5574,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4423608740542194680, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
   m_PrefabInstance: {fileID: 1527947193}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1527947194}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
@@ -17002,7 +17042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 157116396840515750, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       propertyPath: m_Name
-      value: Puzzle_E2
+      value: Puzzle_RJ_E2
       objectReference: {fileID: 0}
     - target: {fileID: 157116396840515750, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       propertyPath: m_IsActive
@@ -17519,7 +17559,32 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9060700340976407483, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1471297391}
+    - targetCorrespondingSourceObject: {fileID: 5982345744849874558, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5982345744849874558, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1527947195}
   m_SourcePrefab: {fileID: 100100000, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
+--- !u!1 &1527947194 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5982345744849874558, guid: 0fba53ec521a4ca4cb80044862c97e99, type: 3}
+  m_PrefabInstance: {fileID: 1527947193}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1527947195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527947194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
+  keyOverride: 
+  showLogs: 0
 --- !u!1001 &1527989895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18632,7 +18697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6602099801085300476, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       propertyPath: m_Name
-      value: Puzzle_E5
+      value: Puzzle_RJ_E5
       objectReference: {fileID: 0}
     - target: {fileID: 6602099801085300476, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       propertyPath: m_IsActive
@@ -18665,7 +18730,32 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6602099801085300476, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 238928822}
+    - targetCorrespondingSourceObject: {fileID: 845107133009966358, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 845107133009966358, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1596619008}
   m_SourcePrefab: {fileID: 100100000, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
+--- !u!1 &1596619007 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 845107133009966358, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
+  m_PrefabInstance: {fileID: 1596619006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1596619008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596619007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
+  keyOverride: 
+  showLogs: 0
 --- !u!1001 &1601222565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25003,7 +25093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4447090411291467480, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_Name
-      value: Puzzle_E4
+      value: Puzzle_RJ_E4
       objectReference: {fileID: 0}
     - target: {fileID: 4447090411291467480, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       propertyPath: m_IsActive
@@ -25383,7 +25473,35 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4447090411291467480, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4542605019363755516}
+    - targetCorrespondingSourceObject: {fileID: 1602773069419242686, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2234529834301215852}
   m_SourcePrefab: {fileID: 100100000, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+--- !u!1 &2234529834301215851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+  m_PrefabInstance: {fileID: 2234529834301215850}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2234529834301215852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2234529834301215851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
+  keyOverride: 
+  showLogs: 0
 --- !u!1001 &2313048520150036361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25686,7 +25804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8995700534859193685, guid: 5e1ff177585604b458490b2ef19fffd1, type: 3}
       propertyPath: m_Name
-      value: Puzzle_E1
+      value: Puzzle_RJ_E1
       objectReference: {fileID: 0}
     - target: {fileID: 8995700534859193685, guid: 5e1ff177585604b458490b2ef19fffd1, type: 3}
       propertyPath: m_IsActive

@@ -2557,7 +2557,44 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3509302801024370808, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
       insertIndex: -1
       addedObject: {fileID: 224551738}
+    - targetCorrespondingSourceObject: {fileID: 2702752533640588288, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2702752533640588288, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 117914661}
+    - targetCorrespondingSourceObject: {fileID: 6096791607754913585, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 3289483531185673203, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 3206780679787470050, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8815581617458378690, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+--- !u!1 &117914660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2702752533640588288, guid: e4c6933adbda93a49b464ab66dd74326, type: 3}
+  m_PrefabInstance: {fileID: 117914659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &117914661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117914660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
+  keyOverride: 
+  showLogs: 0
 --- !u!1001 &119845196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6864,6 +6901,7 @@ GameObject:
   - component: {fileID: 370814512}
   - component: {fileID: 370814511}
   - component: {fileID: 370814513}
+  - component: {fileID: 370814514}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -7047,6 +7085,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TextoIdioma
   en: How did the teams place in the first Brazilian Women's Football Championship in 2013? Click and drag each crest onto the correct medal.
+--- !u!114 &370814514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370814509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
+  keyOverride: 
+  showLogs: 0
 --- !u!1 &379127325
 GameObject:
   m_ObjectHideFlags: 0
@@ -25280,8 +25332,58 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 2064500466822972560, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1602773069419242686, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 1602773069419242686, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1437086135}
+    - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1437086134}
   m_SourcePrefab: {fileID: 100100000, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+--- !u!1 &1437086132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+  m_PrefabInstance: {fileID: 1437086131}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1437086133 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1602773069419242686, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
+  m_PrefabInstance: {fileID: 1437086131}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1437086134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437086132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
+  keyOverride: Puzzle_SP_E1_Quadro
+  showLogs: 0
+--- !u!114 &1437086135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437086133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
+  keyOverride: Puzzle_SP_E1_totem
+  showLogs: 0
 --- !u!1001 &1437140559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28543,7 +28645,32 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6602099801085300476, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1351527726}
+    - targetCorrespondingSourceObject: {fileID: 845107133009966358, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 845107133009966358, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1596619008}
   m_SourcePrefab: {fileID: 100100000, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
+--- !u!1 &1596619007 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 845107133009966358, guid: 74446d3699133c54096f1b427a3717b7, type: 3}
+  m_PrefabInstance: {fileID: 1596619006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1596619008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596619007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
+  keyOverride: 
+  showLogs: 0
 --- !u!1001 &1598375629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36767,6 +36894,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5171bc5d502fa714d9d8615885a442af, type: 3}
   m_PrefabInstance: {fileID: 2022008034}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2031634272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3124490687163800668, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
+  m_PrefabInstance: {fileID: 8793152769742434363}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2031634273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031634272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9fc967786f46c47b1dc1ee3f69e0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RemoteTexto
+  keyOverride: 
+  showLogs: 0
 --- !u!1 &2035332490
 GameObject:
   m_ObjectHideFlags: 0
@@ -39872,6 +40018,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 63021995255806111, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 302142728}
+    - targetCorrespondingSourceObject: {fileID: 3124490687163800668, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 3124490687163800668, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2031634273}
   m_SourcePrefab: {fileID: 100100000, guid: 49cb35c6714dc744a9fa289a2f7b5ce3, type: 3}
 --- !u!1 &8793152769742434364 stripped
 GameObject:
