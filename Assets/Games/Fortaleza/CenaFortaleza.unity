@@ -15022,15 +15022,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4447090411291467480, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 224551738}
-    - targetCorrespondingSourceObject: {fileID: 1602773069419242686, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 601035643}
-    - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
 --- !u!4 &601035641 stripped
 Transform:
@@ -22177,15 +22171,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4447090411291467480, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 885310972}
-    - targetCorrespondingSourceObject: {fileID: 1602773069419242686, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 846375503}
-    - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
 --- !u!4 &846375501 stripped
 Transform:
@@ -29532,7 +29520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 157116396840515750, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 252615204188540349, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29660,11 +29648,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_text
-      value: 
+      value: "Em qual pa\xEDs                a Sele\xE7\xE3o brasileira disputa as quartas-finais da Copa         do Mundo                         de Futebol Feminino Sub-20? (2026)"
       objectReference: {fileID: 0}
     - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_fontSize
-      value: 36
+      value: 6.55
       objectReference: {fileID: 0}
     - target: {fileID: 5060174091785667219, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: m_margin.w
@@ -29688,7 +29676,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6693754050857276094, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: pergunta
-      value: "Em qual pa\xEDs                a Sele\xE7\xE3o brasileira disputa as quartas-finais da Copa         do Mundo                         de Futebol Feminino Sub-20? (2026)\n"
+      value: '
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 6693754050857276094, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: textoErro
@@ -29702,6 +29692,10 @@ PrefabInstance:
       propertyPath: cameraJogador
       value: 
       objectReference: {fileID: 433591348}
+    - target: {fileID: 6693754050857276094, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
+      propertyPath: textoFeedback
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6693754050857276094, guid: a2fc79905c3747c4aba15c1e922b79e9, type: 3}
       propertyPath: direcaoCorreta
       value: Leste
@@ -53202,15 +53196,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4447090411291467480, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 561060838}
-    - targetCorrespondingSourceObject: {fileID: 1602773069419242686, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2083199986}
-    - targetCorrespondingSourceObject: {fileID: 6458818567547555862, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9cea0467f3ce7834ea020cae24d27f04, type: 3}
 --- !u!4 &2083199981 stripped
 Transform:
@@ -55461,9 +55449,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 505551766725402958, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2022267645717311150}
-    - targetCorrespondingSourceObject: {fileID: 505551766725402958, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 7cea14755ee2ac641b0249f6cabbac44, type: 3}
 --- !u!1 &2022267645717311149 stripped
 GameObject:
