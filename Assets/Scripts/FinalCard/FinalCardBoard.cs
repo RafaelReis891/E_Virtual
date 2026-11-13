@@ -42,7 +42,15 @@ public class FinalCardBoard : MonoBehaviour
     [Header("Audio do video")]
     public bool semSom = false;           // ligado = video sempre mudo
     [Range(0f, 1f)] public float volumeVideo = 0.25f;
-    public bool somSomentePerto = true;   // som liga perto do board e desliga longe
+    public bool somSomentePerto = true;   // (modo antigo, por distancia) som liga perto do board e desliga longe
+
+    [Header("Audio pelo trigger (novo)")]
+    [Tooltip("Ligado: o som do video sobe quando o jogador entra no MESMO trigger que aumenta o board, e desce quando sai. O video continua rodando. Ignora 'Som Somente Perto' e 'Distancia Video'.")]
+    public bool somAoEntrarNoCollider = true;
+    [Tooltip("Segundos para o som subir/descer ao entrar/sair do trigger")]
+    public float tempoFadeSom = 0.6f;
+    [Tooltip("Corrige o prefab: o FinalCardProximidade tem 'Rotator' apontando para este FinalCardBoard e o desliga ao entrar no trigger. Ligado: troca pelo RotateObject do mesmo objeto (ou nenhum).")]
+    public bool corrigirRotatorDoTrigger = true;
 
     [Header("Eventos")]
     public UnityEvent OnCardCarregado;
@@ -68,6 +76,9 @@ public class FinalCardBoard : MonoBehaviour
     bool iniciou;                // Start ja rodou (ver GarantirInicio)
     FinalCardProximidade prox;
     MaterialPropertyBlock bloco;
+    bool jogadorDentroSom;       // trigger: jogador dentro (para o som)
+    float volumeSomAtual;        // volume aplicado agora (fade)
+    float volumeSomAplicado = -1f;
 
     static readonly int ID_BaseMap = Shader.PropertyToID("_BaseMap");
     static readonly int ID_EmissionMap = Shader.PropertyToID("_EmissionMap");
@@ -117,6 +128,7 @@ public class FinalCardBoard : MonoBehaviour
         AtualizarBotao();
         prox = GetComponentInParent<FinalCardProximidade>(true);
         if (prox == null) prox = GetComponentInChildren<FinalCardProximidade>(true);
+        CorrigirRotator();
         var anims = GetComponentsInParent<Animator>(true);
         var nomesAnim = new System.Text.StringBuilder();
         foreach (var an in anims) nomesAnim.Append(an.name).Append(an.runtimeAnimatorController != null ? "(" + an.runtimeAnimatorController.name + ")" : "(sem controller)").Append(' ');
@@ -212,12 +224,44 @@ public class FinalCardBoard : MonoBehaviour
     {
         Diag("OnJogadorAproximou", "temVideo=" + temVideo + " imagem=[" + DiagImagem() + "] titulo=" + (titulo != null ? Trecho(titulo.text) : "NULL"));
         jogadorNoTrigger = true;
+        jogadorDentroSom = true;
         if (temVideo) PrepararVideoAgora("jogador entrou no trigger");
         // Rede de seguranca: se a imagem ainda nao apareceu, tenta de novo agora.
         if (atual != null && !temVideo && imagemAtual == null && isActiveAndEnabled) MostrarImagemDoCard();
     }
 
-    void OnJogadorAfastou() { Diag("OnJogadorAfastou", null); jogadorNoTrigger = false; }
+    void OnJogadorAfastou() { Diag("OnJogadorAfastou", null); jogadorNoTrigger = false; jogadorDentroSom = false; }
+
+    // O trigger (SphereCollider) fica no mesmo objeto: recebe direto tambem (mesma tag do FinalCardProximidade).
+    string TagJogador { get { return prox != null && !string.IsNullOrEmpty(prox.tagJogador) ? prox.tagJogador : "Player"; } }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (!somAoEntrarNoCollider || !other.CompareTag(TagJogador)) return;
+        jogadorDentroSom = true;
+        jogadorNoTrigger = true;
+        Log("som: jogador entrou no trigger");
+        if (temVideo) PrepararVideoAgora("jogador entrou no trigger (som)");
+        if (temVideo && videoPlayer != null && videoPlayer.isActiveAndEnabled && !videoPlayer.isPlaying) videoPlayer.Play();
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (!somAoEntrarNoCollider || !other.CompareTag(TagJogador)) return;
+        jogadorDentroSom = false;
+        Log("som: jogador saiu do trigger");
+    }
+
+    // O Prefab_FinalCard tem FinalCardProximidade.rotator = este FinalCardBoard: ao entrar no trigger ele DESLIGAVA
+    // este script (sem Update, sem ouvir o OnAproximou). Por isso o som/distancia nunca funcionava.
+    void CorrigirRotator()
+    {
+        if (!corrigirRotatorDoTrigger || prox == null || prox.rotator != this) return;
+        Behaviour rot = prox.GetComponent("RotateObject") as Behaviour;
+        if (rot == null) rot = GetComponent("RotateObject") as Behaviour;
+        prox.rotator = rot;
+        Log("rotator do FinalCardProximidade apontava para o FinalCardBoard; trocado por " + (rot != null ? "RotateObject" : "nenhum"));
+    }
 
     void CarregarJson()
     {
@@ -476,9 +520,20 @@ public class FinalCardBoard : MonoBehaviour
         videoPlayer.started += OnVideoIniciou;
         videoPlayer.isLooping = true;
         videoPlayer.audioOutputMode = semSom ? VideoAudioOutputMode.None : VideoAudioOutputMode.Direct;
+        if (videoPlayer.controlledAudioTrackCount < 1) videoPlayer.controlledAudioTrackCount = 1;
         videoPlayer.EnableAudioTrack(0, true);
-        AplicarVolume();
-        if (somSomentePerto) DesligarSom();
+        if (somAoEntrarNoCollider)
+        {
+            // Comeca MUDO (o navegador so deixa video tocar sozinho se estiver mudo); o Update faz o fade pelo trigger.
+            volumeSomAtual = 0f;
+            volumeSomAplicado = -1f;
+            AplicarVolumeSom(0f);
+        }
+        else
+        {
+            AplicarVolume();
+            if (somSomentePerto) DesligarSom();
+        }
         videoPendente = true;
         Log("video configurado " + videoPlayer.url);
 
@@ -497,7 +552,7 @@ public class FinalCardBoard : MonoBehaviour
         videoPlayer.Prepare();
         Log("video preparado " + videoPlayer.url);
         EmuseuDebug.VideoPreparar(videoPlayer, idUltimo, videoPlayer.url);
-        if (!videoPorAproximacao) videoPlayer.Play();
+        if (!videoPorAproximacao || somAoEntrarNoCollider) videoPlayer.Play();
     }
 
     // O video comecou a tocar: agora sim troca a imagem (poster) pelo video.
@@ -526,6 +581,7 @@ public class FinalCardBoard : MonoBehaviour
 
     void Update()
     {
+        if (somAoEntrarNoCollider) { AtualizarSomPeloTrigger(); return; }
         if (!temVideo || !videoPorAproximacao || videoPlayer == null || !videoPlayer.isActiveAndEnabled) return;
         Transform alvo = jogador;
         if (alvo == null && Camera.main != null) { jogador = Camera.main.transform; alvo = jogador; }
@@ -570,9 +626,37 @@ public class FinalCardBoard : MonoBehaviour
         videoPlayer.SetDirectAudioVolume(0, volumeVideo);
     }
 
+    // ---------- Audio pelo trigger (somAoEntrarNoCollider) ----------
+    // Fade do volume: sobe ate volumeVideo dentro do trigger, desce ate 0 fora. Video continua tocando.
+    void AtualizarSomPeloTrigger()
+    {
+        if (!temVideo || videoPlayer == null || !videoPlayer.isActiveAndEnabled) return;
+        if (videoPlayer.audioOutputMode != VideoAudioOutputMode.Direct) return; // semSom (None) ou AudioSource: nada a fazer
+        float alvo = (jogadorDentroSom && !semSom) ? volumeVideo : 0f;
+        float passo = Time.unscaledDeltaTime * Mathf.Max(0.05f, volumeVideo) / Mathf.Max(0.01f, tempoFadeSom);
+        volumeSomAtual = Mathf.MoveTowards(volumeSomAtual, alvo, passo);
+        AplicarVolumeSom(volumeSomAtual);
+    }
+
+    // Direct (unico modo com som no WebGL): volume + mute por faixa. 0 = mudo
+    // (o mute garante silencio no iPhone/Safari, que ignora o volume do video).
+    void AplicarVolumeSom(float v)
+    {
+        if (videoPlayer == null || Mathf.Approximately(v, volumeSomAplicado)) return;
+        volumeSomAplicado = v;
+        bool mudo = v <= 0.001f;
+        int faixas = Mathf.Max(1, (int)videoPlayer.controlledAudioTrackCount);
+        for (int i = 0; i < faixas; i++)
+        {
+            videoPlayer.SetDirectAudioVolume((ushort)i, mudo ? 0f : v);
+            videoPlayer.SetDirectAudioMute((ushort)i, mudo);
+        }
+    }
+
     void OnValidate()
     {
         if (!Application.isPlaying || videoPlayer == null) return;
+        if (somAoEntrarNoCollider) return; // o Update ja usa volumeVideo / semSom
         if (semSom) DesligarSom(); else if (!somSomentePerto) LigarSom();
         AplicarVolume();
     }
