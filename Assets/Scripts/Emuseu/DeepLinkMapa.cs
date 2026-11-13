@@ -19,6 +19,12 @@ using UnityEngine.Scripting;
 //    (igual ao TimedEvent -> SimpleLoadScene.LoadScene dos Trigger_Teleport_*).
 //  - Roda uma vez so por carga da pagina. Slug desconhecido ou sem slug = fluxo normal.
 //  - O site tambem pode chamar depois: SendMessage("DeepLinkMapa", "IrParaMapa", "rio-de-janeiro").
+//    Isso troca de mapa sem recarregar o jogo. Trocar so a URL (history.pushState) NAO basta:
+//    a URL e lida uma vez so, no inicio da pagina. O site deve manter o canvas montado e chamar SendMessage.
+//  - Se o pedido chegar no meio de outra troca, o ultimo slug fica guardado e roda depois.
+//  - No WebGL o jogo avisa o site com eventos na window (detail: { mapa, cena }):
+//      emuseu:mapa-pronto, emuseu:mapa-iniciando, emuseu:mapa-carregado, emuseu:mapa-erro.
+//    Tambem instala window.emuseuIrParaMapa(slug).
 //  - Editor: menu Tools/Emuseu/Testar deep link mapa (DeepLinkMapaMenu.cs).
 // Logs com prefixo [DeepLinkMapa].
 public sealed class DeepLinkMapa : MonoBehaviour
@@ -50,13 +56,17 @@ public sealed class DeepLinkMapa : MonoBehaviour
     static string slugInicial;      // lido da URL / navegador / teste do Editor
     static string fonteInicial = "-";
 
-    string pedidoSite;              // IrParaMapa chamado antes da cena estar pronta
+    string pedidoSite;              // IrParaMapa chamado antes da cena estar pronta (ou no meio de outra troca)
+    string avisoSlug;               // slug do pedido em andamento (pra avisar o site)
+    string avisoCena;               // nome da cena destino do pedido em andamento
     bool carregando;
     bool viuCena;                   // ja tratou o sceneLoaded da 1a cena
     Coroutine rotina;
 
 #if UNITY_WEBGL && !UNITY_EDITOR
     [DllImport("__Internal")] static extern string DeepLinkMapa_LerParametro(string nome);
+    [DllImport("__Internal")] static extern void DeepLinkMapa_InstalarPonte();
+    [DllImport("__Internal")] static extern void DeepLinkMapa_AvisarSite(string evento, string slug, string cena);
 #endif
 
     public static DeepLinkMapa Instance => instancia;
@@ -82,6 +92,9 @@ public sealed class DeepLinkMapa : MonoBehaviour
         if (instancia != null && instancia != this) { Destroy(gameObject); return; }
         instancia = this;
         if (gameObject.name != GameObjectName) gameObject.name = GameObjectName; // alvo do SendMessage do site
+#if UNITY_WEBGL && !UNITY_EDITOR
+        try { DeepLinkMapa_InstalarPonte(); } catch (Exception ex) { Debug.LogWarning(Tag + "ponte JS falhou: " + ex.Message); }
+#endif
     }
 
     void OnEnable() { SceneManager.sceneLoaded += AoCarregarCena; }
@@ -197,7 +210,20 @@ public sealed class DeepLinkMapa : MonoBehaviour
         viuCena = true;
         carregando = false;
 
-        if (!string.IsNullOrEmpty(pedidoSite))
+        bool temPedido = !string.IsNullOrEmpty(pedidoSite);
+        if (!string.IsNullOrEmpty(avisoCena) && cena.name == avisoCena && !temPedido)
+        {
+            AvisarSite("mapa-carregado", avisoSlug, cena.name);
+            avisoCena = null;
+            avisoSlug = null;
+        }
+        else if (temPedido)
+        {
+            avisoCena = null;
+            avisoSlug = null;
+        }
+
+        if (temPedido)
         {
             string p = pedidoSite; pedidoSite = null;
             IrPara(p, "site (SendMessage, pendente)");
@@ -219,7 +245,7 @@ public sealed class DeepLinkMapa : MonoBehaviour
         if (!Application.CanStreamedLevelBeLoaded(alvo)) { Debug.LogWarning(Tag + "cena '" + alvo + "' nao esta na build, fluxo normal"); return; }
 
         Debug.Log(Tag + "mapa '" + slugInicial + "' -> " + alvo + " (esperando a " + CenaInicial + " e o play-config)");
-        Comecar(alvo, cena, true);
+        Comecar(alvo, cena, true, slugInicial);
     }
 
     // Chamado pelo site a qualquer momento: SendMessage("DeepLinkMapa", "IrParaMapa", "rio-de-janeiro").
@@ -230,25 +256,30 @@ public sealed class DeepLinkMapa : MonoBehaviour
     public void IrPara(string slug, string fonte)
     {
         string alvo = CenaDoSlug(slug);
-        if (alvo == null) { Debug.LogWarning(Tag + "IrParaMapa: mapa '" + slug + "' desconhecido, ignorado"); return; }
-        if (!Application.CanStreamedLevelBeLoaded(alvo)) { Debug.LogWarning(Tag + "IrParaMapa: cena '" + alvo + "' nao esta na build"); return; }
+        if (alvo == null) { Debug.LogWarning(Tag + "IrParaMapa: mapa '" + slug + "' desconhecido, ignorado"); AvisarSite("mapa-erro", slug, ""); return; }
+        if (!Application.CanStreamedLevelBeLoaded(alvo)) { Debug.LogWarning(Tag + "IrParaMapa: cena '" + alvo + "' nao esta na build"); AvisarSite("mapa-erro", slug, alvo); return; }
         Scene atual = SceneManager.GetActiveScene();
         if (!atual.IsValid() || !atual.isLoaded) { pedidoSite = slug; Debug.Log(Tag + "IrParaMapa '" + slug + "' guardado ate a cena carregar"); return; }
-        if (atual.name == alvo) { Debug.Log(Tag + "IrParaMapa: ja esta em " + alvo); return; }
+        if (atual.name == alvo) { Debug.Log(Tag + "IrParaMapa: ja esta em " + alvo); AvisarSite("mapa-carregado", slug, alvo); return; }
+        if (carregando) { pedidoSite = slug; Debug.Log(Tag + "IrParaMapa '" + slug + "' guardado (ja carregando outra cena)"); return; }
         usado = true; // um pedido do site substitui o da URL
         Debug.Log(Tag + "IrParaMapa '" + slug + "' -> " + alvo + " (fonte: " + fonte + ")");
-        Comecar(alvo, atual, false);
+        Comecar(alvo, atual, false, slug);
     }
 
-    void Comecar(string alvo, Scene origem, bool esperarPlayConfig)
+    void Comecar(string alvo, Scene origem, bool esperarPlayConfig, string slug)
     {
-        if (carregando) { Debug.Log(Tag + "ja carregando uma cena, pedido " + alvo + " ignorado"); return; }
+        if (carregando) { pedidoSite = slug; Debug.Log(Tag + "ja carregando uma cena, pedido " + alvo + " guardado"); return; }
         if (rotina != null) StopCoroutine(rotina);
-        rotina = StartCoroutine(Ir(alvo, origem, esperarPlayConfig));
+        rotina = StartCoroutine(Ir(alvo, origem, esperarPlayConfig, slug));
     }
 
-    IEnumerator Ir(string alvo, Scene origem, bool esperarPlayConfig)
+    IEnumerator Ir(string alvo, Scene origem, bool esperarPlayConfig, string slug)
     {
+        avisoSlug = slug;
+        avisoCena = alvo;
+        AvisarSite("mapa-iniciando", slug, alvo);
+
         // deixa a cena terminar Awake/Start (PularIntroArena marca introVista, IntroCameraHold etc.)
         yield return null;
         yield return null;
@@ -266,7 +297,15 @@ public sealed class DeepLinkMapa : MonoBehaviour
         }
 
         // o jogador pode ter saido da cena (portal) enquanto esperavamos
-        if (!origem.IsValid() || !origem.isLoaded || SceneManager.GetActiveScene() != origem) { Debug.Log(Tag + "cena mudou antes do deep link, cancelado"); rotina = null; yield break; }
+        if (!origem.IsValid() || !origem.isLoaded || SceneManager.GetActiveScene() != origem)
+        {
+            Debug.Log(Tag + "cena mudou antes do deep link, cancelado");
+            rotina = null;
+            avisoCena = null;
+            avisoSlug = null;
+            AvisarSite("mapa-erro", slug, alvo);
+            yield break;
+        }
         if (carregando) { rotina = null; yield break; }
         carregando = true;
 
@@ -281,7 +320,22 @@ public sealed class DeepLinkMapa : MonoBehaviour
         Debug.Log(Tag + "SceneManager.LoadScene(" + alvo + ") (igual aos portais)");
         rotina = null;
         try { SceneManager.LoadScene(alvo); }
-        catch (Exception ex) { carregando = false; Debug.LogWarning(Tag + "falha ao carregar " + alvo + ": " + ex.Message); }
+        catch (Exception ex)
+        {
+            carregando = false;
+            avisoCena = null;
+            avisoSlug = null;
+            Debug.LogWarning(Tag + "falha ao carregar " + alvo + ": " + ex.Message);
+            AvisarSite("mapa-erro", slug, alvo);
+        }
+    }
+
+    void AvisarSite(string evento, string slug, string cena)
+    {
+#if UNITY_WEBGL && !UNITY_EDITOR
+        try { DeepLinkMapa_AvisarSite(evento ?? "", slug ?? "", cena ?? ""); }
+        catch (Exception ex) { Debug.LogWarning(Tag + "aviso ao site (" + evento + ") falhou: " + ex.Message); }
+#endif
     }
 
     static GameObject Achar(Scene cena, string nome)
