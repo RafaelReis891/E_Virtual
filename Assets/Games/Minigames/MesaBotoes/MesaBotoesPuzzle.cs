@@ -47,8 +47,8 @@ public class MesaBotoesPuzzle : MonoBehaviour
 
     void Update()
     {
-        if (terminou || !Input.GetMouseButtonDown(0) || cam == null) return;
-        Ray r = cam.ScreenPointToRay(Input.mousePosition);
+        if (terminou || !MobileInput.Clique(Input.GetMouseButtonDown(0)) || cam == null) return;
+        Ray r = cam.ScreenPointToRay(MobileInput.PosicaoClique(Input.mousePosition));
         RaycastHit[] hits = Physics.RaycastAll(r, 100f);
         System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
         foreach (var h in hits)

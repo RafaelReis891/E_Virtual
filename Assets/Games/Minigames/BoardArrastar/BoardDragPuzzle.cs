@@ -91,9 +91,9 @@ public class BoardDragPuzzle : MonoBehaviour
     {
         if (resolvido || mainCamera == null) return;
 
-        if (Input.GetMouseButtonDown(0))
+        if (MobileInput.ToqueLivre(Input.GetMouseButtonDown(0)))
         {
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = mainCamera.ScreenPointToRay(MobileInput.PosicaoArraste(Input.mousePosition));
             // RaycastAll: acha o item mesmo se o collider do board estiver na frente.
             RaycastHit[] hits = Physics.RaycastAll(ray, 100f);
             System.Array.Sort(hits, (x, y) => x.distance.CompareTo(y.distance));
@@ -117,18 +117,26 @@ public class BoardDragPuzzle : MonoBehaviour
             }
         }
 
-        if (arrastado != null && Input.GetMouseButton(0))
+        if (arrastado != null && MobileInput.BotaoSegurado(Input.GetMouseButton(0)))
         {
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = mainCamera.ScreenPointToRay(MobileInput.PosicaoArraste(Input.mousePosition));
             if (planoArraste.Raycast(ray, out float e))
                 arrastado.transform.position = ray.GetPoint(e) + offset;
+            if (MobileInput.SegurandoPeca && NoEncaixeCerto(arrastado)) MobileInput.SoltarPeca();
         }
 
-        if (arrastado != null && Input.GetMouseButtonUp(0))
+        if (arrastado != null && MobileInput.Soltou(Input.GetMouseButtonUp(0)))
         {
             Soltar(arrastado);
             arrastado = null;
         }
+    }
+
+    // Mobile: solta sozinho quando o item chega perto do slot certo.
+    bool NoEncaixeCerto(BoardItem item)
+    {
+        BoardSlot s = slots.Where(x => x != null).OrderBy(x => Vector3.Distance(item.transform.position, x.Encaixe.position)).FirstOrDefault();
+        return s != null && s != item.slotAtual && Vector3.Distance(item.transform.position, s.Encaixe.position) <= distanciaEncaixe && ItemValido(item, s);
     }
 
     Plane CriarPlano(BoardItem item)

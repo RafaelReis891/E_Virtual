@@ -77,10 +77,10 @@ public class BussolaSimples : MonoBehaviour
 
 	void Update()
 	{
-		if (ocupado || terminou || cameraJogador == null || !Input.GetMouseButtonDown(0))
+		if (ocupado || terminou || cameraJogador == null || !MobileInput.Clique(Input.GetMouseButtonDown(0)))
 			return;
 
-		Ray ray = cameraJogador.ScreenPointToRay(Input.mousePosition);
+		Ray ray = cameraJogador.ScreenPointToRay(MobileInput.PosicaoClique(Input.mousePosition));
 		RaycastHit[] hits = Physics.RaycastAll(ray, alcanceClique, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Collide);
 
 		Direcao escolhida = null;

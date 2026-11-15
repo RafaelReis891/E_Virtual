@@ -128,7 +128,7 @@ public class LunetaEffect : MonoBehaviour
 
 		if (insideArea)
 		{
-			if (Input.GetMouseButtonDown(0) && !transicionando)
+			if (MobileInput.Clique(Input.GetMouseButtonDown(0)) && !transicionando)
 			{
 				ToggleLuneta();
 			}

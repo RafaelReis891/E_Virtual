@@ -21,7 +21,7 @@ public class PlayerDialRaycast : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetMouseButtonDown(0))
+		if (MobileInput.Clique(Input.GetMouseButtonDown(0)))
 			CheckDial();
 	}
 
@@ -31,7 +31,7 @@ public class PlayerDialRaycast : MonoBehaviour
 			return;
 
 		// Cria o raio na posição atual do mouse.
-		Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
+		Ray ray = playerCamera.ScreenPointToRay(MobileInput.PosicaoClique(Input.mousePosition));
 
 		if (Physics.Raycast(ray, out RaycastHit hit, rayDistance))
 		{

@@ -101,9 +101,9 @@ public class CadeadoDials : MonoBehaviour
     {
         if (isSolved) return;
 
-        if (Input.GetMouseButtonDown(0))
+        if (MobileInput.Clique(Input.GetMouseButtonDown(0)))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(MobileInput.PosicaoClique(Input.mousePosition));
             if (Physics.Raycast(ray, out RaycastHit hit, 100f))
                 ProcessClick(hit.collider.transform);
         }

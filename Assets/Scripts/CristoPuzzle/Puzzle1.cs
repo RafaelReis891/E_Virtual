@@ -65,7 +65,7 @@ public class Puzzle1 : MonoBehaviour
 			return;
 
 		// Detecta o clique, mas não utiliza a posição do mouse.
-		if (Input.GetMouseButtonDown(0))
+		if (MobileInput.Clique(Input.GetMouseButtonDown(0)))
 			HandleClick();
 	}
 
@@ -79,7 +79,7 @@ public class Puzzle1 : MonoBehaviour
 		}
 
 		// Cria o raio na posição atual do mouse.
-		Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+		Ray ray = mainCamera.ScreenPointToRay(MobileInput.PosicaoClique(Input.mousePosition));
 
 		RaycastHit[] hits = Physics.RaycastAll(
 			ray,

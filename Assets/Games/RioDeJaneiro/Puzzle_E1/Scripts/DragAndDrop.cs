@@ -84,9 +84,9 @@ public class DragAndDropSwap : MonoBehaviour
 			return;
 		}
 
-		if (Input.GetMouseButtonDown(0))
+		if (MobileInput.ToqueLivre(Input.GetMouseButtonDown(0)))
 		{
-			Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+			Ray ray = mainCamera.ScreenPointToRay(MobileInput.PosicaoArraste(Input.mousePosition));
 
 			// Procura a camiseta/quadro mais proximo no raio, pulando outros colliders (ex.: Trigger_Puzzle)
 			if (BuscarAlvo(ray, out RaycastHit hit))
@@ -115,9 +115,9 @@ public class DragAndDropSwap : MonoBehaviour
 		}
 
 
-		if (camisaArrastada != null && Input.GetMouseButton(0))
+		if (camisaArrastada != null && MobileInput.BotaoSegurado(Input.GetMouseButton(0)))
 		{
-			Vector3 mousePoint = Input.mousePosition;
+			Vector3 mousePoint = MobileInput.PosicaoArraste(Input.mousePosition);
 			mousePoint.z = distanciaCameraParaPlano;
 
 			Vector3 worldPos = mainCamera.ScreenToWorldPoint(mousePoint);
@@ -136,9 +136,10 @@ public class DragAndDropSwap : MonoBehaviour
 				localMousePos.y,
 				localMousePos.z
 			);
+			if (MobileInput.SegurandoPeca && NoLugarCerto()) MobileInput.SoltarPeca();
 		}
 
-		if (camisaArrastada != null && Input.GetMouseButtonUp(0))
+		if (camisaArrastada != null && MobileInput.Soltou(Input.GetMouseButtonUp(0)))
 		{
 			VerificarTrocaPorProximidade();
 			camisaArrastada = null;
@@ -195,6 +196,24 @@ public class DragAndDropSwap : MonoBehaviour
 		{
 			RetornarParaOrigem();
 		}
+	}
+
+	// Mobile: solta sozinha quando a camiseta chega no lugar certo dela.
+	bool NoLugarCerto()
+	{
+		int i = System.Array.IndexOf(camisetas, camisaArrastada);
+		if (i < 0 || i >= posicoesOriginais.Count) return false;
+		Vector3 certo = posicoesOriginais[i];
+		if (Vector3.Distance(posicaoOrigemArraste, certo) < 0.01f) return false; // ja estava no lugar certo
+		Camiseta maisProxima = null;
+		float menor = float.MaxValue;
+		foreach (Camiseta c in camisetas)
+		{
+			if (c == null || c == camisaArrastada) continue;
+			float dist = Vector3.Distance(camisaArrastada.transform.position, c.transform.position);
+			if (dist < menor) { menor = dist; maisProxima = c; }
+		}
+		return maisProxima != null && menor <= distanciaMaximaTroca * 0.5f && Vector3.Distance(maisProxima.transform.position, certo) < 0.05f;
 	}
 
 	void RetornarParaOrigem()

@@ -74,9 +74,9 @@ public class Enigma5Manager : MonoBehaviour
 		if (isSolved) return;
 
 		// Detecção de clique do mouse (funciona em qualquer objeto com Collider)
-		if (Input.GetMouseButtonDown(0))
+		if (MobileInput.Clique(Input.GetMouseButtonDown(0)))
 		{
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			Ray ray = Camera.main.ScreenPointToRay(MobileInput.PosicaoClique(Input.mousePosition));
 			if (Physics.Raycast(ray, out RaycastHit hit, 100f))
 			{
 				ProcessClick(hit.collider.gameObject);
