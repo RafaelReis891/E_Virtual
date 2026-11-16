@@ -1,0 +1,9 @@
+﻿Backup antes de Mobile > Tools > Iluminacao e Render mobile (20261116_064426).
+Para voltar: abra a ferramenta, clique em 'Restaurar backup' e escolha esta pasta.
+ProjectSettings/*.asset aqui sao so para conferencia; a ferramenta restaura esses valores pelo manifesto.json.
+
+(a) Copia criada: Assets/Settings/MobileWeb/MobileWeb_RPAsset.asset (de Assets/Settings/Mobile_RPAsset.asset)
+(b) Renderer copiado: Assets/Settings/MobileWeb/MobileWeb_Renderer.asset (de Assets/Settings/Mobile_Renderer.asset)
+(a) 10 campos ajustados no URP asset mobile.
+(a) Quality 'Mobile' agora usa Assets/Settings/MobileWeb/MobileWeb_RPAsset.asset
+(c) Assets/Resources/MobileRenderRuntimeConfig.asset salvo (pos-processamento mobile em runtime)
