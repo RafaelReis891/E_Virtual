@@ -15,6 +15,7 @@
 //     Arrastar no celular (toca para pegar, toca para soltar): ver MobileInput.Arraste.cs
 //     Sensibilidade da camera (< numero >, provisorio): ver MobileInput.Sensibilidade.cs
 //     Tela cheia / horizontal / aviso de girar o celular: ver MobileTela.cs (MobileInput.TelaBloqueada)
+//     Botao "?" e tela de ajuda "Como jogar": ver MobileInput.Ajuda.cs e MobileAjuda.cs (MobileInput.AjudaAberta)
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -115,7 +116,7 @@ public static partial class MobileInput
     /// <summary>MobileTela liga quando o celular esta em pe (aviso "gire o celular"): esconde os controles e ignora toques.</summary>
     public static bool TelaBloqueada { get; internal set; }
 
-    public static bool ControlesNaTela { get { return Ativo && ControlesVisiveis && JogadorPronto && !TelaBloqueada; } }
+    public static bool ControlesNaTela { get { return Ativo && ControlesVisiveis && JogadorPronto && !TelaBloqueada && !AjudaAberta; } }
     public static bool BotaoNaTela { get { return ControlesNaTela && BotaoInteragirVisivel; } }
 
     // ------------------------------------------------------------------ layout (unidades do canvas, ref 1920x1080)
@@ -151,6 +152,7 @@ public static partial class MobileInput
         BotaoCentro = new Vector2(s.xMax - PosicaoBotao.x * e, s.yMin + PosicaoBotao.y * e);
         BotaoRaioPx = RaioBotao * e;
         CalcularLayoutSensibilidade(s, e);
+        CalcularLayoutAjuda(s, e);
     }
 
     // ------------------------------------------------------------------ leitura por frame
@@ -190,6 +192,7 @@ public static partial class MobileInput
         CalcularLayout();
         LerPontos();
         if (TelaBloqueada) pontos.Clear(); // aviso de girar o celular na frente: nenhum toque conta
+        ProcessarToquesAjuda(); // tela de ajuda aberta: toques so para a ajuda (MobileInput.Ajuda.cs)
 
         bool naTela = ControlesNaTela;
         bool botao = BotaoNaTela;
@@ -207,7 +210,11 @@ public static partial class MobileInput
             Ponto p = pontos[i];
             if (p.comecou)
             {
-                if (TocouAjusteSensibilidade(p.pos))
+                if (TocouBotaoAjuda(p.pos))
+                {
+                    // toque no botao "?" da ajuda: nao vira clique no mundo, Interagir nem pega peca (MobileInput.Ajuda.cs)
+                }
+                else if (TocouAjusteSensibilidade(p.pos))
                 {
                     // toque nos botoes < > da sensibilidade: nao vira clique no mundo nem pega peca
                 }
