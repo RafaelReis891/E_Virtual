@@ -8,6 +8,8 @@
 //   (StarterAssetsInputs.cursorInputForLook = false). Esconder por codigo: MobileInput.ControlesVisiveis / BotaoInteragirVisivel.
 // - Site pode forcar: SendMessage("MobileTouchControls", "SetMobile", "1" | "0" | "auto").
 // - Ajuste provisorio de sensibilidade da camera (< 1.0 >) no canto de cima: MobileTouchControls.Sensibilidade.cs
+// - Letras no centro dos controles (M / C / I): MobileTouchControls.Rotulos.cs
+// - Camera do joystick direito gira direto (sem o limite minimo do FirstPersonController): MobileTouchControls.Camera.cs
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -135,6 +137,7 @@ public partial class MobileTouchControls : MonoBehaviour
     void LateUpdate()
     {
         if (!MobileInput.Ativo || canvas == null) return;
+        ZerarLookAntesDoFPC(); // o arraste do dedo (Pointer delta) nao pode girar a camera por fora do joystick
 
         // Mouse "livre" para tocar/clicar nos controles (no celular nao existe trava de ponteiro;
         // no Editor o mouse faz o papel do dedo). So quando o jogador esta no controle.
@@ -200,7 +203,8 @@ public partial class MobileTouchControls : MonoBehaviour
         // do dedo (Pointer/delta) ou o mouse no Editor nao girarem a camera sem querer.
         if (MobileInput.Direito.Ativo)
         {
-            sai.LookInput(CalcularLook(MobileInput.Olhar));
+            if (GirarCameraDireto(MobileInput.Olhar)) sai.LookInput(Vector2.zero); // gira aqui mesmo, suave em qualquer sensibilidade
+            else sai.LookInput(CalcularLook(MobileInput.Olhar));
             escrevendoLook = true;
         }
         else
@@ -212,16 +216,10 @@ public partial class MobileTouchControls : MonoBehaviour
 
     Vector2 CalcularLook(Vector2 v)
     {
-        float m = v.magnitude;
-        if (m < 0.0001f) return Vector2.zero;
-        Vector2 dir = v / m;
-        float c = Mathf.Pow(Mathf.Clamp01(m), Mathf.Max(0.1f, curvaResposta));
-
         // O FirstPersonController faz: angulo = look * RotationSpeed * (mouse ? 1 : deltaTime).
         // Aqui o resultado final fica em graus/segundo, independente do esquema de controle atual.
-        float y = inverterY ? dir.y : -dir.y; // Look do StarterAssets usa Y invertido (empurrar pra cima = olhar pra cima)
-        Vector2 grausPorSeg = new Vector2(dir.x * c * grausPorSegundoX, y * c * grausPorSegundoY);
-        grausPorSeg *= MobileInput.SensibilidadeCamera; // ajuste < > na tela (1.0 = padrao)
+        Vector2 grausPorSeg = GrausPorSegundoOlhar(v);
+        if (grausPorSeg == Vector2.zero) return Vector2.zero;
         float rs = fpc != null ? fpc.RotationSpeed : 1f;
         if (Mathf.Abs(rs) < 0.0001f) rs = 1f;
         Vector2 look = grausPorSeg / rs;
@@ -279,6 +277,7 @@ public partial class MobileTouchControls : MonoBehaviour
         Esticar(botaoAnel, 1f);
         Esticar(botaoIcone, 0.28f);
 
+        ConstruirRotulos();
         ConstruirAjusteSensibilidade(go.transform);
 
         canvas.enabled = false;
@@ -363,6 +362,7 @@ public partial class MobileTouchControls : MonoBehaviour
             imgBotao.color = apertado ? corBotaoAtivo : corBotao;
         }
 
+        AtualizarRotulos();
         AtualizarAjusteSensibilidade(sf);
     }
 

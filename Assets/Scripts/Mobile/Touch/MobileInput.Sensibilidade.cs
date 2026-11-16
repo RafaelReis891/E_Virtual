@@ -1,10 +1,11 @@
 // MobileInput.Sensibilidade.cs
 // Sensibilidade da camera do joystick direito no celular (PROVISORIO, para achar o valor bom).
-// - Multiplicador 0.2..3.0 em passos de 0.1. 1.0 = padrao (ja 30% mais lento que o original: 105/70 graus por segundo).
-// - Salvo no PlayerPrefs ("EVirtual.Mobile.SensibilidadeCamera").
+// - Multiplicador 0.2..3.0 em passos de 0.1, sobre a base de 105/70 graus por segundo.
+// - Valor fixo escolhido pelo Teco nos testes: SensibilidadePadrao = 0.3 (ajuste escondido).
+// - Com o ajuste ESCONDIDO vale sempre SensibilidadePadrao (o valor salvo no PlayerPrefs e ignorado).
+// - Com o ajuste na tela, usa o valor salvo no PlayerPrefs ("EVirtual.Mobile.SensibilidadeCamera"), ou o padrao se nao tiver.
 // - Na tela: botao "<", numero e botao ">" no canto de cima a esquerda (desenhado pelo MobileTouchControls.Sensibilidade.cs).
-// - Para esconder depois: MostrarAjusteSensibilidadePadrao = false (ou MobileInput.MostrarAjusteSensibilidade = false por codigo).
-//   O multiplicador salvo continua valendo mesmo com o ajuste escondido.
+// - Para mostrar o ajuste de novo: MostrarAjusteSensibilidadePadrao = true (ou MobileInput.MostrarAjusteSensibilidade = true por codigo).
 // - Toques nesses botoes nao viram clique no mundo, nao pegam peca e nao mexem nos joysticks (ver Processar() em MobileInput.cs).
 using System.Globalization;
 using UnityEngine;
@@ -12,8 +13,10 @@ using UnityEngine;
 public static partial class MobileInput
 {
     public const string PrefSensibilidade = "EVirtual.Mobile.SensibilidadeCamera";
-    /// <summary>Troque para false quando nao precisar mais do ajuste na tela.</summary>
-    public const bool MostrarAjusteSensibilidadePadrao = true;
+    /// <summary>true = mostra o ajuste "&lt; 0.3 &gt;" na tela de novo. false = escondido e fixo em SensibilidadePadrao.</summary>
+    public const bool MostrarAjusteSensibilidadePadrao = false;
+    /// <summary>Sensibilidade usada com o ajuste escondido (e o valor inicial quando ele aparece).</summary>
+    public const float SensibilidadePadrao = 0.3f;
     public const float SensibilidadeMin = 0.2f;
     public const float SensibilidadeMax = 3f;
     public const float SensibilidadePasso = 0.1f;
@@ -39,16 +42,17 @@ public static partial class MobileInput
 
     static float? sensibilidade;
 
-    /// <summary>Multiplicador da velocidade da camera no joystick direito (1.0 = padrao).</summary>
+    /// <summary>Multiplicador da velocidade da camera no joystick direito. Ajuste escondido = sempre SensibilidadePadrao.</summary>
     public static float SensibilidadeCamera
     {
         get
         {
+            if (!MostrarAjusteSensibilidade) return Arredondar(SensibilidadePadrao); // ignora o valor salvo antes
             if (!sensibilidade.HasValue)
             {
-                float v = 1f;
-                try { v = PlayerPrefs.GetFloat(PrefSensibilidade, 1f); } catch (System.Exception) { v = 1f; }
-                if (float.IsNaN(v) || float.IsInfinity(v)) v = 1f;
+                float v = SensibilidadePadrao;
+                try { v = PlayerPrefs.GetFloat(PrefSensibilidade, SensibilidadePadrao); } catch (System.Exception) { v = SensibilidadePadrao; }
+                if (float.IsNaN(v) || float.IsInfinity(v)) v = SensibilidadePadrao;
                 sensibilidade = Arredondar(v);
             }
             return sensibilidade.Value;
