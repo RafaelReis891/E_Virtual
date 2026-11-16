@@ -7,21 +7,22 @@
 // - Esconde sozinho quando nao tem jogador, o jogo esta pausado pelo site, ou um painel/cinematica desliga o look
 //   (StarterAssetsInputs.cursorInputForLook = false). Esconder por codigo: MobileInput.ControlesVisiveis / BotaoInteragirVisivel.
 // - Site pode forcar: SendMessage("MobileTouchControls", "SetMobile", "1" | "0" | "auto").
+// - Ajuste provisorio de sensibilidade da camera (< 1.0 >) no canto de cima: MobileTouchControls.Sensibilidade.cs
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using StarterAssets;
 
 [DefaultExecutionOrder(-1000)]
-public class MobileTouchControls : MonoBehaviour
+public partial class MobileTouchControls : MonoBehaviour
 {
     public static MobileTouchControls Instancia { get; private set; }
 
     [Header("Olhar (joystick direito)")]
-    [Tooltip("Graus por segundo girando para os lados com o joystick no maximo")]
-    public float grausPorSegundoX = 150f;
-    [Tooltip("Graus por segundo olhando para cima/baixo com o joystick no maximo")]
-    public float grausPorSegundoY = 100f;
+    [Tooltip("Graus por segundo girando para os lados com o joystick no maximo (sensibilidade 1.0). Era 150, -30%")]
+    public float grausPorSegundoX = 105f;
+    [Tooltip("Graus por segundo olhando para cima/baixo com o joystick no maximo (sensibilidade 1.0). Era 100, -30%")]
+    public float grausPorSegundoY = 70f;
     [Tooltip("1 = linear. Maior que 1 = mais precisao perto do centro")]
     public float curvaResposta = 1.6f;
     public bool inverterY = false;
@@ -220,6 +221,7 @@ public class MobileTouchControls : MonoBehaviour
         // Aqui o resultado final fica em graus/segundo, independente do esquema de controle atual.
         float y = inverterY ? dir.y : -dir.y; // Look do StarterAssets usa Y invertido (empurrar pra cima = olhar pra cima)
         Vector2 grausPorSeg = new Vector2(dir.x * c * grausPorSegundoX, y * c * grausPorSegundoY);
+        grausPorSeg *= MobileInput.SensibilidadeCamera; // ajuste < > na tela (1.0 = padrao)
         float rs = fpc != null ? fpc.RotationSpeed : 1f;
         if (Mathf.Abs(rs) < 0.0001f) rs = 1f;
         Vector2 look = grausPorSeg / rs;
@@ -276,6 +278,8 @@ public class MobileTouchControls : MonoBehaviour
         botaoIcone = CriarImagem("BotaoInteragir_Icone", botao, cheio, new Color(1f, 1f, 1f, 0.85f), false, out _);
         Esticar(botaoAnel, 1f);
         Esticar(botaoIcone, 0.28f);
+
+        ConstruirAjusteSensibilidade(go.transform);
 
         canvas.enabled = false;
     }
@@ -358,6 +362,8 @@ public class MobileTouchControls : MonoBehaviour
             Posicionar(botao, MobileInput.BotaoCentro, d, sf);
             imgBotao.color = apertado ? corBotaoAtivo : corBotao;
         }
+
+        AtualizarAjusteSensibilidade(sf);
     }
 
     static void Posicionar(RectTransform rt, Vector2 centroPx, float diametroPx, float sf)

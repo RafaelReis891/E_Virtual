@@ -13,6 +13,8 @@
 //     MobileInput.PosicaoClique(Input.mousePosition)     -> centro da tela (mira) se veio do botao, senao o ponto tocado
 //     MobileInput.ToqueLivre(Input.GetMouseButtonDown(0)) -> para arrastar: ignora toques que cairam nos controles
 //     Arrastar no celular (toca para pegar, toca para soltar): ver MobileInput.Arraste.cs
+//     Sensibilidade da camera (< numero >, provisorio): ver MobileInput.Sensibilidade.cs
+//     Tela cheia / horizontal / aviso de girar o celular: ver MobileTela.cs (MobileInput.TelaBloqueada)
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -110,8 +112,10 @@ public static partial class MobileInput
     public static bool BotaoInteragirVisivel = true;
     /// <summary>Atualizado pelo MobileTouchControls: existe jogador ativo que aceita controle.</summary>
     public static bool JogadorPronto { get; internal set; }
+    /// <summary>MobileTela liga quando o celular esta em pe (aviso "gire o celular"): esconde os controles e ignora toques.</summary>
+    public static bool TelaBloqueada { get; internal set; }
 
-    public static bool ControlesNaTela { get { return Ativo && ControlesVisiveis && JogadorPronto; } }
+    public static bool ControlesNaTela { get { return Ativo && ControlesVisiveis && JogadorPronto && !TelaBloqueada; } }
     public static bool BotaoNaTela { get { return ControlesNaTela && BotaoInteragirVisivel; } }
 
     // ------------------------------------------------------------------ layout (unidades do canvas, ref 1920x1080)
@@ -146,6 +150,7 @@ public static partial class MobileInput
 
         BotaoCentro = new Vector2(s.xMax - PosicaoBotao.x * e, s.yMin + PosicaoBotao.y * e);
         BotaoRaioPx = RaioBotao * e;
+        CalcularLayoutSensibilidade(s, e);
     }
 
     // ------------------------------------------------------------------ leitura por frame
@@ -184,6 +189,7 @@ public static partial class MobileInput
 
         CalcularLayout();
         LerPontos();
+        if (TelaBloqueada) pontos.Clear(); // aviso de girar o celular na frente: nenhum toque conta
 
         bool naTela = ControlesNaTela;
         bool botao = BotaoNaTela;
@@ -201,7 +207,11 @@ public static partial class MobileInput
             Ponto p = pontos[i];
             if (p.comecou)
             {
-                if (botao && (p.pos - BotaoCentro).sqrMagnitude <= raioBotaoToque * raioBotaoToque)
+                if (TocouAjusteSensibilidade(p.pos))
+                {
+                    // toque nos botoes < > da sensibilidade: nao vira clique no mundo nem pega peca
+                }
+                else if (botao && (p.pos - BotaoCentro).sqrMagnitude <= raioBotaoToque * raioBotaoToque)
                 {
                     interagirNoFrame = true;
                     dedoBotao = p.id;
@@ -380,6 +390,7 @@ public static partial class MobileInput
         ControlesVisiveis = true;
         BotaoInteragirVisivel = true;
         JogadorPronto = false;
+        TelaBloqueada = false;
         ResetarEstado();
     }
 }
