@@ -80,6 +80,12 @@ public class FinalCardBoard : MonoBehaviour
     float volumeSomAtual;        // volume aplicado agora (fade)
     float volumeSomAplicado = -1f;
 
+    // AudioDescricaoFinalCard: multiplica o som do video (0..1). Abaixa durante a audiodescricao e no mute pelo clique.
+    [System.NonSerialized] public float multiplicadorSomExterno = 1f;
+    public bool TemVideo { get { return temVideo; } }
+    // Reaplica o volume do video ja com o multiplicador (o modo trigger reaplica sozinho no Update).
+    public void ReaplicarSom() { if (!somAoEntrarNoCollider) AplicarVolume(); }
+
     static readonly int ID_BaseMap = Shader.PropertyToID("_BaseMap");
     static readonly int ID_EmissionMap = Shader.PropertyToID("_EmissionMap");
 
@@ -623,7 +629,7 @@ public class FinalCardBoard : MonoBehaviour
     void AplicarVolume()
     {
         if (videoPlayer == null) return;
-        videoPlayer.SetDirectAudioVolume(0, volumeVideo);
+        videoPlayer.SetDirectAudioVolume(0, volumeVideo * Mathf.Clamp01(multiplicadorSomExterno));
     }
 
     // ---------- Audio pelo trigger (somAoEntrarNoCollider) ----------
@@ -642,7 +648,9 @@ public class FinalCardBoard : MonoBehaviour
     // (o mute garante silencio no iPhone/Safari, que ignora o volume do video).
     void AplicarVolumeSom(float v)
     {
-        if (videoPlayer == null || Mathf.Approximately(v, volumeSomAplicado)) return;
+        if (videoPlayer == null) return;
+        v *= Mathf.Clamp01(multiplicadorSomExterno);
+        if (Mathf.Approximately(v, volumeSomAplicado)) return;
         volumeSomAplicado = v;
         bool mudo = v <= 0.001f;
         int faixas = Mathf.Max(1, (int)videoPlayer.controlledAudioTrackCount);
