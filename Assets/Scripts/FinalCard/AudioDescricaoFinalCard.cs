@@ -54,6 +54,10 @@ public sealed class AudioDescricaoFinalCard : MonoBehaviour
     public bool videoUsaAudioDaImagemSeFaltar = true;
     [Tooltip("Para a fala quando o jogador se afasta mais que isso do board (0 = nunca)")]
     public float distanciaParar = 12f;
+    [Tooltip("Para a fala quando o jogador sai do trigger do board (o mesmo que tira o som do video)")]
+    public bool pararAoSairDoTrigger = true;
+    [Tooltip("Segundos do fade da fala ao sair do trigger")]
+    public float tempoFadeSaida = 0.3f;
 
     [Header("Clique")]
     public float distanciaMaximaClique = 25f;
@@ -81,6 +85,8 @@ public sealed class AudioDescricaoFinalCard : MonoBehaviour
     Vector3 escalaVideo, escalaTexto;
     Color corVideo = Color.white, corTexto = Color.white;
     bool guardouVisual;
+    bool sumindo;               // fala em fade-out (saiu do trigger)
+    bool estavaPerto;           // jogador estava no trigger no frame anterior
 
     static readonly List<AudioDescricaoFinalCard> todos = new List<AudioDescricaoFinalCard>();
     static readonly Dictionary<string, AudioClip> cache = new Dictionary<string, AudioClip>();
@@ -133,6 +139,7 @@ public sealed class AudioDescricaoFinalCard : MonoBehaviour
         if (!todos.Contains(this)) todos.Add(this);
         Idioma.OnMudou += AoMudarIdioma;
         CardRemoteCatalog.Changed += AoMudarCatalogo;
+        if (board != null) { board.JogadorSaiuDoTrigger -= AoSairDoTrigger; board.JogadorSaiuDoTrigger += AoSairDoTrigger; estavaPerto = board.JogadorNoTriggerSom; }
         proximaChecagem = 0f;
     }
 
@@ -141,6 +148,7 @@ public sealed class AudioDescricaoFinalCard : MonoBehaviour
         todos.Remove(this);
         Idioma.OnMudou -= AoMudarIdioma;
         CardRemoteCatalog.Changed -= AoMudarCatalogo;
+        if (board != null) board.JogadorSaiuDoTrigger -= AoSairDoTrigger;
         Parar("board desligado");
         // Sem Update: devolve o som do video na hora.
         mult = mutadoPeloClique ? 0f : 1f;
@@ -149,6 +157,7 @@ public sealed class AudioDescricaoFinalCard : MonoBehaviour
 
     void AoMudarIdioma(bool ingles) { if (tocando || carregando) Parar("idioma mudou"); proximaChecagem = 0f; }
     void AoMudarCatalogo() { proximaChecagem = 0f; }
+    void AoSairDoTrigger() { if (pararAoSairDoTrigger && (tocando || carregando)) PararComFade("jogador saiu do trigger"); }
 
     Renderer AcharIcone(string nome)
     {
@@ -177,6 +186,12 @@ public sealed class AudioDescricaoFinalCard : MonoBehaviour
         // Card trocou ou jogador longe: para.
         if ((tocando || carregando) && idTocando != board.IdAtual) Parar("card mudou");
         if ((tocando || carregando) && distanciaParar > 0f && Longe()) Parar("jogador se afastou");
+
+        // Saiu do trigger (rede de seguranca do evento JogadorSaiuDoTrigger): para com fade curto.
+        bool perto = board.JogadorNoTriggerSom;
+        if (pararAoSairDoTrigger && estavaPerto && !perto && (tocando || carregando)) PararComFade("jogador saiu do trigger");
+        estavaPerto = perto;
+        AtualizarSumindo();
 
         // Fim da fala.
         if (tocando && fonte != null && !fonte.isPlaying && !AudioListener.pause && !EmuseuBridge.Paused)
@@ -387,8 +402,35 @@ public sealed class AudioDescricaoFinalCard : MonoBehaviour
         bool estava = tocando || carregando;
         tocando = false;
         carregando = false;
-        if (fonte != null && fonte.isPlaying) fonte.Stop();
+        sumindo = false;
+        if (fonte != null) { if (fonte.isPlaying) fonte.Stop(); fonte.volume = volume; }
         if (estava && motivo != null) Log("parou: " + motivo);
+    }
+
+    // Para com fade curto: icone volta na hora, o som do video volta (o FinalCardBoard o leva a 0 fora do trigger)
+    // e a fala desce ate 0 em tempoFadeSaida segundos.
+    public void PararComFade(string motivo)
+    {
+        if (fonte == null || !fonte.isPlaying || tempoFadeSaida <= 0f) { Parar(motivo); return; }
+        pedido++; // cancela download em andamento
+        bool estava = tocando || carregando;
+        tocando = false;
+        carregando = false;
+        sumindo = true;
+        if (estava && motivo != null) Log("parou (fade): " + motivo);
+    }
+
+    void AtualizarSumindo()
+    {
+        if (!sumindo) return;
+        if (fonte == null) { sumindo = false; return; }
+        fonte.volume = Mathf.MoveTowards(fonte.volume, 0f, Time.unscaledDeltaTime * Mathf.Max(0.01f, volume) / Mathf.Max(0.01f, tempoFadeSaida));
+        if (fonte.volume <= 0.001f || !fonte.isPlaying)
+        {
+            fonte.Stop();
+            fonte.volume = volume;
+            sumindo = false;
+        }
     }
 
     // API para botoes/UnityEvent.

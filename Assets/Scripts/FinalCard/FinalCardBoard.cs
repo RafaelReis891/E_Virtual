@@ -85,6 +85,16 @@ public class FinalCardBoard : MonoBehaviour
     public bool TemVideo { get { return temVideo; } }
     // Reaplica o volume do video ja com o multiplicador (o modo trigger reaplica sozinho no Update).
     public void ReaplicarSom() { if (!somAoEntrarNoCollider) AplicarVolume(); }
+    // AudioDescricaoFinalCard: jogador dentro do trigger do som (o mesmo que liga/desliga o som do video).
+    public bool JogadorNoTriggerSom { get { return jogadorDentroSom; } }
+    // Avisado quando o jogador sai do trigger (OnTriggerExit ou OnAfastou do FinalCardProximidade).
+    public event System.Action JogadorSaiuDoTrigger;
+    void AvisarSaida()
+    {
+        var ev = JogadorSaiuDoTrigger;
+        if (ev == null) return;
+        try { ev(); } catch (System.Exception ex) { Debug.LogWarning("[FinalCard] JogadorSaiuDoTrigger: " + ex.Message, this); }
+    }
 
     static readonly int ID_BaseMap = Shader.PropertyToID("_BaseMap");
     static readonly int ID_EmissionMap = Shader.PropertyToID("_EmissionMap");
@@ -236,7 +246,7 @@ public class FinalCardBoard : MonoBehaviour
         if (atual != null && !temVideo && imagemAtual == null && isActiveAndEnabled) MostrarImagemDoCard();
     }
 
-    void OnJogadorAfastou() { Diag("OnJogadorAfastou", null); jogadorNoTrigger = false; jogadorDentroSom = false; }
+    void OnJogadorAfastou() { Diag("OnJogadorAfastou", null); jogadorNoTrigger = false; jogadorDentroSom = false; AvisarSaida(); }
 
     // O trigger (SphereCollider) fica no mesmo objeto: recebe direto tambem (mesma tag do FinalCardProximidade).
     string TagJogador { get { return prox != null && !string.IsNullOrEmpty(prox.tagJogador) ? prox.tagJogador : "Player"; } }
@@ -256,6 +266,7 @@ public class FinalCardBoard : MonoBehaviour
         if (!somAoEntrarNoCollider || !other.CompareTag(TagJogador)) return;
         jogadorDentroSom = false;
         Log("som: jogador saiu do trigger");
+        AvisarSaida();
     }
 
     // O Prefab_FinalCard tem FinalCardProximidade.rotator = este FinalCardBoard: ao entrar no trigger ele DESLIGAVA
