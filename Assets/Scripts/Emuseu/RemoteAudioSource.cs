@@ -79,9 +79,12 @@ public sealed class RemoteAudioSource : MonoBehaviour
     {
         if (fonte.clip == novo) { trocou = remoto; return; }
         bool tocando = fonte.isPlaying;
+        // Sem clip no build (musica so do site): quando o remoto chega, toca se o AudioSource tem Play On Awake.
+        bool semClipAntes = fonte.clip == null;
+        bool deveTocar = tocando || (remoto && semClipAntes && fonte.playOnAwake && fonte.isActiveAndEnabled);
         fonte.clip = novo;
         trocou = remoto;
-        if (tocando && novo != null) fonte.Play();   // reinicia com o clip novo
+        if (deveTocar && novo != null) fonte.Play();   // reinicia com o clip novo (ou inicia, se nao havia clip)
         if (showLogs) Debug.Log("[RemoteAudioSource:" + key + "] " + (remoto ? "clip remoto aplicado" : "voltou para o clip do build") + (tocando ? " (reiniciado)" : ""), this);
     }
 }
