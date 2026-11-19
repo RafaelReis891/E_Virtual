@@ -14,8 +14,12 @@
 //  2) Overrides WebGL fixos em DXT/BC passam para Automatico (para seguirem o formato da build).
 //  3) Audios importados > 1 MB em "Decompress On Load" ganham override WebGL "Compressed In Memory".
 //     Streaming (ex.: CrowdsWin) e SFX pequenos ficam como estao.
+//  4) Memoria do WebGL: Initial Memory Size = 256 MB (era 32), Maximum = 2048 MB, Growth Mode = Geometric.
+//     Comecando perto do uso real, o Safari nao precisa crescer/copiar a memoria durante o loading.
+// "3 - Aplicar so memoria WebGL" faz so o item 4 (sem reimportar texturas).
 // Gera relatorio no Console e em <projeto>/MobileReports/iPhoneMemoria_<data>.txt
 // "Reverter formato padrao WebGL para DXT" volta so o item 1.
+// "Reverter memoria WebGL (32 MB inicial)" volta so o item 4.
 #if UNITY_EDITOR
 using System;
 using System.Collections.Generic;
@@ -36,6 +40,9 @@ namespace EVirtualMobile.EditorTools
         const int FmtDXTC = 5;
         const long AudioLimiteBytes = 1024L * 1024L;
         const int TamanhoLote = 40;
+        const int MemInicialMB = 256;      // Player Settings > Web > Publishing/Other > Initial Memory Size
+        const int MemInicialAntigaMB = 32; // valor anterior (para reverter)
+        const int MemMaximaMB = 2048;      // Maximum Memory Size (limite do wasm32 sem memory64)
 
         static readonly string[] Ignorar =
         {
@@ -53,10 +60,76 @@ namespace EVirtualMobile.EditorTools
                 "Vai:\n" +
                 "- trocar o formato padrao de textura do WebGL para ASTC\n" +
                 "- passar overrides WebGL fixos em DXT/BC para Automatico\n" +
-                "- deixar audios > 1 MB em Compressed In Memory no WebGL\n\n" +
+                "- deixar audios > 1 MB em Compressed In Memory no WebGL\n" +
+                "- memoria do WebGL: inicial " + MemInicialMB + " MB, maxima " + MemMaximaMB + " MB, crescimento Geometric\n\n" +
                 "O Unity pode reimportar muitas texturas (demora). Continuar?", "Aplicar", "Cancelar"))
                 return;
             Executar(true);
+        }
+
+        [MenuItem(MenuRaiz + "3 - Aplicar so memoria WebGL (256 MB inicial)", false, 302)]
+        static void MenuAplicarMemoria()
+        {
+            var log = new StringBuilder();
+            log.AppendLine("Memoria WebGL antes: " + LerMemoria());
+            bool ok = DefinirMemoria(MemInicialMB, log);
+            AssetDatabase.SaveAssets();
+            log.AppendLine("Memoria WebGL depois: " + LerMemoria());
+            Debug.Log("[iPhoneMemoria] " + log);
+            EditorUtility.DisplayDialog("iPhone Memoria", (ok ? "Memoria aplicada.\n" : "Falhou.\n") + log, "OK");
+        }
+
+        [MenuItem(MenuRaiz + "Reverter memoria WebGL (32 MB inicial)", false, 321)]
+        static void MenuReverterMemoria()
+        {
+            var log = new StringBuilder();
+            log.AppendLine("Memoria WebGL antes: " + LerMemoria());
+            bool ok = DefinirMemoria(MemInicialAntigaMB, log);
+            AssetDatabase.SaveAssets();
+            log.AppendLine("Memoria WebGL depois: " + LerMemoria());
+            Debug.Log("[iPhoneMemoria] " + log);
+            EditorUtility.DisplayDialog("iPhone Memoria", (ok ? "Revertido.\n" : "Falhou.\n") + log, "OK");
+        }
+
+        // Initial Memory Size = 'inicialMB'; Maximum = MemMaximaMB; Growth Mode = Geometric. Idempotente.
+        static bool DefinirMemoria(int inicialMB, StringBuilder log)
+        {
+            try
+            {
+                if (PlayerSettings.WebGL.initialMemorySize != inicialMB)
+                {
+                    PlayerSettings.WebGL.initialMemorySize = inicialMB;
+                    log.AppendLine("Initial Memory Size -> " + inicialMB + " MB");
+                }
+                else log.AppendLine("Initial Memory Size ja era " + inicialMB + " MB");
+                if (PlayerSettings.WebGL.maximumMemorySize != MemMaximaMB)
+                {
+                    PlayerSettings.WebGL.maximumMemorySize = MemMaximaMB;
+                    log.AppendLine("Maximum Memory Size -> " + MemMaximaMB + " MB");
+                }
+                if (PlayerSettings.WebGL.memoryGrowthMode != WebGLMemoryGrowthMode.Geometric)
+                {
+                    PlayerSettings.WebGL.memoryGrowthMode = WebGLMemoryGrowthMode.Geometric;
+                    log.AppendLine("Memory Growth Mode -> Geometric");
+                }
+                return PlayerSettings.WebGL.initialMemorySize == inicialMB;
+            }
+            catch (Exception ex)
+            {
+                log.AppendLine("Falha ao definir memoria WebGL: " + ex.Message);
+                return false;
+            }
+        }
+
+        static string LerMemoria()
+        {
+            try
+            {
+                return "inicial=" + PlayerSettings.WebGL.initialMemorySize + " MB, maxima=" + PlayerSettings.WebGL.maximumMemorySize +
+                       " MB, crescimento=" + PlayerSettings.WebGL.memoryGrowthMode +
+                       " (passo " + PlayerSettings.WebGL.geometricMemoryGrowthStep + ", teto " + PlayerSettings.WebGL.memoryGeometricGrowthCap + " MB)";
+            }
+            catch (Exception ex) { return "(erro: " + ex.Message + ")"; }
         }
 
         [MenuItem(MenuRaiz + "Reverter formato padrao WebGL para DXT", false, 320)]
@@ -84,6 +157,14 @@ namespace EVirtualMobile.EditorTools
                 log.AppendLine("Formato padrao WebGL depois: " + LerFormatos() + (ok ? "" : "  <-- FALHOU, troque manualmente em Player Settings > Web > Other Settings"));
             }
             LogSubtarget(log, aplicar);
+
+            // 4) memoria do WebGL
+            log.AppendLine("Memoria WebGL antes: " + LerMemoria() + "  (recomendado: inicial " + MemInicialMB + " MB)");
+            if (aplicar)
+            {
+                DefinirMemoria(MemInicialMB, log);
+                log.AppendLine("Memoria WebGL depois: " + LerMemoria());
+            }
 
             // 2) texturas
             try { Texturas(aplicar, log); }

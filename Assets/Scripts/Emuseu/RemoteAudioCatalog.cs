@@ -18,6 +18,8 @@ using UnityEngine.Networking;
 //   e baixado uma vez so, mesmo que PT e EN (fallback) pecam ao mesmo tempo.
 // - URLs sao assinadas e expiram: so a parte antes do "?" e guardada (para saber se o arquivo mudou). Nunca persiste URL.
 // - Qualquer erro (sem key, sem url, falha de rede, mp3 invalido) -> callback com null (quem chama mantem o clip do build).
+// - Ao trocar de cena, o LiberarMemoriaCena chama LiberarNaoUsados: destroi os clips que a cena nova nao pediu e que nenhum
+//   AudioSource vivo usa. Se a cena pedir de novo, baixa de novo.
 public static class RemoteAudioCatalog
 {
     public const int TimeoutSegundos = 30;
@@ -49,6 +51,8 @@ public static class RemoteAudioCatalog
     static readonly Dictionary<string, List<Pedido>> pendentes = new Dictionary<string, List<Pedido>>(StringComparer.Ordinal);
     static readonly MapaPacote mapaPt = new MapaPacote();
     static readonly MapaPacote mapaEn = new MapaPacote();
+    // urlBase -> Time.frameCount do ultimo uso (pedido, cache ou download).
+    static readonly Dictionary<string, int> ultimoUso = new Dictionary<string, int>(StringComparer.Ordinal);
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     static void Resetar()
@@ -57,6 +61,7 @@ public static class RemoteAudioCatalog
         prontos.Clear();
         clipsPorUrl.Clear();
         pendentes.Clear();
+        ultimoUso.Clear();
         LimparMapa(mapaPt);
         LimparMapa(mapaEn);
     }
@@ -247,6 +252,7 @@ public static class RemoteAudioCatalog
         if (e.clip == null) return false;
         if (e.urlBase != UrlBase(url)) return false;
         clip = e.clip;
+        ultimoUso[e.urlBase] = Time.frameCount;
         return true;
     }
 
@@ -269,6 +275,7 @@ public static class RemoteAudioCatalog
             EmuseuDebug.Info("audio", "busca " + rotulo + " -> achado em " + origem + " (" + NomeCurto(urlBase) + ")");
 
             string cacheKey = ChaveCache(key, keyEn, ingles);
+            ultimoUso[urlBase] = Time.frameCount;
 
             Entrada e;
             if (prontos.TryGetValue(cacheKey, out e) && e != null && e.clip != null && e.urlBase == urlBase)
@@ -364,11 +371,76 @@ public static class RemoteAudioCatalog
         List<Pedido> lista;
         if (!pendentes.TryGetValue(urlBase, out lista)) return;
         pendentes.Remove(urlBase);
+        ultimoUso[urlBase] = Time.frameCount;
         foreach (Pedido p in lista)
         {
             if (clip != null) prontos[p.cacheKey] = new Entrada { urlBase = urlBase, clip = clip };
             Chamar(p.callback, clip);
         }
+    }
+
+    // Destroi os clips do cache que nao foram usados desde 'desdeFrame' e que nao estao em 'emUso'
+    // (clips ainda postos em algum AudioSource / RemoteVoiceClip vivo). Downloads em andamento continuam.
+    // Retorna quantos clips foram destruidos; 'bytes' = estimativa (so em development build / editor).
+    public static int LiberarNaoUsados(int desdeFrame, HashSet<AudioClip> emUso, out long bytes)
+    {
+        bytes = 0;
+        if (clipsPorUrl.Count == 0 && prontos.Count == 0) return 0;
+
+        // urlBase -> clip (o mesmo arquivo pode estar em varias keys/idiomas).
+        var porUrl = new Dictionary<string, AudioClip>(StringComparer.Ordinal);
+        foreach (var kv in clipsPorUrl) porUrl[kv.Key] = kv.Value;
+        foreach (var kv in prontos)
+            if (kv.Value != null && !porUrl.ContainsKey(kv.Value.urlBase ?? "")) porUrl[kv.Value.urlBase ?? ""] = kv.Value.clip;
+
+        var liberar = new HashSet<string>(StringComparer.Ordinal);
+        var manter = new HashSet<AudioClip>();
+        foreach (var kv in porUrl)
+        {
+            AudioClip c = kv.Value;
+            int f;
+            bool usado = ultimoUso.TryGetValue(kv.Key, out f) && f >= desdeFrame;
+            if (c != null && (usado || (emUso != null && emUso.Contains(c)) || pendentes.ContainsKey(kv.Key))) { manter.Add(c); continue; }
+            liberar.Add(kv.Key);
+        }
+
+        var destruir = new HashSet<AudioClip>();
+        foreach (string u in liberar)
+        {
+            AudioClip c;
+            if (clipsPorUrl.TryGetValue(u, out c) && c != null && !manter.Contains(c)) destruir.Add(c);
+            clipsPorUrl.Remove(u);
+            ultimoUso.Remove(u);
+        }
+        var chaves = new List<string>();
+        foreach (var kv in prontos)
+        {
+            Entrada e = kv.Value;
+            if (e == null || e.clip == null || liberar.Contains(e.urlBase ?? "")) chaves.Add(kv.Key);
+            if (e != null && e.clip != null && liberar.Contains(e.urlBase ?? "") && !manter.Contains(e.clip)) destruir.Add(e.clip);
+        }
+        foreach (string k in chaves) prontos.Remove(k);
+        var orfas = new List<string>();
+        foreach (var k in ultimoUso.Keys) if (!clipsPorUrl.ContainsKey(k) && !pendentes.ContainsKey(k)) orfas.Add(k);
+        foreach (var k in orfas) ultimoUso.Remove(k);
+
+        int n = 0;
+        foreach (AudioClip c in destruir)
+        {
+            if (c == null) continue;
+            try { bytes += UnityEngine.Profiling.Profiler.GetRuntimeMemorySizeLong(c); } catch (Exception) { }
+            UnityEngine.Object.Destroy(c);
+            n++;
+        }
+        return n;
+    }
+
+    // Clips que estao no cache agora (para o LiberarMemoriaCena procurar quem ainda usa).
+    public static void CopiarClips(HashSet<AudioClip> destino)
+    {
+        if (destino == null) return;
+        foreach (var kv in clipsPorUrl) if (kv.Value != null) destino.Add(kv.Value);
+        foreach (var kv in prontos) if (kv.Value != null && kv.Value.clip != null) destino.Add(kv.Value.clip);
     }
 
     static void Chamar(Action<AudioClip> cb, AudioClip clip)

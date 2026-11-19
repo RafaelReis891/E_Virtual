@@ -687,7 +687,13 @@ public class FinalCardBoard : MonoBehaviour
             videoPlayer.errorReceived -= OnErroVideo;
             videoPlayer.started -= OnVideoIniciou;
         }
-        if (rtVideo != null) rtVideo.Release();
+        if (videoPlayer != null && videoPlayer.targetTexture == rtVideo) videoPlayer.targetTexture = null;
+        if (rtVideo != null)
+        {
+            rtVideo.Release();
+            Destroy(rtVideo);   // so Release() nao libera o objeto; a RenderTexture e criada por este board
+            rtVideo = null;
+        }
         if (imagemAtual is Texture2D && !imagemAtualDoCache) Destroy(imagemAtual);
     }
 

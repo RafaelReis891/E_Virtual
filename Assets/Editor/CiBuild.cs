@@ -21,6 +21,8 @@ public static class CiBuild
         }
 
         UserBuildSettings.codeOptimization = WasmCodeOptimization.DiskSizeLTO;
+        // iPhone/Safari: comeca com 256 MB para nao crescer/copiar a memoria no loading (so sobe, nunca baixa).
+        if (PlayerSettings.WebGL.initialMemorySize < 256) PlayerSettings.WebGL.initialMemorySize = 256;
 
         var options = new BuildPlayerOptions
         {

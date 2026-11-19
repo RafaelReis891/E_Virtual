@@ -8,7 +8,8 @@ using UnityEngine.Networking;
 // - Fila com no maximo MaxSimultaneos downloads ao mesmo tempo; pedido "urgente" (board precisa agora) fura a fila.
 // - Nao usa MonoBehaviour: usa UnityWebRequest + callback completed.
 // - TextureReady avisa os boards quando uma textura fica pronta (eles trocam sozinhos, sem sair/voltar do trigger).
-// - Os boards NAO destroem texturas do cache (elas vivem ate o fim da sessao; ficam sem leitura na CPU para poupar memoria).
+// - Os boards NAO destroem texturas do cache. Ficam sem leitura na CPU para poupar memoria.
+// - Ao trocar de cena, o LiberarMemoriaCena chama LiberarNaoUsadas: destroi as texturas que a cena nova nao usou (iPhone/Safari).
 public static class CardRemoteImageCache
 {
     public const int MaxSimultaneos = 4;
@@ -24,6 +25,7 @@ public static class CardRemoteImageCache
     static readonly Dictionary<string, string> idDaUrl = new Dictionary<string, string>();   // so para log
     static readonly Dictionary<string, int> tentativas = new Dictionary<string, int>();
     static readonly Dictionary<string, float> ultimaFalha = new Dictionary<string, float>();
+    static readonly Dictionary<string, int> ultimoUso = new Dictionary<string, int>();   // url -> Time.frameCount do ultimo uso
     static int ativos;
 
     public static int Count { get { return prontas.Count; } }
@@ -39,6 +41,7 @@ public static class CardRemoteImageCache
         idDaUrl.Clear();
         tentativas.Clear();
         ultimaFalha.Clear();
+        ultimoUso.Clear();
         ativos = 0;
         TextureReady = null;
     }
@@ -54,7 +57,8 @@ public static class CardRemoteImageCache
         tex = null;
         if (string.IsNullOrEmpty(url)) return false;
         if (!prontas.TryGetValue(url, out tex)) return false;
-        if (tex == null) { prontas.Remove(url); tex = null; return false; } // destruida por fora
+        if (tex == null) { prontas.Remove(url); ultimoUso.Remove(url); tex = null; return false; } // destruida por fora
+        ultimoUso[url] = Time.frameCount;
         return true;
     }
 
@@ -68,6 +72,7 @@ public static class CardRemoteImageCache
     public static void Pedir(string url, string idCard, bool urgente)
     {
         if (!EhHttp(url)) return;
+        ultimoUso[url] = Time.frameCount;
         Texture2D t;
         if (TryGet(url, out t)) return;
 
@@ -166,6 +171,7 @@ public static class CardRemoteImageCache
         if (tex != null)
         {
             prontas[url] = tex;
+            ultimoUso[url] = Time.frameCount;
             tentativas.Remove(url);
             ultimaFalha.Remove(url);
             EmuseuDebug.Info("preload", "textura pronta id=" + id + " (no cache: " + prontas.Count + ", ouvintes=" + (TextureReady != null ? TextureReady.GetInvocationList().Length : 0) + ")");
@@ -187,6 +193,50 @@ public static class CardRemoteImageCache
         pendentes.Remove(url);
         EmuseuDebug.Warn("preload", "download falhou (tentativa " + (n + 1) + "/" + MaxTentativas + ")" +
                          ((n + 1) < MaxTentativas ? "; sera tentado de novo quando algum board pedir" : "; desisti ate novo pedido urgente"));
+    }
+
+    // Destroi as texturas do cache que nao foram usadas (TryGet/Pedir/download) desde 'desdeFrame'
+    // e que nao estao em 'emUso' (texturas ainda aplicadas em algum renderer/RawImage vivo).
+    // Downloads em andamento continuam; quando chegarem, entram no cache normalmente.
+    // Retorna quantas texturas foram destruidas; 'bytes' = estimativa (so em development build / editor).
+    public static int LiberarNaoUsadas(int desdeFrame, HashSet<Texture> emUso, out long bytes)
+    {
+        bytes = 0;
+        if (prontas.Count == 0) return 0;
+        var remover = new List<string>();
+        foreach (var kv in prontas)
+        {
+            Texture2D tex = kv.Value;
+            if (tex == null) { remover.Add(kv.Key); continue; }
+            int f;
+            if (ultimoUso.TryGetValue(kv.Key, out f) && f >= desdeFrame) continue;
+            if (emUso != null && emUso.Contains(tex)) continue;
+            remover.Add(kv.Key);
+        }
+        int destruidas = 0;
+        foreach (string url in remover)
+        {
+            Texture2D tex;
+            prontas.TryGetValue(url, out tex);
+            prontas.Remove(url);
+            ultimoUso.Remove(url);
+            if (tex == null) continue;
+            try { bytes += UnityEngine.Profiling.Profiler.GetRuntimeMemorySizeLong(tex); } catch (Exception) { }
+            UnityEngine.Object.Destroy(tex);
+            destruidas++;
+        }
+        // Marcas de uso de urls que nao estao no cache nem baixando (so limpeza do dicionario).
+        var orfas = new List<string>();
+        foreach (var k in ultimoUso.Keys) if (!prontas.ContainsKey(k) && !pendentes.Contains(k)) orfas.Add(k);
+        foreach (var k in orfas) ultimoUso.Remove(k);
+        return destruidas;
+    }
+
+    // Texturas que estao no cache agora (para o LiberarMemoriaCena procurar quem ainda usa).
+    public static void CopiarTexturas(HashSet<Texture> destino)
+    {
+        if (destino == null) return;
+        foreach (var kv in prontas) if (kv.Value != null) destino.Add(kv.Value);
     }
 
     static void Avisar(string url, Texture2D tex)
