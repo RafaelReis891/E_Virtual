@@ -1,0 +1,19 @@
+=== iPhone Memoria - APLICAR - 2026-11-19 04:02:06 ===
+Formato padrao WebGL (Player Settings) antes: DXT
+Formato padrao WebGL definido para ASTC (SerializedObject).
+Formato padrao WebGL depois: ASTC
+Build Profile Texture Compression (local): Generic
+--- Texturas (Assets, sem Stadium Creator 2/_Backup_Deletados/Editor/TextMesh Pro) ---
+Total: 743
+Override WebGL ASTC fixo: 135
+Override WebGL Automatico: 200
+Sem override WebGL (segue o padrao): 408
+Override WebGL DXT/BC fixo: 0 (convertidas para Automatico: 0)
+Override WebGL outro formato (mantido): 0
+Automatico/sem override marcadas 'None' (sem compressao, ficam RGBA): 2
+Efeito na build com padrao ASTC: ~741 texturas em ASTC no WebGL, ~0 em DXT.
+--- Audio (WebGL) ---
+   ok (Streaming, 6.7 MB): Assets/Games/RioDeJaneiro/Puzzle_E1/SoundsSFX/CrowdsWin.wav
+   -> CompressedInMemory (3.8 MB): Assets/HangGlider/Stormy Wind 1.wav
+   FALHOU SetOverrideSampleSettings: Assets/HangGlider/Stormy Wind 1.wav
+Clips: 27 | > 1 MB em Decompress On Load: 1 (alterados: 0) | > 1 MB ja ok: 1

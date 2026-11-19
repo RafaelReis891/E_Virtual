@@ -20,7 +20,7 @@ public static class CiBuild
             return;
         }
 
-        UserBuildSettings.codeOptimization = WasmCodeOptimization.BuildTimes;
+        UserBuildSettings.codeOptimization = WasmCodeOptimization.DiskSizeLTO;
 
         var options = new BuildPlayerOptions
         {

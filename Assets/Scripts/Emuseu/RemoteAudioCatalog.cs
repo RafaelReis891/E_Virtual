@@ -312,6 +312,8 @@ public static class RemoteAudioCatalog
         {
             EmuseuDebug.Info("audio", "baixando " + cacheKey + " <- " + urlBase);
             req = UnityWebRequestMultimedia.GetAudioClip(url, AudioType.MPEG);
+            // Mantem o MP3 comprimido na memoria (CompressedInMemory) em vez de decodificar para PCM (~10 MB/min). Ajuda o iPhone.
+            ((DownloadHandlerAudioClip)req.downloadHandler).compressed = true;
             req.timeout = TimeoutSegundos;
             UnityWebRequestAsyncOperation op = req.SendWebRequest();
             UnityWebRequest r = req;

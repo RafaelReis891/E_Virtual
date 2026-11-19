@@ -589,6 +589,8 @@ public sealed class AudioDescricaoFinalCard : MonoBehaviour
         AudioClip clip = null;
         using (var req = UnityWebRequestMultimedia.GetAudioClip(url, AudioType.MPEG))
         {
+            // Mantem o MP3 comprimido na memoria (CompressedInMemory) em vez de decodificar para PCM. Ajuda o iPhone.
+            ((DownloadHandlerAudioClip)req.downloadHandler).compressed = true;
             req.timeout = 60;
             yield return req.SendWebRequest();
             if (req.result == UnityWebRequest.Result.Success)
